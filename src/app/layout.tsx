@@ -5,6 +5,7 @@ import { ModalProvider } from "@/context/ModalContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import InteractiveModal from "@/components/InteractiveModal";
+import ExitIntentCTA from "@/components/ExitIntentCTA";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,6 +52,7 @@ export default function RootLayout({
           </main>
           <Footer />
           <InteractiveModal />
+          <ExitIntentCTA />
         </ModalProvider>
       </body>
     </html>

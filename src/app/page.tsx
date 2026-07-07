@@ -15,149 +15,164 @@ import {
   Briefcase, 
   CreditCard, 
   Megaphone,
-  FileText
+  FileText,
+  X
 } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import StageQuiz from "@/components/StageQuiz";
+import TrustSection from "@/components/TrustSection";
+import TestimonialCarousel from "@/components/TestimonialCarousel";
+import FaqAccordion from "@/components/ui/FaqAccordion";
 
 export default function Home() {
   const { openModal } = useModal();
   
   const heroRef = useRef<HTMLDivElement>(null);
+  const quizRef = useRef<HTMLDivElement>(null);
+  const statsContainerRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
-  const revenueRef = useRef<HTMLDivElement>(null);
-  const techRef = useRef<HTMLDivElement>(null);
   const pricingRef = useRef<HTMLDivElement>(null);
+  const faqRef = useRef<HTMLDivElement>(null);
+
+  // Stats refs for counting animation
+  const yearsValRef = useRef<HTMLSpanElement>(null);
+  const erosValRef = useRef<HTMLSpanElement>(null);
+  const membersValRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    // Register scroll trigger plugin on the client side
     if (typeof window !== "undefined") {
       gsap.registerPlugin(ScrollTrigger);
     }
 
-    // 1. Hero Load Animations
-    if (heroRef.current) {
-      const heroElements = heroRef.current.querySelectorAll(".gsap-hero-el");
-      gsap.fromTo(
-        heroElements,
-        { opacity: 0, y: 30 },
-        { 
-          opacity: 1, 
-          y: 0, 
-          duration: 1, 
-          ease: "power3.out", 
-          stagger: 0.12 
-        }
-      );
-    }
+    const ctx = gsap.context(() => {
+      // 1. Hero Entrance Animations (staggered fade/slide-up)
+      if (heroRef.current) {
+        const heroElements = heroRef.current.querySelectorAll(".gsap-hero-el");
+        gsap.fromTo(
+          heroElements,
+          { opacity: 0, y: 25 },
+          { 
+            opacity: 1, 
+            y: 0, 
+            duration: 0.8, 
+            ease: "power3.out", 
+            stagger: 0.12 
+          }
+        );
+      }
 
-    // 2. About Scroll Animations
-    if (aboutRef.current) {
-      const parts = aboutRef.current.querySelectorAll(".gsap-about-el");
-      gsap.fromTo(
-        parts,
-        { opacity: 0, x: -30 },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 0.8,
+      // 2. Business Stage Quiz entrance
+      if (quizRef.current) {
+        gsap.fromTo(
+          quizRef.current,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: quizRef.current,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            }
+          }
+        );
+      }
+
+      // 3. Stats Ticker Animation
+      if (statsContainerRef.current) {
+        const statsData = { years: 0, eros: 0, members: 0 };
+        gsap.to(statsData, {
+          years: 12,
+          eros: 500,
+          members: 2000,
+          duration: 1.6,
           ease: "power2.out",
-          stagger: 0.2,
           scrollTrigger: {
-            trigger: aboutRef.current,
-            start: "top 80%",
+            trigger: statsContainerRef.current,
+            start: "top 85%",
             toggleActions: "play none none none",
+          },
+          onUpdate: () => {
+            if (yearsValRef.current) {
+              yearsValRef.current.innerText = `${Math.floor(statsData.years)}+`;
+            }
+            if (erosValRef.current) {
+              erosValRef.current.innerText = `${Math.floor(statsData.eros)}+`;
+            }
+            if (membersValRef.current) {
+              membersValRef.current.innerText = `${Math.floor(statsData.members).toLocaleString()}+`;
+            }
           }
-        }
-      );
-    }
+        });
+      }
 
-    // 3. Services Scroll Animations
-    if (servicesRef.current) {
-      const cards = servicesRef.current.querySelectorAll(".gsap-service-card");
-      gsap.fromTo(
-        cards,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: "power3.out",
-          stagger: 0.15,
-          scrollTrigger: {
-            trigger: servicesRef.current,
-            start: "top 75%",
-            toggleActions: "play none none none",
+      // 4. About Grid Reveal
+      if (aboutRef.current) {
+        const els = aboutRef.current.querySelectorAll(".gsap-about-el");
+        gsap.fromTo(
+          els,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            ease: "power2.out",
+            stagger: 0.15,
+            scrollTrigger: {
+              trigger: aboutRef.current,
+              start: "top 80%",
+              toggleActions: "play none none none",
+            }
           }
-        }
-      );
-    }
+        );
+      }
 
-    // 4. Revenue Scroll Animations
-    if (revenueRef.current) {
-      const cards = revenueRef.current.querySelectorAll(".gsap-revenue-card");
-      gsap.fromTo(
-        cards,
-        { opacity: 0, scale: 0.95 },
-        {
-          opacity: 1,
-          scale: 1,
-          duration: 0.6,
-          ease: "power1.out",
-          stagger: 0.08,
-          scrollTrigger: {
-            trigger: revenueRef.current,
-            start: "top 75%",
-            toggleActions: "play none none none",
+      // 5. Services Grid Stagger
+      if (servicesRef.current) {
+        const cards = servicesRef.current.querySelectorAll(".gsap-service-card");
+        gsap.fromTo(
+          cards,
+          { opacity: 0, y: 35 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power3.out",
+            stagger: 0.15,
+            scrollTrigger: {
+              trigger: servicesRef.current,
+              start: "top 80%",
+              toggleActions: "play none none none",
+            }
           }
-        }
-      );
-    }
+        );
+      }
 
-    // 5. Tech Scroll Animations
-    if (techRef.current) {
-      const el = techRef.current.querySelectorAll(".gsap-tech-el");
-      gsap.fromTo(
-        el,
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: "power2.out",
-          stagger: 0.15,
-          scrollTrigger: {
-            trigger: techRef.current,
-            start: "top 75%",
-            toggleActions: "play none none none",
+      // 6. Pricing comparison table reveal
+      if (pricingRef.current) {
+        gsap.fromTo(
+          pricingRef.current.querySelectorAll(".gsap-pricing-el"),
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            stagger: 0.12,
+            scrollTrigger: {
+              trigger: pricingRef.current,
+              start: "top 80%",
+              toggleActions: "play none none none",
+            }
           }
-        }
-      );
-    }
+        );
+      }
+    }); // using GSAP context
 
-    // 6. Pricing Scroll Animations
-    if (pricingRef.current) {
-      const tiers = pricingRef.current.querySelectorAll(".gsap-tier-card");
-      gsap.fromTo(
-        tiers,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: "power3.out",
-          stagger: 0.15,
-          scrollTrigger: {
-            trigger: pricingRef.current,
-            start: "top 75%",
-            toggleActions: "play none none none",
-          }
-        }
-      );
-    }
-
-    // Clean up scroll triggers on unmount
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
@@ -167,7 +182,7 @@ export default function Home() {
     {
       title: "Tax Software Access",
       desc: "Launch your tax business with professional tax software designed for growth.",
-      bestFor: ["New Tax Preparers", "Independent Tax Professionals", "Growing Tax Firms"],
+      bestFor: ["New Preparers", "Independent Pros", "Growing Firms"],
       includes: [
         "Professional tax software access",
         "Bank product enrollment opportunities",
@@ -182,30 +197,28 @@ export default function Home() {
     {
       title: "ERO Enablement Program",
       desc: "Stop splitting fees and start taking greater control of your business by becoming an ERO.",
-      bestFor: ["Experienced Preparers", "Tax Firm Leaders", "Aspiring Entrepreneurs"],
+      bestFor: ["Experienced Preparers", "Firm Leaders", "Aspiring Entrepreneurs"],
       includes: [
         "ERO application guidance",
         "IRS e-Services setup",
         "ID.me & fingerprinting support",
         "Compliance review",
-        "Business structure recommendations",
         "Software implementation support",
       ],
-      ctaText: "Schedule ERO Consultation",
+      ctaText: "Schedule Consultation",
       action: () => openModal("ero"),
       link: "/ero-enablement",
     },
     {
       title: "Service Bureau Growth Program",
       desc: "Build a tax business that supports, structures, and licenses other tax professionals.",
-      bestFor: ["Established EROs", "Multi-preparer firms", "Growing tax offices"],
+      bestFor: ["Established EROs", "Multi-preparer offices", "Scaling networks"],
       includes: [
         "Phase 1: Business & Systems Audit",
         "Phase 2: Offer & Pricing Strategy",
         "Phase 3: Tax Pro Onboarding Systems",
         "Phase 4: Scale & Recruitment",
-        "Team training & workflow setup",
-        "Partnership planning",
+        "White-label system templates",
       ],
       ctaText: "Apply for Mentorship",
       action: () => openModal("bureau"),
@@ -214,14 +227,13 @@ export default function Home() {
     {
       title: "Open Office Community",
       desc: "Where access meets opportunity. Live coworking and expert support throughout the year.",
-      bestFor: ["All Tax Professionals", "Accounting Business Owners", "Freelance Bookkeepers"],
+      bestFor: ["All Tax Preparers", "Accounting Owners", "Bookkeepers"],
       includes: [
         "Live weekly office hours",
         "Direct software support",
         "Attorney Q&A sessions",
         "Bookkeeping guidance",
-        "Business growth workshops",
-        "Peer networking events",
+        "Wellness & mindset resources",
       ],
       ctaText: "Join The Open Office",
       action: () => openModal("openoffice"),
@@ -229,16 +241,23 @@ export default function Home() {
     },
   ];
 
-  const revenueOpportunities = [
-    { name: "Business Formation Services", desc: "Help clients register LLCs, corporations, and DBAs.", icon: Building2 },
-    { name: "Tax Planning & Advisory", desc: "High-ticket strategic consulting beyond annual filings.", icon: LineChart },
-    { name: "Bookkeeping Partnerships", desc: "Build year-round retainer income stream.", icon: Calendar },
-    { name: "Financial Literacy Programs", desc: "Educate your community and upsell courses.", icon: GraduationCap },
-    { name: "Virtual Mailbox Services", desc: "Provide business address services for remote entities.", icon: Mail },
-    { name: "Fingerprinting Services", desc: "Add local identity services to drive walk-in traffic.", icon: Fingerprint },
-    { name: "Business Consulting", desc: "General operations advisory for local enterprises.", icon: Briefcase },
-    { name: "Credit & Funding Partnerships", desc: "Guide clients through business funding applications.", icon: CreditCard },
-    { name: "Referral Programs", desc: "Earn commission by connecting clients with allied professionals.", icon: Megaphone },
+  const homepageFaqs = [
+    {
+      question: "What exactly is The Sector?",
+      answer: "The Sector is a comprehensive support ecosystem for tax professionals. We provide professional cloud-based tax software, ERO setup enablement, Service Bureau growth mentorship, daily live coworking hours, and direct access to legal and business advisors."
+    },
+    {
+      question: "Do I need my own EFIN to buy your tax software?",
+      answer: "No, if you don't have an EFIN, you can start using our software immediately while participating in our ERO Enablement program, which guides you step-by-step to obtain your independent credentials from the IRS."
+    },
+    {
+      question: "How does the Service Bureau model differ from standard ERO?",
+      answer: "A standard ERO prepares tax returns for individual clients. A Service Bureau licenses tax software to other tax preparers, acts as their support desk, and earns residual revenue splits on every return processed through their sub-offices."
+    },
+    {
+      question: "Are there contract commitments for the memberships?",
+      answer: "Our programs are structured on simple, transparent annual agreements. There are no hidden franchise royalties or surprise split models. You choose the level of software and mentorship support you need."
+    }
   ];
 
   return (
@@ -247,20 +266,20 @@ export default function Home() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.04)_0%,transparent_50%)] pointer-events-none -z-10" />
 
       {/* 1. Hero Section */}
-      <section ref={heroRef} className="relative py-20 lg:py-32">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <span className="gsap-hero-el inline-flex items-center rounded-lg bg-amber-950/30 border border-amber-900/40 px-3.5 py-1.5 text-xs font-semibold text-[#d4af37] mb-6">
-            The Sector Tax Software & Community
+      <section ref={heroRef} className="relative py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-6">
+          <span className="gsap-hero-el inline-flex items-center rounded-lg bg-amber-950/30 border border-amber-900/40 px-3.5 py-1.5 text-xs font-semibold text-[#d4af37]">
+            The Sector Tax Software &amp; Community
           </span>
-          <h1 className="gsap-hero-el text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-tight mb-6">
+          <h1 className="gsap-hero-el text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-tight">
             Helping Tax Professionals Launch, Grow, and Scale Profitable Businesses
           </h1>
-          <p className="gsap-hero-el text-sm md:text-base text-stone-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Tax software is just the beginning. Whether you&apos;re a new tax preparer, an established ERO, or an aspiring Service Bureau owner, The Sector gives you the systems, mentorship, and community to conquer the industry.
+          <p className="gsap-hero-el text-xs sm:text-sm md:text-base text-stone-400 max-w-2xl mx-auto leading-relaxed">
+            Tax software is just the beginning. Whether you&apos;re a new preparer, an established ERO, or scaling a Service Bureau, The Sector provides the tools, mentorship, and support structures to secure your business independence.
           </p>
 
           {/* Quick Pillars Grid */}
-          <div className="gsap-hero-el grid grid-cols-2 md:grid-cols-3 gap-4 max-w-3xl mx-auto mb-12 text-left">
+          <div className="gsap-hero-el grid grid-cols-2 md:grid-cols-3 gap-4 max-w-3xl mx-auto text-left py-4">
             {[
               "Tax Software Access",
               "ERO Enablement",
@@ -273,13 +292,13 @@ export default function Home() {
                 <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-amber-500/10 border border-amber-900/35 text-[#d4af37]">
                   <Check className="h-3 w-3" />
                 </span>
-                <span className="font-semibold">{pillar}</span>
+                <span className="font-semibold text-stone-300">{pillar}</span>
               </div>
             ))}
           </div>
 
           {/* CTAs */}
-          <div className="gsap-hero-el flex flex-col sm:flex-row items-center justify-center gap-3">
+          <div className="gsap-hero-el flex flex-col sm:flex-row items-center justify-center gap-3 pt-4">
             <button
               onClick={() => openModal("strategy")}
               className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#d4af37] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black px-8 py-3.5 text-xs font-extrabold shadow-md hover:shadow-[#d4af37]/10 transition-all cursor-pointer uppercase tracking-wider"
@@ -302,21 +321,57 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. About Section */}
-      <section ref={aboutRef} className="py-20 border-t border-amber-950/20 bg-amber-955/5">
+      {/* 2. Interactive Business Stage Quiz Router */}
+      <section ref={quizRef} className="py-12 border-t border-amber-950/20 bg-amber-955/5">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-4">
+          <h2 className="text-lg font-bold text-white uppercase tracking-wider">What stage is your tax business at?</h2>
+          <p className="text-xs text-stone-500 max-w-md mx-auto">
+            Take our 30-second router quiz to pinpoint the exact software setup and mentorship support suited for your team.
+          </p>
+          <div className="pt-4">
+            <StageQuiz />
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Animated Stat Counters Banner */}
+      <section ref={statsContainerRef} className="py-16 bg-[#18100a]/80 border-y border-amber-950/30 relative">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div className="space-y-1">
+              <span ref={yearsValRef} className="text-4xl md:text-5xl font-black text-[#d4af37] font-mono block">0+</span>
+              <span className="text-xs text-white font-bold uppercase tracking-wider block">Years Supporting Tax Pros</span>
+              <p className="text-[10px] text-stone-500">Established training, setups, and support structures since 2014</p>
+            </div>
+            <div className="space-y-1 border-y md:border-y-0 md:border-x border-amber-950/20 py-6 md:py-0">
+              <span ref={erosValRef} className="text-4xl md:text-5xl font-black text-[#d4af37] font-mono block">0+</span>
+              <span className="text-xs text-white font-bold uppercase tracking-wider block">Independent EROs Supported</span>
+              <p className="text-[10px] text-stone-500">Firms transitioned from splits to keeping 100% of their fees</p>
+            </div>
+            <div className="space-y-1">
+              <span ref={membersValRef} className="text-4xl md:text-5xl font-black text-[#d4af37] font-mono block">0+</span>
+              <span className="text-xs text-white font-bold uppercase tracking-wider block">Active Community Members</span>
+              <p className="text-[10px] text-stone-500">Coworking, legal consultations, and business workshops year-round</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. About Section */}
+      <section ref={aboutRef} className="py-20 border-b border-amber-955/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="gsap-about-el space-y-6">
-              <h2 className="text-xs font-bold uppercase tracking-wider text-amber-600">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#d4af37] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded inline-block">
                 More Than Tax Software
-              </h2>
-              <p className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug">
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-snug uppercase">
                 At The Sector, we believe tax professionals deserve more than tools.
-              </p>
+              </h2>
               <p className="text-xs md:text-sm text-stone-400 leading-relaxed">
-                Our collaborative community combines professional tax software, ERO Application setup, scaling strategies, and live access to experts who understand what it takes to succeed. Whether you&apos;re filing your first return or scaling a multi-location brand, we&apos;re committed to your independence.
+                Our collaborative community combines professional cloud-based tax software, ERO Application setup, scaling strategies, and live access to experts who understand what it takes to succeed. Whether you&apos;re filing your first return or scaling a multi-location brand, we&apos;re committed to your independence.
               </p>
-              <div className="pt-4 border-t border-amber-950/20 space-y-3">
+              <div className="pt-4 border-t border-amber-955/20 space-y-3">
                 <h3 className="text-xs font-bold text-white uppercase tracking-wider">Our Mission</h3>
                 <p className="text-stone-500 text-xs leading-relaxed">
                   To create a collaborative community where tax professionals have access to the tools, education, relationships, and opportunities needed to grow sustainable businesses.
@@ -342,15 +397,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Services Grid */}
-      <section ref={servicesRef} className="py-20 border-t border-amber-950/20">
+      {/* 5. Trust Signals */}
+      <TrustSection />
+
+      {/* 6. Services Grid */}
+      <section ref={servicesRef} className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-xs font-bold uppercase tracking-wider text-stone-550 mb-3">
-              How We Support Tax Professionals
-            </h2>
-            <p className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-[#d4af37] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded inline-block">
+              Business Support Pathways
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight uppercase">
               Tailored Pathways for Every Stage of Your Business
+            </h2>
+            <p className="text-xs text-stone-505">
+              Select the support stream matching your experience level and organizational volume.
             </p>
           </div>
 
@@ -358,7 +419,7 @@ export default function Home() {
             {services.map((service, idx) => (
               <div 
                 key={service.title} 
-                className="gsap-service-card flex flex-col justify-between glass-card glass-card-hover p-6 md:p-8"
+                className="gsap-service-card flex flex-col justify-between glass-card p-6 md:p-8"
               >
                 <div className="space-y-6">
                   <div className="flex items-center justify-between">
@@ -372,7 +433,7 @@ export default function Home() {
                   </div>
 
                   <div>
-                    <h3 className="text-lg font-bold text-white mb-2">{service.title}</h3>
+                    <h3 className="text-base font-bold text-white uppercase tracking-wider mb-2">{service.title}</h3>
                     <p className="text-xs text-stone-400 leading-relaxed">{service.desc}</p>
                   </div>
 
@@ -391,7 +452,7 @@ export default function Home() {
                   <div className="pt-2 flex flex-wrap gap-1.5 items-center">
                     <span className="text-[9px] font-bold text-stone-500 uppercase tracking-wider mr-1.5">Best For:</span>
                     {service.bestFor.map((bf) => (
-                      <span key={bf} className="bg-amber-950/30 border border-amber-900/30 text-[9px] font-semibold text-stone-400 px-2 py-0.5 rounded">
+                      <span key={bf} className="bg-amber-955/35 border border-amber-900/30 text-[9px] font-semibold text-stone-450 px-2 py-0.5 rounded">
                         {bf}
                       </span>
                     ))}
@@ -401,7 +462,7 @@ export default function Home() {
                 <div className="pt-8">
                   <button
                     onClick={service.action}
-                    className="w-full text-center bg-[#1a100a] hover:bg-amber-950 border border-amber-900/30 text-stone-300 hover:text-white font-bold py-2.5 px-4 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider"
+                    className="w-full text-center bg-[#1a100a] hover:bg-amber-950 border border-amber-900/30 text-[#d4af37] hover:text-white font-bold py-2.5 px-4 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider"
                   >
                     {service.ctaText}
                   </button>
@@ -412,336 +473,154 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. Revenue Expansion Services */}
-      <section ref={revenueRef} className="py-20 border-t border-amber-950/20 bg-amber-955/5">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
-            <div className="lg:sticky lg:top-24 space-y-6">
-              <span className="inline-flex items-center rounded-lg bg-amber-950/30 border border-amber-900/40 px-2.5 py-1 text-xs font-semibold text-[#d4af37]">
-                Revenue Expansion
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight">
-                Build Income Beyond Tax Season
-              </h2>
-              <p className="text-xs md:text-sm text-stone-400 leading-relaxed">
-                Many tax professionals struggle during Q2, Q3, and Q4 once tax season ends. We help our community identify and setup additional services to increase client retention and drive consistent year-round revenue streams.
-              </p>
-              <button
-                onClick={() => openModal("strategy")}
-                className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#d4af37] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black font-extrabold py-3 px-6 text-xs transition-colors shadow-md hover:shadow-[#d4af37]/10 cursor-pointer uppercase tracking-wider"
-              >
-                Explore Revenue Opportunities
-              </button>
-            </div>
-
-            <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {revenueOpportunities.map((op) => {
-                const IconComponent = op.icon;
-                return (
-                  <div key={op.name} className="gsap-revenue-card glass-card glass-card-hover-emerald p-5">
-                    <div className="flex items-center space-x-3 mb-2">
-                      <span className="text-[#d4af37]">
-                        <IconComponent className="w-5 h-5" />
-                      </span>
-                      <h3 className="text-xs font-bold text-white">{op.name}</h3>
-                    </div>
-                    <p className="text-[11px] text-stone-500 leading-relaxed">{op.desc}</p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. Technology & Automation */}
-      <section ref={techRef} className="py-20 border-t border-amber-950/20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <h2 className="text-xs font-bold uppercase tracking-wider text-stone-500">
-                Simplify Your Business Operations
-              </h2>
-              <p className="gsap-tech-el text-2xl sm:text-3xl font-bold text-white tracking-tight">
-                Tax Business Automation &amp; CRM Setup
-              </p>
-              <p className="gsap-tech-el text-xs md:text-sm text-stone-400 leading-relaxed">
-                Stop wasting hours on manual paperwork, endless client follow-ups, and calendar scheduling. Learn how to use technology to save time, improve client communication, and create bulletproof compliance systems.
-              </p>
-              
-              <ul className="gsap-tech-el grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {[
-                  "CRM System Integration",
-                  "Automated Client Follow-ups",
-                  "Lead Generation Pipelines",
-                  "Appointment Scheduling",
-                  "Interactive Workflow Design",
-                  "AI Integration Support",
-                ].map((item) => (
-                  <li key={item} className="flex items-center space-x-2 text-xs text-stone-350">
-                    <Check className="w-3.5 h-3.5 text-[#d4af37] shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="gsap-tech-el pt-2">
-                <Link
-                  href="/technology-support"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-stone-300 hover:text-[#d4af37] uppercase tracking-wider transition-colors"
-                >
-                  Learn About Automation 
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            </div>
-
-            <div className="gsap-tech-el relative border border-amber-900/30 bg-[#160f0a] rounded-xl p-6 md:p-8 overflow-hidden select-none">
-              <span className="text-[10px] font-bold tracking-wider text-stone-500 uppercase block mb-6">Workflow Blueprint</span>
-              
-              <div className="space-y-4">
-                {/* Step 1 */}
-                <div className="flex items-center space-x-4 bg-[#120b06] border border-amber-900/20 p-3.5 rounded-lg">
-                  <div className="h-7 w-7 rounded-md bg-[#18100a] border border-amber-900/30 flex items-center justify-center text-[#d4af37] font-bold text-xs">
-                    01
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-white">Lead Capture Auto-sync</h4>
-                    <p className="text-[10px] text-stone-500">Facebook &amp; Web leads auto-routed to ERO CRM</p>
-                  </div>
-                </div>
-                {/* Line */}
-                <div className="h-5 w-0.5 bg-amber-950/60 ml-7" />
-                {/* Step 2 */}
-                <div className="flex items-center space-x-4 bg-[#120b06] border border-amber-900/20 p-3.5 rounded-lg">
-                  <div className="h-7 w-7 rounded-md bg-[#18100a] border border-amber-900/30 flex items-center justify-center text-[#d4af37] font-bold text-xs">
-                    02
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-white">Secure Intake Form &amp; Document Upload</h4>
-                    <p className="text-[10px] text-stone-500">Encrypted portal request sent via auto-text &amp; email</p>
-                  </div>
-                </div>
-                {/* Line */}
-                <div className="h-5 w-0.5 bg-amber-950/60 ml-7" />
-                {/* Step 3 */}
-                <div className="flex items-center space-x-4 bg-[#120b06] border border-amber-900/20 p-3.5 rounded-lg">
-                  <div className="h-7 w-7 rounded-md bg-[#18100a] border border-amber-900/30 flex items-center justify-center text-[#d4af37] font-bold text-xs">
-                    03
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-white">Automated Prep Review Notification</h4>
-                    <p className="text-[10px] text-stone-500">EFIN tax preparer notified, tax return prepped &amp; signed</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. Membership Options */}
+      {/* 7. Membership Comparison Table */}
       <section ref={pricingRef} className="py-20 border-t border-amber-955/10 bg-amber-955/5">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-xs font-bold uppercase tracking-wider text-stone-500 mb-3">
-              Membership Options
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
+          <div className="text-center max-w-3xl mx-auto space-y-3 gsap-pricing-el">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-[#d4af37] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded inline-block">
+              Pricing Matrices
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight uppercase">
+              Compare Membership Options
             </h2>
-            <p className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-              Choose Your Level of Access
+            <p className="text-xs text-stone-500">
+              Clear structures. Side-by-side access capabilities designed for independent tax offices.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Card 1 */}
-            <div className="gsap-tier-card flex flex-col justify-between glass-card p-8">
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-base font-bold text-white">Community Access</h3>
-                  <p className="text-xs text-stone-500 mt-2">For professionals seeking foundational training, software, and networking.</p>
-                </div>
-                <div className="h-px bg-amber-900/20" />
-                <ul className="space-y-3.5 text-xs text-stone-400">
-                  <li className="flex items-center space-x-2.5">
-                    <Check className="w-3.5 h-3.5 text-[#d4af37] shrink-0" />
-                    <span>Professional tax software access</span>
-                  </li>
-                  <li className="flex items-center space-x-2.5">
-                    <Check className="w-3.5 h-3.5 text-[#d4af37] shrink-0" />
-                    <span>Weekly open office live hours</span>
-                  </li>
-                  <li className="flex items-center space-x-2.5">
-                    <Check className="w-3.5 h-3.5 text-[#d4af37] shrink-0" />
-                    <span>Basic software walkthrough guides</span>
-                  </li>
-                  <li className="flex items-center space-x-2.5">
-                    <Check className="w-3.5 h-3.5 text-[#d4af37] shrink-0" />
-                    <span>Peer-to-peer networking community</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="pt-8">
-                <button
-                  onClick={() => openModal("strategy")}
-                  className="w-full text-center bg-[#1a100a] hover:bg-amber-950 border border-amber-900/30 text-stone-300 hover:text-white font-bold py-2.5 px-4 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider"
-                >
-                  Select Community
-                </button>
-              </div>
-            </div>
-
-            {/* Card 2 - Growth */}
-            <div className="gsap-tier-card flex flex-col justify-between bg-[#24170f] border border-amber-500/35 relative rounded-xl p-8 shadow-xl shadow-amber-500/5">
-              <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#d4af37] text-black font-extrabold text-[9px] uppercase tracking-widest px-3 py-1 rounded">
-                Most Popular
-              </span>
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-base font-bold text-white">Growth Access</h3>
-                  <p className="text-xs text-stone-300 mt-2">For tax professionals focused on expanding revenue streams and building automated operations.</p>
-                </div>
-                <div className="h-px bg-amber-900/30" />
-                <ul className="space-y-3.5 text-xs text-stone-150">
-                  <li className="flex items-center space-x-2.5">
-                    <Check className="w-3.5 h-3.5 text-[#d4af37] shrink-0" />
-                    <span>Everything in Community Access</span>
-                  </li>
-                  <li className="flex items-center space-x-2.5">
-                    <Check className="w-3.5 h-3.5 text-[#d4af37] shrink-0" />
-                    <span>ERO Enablement roadmap &amp; support</span>
-                  </li>
-                  <li className="flex items-center space-x-2.5">
-                    <Check className="w-3.5 h-3.5 text-[#d4af37] shrink-0" />
-                    <span>Revenue expansion systems guides</span>
-                  </li>
-                  <li className="flex items-center space-x-2.5">
-                    <Check className="w-3.5 h-3.5 text-[#d4af37] shrink-0" />
-                    <span>CRM setup templates &amp; client automations</span>
-                  </li>
-                  <li className="flex items-center space-x-2.5">
-                    <Check className="w-3.5 h-3.5 text-[#d4af37] shrink-0" />
-                    <span>Live Attorney Q&amp;A sessions</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="pt-8">
-                <button
-                  onClick={() => openModal("strategy")}
-                  className="w-full text-center bg-gradient-to-r from-[#d4af37] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black font-extrabold py-2.5 px-4 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider"
-                >
-                  Select Growth
-                </button>
-              </div>
-            </div>
-
-            {/* Card 3 */}
-            <div className="gsap-tier-card flex flex-col justify-between glass-card p-8">
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-base font-bold text-white">Expansion Access</h3>
-                  <p className="text-xs text-stone-500 mt-2">For EROs and Service Bureau owners seeking advanced scale, white-label setup, and team scaling.</p>
-                </div>
-                <div className="h-px bg-amber-900/20" />
-                <ul className="space-y-3.5 text-xs text-stone-400">
-                  <li className="flex items-center space-x-2.5">
-                    <Check className="w-3.5 h-3.5 text-[#d4af37] shrink-0" />
-                    <span>Everything in Growth Access</span>
-                  </li>
-                  <li className="flex items-center space-x-2.5">
-                    <Check className="w-3.5 h-3.5 text-[#d4af37] shrink-0" />
-                    <span>Service Bureau mentorship &amp; audit</span>
-                  </li>
-                  <li className="flex items-center space-x-2.5">
-                    <Check className="w-3.5 h-3.5 text-[#d4af37] shrink-0" />
-                    <span>White-label software deployment</span>
-                  </li>
-                  <li className="flex items-center space-x-2.5">
-                    <Check className="w-3.5 h-3.5 text-[#d4af37] shrink-0" />
-                    <span>Team recruitment &amp; onboarding guides</span>
-                  </li>
-                  <li className="flex items-center space-x-2.5">
-                    <Check className="w-3.5 h-3.5 text-[#d4af37] shrink-0" />
-                    <span>Direct 1-on-1 advisor strategy sessions</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="pt-8">
-                <button
-                  onClick={() => openModal("strategy")}
-                  className="w-full text-center bg-[#1a100a] hover:bg-amber-950 border border-amber-900/30 text-stone-300 hover:text-white font-bold py-2.5 px-4 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider"
-                >
-                  Select Expansion
-                </button>
-              </div>
-            </div>
+          {/* Comparison Table Container */}
+          <div className="gsap-pricing-el overflow-x-auto border border-amber-900/35 rounded-xl bg-[#18100a]/50 backdrop-blur-md">
+            <table className="w-full min-w-[700px] border-collapse text-left text-xs text-stone-300">
+              {/* Sticky Table Header */}
+              <thead className="bg-[#120b06] border-b border-amber-900/35 sticky top-16 z-20">
+                <tr>
+                  <th className="p-4 font-bold text-stone-400 uppercase tracking-wider w-[40%]">Capabilities &amp; Benefits</th>
+                  <th className="p-4 text-center font-bold text-stone-300 uppercase tracking-wider w-[20%]">Community Access</th>
+                  <th className="p-4 text-center font-bold text-[#d4af37] uppercase tracking-wider w-[20%] bg-amber-950/20 border-x border-amber-500/20">
+                    Growth Access
+                    <span className="block text-[8px] font-black text-stone-400 mt-0.5 uppercase tracking-normal font-sans">Most Popular</span>
+                  </th>
+                  <th className="p-4 text-center font-bold text-stone-300 uppercase tracking-wider w-[20%]">Expansion Access</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-amber-950/30">
+                {/* Feature Rows */}
+                <tr>
+                  <td className="p-4 font-semibold text-white">Professional Tax Software Access</td>
+                  <td className="p-4 text-center text-emerald-400 font-bold font-mono">YES (Cloud)</td>
+                  <td className="p-4 text-center text-emerald-400 font-bold font-mono bg-amber-955/20 border-x border-amber-500/10">YES (Cloud)</td>
+                  <td className="p-4 text-center text-emerald-400 font-bold font-mono">YES (Enterprise)</td>
+                </tr>
+                <tr>
+                  <td className="p-4 font-semibold text-white">Weekly Open Office Live Hours</td>
+                  <td className="p-4 text-center text-emerald-400 font-bold font-mono">YES</td>
+                  <td className="p-4 text-center text-emerald-400 font-bold font-mono bg-amber-955/20 border-x border-amber-500/10">YES</td>
+                  <td className="p-4 text-center text-emerald-400 font-bold font-mono">YES</td>
+                </tr>
+                <tr>
+                  <td className="p-4 font-semibold text-white">Software Walkthrough Guides</td>
+                  <td className="p-4 text-center text-stone-400">Basic</td>
+                  <td className="p-4 text-center text-white font-semibold bg-amber-955/20 border-x border-amber-500/10">Advanced</td>
+                  <td className="p-4 text-center text-white font-semibold">Advanced</td>
+                </tr>
+                <tr>
+                  <td className="p-4 font-semibold text-white">IRS ERO Enablement Setup</td>
+                  <td className="p-4 text-center text-stone-600 font-mono">NO</td>
+                  <td className="p-4 text-center text-emerald-400 font-bold font-mono bg-amber-955/20 border-x border-amber-500/10">YES</td>
+                  <td className="p-4 text-center text-emerald-400 font-bold font-mono">YES</td>
+                </tr>
+                <tr>
+                  <td className="p-4 font-semibold text-white">Ancillary Revenue Systems Guides</td>
+                  <td className="p-4 text-center text-stone-600 font-mono">NO</td>
+                  <td className="p-4 text-center text-emerald-400 font-bold font-mono bg-amber-955/20 border-x border-amber-500/10">YES</td>
+                  <td className="p-4 text-center text-emerald-400 font-bold font-mono">YES</td>
+                </tr>
+                <tr>
+                  <td className="p-4 font-semibold text-white">CRM Templates &amp; Automations</td>
+                  <td className="p-4 text-center text-stone-600 font-mono">NO</td>
+                  <td className="p-4 text-center text-emerald-400 font-bold font-mono bg-amber-955/20 border-x border-amber-500/10">YES</td>
+                  <td className="p-4 text-center text-emerald-400 font-bold font-mono">YES</td>
+                </tr>
+                <tr>
+                  <td className="p-4 font-semibold text-white">Live Attorney consultations</td>
+                  <td className="p-4 text-center text-stone-600 font-mono">NO</td>
+                  <td className="p-4 text-center text-emerald-400 font-bold font-mono bg-amber-955/20 border-x border-amber-500/10">YES</td>
+                  <td className="p-4 text-center text-emerald-400 font-bold font-mono">YES</td>
+                </tr>
+                <tr>
+                  <td className="p-4 font-semibold text-white">Service Bureau Audits &amp; Setup</td>
+                  <td className="p-4 text-center text-stone-600 font-mono">NO</td>
+                  <td className="p-4 text-center text-stone-600 font-mono bg-amber-955/20 border-x border-amber-500/10">NO</td>
+                  <td className="p-4 text-center text-emerald-400 font-bold font-mono">YES</td>
+                </tr>
+                <tr>
+                  <td className="p-4 font-semibold text-white">White-label branding deployment</td>
+                  <td className="p-4 text-center text-stone-600 font-mono">NO</td>
+                  <td className="p-4 text-center text-stone-600 font-mono bg-amber-955/20 border-x border-amber-500/10">NO</td>
+                  <td className="p-4 text-center text-emerald-400 font-bold font-mono">YES</td>
+                </tr>
+                <tr>
+                  <td className="p-4 font-semibold text-white">1-on-1 advisor strategy checks</td>
+                  <td className="p-4 text-center text-stone-600 font-mono">NO</td>
+                  <td className="p-4 text-center text-stone-600 font-mono bg-amber-955/20 border-x border-amber-500/10">NO</td>
+                  <td className="p-4 text-center text-emerald-400 font-bold font-mono">YES</td>
+                </tr>
+                {/* Button actions row */}
+                <tr className="bg-[#120b06]/40">
+                  <td className="p-4 font-bold text-stone-400">Select Access Tier</td>
+                  <td className="p-4 text-center">
+                    <button
+                      onClick={() => openModal("strategy")}
+                      className="px-4 py-2 rounded-lg bg-[#18100a] hover:bg-amber-950 text-stone-300 hover:text-white font-bold border border-amber-900/30 tracking-wider uppercase text-[9px] cursor-pointer w-full"
+                    >
+                      Choose Community
+                    </button>
+                  </td>
+                  <td className="p-4 text-center bg-amber-950/20 border-x border-amber-500/25">
+                    <button
+                      onClick={() => openModal("strategy")}
+                      className="px-4 py-2 rounded-lg bg-gradient-to-r from-[#d4af37] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black font-extrabold tracking-wider uppercase text-[9px] cursor-pointer w-full shadow"
+                    >
+                      Choose Growth
+                    </button>
+                  </td>
+                  <td className="p-4 text-center">
+                    <button
+                      onClick={() => openModal("strategy")}
+                      className="px-4 py-2 rounded-lg bg-[#18100a] hover:bg-amber-950 text-stone-300 hover:text-white font-bold border border-amber-900/30 tracking-wider uppercase text-[9px] cursor-pointer w-full"
+                    >
+                      Choose Expansion
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
 
-      {/* 7. Why Tax Professionals Choose The Sector */}
-      <section className="py-20 border-t border-amber-955/10">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <span className="text-xs font-bold uppercase tracking-wider text-stone-500 block">
-                We Understand the Industry
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-                Built by Tax Pros, for Tax Pros
-              </h2>
-              <p className="text-xs md:text-sm text-stone-400 leading-relaxed">
-                With over a decade of experience supporting independent preparers, EROs, and Service Bureau owners, we know the roadblocks you face. We focus on building systems that outlast tax season.
-              </p>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                {[
-                  "Revenue Growth Strategy",
-                  "Compliance Education Guides",
-                  "Modern Technology Tools",
-                  "Weekly Community Support",
-                  "Long-Term Sustainability",
-                  "Business Development Mentor",
-                ].map((pillar) => (
-                  <div key={pillar} className="flex items-center space-x-2 text-xs text-stone-350">
-                    <Check className="w-3.5 h-3.5 text-[#d4af37] shrink-0" />
-                    <span>{pillar}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <div className="bg-[#18100a] border border-amber-905/30 rounded-xl p-6 relative">
-                <p className="text-xs md:text-sm italic text-stone-300 leading-relaxed">
-                  &quot;Access to professional software was great, but the ERO coaching completely changed my trajectory. I went from splitting 30% of my fees to keeping 100% of my revenues and building my own office.&quot;
-                </p>
-                <div className="mt-4 flex items-center space-x-3">
-                  <div className="h-7 w-7 rounded-md bg-[#120b06] border border-amber-900/30 flex items-center justify-center text-[10px] font-bold text-stone-400">
-                    TM
-                  </div>
-                  <div>
-                    <h4 className="text-[11px] font-bold text-white">Tasha M.</h4>
-                    <p className="text-[9px] text-stone-550">ERO &amp; Firm Owner, Atlanta</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-[#18100a] border border-amber-905/30 rounded-xl p-6 relative">
-                <p className="text-xs md:text-sm italic text-stone-300 leading-relaxed">
-                  &quot;Running a Service Bureau felt overwhelming until I went through the Growth Program. Having step-by-step audit forms, compliance blueprints, and tech automations made all the difference.&quot;
-                </p>
-                <div className="mt-4 flex items-center space-x-3">
-                  <div className="h-7 w-7 rounded-md bg-[#120b06] border border-amber-900/30 flex items-center justify-center text-[10px] font-bold text-stone-400">
-                    DC
-                  </div>
-                  <div>
-                    <h4 className="text-[11px] font-bold text-white">David C.</h4>
-                    <p className="text-[9px] text-stone-550">Service Bureau Owner, Dallas</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+      {/* 8. Testimonials Section */}
+      <section className="py-20 border-b border-amber-955/10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-[#d4af37] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded inline-block">
+              Client Stories
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight uppercase">
+              Proven Success in the Community
+            </h2>
+            <p className="text-xs text-stone-500">
+              Verified success stories from tax professionals who transitioned to independent EROs and Service Bureaus.
+            </p>
           </div>
+          <TestimonialCarousel />
+        </div>
+      </section>
+
+      {/* 9. FAQs Section */}
+      <section ref={faqRef} className="py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <FaqAccordion items={homepageFaqs} title="The Sector Program FAQs" />
         </div>
       </section>
     </div>

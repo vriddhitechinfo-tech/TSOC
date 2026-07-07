@@ -2,38 +2,64 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { useModal } from "@/context/ModalContext";
+import { ChevronRight, Database, MessageSquare, ShieldAlert, Laptop, MailOpen, Check, Play } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import FaqAccordion from "@/components/ui/FaqAccordion";
 
 export default function TechnologySupportPage() {
   const { openModal } = useModal();
   const [activeStep, setActiveStep] = useState(0);
+  
   const pageRef = useRef<HTMLDivElement>(null);
+  const diagramRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       gsap.registerPlugin(ScrollTrigger);
     }
 
-    if (pageRef.current) {
-      const reveals = pageRef.current.querySelectorAll(".gsap-reveal");
-      gsap.fromTo(
-        reveals,
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: "power2.out",
-          stagger: 0.15,
+    const ctx = gsap.context(() => {
+      // General reveals
+      if (pageRef.current) {
+        const reveals = pageRef.current.querySelectorAll(".gsap-reveal");
+        gsap.fromTo(
+          reveals,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            stagger: 0.15,
+            scrollTrigger: {
+              trigger: pageRef.current,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+
+      // Horizontal diagram node reveal and link line drawing
+      if (diagramRef.current) {
+        const nodes = diagramRef.current.querySelectorAll(".gsap-flow-node");
+        const lines = diagramRef.current.querySelectorAll(".gsap-flow-line");
+
+        // Stagger fade-in nodes and scale lines
+        const tl = gsap.timeline({
           scrollTrigger: {
-            trigger: pageRef.current,
-            start: "top 80%",
-            toggleActions: "play none none none",
-          },
-        }
-      );
-    }
+            trigger: diagramRef.current,
+            start: "top 75%",
+            end: "bottom 55%",
+            scrub: true,
+          }
+        });
+
+        tl.fromTo(nodes, { scale: 0.7, opacity: 0.3 }, { scale: 1, opacity: 1, stagger: 0.15 })
+          .fromTo(lines, { strokeDashoffset: 100 }, { strokeDashoffset: 0, stagger: 0.15 }, "<");
+      }
+    });
 
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
@@ -73,14 +99,33 @@ export default function TechnologySupportPage() {
     },
   ];
 
+  const techFaqs = [
+    {
+      question: "Which CRM software does The Sector support?",
+      answer: "We support integrations across popular CRM platforms such as GoHighLevel, ActiveCampaign, HubSpot, and Salesforce. We provide pre-built snapshot templates configured with tax preparer intake pipelines, automated appointment bookings, and SMS follow-ups."
+    },
+    {
+      question: "Is client documentation secure during intake uploads?",
+      answer: "Security is our highest priority. All document upload portals utilize bank-grade 256-bit SSL encryption. Tax documents (W-2s, SSN cards, government IDs) are saved directly in secure cloud repositories compliant with IRS Publication 4557 standards."
+    },
+    {
+      question: "Can I manage automated follow-ups for tax returns myself?",
+      answer: "Yes, our automation blueprints are built on simple visual logic builders. We teach you how to adjust SMS and email copywriting, configure calendar availability, and set trigger timelines without writing code."
+    },
+    {
+      question: "What technical support do you offer during tax season?",
+      answer: "We offer dedicated Slack support channels and weekly live Tech Tuesday office hours. Under our Expansion Access program, you gain priority access to a 24/7 technical hotline to resolve software connection issues immediately."
+    }
+  ];
+
   return (
-    <div ref={pageRef} className="relative overflow-hidden bg-[#120b06] min-h-screen py-16 sm:py-24">
+    <div ref={pageRef} className="relative overflow-hidden bg-[#120b06] min-h-screen py-16 sm:py-24 animate-fade-in">
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.03)_0%,transparent_60%)] pointer-events-none -z-10" />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-24">
         {/* Header Section */}
-        <div className="gsap-reveal text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div className="gsap-reveal text-center max-w-3xl mx-auto space-y-4">
           <span className="inline-flex items-center rounded-lg bg-amber-955/35 border border-amber-900/40 px-3.5 py-1.5 text-xs font-semibold text-[#d4af37]">
             CRM &amp; Automation Support
           </span>
@@ -100,44 +145,104 @@ export default function TechnologySupportPage() {
           </div>
         </div>
 
+        {/* Horizontal flow diagram with laser line animations */}
+        <div className="space-y-6">
+          <div className="text-center max-w-xl mx-auto">
+            <h2 className="text-xl font-bold text-white uppercase tracking-wider">Operational Pipeline Diagram</h2>
+            <p className="text-xs text-stone-500 mt-1">Scroll to watch a lead navigate the automated client lifecycle from start to end.</p>
+          </div>
+
+          <div ref={diagramRef} className="glass-card p-8 overflow-x-auto select-none bg-[#18100a]/50">
+            <div className="min-w-[800px] flex items-center justify-between relative py-6">
+              {/* Flow Steps */}
+              {[
+                { label: "Lead Capture", icon: Laptop, desc: "Facebook/Ads Form" },
+                { label: "CRM Routing", icon: Database, desc: "Instant assignment" },
+                { label: "SMS Intake Request", icon: MessageSquare, desc: "Secure portal link" },
+                { label: "Filer Assignment", icon: MailOpen, desc: "Task queue alert" },
+                { label: "Filing Accepted", icon: ShieldAlert, desc: "Review request & loop" }
+              ].map((step, idx) => (
+                <React.Fragment key={idx}>
+                  <div className="gsap-flow-node flex flex-col items-center text-center space-y-2 z-10 w-28">
+                    <div className="h-12 w-12 rounded-xl bg-[#120b06] border border-amber-900/35 hover:border-amber-400 flex items-center justify-center text-[#d4af37] shadow transition-colors">
+                      <step.icon className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <div className="text-[10px] font-bold text-white uppercase tracking-wider">{step.label}</div>
+                      <div className="text-[8px] text-stone-500">{step.desc}</div>
+                    </div>
+                  </div>
+
+                  {idx < 4 && (
+                    <div className="flex-1 px-4 relative flex items-center justify-center">
+                      <svg className="w-full h-2" overflow="visible">
+                        <line
+                          x1="0"
+                          y1="4"
+                          x2="100%"
+                          y2="4"
+                          stroke="#451e0e"
+                          strokeWidth="2"
+                        />
+                        <line
+                          className="gsap-flow-line"
+                          x1="0"
+                          y1="4"
+                          x2="100%"
+                          y2="4"
+                          stroke="#d4af37"
+                          strokeWidth="2"
+                          strokeDasharray="100"
+                          strokeDashoffset="100"
+                        />
+                      </svg>
+                      <ChevronRight className="w-3.5 h-3.5 text-[#d4af37] absolute right-2.5" />
+                    </div>
+                  )}
+                </React.Fragment>
+              ))}
+            </div>
+          </div>
+        </div>
+
         {/* Feature list */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
-          <div className="gsap-reveal glass-card glass-card-hover p-6 space-y-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="gsap-reveal glass-card p-6 space-y-3">
             <h3 className="text-sm font-bold text-white uppercase tracking-wider">CRM for Tax Professionals</h3>
             <p className="text-xs text-stone-500 leading-relaxed">
               Consolidate leads, tracking stages, and communication histories into a centralized dashboard. Easily view filing metrics for each preparer on your team.
             </p>
           </div>
 
-          <div className="gsap-reveal glass-card glass-card-hover p-6 space-y-3">
+          <div className="gsap-reveal glass-card p-6 space-y-3">
             <h3 className="text-sm font-bold text-white uppercase tracking-wider">Automated SMS &amp; Follow-Ups</h3>
             <p className="text-xs text-stone-500 leading-relaxed">
               When a lead submits details, automated text and email campaigns reach out within minutes, improving booking conversion rates by up to 80%.
             </p>
           </div>
 
-          <div className="gsap-reveal glass-card glass-card-hover p-6 space-y-3">
+          <div className="gsap-reveal glass-card p-6 space-y-3">
             <h3 className="text-sm font-bold text-white uppercase tracking-wider">Secure Intake Document Requests</h3>
             <p className="text-xs text-stone-550 leading-relaxed">
               Replace messy email attachments. Clients receive a secure mobile-friendly link to snap pictures of documents, which upload directly to their CRM profiles.
             </p>
           </div>
 
-          <div className="gsap-reveal glass-card glass-card-hover p-6 space-y-3">
+          <div className="gsap-reveal glass-card p-6 space-y-3">
             <h3 className="text-sm font-bold text-white uppercase tracking-wider">Calendar Scheduling Integration</h3>
             <p className="text-xs text-stone-550 leading-relaxed">
               Synchronize GCal or Outlook schedules. Clients select open times directly based on preparer availability, sending auto-reminders to reduce no-shows.
             </p>
           </div>
 
-          <div className="gsap-reveal glass-card glass-card-hover p-6 space-y-3">
+          <div className="gsap-reveal glass-card p-6 space-y-3">
             <h3 className="text-sm font-bold text-white uppercase tracking-wider">AI for Tax Professionals</h3>
             <p className="text-xs text-stone-550 leading-relaxed">
               Use custom AI templates to generate customer service replies, translate client forms, draft email responses, and summarize complex IRS tax codes.
             </p>
           </div>
 
-          <div className="gsap-reveal glass-card glass-card-hover p-6 space-y-3">
+          <div className="gsap-reveal glass-card p-6 space-y-3">
             <h3 className="text-sm font-bold text-white uppercase tracking-wider">Workflow Design Blueprint</h3>
             <p className="text-xs text-stone-555 leading-relaxed">
               We design custom workflows that integrate tax preparation software with client-facing platforms, ensuring data updates are synchronized.
@@ -145,10 +250,10 @@ export default function TechnologySupportPage() {
           </div>
         </div>
 
-        {/* Blueprint Stepper */}
+        {/* Blueprint Stepper Details */}
         <div className="gsap-reveal glass-card p-8 md:p-12 mb-24 relative overflow-hidden">
           <div className="text-center max-w-2xl mx-auto mb-10">
-            <h2 className="text-xl font-bold text-white">Automated Tax Workflow Blueprint</h2>
+            <h2 className="text-xl font-bold text-white uppercase tracking-wider">Automated Tax Workflow Blueprint</h2>
             <p className="text-xs text-stone-555 mt-1">Click on each node below to review our automated system touchpoints.</p>
           </div>
 
@@ -157,35 +262,40 @@ export default function TechnologySupportPage() {
               <button
                 key={s.num}
                 onClick={() => setActiveStep(idx)}
-                className={`p-3.5 rounded-lg border text-center transition-all cursor-pointer ${
+                className={`p-3.5 rounded-lg border text-center transition-all cursor-pointer flex flex-col items-center justify-center focus:outline-none ${
                   activeStep === idx
                     ? "bg-[#18100a] border-amber-500/30 text-[#d4af37] font-semibold"
                     : "bg-[#18100a]/40 border-amber-900/30 text-stone-500 hover:text-white"
                 }`}
               >
-                <div className="text-[10px] font-bold uppercase tracking-wider mb-1">Step {s.num}</div>
-                <div className="text-[10px] truncate">{s.title}</div>
+                <div className="text-[9px] font-bold uppercase tracking-wider mb-1">Step {s.num}</div>
+                <div className="text-[10px] truncate w-full">{s.title}</div>
               </button>
             ))}
           </div>
 
           <div className="bg-[#18100a]/50 border border-amber-900/30 rounded-xl p-6 space-y-4">
-            <div className="flex items-center justify-between">
-              <span className="text-[10px] font-bold tracking-widest text-[#d4af37] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <span className="text-[9px] font-bold tracking-widest text-[#d4af37] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded inline-block">
                 Step {automationSteps[activeStep].num} Configuration
               </span>
               <span className="text-[9px] text-[#d4af37] font-mono">
                 System: {automationSteps[activeStep].tool}
               </span>
             </div>
-            <h3 className="text-base font-bold text-white">{automationSteps[activeStep].title}</h3>
-            <p className="text-xs text-stone-400 leading-relaxed">{automationSteps[activeStep].desc}</p>
+            <h3 className="text-base font-bold text-white uppercase tracking-wider">{automationSteps[activeStep].title}</h3>
+            <p className="text-xs text-stone-450 leading-relaxed">{automationSteps[activeStep].desc}</p>
           </div>
+        </div>
+
+        {/* FAQs */}
+        <div className="gsap-reveal">
+          <FaqAccordion items={techFaqs} title="CRM &amp; Automation FAQs" />
         </div>
 
         {/* CTA section */}
         <div className="gsap-reveal text-center max-w-xl mx-auto space-y-4">
-          <h3 className="text-lg font-bold text-white">Tired of manual administrative chaos?</h3>
+          <h3 className="text-lg font-bold text-white uppercase tracking-wider">Tired of manual administrative chaos?</h3>
           <p className="text-xs text-stone-500 leading-relaxed">
             Schedule a technology audit call. We will review your current software tools and draft a workflow automation blueprint to double your capacity this season.
           </p>

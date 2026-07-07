@@ -12,15 +12,25 @@ import {
   TrendingUp, 
   Globe, 
   Check, 
-  Clock 
+  Clock,
+  CalendarDays,
+  Plus
 } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import FaqAccordion from "@/components/ui/FaqAccordion";
 
 export default function OpenOfficePage() {
   const { openModal } = useModal();
   const [activeDay, setActiveDay] = useState("mon");
   const pageRef = useRef<HTMLDivElement>(null);
+
+  // Auto-detect current weekday on client load
+  useEffect(() => {
+    const dayIndex = new Date().getDay(); // 0 = Sun, 1 = Mon, ..., 6 = Sat
+    const daysMap = ["mon", "mon", "tue", "wed", "thu", "fri", "mon"]; // map weekend to Monday
+    setActiveDay(daysMap[dayIndex]);
+  }, []);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -40,7 +50,7 @@ export default function OpenOfficePage() {
           stagger: 0.15,
           scrollTrigger: {
             trigger: pageRef.current,
-            start: "top 80%",
+            start: "top 85%",
             toggleActions: "play none none none",
           },
         }
@@ -60,6 +70,7 @@ export default function OpenOfficePage() {
       desc: "Deep dive into filing compliance, refund calculations, audit mitigation, and complex individual/corporate forms. Bring active filing scenarios for collaborative troubleshooting.",
       time: "1:00 PM EST",
       pillar: "IRS Compliance Review",
+      byDay: "MO",
     },
     {
       id: "tue",
@@ -68,6 +79,7 @@ export default function OpenOfficePage() {
       desc: "Learn how to sync CRMs, automate client follow-ups, embed calendar scheduling, and leverage AI models to cut admin overhead in half. Perfect for modernizing office operations.",
       time: "2:00 PM EST",
       pillar: "Tax Business Automation",
+      byDay: "TU",
     },
     {
       id: "wed",
@@ -76,6 +88,7 @@ export default function OpenOfficePage() {
       desc: "Blueprints for remote tax prep. How to manage remote agents, structure software permissions, build compliance checklists, and secure documents digitally under your EFIN.",
       time: "1:00 PM EST",
       pillar: "Service Bureau Scaling",
+      byDay: "WE",
     },
     {
       id: "thu",
@@ -84,6 +97,7 @@ export default function OpenOfficePage() {
       desc: "Live coworking session and coaching check-in. Network with other tax business owners, share success blocks, review business operations, and audit marketing strategy results.",
       time: "3:00 PM EST",
       pillar: "Networking & Coaching",
+      byDay: "TH",
     },
     {
       id: "fri",
@@ -92,6 +106,7 @@ export default function OpenOfficePage() {
       desc: "Live legal advice Q&A with our allied tax & corporate attorneys. Review business structure setups, contract compliance, physical/digital audit standards, and ERO regulations.",
       time: "12:00 PM EST",
       pillar: "Legal & Entity Structure",
+      byDay: "FR",
     },
   ];
 
@@ -106,16 +121,59 @@ export default function OpenOfficePage() {
     { name: "Networking Opportunities", desc: "Join mixers to connect with EROs and allied professionals.", icon: Globe },
   ];
 
+  const openOfficeFaqs = [
+    {
+      question: "Who can participate in the Open Office community?",
+      answer: "Open Office is designed for independent tax preparers, bookkeeping partners, EROs, and Service Bureau owners who are members of The Sector. It acts as a collaborative daily workspace where you can coworking and consult with experts."
+    },
+    {
+      question: "Are the Zoom support blocks recorded?",
+      answer: "Yes, our Monday and Tuesday workshops, along with Friday Attorney Q&As, are recorded and loaded into the member portal. Members can access replays and blueprints at any time."
+    },
+    {
+      question: "What legal questions can I ask corporate attorneys?",
+      answer: "Our allied corporate and tax attorneys answer structural questions regarding business incorporation (LLCs, S-Corps), client contract structures, physical/digital tax office compliance, and IRS e-file agent guidelines. *Disclaimer: Consultations provide guidance and do not form direct legal representation."
+    },
+    {
+      question: "Can I invite junior preparers from my Service Bureau?",
+      answer: "Yes, depending on your membership tier. Expansion Access members can register their staff and sub-office agents into coworking hours and basic software support blocks."
+    }
+  ];
+
   const activeDaySchedule = weeklySchedule.find((item) => item.id === activeDay) || weeklySchedule[0];
 
+  // Dynamic .ics calendar generator
+  const downloadIcs = (item: typeof weeklySchedule[0]) => {
+    const icsContent = [
+      "BEGIN:VCALENDAR",
+      "VERSION:2.0",
+      "PRODID:-//The Sector//Open Office Schedule//EN",
+      "BEGIN:VEVENT",
+      `SUMMARY:The Sector: ${item.title} (${item.dayName})`,
+      `DESCRIPTION:Join our weekly live block. Topic: ${item.desc}`,
+      `LOCATION:Zoom Link Provided in Portal`,
+      `RRULE:FREQ=WEEKLY;BYDAY=${item.byDay}`,
+      "END:VEVENT",
+      "END:VCALENDAR"
+    ].join("\n");
+
+    const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = `tsoc-open-office-${item.id}.ics`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
-    <div ref={pageRef} className="relative overflow-hidden bg-[#120b06] min-h-screen py-16 sm:py-24">
+    <div ref={pageRef} className="relative overflow-hidden bg-[#120b06] min-h-screen py-16 sm:py-24 animate-fade-in">
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.03)_0%,transparent_60%)] pointer-events-none -z-10" />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-24">
         {/* Header Section */}
-        <div className="gsap-reveal text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div className="gsap-reveal text-center max-w-3xl mx-auto space-y-4">
           <span className="inline-flex items-center rounded-lg bg-amber-955/35 border border-amber-900/40 px-3.5 py-1.5 text-xs font-semibold text-[#d4af37]">
             Tax Professional Community
           </span>
@@ -138,7 +196,7 @@ export default function OpenOfficePage() {
         {/* Weekly Programming Interactive Component */}
         <div className="gsap-reveal glass-card p-8 md:p-12 mb-24 relative overflow-hidden">
           <div className="text-center max-w-2xl mx-auto mb-10">
-            <h2 className="text-xl font-bold text-white">Weekly Live Schedule</h2>
+            <h2 className="text-xl font-bold text-white uppercase tracking-wider">Weekly Live Schedule</h2>
             <p className="text-xs text-stone-500 mt-1">Select a weekday to review the programming topics and times.</p>
           </div>
 
@@ -151,7 +209,7 @@ export default function OpenOfficePage() {
                 className={`py-2 px-5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
                   activeDay === item.id
                     ? "bg-[#d4af37] text-black font-bold shadow-md"
-                    : "bg-amber-950/40 hover:bg-amber-950/20 border border-amber-900/30 text-stone-400 hover:text-white"
+                    : "bg-amber-955/35 hover:bg-amber-950/20 border border-amber-900/30 text-stone-400 hover:text-white"
                 }`}
               >
                 {item.dayName}
@@ -171,13 +229,13 @@ export default function OpenOfficePage() {
                   {activeDaySchedule.time}
                 </span>
               </div>
-              <h3 className="text-lg md:text-xl font-bold text-white">{activeDaySchedule.title}</h3>
+              <h3 className="text-lg md:text-xl font-bold text-white uppercase tracking-wider">{activeDaySchedule.title}</h3>
               <p className="text-xs text-stone-400 leading-relaxed max-w-3xl">{activeDaySchedule.desc}</p>
             </div>
             
             <div className="bg-[#18100a] border border-amber-900/30 rounded-xl p-5 space-y-4 flex flex-col justify-between h-full">
               <div>
-                <h4 className="text-[10px] font-bold text-stone-400 uppercase tracking-wider mb-2">Participant Perks</h4>
+                <h4 className="text-[9px] font-bold text-stone-400 uppercase tracking-wider mb-3">Participant Perks</h4>
                 <ul className="space-y-2 text-xs text-stone-500">
                   <li className="flex items-center gap-2">
                     <Check className="w-3.5 h-3.5 text-[#d4af37] shrink-0" /> Live text-based Q&amp;A
@@ -190,20 +248,30 @@ export default function OpenOfficePage() {
                   </li>
                 </ul>
               </div>
-              <button
-                onClick={() => openModal("openoffice")}
-                className="w-full text-center bg-[#120b06] border border-amber-900/30 text-stone-300 hover:text-white font-bold py-2 px-4 rounded-lg text-xs transition-colors mt-4 cursor-pointer uppercase tracking-wider"
-              >
-                Access Stream Details
-              </button>
+              
+              <div className="flex flex-col gap-2 mt-4">
+                <button
+                  onClick={() => downloadIcs(activeDaySchedule)}
+                  className="w-full text-center bg-gradient-to-r from-[#d4af37] to-[#f59e0b] text-black font-extrabold py-2.5 px-4 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider flex items-center justify-center gap-1.5"
+                >
+                  <Plus className="w-3.5 h-3.5" />
+                  Add to Calendar (.ics)
+                </button>
+                <button
+                  onClick={() => openModal("openoffice")}
+                  className="w-full text-center bg-[#120b06] border border-amber-900/30 text-stone-300 hover:text-white font-bold py-2 px-4 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider"
+                >
+                  Access Stream Details
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Benefits Grid */}
-        <div className="mb-24">
+        <div>
           <div className="gsap-reveal text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-xl sm:text-2xl font-bold text-white">Open Office Community Benefits</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-white uppercase tracking-wider">Open Office Community Benefits</h2>
             <p className="text-xs text-stone-555 mt-2">
               Our workspace compiles tools, networks, and events into a single membership designed to support tax business growth.
             </p>
@@ -213,18 +281,23 @@ export default function OpenOfficePage() {
             {communityBenefits.map((b) => {
               const IconComponent = b.icon;
               return (
-                <div key={b.name} className="gsap-reveal glass-card glass-card-hover p-5">
+                <div key={b.name} className="gsap-reveal glass-card p-5">
                   <div className="flex items-center space-x-3 mb-2">
                     <span className="text-[#d4af37]">
                       <IconComponent className="w-5 h-5" />
                     </span>
-                    <h3 className="text-xs font-bold text-white">{b.name}</h3>
+                    <h3 className="text-xs font-bold text-white uppercase tracking-wider">{b.name}</h3>
                   </div>
                   <p className="text-[11px] text-stone-550 leading-relaxed">{b.desc}</p>
                 </div>
               );
             })}
           </div>
+        </div>
+
+        {/* FAQs */}
+        <div className="gsap-reveal">
+          <FaqAccordion items={openOfficeFaqs} title="Open Office Community FAQs" />
         </div>
       </div>
     </div>

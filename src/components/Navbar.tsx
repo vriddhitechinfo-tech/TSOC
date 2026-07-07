@@ -18,6 +18,7 @@ export default function Navbar() {
     { name: "Service Bureau", href: "/service-bureau-growth" },
     { name: "Open Office", href: "/open-office" },
     { name: "Automation & CRM", href: "/technology-support" },
+    { name: "Revenue Expansion", href: "/revenue-expansion" },
   ];
 
   const isActive = (href: string) => {

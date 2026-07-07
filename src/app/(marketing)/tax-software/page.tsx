@@ -5,6 +5,8 @@ import { useModal } from "@/context/ModalContext";
 import { Check, ShieldCheck, DollarSign, Users } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SoftwareCarousel from "@/components/SoftwareCarousel";
+import FaqAccordion from "@/components/ui/FaqAccordion";
 
 export default function TaxSoftwarePage() {
   const { openModal } = useModal();
@@ -53,8 +55,8 @@ export default function TaxSoftwarePage() {
         "Email & basic chat support",
         "Basic training resources",
       ],
-      ctaText: "Purchase Software",
-      action: () => openModal("software"),
+      ctaText: "See the Software in Action",
+      action: () => openModal("demo"),
     },
     {
       name: "ERO Growth",
@@ -69,8 +71,8 @@ export default function TaxSoftwarePage() {
         "Dedicated tech advisor support",
         "EFIN application review guidance",
       ],
-      ctaText: "Schedule Call to Buy",
-      action: () => openModal("software"),
+      ctaText: "Request Free Live Demo",
+      action: () => openModal("demo"),
     },
     {
       name: "Service Bureau Enterprise",
@@ -84,9 +86,28 @@ export default function TaxSoftwarePage() {
         "Service Bureau operations mentorship",
         "Priority 24/7 technical hotline",
       ],
-      ctaText: "Request Enterprise Demo",
+      ctaText: "See Enterprise in Action",
       action: () => openModal("demo"),
     },
+  ];
+
+  const softwareFaqs = [
+    {
+      question: "Is the tax software cloud-based?",
+      answer: "Yes, our professional tax software is fully cloud-based. You and your preparers can access files, prepare returns, and track e-file statuses securely from any web browser on desktop, tablet, or mobile devices with no local installations required."
+    },
+    {
+      question: "Do you support business and corporate tax filings?",
+      answer: "Yes, our ERO Growth and Service Bureau tiers support comprehensive business filings, including Form 1120 (Corporations), Form 1120-S (S-Corporations), Form 1065 (Partnerships), Form 990 (Non-Profits), and Form 706/709 (Estates/Trusts), alongside all state forms."
+    },
+    {
+      question: "How do refund bank products and advances work?",
+      answer: "We are integrated with the industry's leading bank product processors (like TPG, Republic Bank, and Refund Advantage). During filing, you can offer clients options to deduct prep fees directly from their refund, or request refund advances of up to $6,000, which pays out within hours of IRS acknowledgement."
+    },
+    {
+      question: "Can I customize software fees under my own brand?",
+      answer: "Absolutely. Under our Service Bureau Enterprise program, you can white-label the software dashboard under your own company name and logo, set custom service fee defaults, and configure automatic document prep fee splits for your remote agents."
+    }
   ];
 
   return (
@@ -94,9 +115,9 @@ export default function TaxSoftwarePage() {
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.03)_0%,transparent_60%)] pointer-events-none -z-10" />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-24">
         {/* Header Section */}
-        <div className="gsap-reveal text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <div className="gsap-reveal text-center max-w-3xl mx-auto space-y-4">
           <span className="inline-flex items-center rounded-lg bg-amber-955/35 border border-amber-900/40 px-3.5 py-1.5 text-xs font-semibold text-[#d4af37]">
             Professional Tax Software for Tax Preparers
           </span>
@@ -106,35 +127,58 @@ export default function TaxSoftwarePage() {
           <p className="text-sm text-stone-400 leading-relaxed">
             Access robust, reliable, and compliant tax software. File federal and state returns quickly, offer bank products directly, and grow a tax business with zero limits.
           </p>
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
+            <button
+              onClick={() => openModal("demo")}
+              className="bg-[#d4af37] text-black hover:bg-[#c29e2f] font-extrabold px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-colors cursor-pointer"
+            >
+              See the Software in Action
+            </button>
+            <button
+              onClick={() => openModal("demo")}
+              className="bg-[#18100a] text-stone-300 hover:text-white border border-amber-900/30 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-colors cursor-pointer"
+            >
+              Request Free Live Demo
+            </button>
+          </div>
+        </div>
+
+        {/* Walkthrough Carousel Section */}
+        <div className="gsap-reveal space-y-6">
+          <div className="text-center max-w-xl mx-auto">
+            <h2 className="text-xl font-extrabold text-white uppercase tracking-wider">Product Walkthrough</h2>
+            <p className="text-xs text-stone-500 mt-1">Review the core workspaces and integrations within the cloud filing platform.</p>
+          </div>
+          <SoftwareCarousel />
         </div>
 
         {/* Feature Highlights Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
-          <div className="gsap-reveal glass-card glass-card-hover p-6 space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="gsap-reveal glass-card p-6 space-y-4">
             <div className="h-9 w-9 rounded-md bg-[#18100a] border border-amber-900/30 flex items-center justify-center text-[#d4af37]">
               <ShieldCheck className="w-5 h-5" />
             </div>
-            <h3 className="text-base font-bold text-white">Full IRS Compliance &amp; Review</h3>
+            <h3 className="text-base font-bold text-white uppercase tracking-wider">Full IRS Compliance &amp; Review</h3>
             <p className="text-xs text-stone-400 leading-relaxed">
               Never worry about compliance audits. Our software includes auto-diagnostics that scan returns for missing disclosures, invalid entries, and IRS red flags prior to filing.
             </p>
           </div>
 
-          <div className="gsap-reveal glass-card glass-card-hover-emerald p-6 space-y-4">
+          <div className="gsap-reveal glass-card-hover-emerald p-6 space-y-4 border border-emerald-950 bg-[#160f0a]/30 rounded-xl">
             <div className="h-9 w-9 rounded-md bg-[#18100a] border border-amber-900/30 flex items-center justify-center text-[#d4af37]">
               <DollarSign className="w-5 h-5" />
             </div>
-            <h3 className="text-base font-bold text-white">Integrated Bank Products</h3>
+            <h3 className="text-base font-bold text-white uppercase tracking-wider">Integrated Bank Products</h3>
             <p className="text-xs text-stone-400 leading-relaxed">
               Enroll in top refund bank partners. Offer refund advances to clients and deduct tax preparation fees directly from refunds, making client payments seamless.
             </p>
           </div>
 
-          <div className="gsap-reveal glass-card glass-card-hover p-6 space-y-4">
+          <div className="gsap-reveal glass-card p-6 space-y-4">
             <div className="h-9 w-9 rounded-md bg-[#18100a] border border-amber-900/30 flex items-center justify-center text-[#d4af37]">
               <Users className="w-5 h-5" />
             </div>
-            <h3 className="text-base font-bold text-white">Unlimited Multi-User Console</h3>
+            <h3 className="text-base font-bold text-white uppercase tracking-wider">Unlimited Multi-User Console</h3>
             <p className="text-xs text-stone-400 leading-relaxed">
               Add junior preparers or establish remote offices easily. Our multi-site console keeps files isolated, tracking individual filing volumes and performance metrics.
             </p>
@@ -142,9 +186,9 @@ export default function TaxSoftwarePage() {
         </div>
 
         {/* Pricing / Packages */}
-        <div className="mb-24">
+        <div>
           <div className="gsap-reveal text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-2xl font-bold text-white">Choose Your Software Setup</h2>
+            <h2 className="text-2xl font-bold text-white uppercase tracking-wider">Choose Your Software Setup</h2>
             <p className="text-xs text-stone-500 mt-2">
               Whether you are an independent preparer or scaling a multi-site enterprise, we have a custom software package for you.
             </p>
@@ -166,11 +210,11 @@ export default function TaxSoftwarePage() {
                 
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-base font-bold text-white">{pkg.name}</h3>
+                    <h3 className="text-base font-bold text-white uppercase tracking-wider">{pkg.name}</h3>
                     <p className="text-xs text-stone-500 mt-2">{pkg.desc}</p>
                   </div>
 
-                  <div className="text-xl font-black text-[#d4af37]">
+                  <div className="text-xl font-black text-[#d4af37] font-mono">
                     {pkg.priceText}
                   </div>
 
@@ -203,13 +247,18 @@ export default function TaxSoftwarePage() {
           </div>
         </div>
 
+        {/* FAQs */}
+        <div className="gsap-reveal">
+          <FaqAccordion items={softwareFaqs} title="Professional Tax Software FAQs" />
+        </div>
+
         {/* Community Banner */}
         <div className="gsap-reveal glass-card p-8 md:p-12 relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-8">
           <div className="space-y-3 max-w-2xl">
             <span className="text-[10px] font-bold uppercase tracking-wider text-[#d4af37] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded">
               Tax Software Community
             </span>
-            <h3 className="text-xl font-bold text-white">Join More Than Just a Software Company</h3>
+            <h3 className="text-xl font-bold text-white uppercase tracking-wider">Join More Than Just a Software Company</h3>
             <p className="text-xs text-stone-450 leading-relaxed">
               When you purchase professional tax software through The Sector, you gain access to our live coworking community, Tech Tuesday workshops, and year-round business advice resources.
             </p>
