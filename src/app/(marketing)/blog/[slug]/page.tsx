@@ -1,0 +1,113 @@
+import React from "react";
+import { notFound } from "next/navigation";
+import { getSeoMetadata } from "@/lib/seo";
+import blogs from "@/content/blogs.json";
+import StrategyCTA from "@/components/ui/StrategyCTA";
+import Link from "next/link";
+import { ArrowLeft, BookOpen } from "lucide-react";
+
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
+
+export async function generateStaticParams() {
+  return blogs.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
+export async function generateMetadata({ params }: PageProps) {
+  const { slug } = await params;
+  const post = blogs.find((b) => b.slug === slug);
+  if (!post) return {};
+  return getSeoMetadata(post.title, post.description, `/blog/${slug}`);
+}
+
+export default async function BlogPostPage({ params }: PageProps) {
+  const { slug } = await params;
+  const post = blogs.find((b) => b.slug === slug);
+  if (!post) notFound();
+
+  return (
+    <article className="relative overflow-hidden bg-[#120b06] min-h-screen py-16 sm:py-24">
+      {/* Background glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.03)_0%,transparent_60%)] pointer-events-none -z-10" />
+
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        {/* Navigation Breadcrumb */}
+        <div className="mb-8">
+          <Link
+            href="/"
+            className="text-xs text-stone-500 hover:text-white transition-colors inline-flex items-center gap-1.5"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back to Home
+          </Link>
+        </div>
+
+        {/* Article Header */}
+        <div className="space-y-4 mb-12 pb-8 border-b border-amber-950/20">
+          <span className="inline-flex items-center rounded-lg bg-amber-955/35 border border-amber-900/40 px-3.5 py-1 text-xs font-semibold text-[#d4af37]">
+            Sector Blog &amp; Resources
+          </span>
+          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight font-sans">
+            {post.title}
+          </h1>
+          <div className="flex items-center gap-4 text-xs text-stone-500">
+            <span>By {post.author}</span>
+            <span>•</span>
+            <span>Published on {post.date}</span>
+          </div>
+        </div>
+
+        {/* Article Body */}
+        <div className="prose prose-invert max-w-none text-stone-300 space-y-6 text-sm md:text-base leading-relaxed">
+          {post.content.split("\n\n").map((paragraph, index) => {
+            if (paragraph.startsWith("###")) {
+              return (
+                <h3 key={index} className="text-base md:text-lg font-bold text-white pt-4 uppercase tracking-wider">
+                  {paragraph.replace("###", "").trim()}
+                </h3>
+              );
+            }
+            if (paragraph.startsWith("*") || paragraph.startsWith("-")) {
+              return (
+                <ul key={index} className="list-disc pl-6 space-y-2 text-[#d4af37]">
+                  {paragraph.split("\n").map((li, liIdx) => (
+                    <li key={liIdx} className="text-stone-300">
+                      {li.replace(/^[*\-]\s+/, "").trim()}
+                    </li>
+                  ))}
+                </ul>
+              );
+            }
+            if (/^\d+\./.test(paragraph)) {
+              return (
+                <ol key={index} className="list-decimal pl-6 space-y-2 text-[#d4af37]">
+                  {paragraph.split("\n").map((li, liIdx) => (
+                    <li key={liIdx} className="text-stone-300">
+                      {li.replace(/^\d+\.\s+/, "").trim()}
+                    </li>
+                  ))}
+                </ol>
+              );
+            }
+            return <p key={index}>{paragraph}</p>;
+          })}
+        </div>
+
+        {/* CTA section inside blog */}
+        <div className="glass-card p-6 md:p-8 mt-16 text-center space-y-4">
+          <BookOpen className="w-8 h-8 text-[#d4af37] mx-auto" />
+          <h4 className="text-sm font-bold text-white uppercase tracking-wider">Scale Your Tax Business with The Sector</h4>
+          <p className="text-xs text-stone-450 max-w-md mx-auto leading-relaxed">
+            Gain access to cloud-based professional tax software, ERO Application compliance checks, and a collaborative peer network.
+          </p>
+          <div className="pt-2">
+            <StrategyCTA />
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+}
