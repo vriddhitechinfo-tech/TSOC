@@ -101,7 +101,7 @@ export default function TechnologySupportPage() {
 
   const techFaqs = [
     {
-      question: "Which CRM software does The Sector support?",
+      question: "Which CRM software does The Sector of Collectives support?",
       answer: "We support integrations across popular CRM platforms such as GoHighLevel, ActiveCampaign, HubSpot, and Salesforce. We provide pre-built snapshot templates configured with tax preparer intake pipelines, automated appointment bookings, and SMS follow-ups."
     },
     {
@@ -126,7 +126,7 @@ export default function TechnologySupportPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-24">
         {/* Header Section */}
         <div className="gsap-reveal text-center max-w-3xl mx-auto space-y-4">
-          <span className="inline-flex items-center rounded-lg bg-amber-955/35 border border-amber-900/40 px-3.5 py-1.5 text-xs font-semibold text-[#d4af37]">
+          <span className="inline-flex items-center rounded-lg bg-amber-955/35 border border-amber-900/40 px-3.5 py-1.5 text-xs font-semibold text-[#fda85d]">
             CRM &amp; Automation Support
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
@@ -138,7 +138,7 @@ export default function TechnologySupportPage() {
           <div className="pt-4">
             <button
               onClick={() => openModal("technology")}
-              className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#d4af37] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
+              className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#fda85d] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
             >
               Book a Technology Consultation
             </button>
@@ -164,7 +164,7 @@ export default function TechnologySupportPage() {
               ].map((step, idx) => (
                 <React.Fragment key={idx}>
                   <div className="gsap-flow-node flex flex-col items-center text-center space-y-2 z-10 w-28">
-                    <div className="h-12 w-12 rounded-xl bg-[#120b06] border border-amber-900/35 hover:border-amber-400 flex items-center justify-center text-[#d4af37] shadow transition-colors">
+                    <div className="h-12 w-12 rounded-xl bg-[#120b06] border border-amber-900/35 hover:border-amber-400 flex items-center justify-center text-[#fda85d] shadow transition-colors">
                       <step.icon className="w-5 h-5" />
                     </div>
                     <div>
@@ -190,13 +190,13 @@ export default function TechnologySupportPage() {
                           y1="4"
                           x2="100%"
                           y2="4"
-                          stroke="#d4af37"
+                          stroke="#fda85d"
                           strokeWidth="2"
                           strokeDasharray="100"
                           strokeDashoffset="100"
                         />
                       </svg>
-                      <ChevronRight className="w-3.5 h-3.5 text-[#d4af37] absolute right-2.5" />
+                      <ChevronRight className="w-3.5 h-3.5 text-[#fda85d] absolute right-2.5" />
                     </div>
                   )}
                 </React.Fragment>
@@ -264,7 +264,7 @@ export default function TechnologySupportPage() {
                 onClick={() => setActiveStep(idx)}
                 className={`p-3.5 rounded-lg border text-center transition-all cursor-pointer flex flex-col items-center justify-center focus:outline-none ${
                   activeStep === idx
-                    ? "bg-[#18100a] border-amber-500/30 text-[#d4af37] font-semibold"
+                    ? "bg-[#18100a] border-amber-500/30 text-[#fda85d] font-semibold"
                     : "bg-[#18100a]/40 border-amber-900/30 text-stone-500 hover:text-white"
                 }`}
               >
@@ -276,10 +276,10 @@ export default function TechnologySupportPage() {
 
           <div className="bg-[#18100a]/50 border border-amber-900/30 rounded-xl p-6 space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-              <span className="text-[9px] font-bold tracking-widest text-[#d4af37] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded inline-block">
+              <span className="text-[9px] font-bold tracking-widest text-[#fda85d] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded inline-block">
                 Step {automationSteps[activeStep].num} Configuration
               </span>
-              <span className="text-[9px] text-[#d4af37] font-mono">
+              <span className="text-[9px] text-[#fda85d] font-mono">
                 System: {automationSteps[activeStep].tool}
               </span>
             </div>
@@ -301,7 +301,7 @@ export default function TechnologySupportPage() {
           </p>
           <button
             onClick={() => openModal("technology")}
-            className="bg-gradient-to-r from-[#d4af37] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black font-extrabold py-3 px-6 rounded-lg text-xs transition-colors shadow-md mt-2 cursor-pointer uppercase tracking-wider"
+            className="bg-gradient-to-r from-[#fda85d] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black font-extrabold py-3 px-6 rounded-lg text-xs transition-colors shadow-md mt-2 cursor-pointer uppercase tracking-wider"
           >
             Request Technology Setup Audit
           </button>

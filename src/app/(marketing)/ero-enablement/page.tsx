@@ -124,7 +124,7 @@ export default function EROEnablementPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-24">
         {/* Header Section */}
         <div className="gsap-reveal text-center max-w-3xl mx-auto space-y-4">
-          <span className="inline-flex items-center rounded-lg bg-amber-955/35 border border-amber-900/40 px-3.5 py-1.5 text-xs font-semibold text-[#d4af37]">
+          <span className="inline-flex items-center rounded-lg bg-amber-955/35 border border-amber-900/40 px-3.5 py-1.5 text-xs font-semibold text-[#fda85d]">
             IRS ERO Support &amp; Training
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
@@ -136,7 +136,7 @@ export default function EROEnablementPage() {
           <div className="pt-4">
             <button
               onClick={() => openModal("ero")}
-              className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#d4af37] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
+              className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#fda85d] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
             >
               Book an ERO Consultation
             </button>
@@ -160,7 +160,7 @@ export default function EROEnablementPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="gsap-reveal glass-card p-6 space-y-4">
-              <div className="h-9 w-9 rounded-md bg-[#18100a] border border-amber-900/30 flex items-center justify-center text-[#d4af37]">
+              <div className="h-9 w-9 rounded-md bg-[#18100a] border border-amber-900/30 flex items-center justify-center text-[#fda85d]">
                 <DollarSign className="w-5 h-5" />
               </div>
               <h3 className="text-xs font-bold text-white uppercase tracking-wider">Keep 100% of Revenue</h3>
@@ -170,7 +170,7 @@ export default function EROEnablementPage() {
             </div>
 
             <div className="gsap-reveal glass-card p-6 space-y-4">
-              <div className="h-9 w-9 rounded-md bg-[#18100a] border border-amber-900/30 flex items-center justify-center text-[#d4af37]">
+              <div className="h-9 w-9 rounded-md bg-[#18100a] border border-amber-900/30 flex items-center justify-center text-[#fda85d]">
                 <Award className="w-5 h-5" />
               </div>
               <h3 className="text-xs font-bold text-white uppercase tracking-wider">Full Brand Authority</h3>
@@ -180,7 +180,7 @@ export default function EROEnablementPage() {
             </div>
 
             <div className="gsap-reveal glass-card p-6 space-y-4">
-              <div className="h-9 w-9 rounded-md bg-[#18100a] border border-amber-900/30 flex items-center justify-center text-[#d4af37]">
+              <div className="h-9 w-9 rounded-md bg-[#18100a] border border-amber-900/30 flex items-center justify-center text-[#fda85d]">
                 <Sliders className="w-5 h-5" />
               </div>
               <h3 className="text-xs font-bold text-white uppercase tracking-wider">Control Your Pricing</h3>
@@ -190,7 +190,7 @@ export default function EROEnablementPage() {
             </div>
 
             <div className="gsap-reveal glass-card p-6 space-y-4">
-              <div className="h-9 w-9 rounded-md bg-[#18100a] border border-amber-900/30 flex items-center justify-center text-[#d4af37]">
+              <div className="h-9 w-9 rounded-md bg-[#18100a] border border-amber-900/30 flex items-center justify-center text-[#fda85d]">
                 <Building className="w-5 h-5" />
               </div>
               <h3 className="text-xs font-bold text-white uppercase tracking-wider">Direct Bank Approvals</h3>
@@ -213,7 +213,7 @@ export default function EROEnablementPage() {
           <div className="space-y-8 relative before:absolute before:inset-y-0 before:left-4 before:md:left-8 before:w-0.5 before:bg-amber-900/30">
             {roadmapSteps.map((step) => (
               <div key={step.num} className="gsap-step-node relative flex items-start space-x-4 md:space-x-8 pl-1">
-                <span className="flex h-8 w-8 md:h-14 md:w-14 shrink-0 items-center justify-center rounded-lg bg-[#18100a] border border-amber-900/40 text-[#d4af37] font-extrabold text-xs md:text-sm z-10 hover:border-amber-400 transition-colors">
+                <span className="flex h-8 w-8 md:h-14 md:w-14 shrink-0 items-center justify-center rounded-lg bg-[#18100a] border border-amber-900/40 text-[#fda85d] font-extrabold text-xs md:text-sm z-10 hover:border-amber-400 transition-colors">
                   {step.num}
                 </span>
                 <div className="space-y-1.5 pt-1.5 md:pt-3">
@@ -238,7 +238,7 @@ export default function EROEnablementPage() {
           </p>
           <button
             onClick={() => openModal("ero")}
-            className="bg-gradient-to-r from-[#d4af37] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black font-extrabold py-2.5 px-6 rounded-lg text-xs transition-colors shadow-md mt-2 cursor-pointer uppercase tracking-wider"
+            className="bg-gradient-to-r from-[#fda85d] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black font-extrabold py-2.5 px-6 rounded-lg text-xs transition-colors shadow-md mt-2 cursor-pointer uppercase tracking-wider"
           >
             Start ERO Enablement Today
           </button>

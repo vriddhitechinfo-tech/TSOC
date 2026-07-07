@@ -2,57 +2,57 @@
 
 @layer base {
   :root {
-    --background: 20 40% 5%;
+    --background: 15 40% 4%;
     --foreground: 40 20% 98%;
-    --card: 20 40% 5%;
+    --card: 15 40% 4%;
     --card-foreground: 40 20% 98%;
-    --popover: 20 40% 5%;
+    --popover: 15 40% 4%;
     --popover-foreground: 40 20% 98%;
-    --primary: 40 80% 50%;
-    --primary-foreground: 20 40% 5%;
-    --secondary: 30 20% 12%;
+    --primary: 28 98% 68%;
+    --primary-foreground: 15 40% 4%;
+    --secondary: 28 20% 10%;
     --secondary-foreground: 40 20% 98%;
-    --muted: 30 20% 12%;
+    --muted: 28 20% 10%;
     --muted-foreground: 40 10% 60%;
-    --accent: 40 80% 50%;
-    --accent-foreground: 20 40% 5%;
+    --accent: 28 98% 68%;
+    --accent-foreground: 15 40% 4%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 40 20% 98%;
-    --border: 30 20% 12%;
-    --input: 30 20% 12%;
-    --ring: 40 80% 50%;
+    --border: 28 20% 10%;
+    --input: 28 20% 10%;
+    --ring: 28 98% 68%;
     --radius: 0.75rem;
   }
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: #120b06; /* Luxurious deep dark brown base */
+  background-color: #0f0a06; /* Adjusted for warmer brand palette */
   color: #fafaf9; /* warm stone-50 */
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
 
 /* Luxury Card Styling */
 .glass-card {
-  background: rgba(26, 17, 10, 0.45);
+  background: rgba(24, 15, 9, 0.45);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(212, 175, 55, 0.05);
+  border: 1px solid rgba(253, 168, 93, 0.05);
   border-radius: 0.75rem;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glass-card-hover:hover {
-  border-color: rgba(212, 175, 55, 0.25); /* Subtle Golden Glow */
-  background: rgba(36, 24, 15, 0.65);
-  box-shadow: 0 10px 35px -15px rgba(212, 175, 55, 0.12);
+  border-color: rgba(253, 168, 93, 0.25); /* Subtle Peachy Orange Glow */
+  background: rgba(34, 21, 13, 0.65);
+  box-shadow: 0 10px 35px -15px rgba(253, 168, 93, 0.12);
   transform: translateY(-2px);
 }
 
 .glass-card-hover-emerald:hover {
-  border-color: rgba(245, 158, 11, 0.25); /* Warm Golden Yellow Glow */
-  background: rgba(36, 24, 15, 0.65);
-  box-shadow: 0 10px 35px -15px rgba(245, 158, 11, 0.12);
+  border-color: rgba(253, 168, 93, 0.25); /* Consistent Peachy Orange Glow */
+  background: rgba(34, 21, 13, 0.65);
+  box-shadow: 0 10px 35px -15px rgba(253, 168, 93, 0.12);
   transform: translateY(-2px);
 }
 

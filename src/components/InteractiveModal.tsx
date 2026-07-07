@@ -52,7 +52,7 @@ export default function InteractiveModal() {
       case "demo":
         return "Request a Software Walkthrough Demo";
       default:
-        return "Connect with The Sector";
+        return "Connect with The Sector of Collectives";
     }
   };
 
@@ -71,7 +71,7 @@ export default function InteractiveModal() {
       case "technology":
         return "Optimize your workflow with modern CRMs, client automations, and AI integrations.";
       case "partner":
-        return "Partner with The Sector to offer software, training, and community opportunities to your audience.";
+        return "Partner with The Sector of Collectives to offer software, training, and community opportunities to your audience.";
       case "demo":
         return "See our professional tax software in action. Get a live tour of features, filing tools, and dashboards.";
       default:
@@ -121,7 +121,7 @@ export default function InteractiveModal() {
         {/* Close Button */}
         <button
           onClick={closeModal}
-          className="absolute top-4 right-4 text-stone-400 hover:text-[#d4af37] transition-colors p-1.5 hover:bg-amber-950/40 rounded-lg"
+          className="absolute top-4 right-4 text-stone-400 hover:text-[#fda85d] transition-colors p-1.5 hover:bg-amber-950/40 rounded-lg"
           aria-label="Close modal"
         >
           <X className="w-4 h-4" />
@@ -151,7 +151,7 @@ export default function InteractiveModal() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="John Doe"
-                    className="w-full bg-amber-950/10 border border-amber-900/30 focus:border-[#d4af37] focus:ring-1 focus:ring-[#d4af37] rounded-lg px-3.5 py-2.5 text-white placeholder-stone-700 outline-none transition-all text-xs"
+                    className="w-full bg-amber-950/10 border border-amber-900/30 focus:border-[#fda85d] focus:ring-1 focus:ring-[#fda85d] rounded-lg px-3.5 py-2.5 text-white placeholder-stone-700 outline-none transition-all text-xs"
                   />
                 </div>
 
@@ -168,7 +168,7 @@ export default function InteractiveModal() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="john@example.com"
-                      className="w-full bg-amber-950/10 border border-amber-900/30 focus:border-[#d4af37] focus:ring-1 focus:ring-[#d4af37] rounded-lg px-3.5 py-2.5 text-white placeholder-stone-700 outline-none transition-all text-xs"
+                      className="w-full bg-amber-950/10 border border-amber-900/30 focus:border-[#fda85d] focus:ring-1 focus:ring-[#fda85d] rounded-lg px-3.5 py-2.5 text-white placeholder-stone-700 outline-none transition-all text-xs"
                     />
                   </div>
                   <div>
@@ -183,7 +183,7 @@ export default function InteractiveModal() {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="(555) 555-5555"
-                      className="w-full bg-amber-950/10 border border-amber-900/30 focus:border-[#d4af37] focus:ring-1 focus:ring-[#d4af37] rounded-lg px-3.5 py-2.5 text-white placeholder-stone-700 outline-none transition-all text-xs"
+                      className="w-full bg-amber-950/10 border border-amber-900/30 focus:border-[#fda85d] focus:ring-1 focus:ring-[#fda85d] rounded-lg px-3.5 py-2.5 text-white placeholder-stone-700 outline-none transition-all text-xs"
                     />
                   </div>
                 </div>
@@ -200,7 +200,7 @@ export default function InteractiveModal() {
                         name="experience"
                         value={formData.experience}
                         onChange={handleChange}
-                        className="w-full bg-amber-950/15 border border-amber-900/30 focus:border-[#d4af37] focus:ring-1 focus:ring-[#d4af37] rounded-lg px-3.5 py-2.5 text-white outline-none transition-all text-xs"
+                        className="w-full bg-amber-950/15 border border-amber-900/30 focus:border-[#fda85d] focus:ring-1 focus:ring-[#fda85d] rounded-lg px-3.5 py-2.5 text-white outline-none transition-all text-xs"
                       >
                         <option value="new">New Tax Preparer</option>
                         <option value="intermediate">1-3 Years Experience</option>
@@ -216,7 +216,7 @@ export default function InteractiveModal() {
                         name="efinStatus"
                         value={formData.efinStatus}
                         onChange={handleChange}
-                        className="w-full bg-amber-950/15 border border-amber-900/30 focus:border-[#d4af37] focus:ring-1 focus:ring-[#d4af37] rounded-lg px-3.5 py-2.5 text-white outline-none transition-all text-xs"
+                        className="w-full bg-amber-950/15 border border-amber-900/30 focus:border-[#fda85d] focus:ring-1 focus:ring-[#fda85d] rounded-lg px-3.5 py-2.5 text-white outline-none transition-all text-xs"
                       >
                         <option value="yes">Yes, I have an active EFIN</option>
                         <option value="no">No, not yet</option>
@@ -235,7 +235,7 @@ export default function InteractiveModal() {
                       name="efinStatus"
                       value={formData.efinStatus}
                       onChange={handleChange}
-                      className="w-full bg-amber-950/15 border border-amber-900/30 focus:border-[#d4af37] focus:ring-1 focus:ring-[#d4af37] rounded-lg px-3.5 py-2.5 text-white outline-none transition-all text-xs"
+                      className="w-full bg-amber-950/15 border border-amber-900/30 focus:border-[#fda85d] focus:ring-1 focus:ring-[#fda85d] rounded-lg px-3.5 py-2.5 text-white outline-none transition-all text-xs"
                     >
                       <option value="no">No, I need guidance getting one</option>
                       <option value="yes">Yes, I already have an EFIN</option>
@@ -255,7 +255,7 @@ export default function InteractiveModal() {
                         name="efinStatus"
                         value={formData.efinStatus}
                         onChange={handleChange}
-                        className="w-full bg-amber-950/15 border border-amber-900/30 focus:border-[#d4af37] focus:ring-1 focus:ring-[#d4af37] rounded-lg px-3.5 py-2.5 text-white outline-none transition-all text-xs"
+                        className="w-full bg-amber-950/15 border border-amber-900/30 focus:border-[#fda85d] focus:ring-1 focus:ring-[#fda85d] rounded-lg px-3.5 py-2.5 text-white outline-none transition-all text-xs"
                       >
                         <option value="yes">Yes, active ERO</option>
                         <option value="no">No, preparing under someone</option>
@@ -270,7 +270,7 @@ export default function InteractiveModal() {
                         name="preparerCount"
                         value={formData.preparerCount}
                         onChange={handleChange}
-                        className="w-full bg-amber-950/15 border border-amber-900/30 focus:border-[#d4af37] focus:ring-1 focus:ring-[#d4af37] rounded-lg px-3.5 py-2.5 text-white outline-none transition-all text-xs"
+                        className="w-full bg-amber-950/15 border border-amber-900/30 focus:border-[#fda85d] focus:ring-1 focus:ring-[#fda85d] rounded-lg px-3.5 py-2.5 text-white outline-none transition-all text-xs"
                       >
                         <option value="1">Just Me (1)</option>
                         <option value="2-5">2 to 5 Preparers</option>
@@ -293,7 +293,7 @@ export default function InteractiveModal() {
                       value={formData.currentSoftware}
                       onChange={handleChange}
                       placeholder="e.g. TaxSlayer, HubSpot, sheets"
-                      className="w-full bg-amber-950/10 border border-amber-900/30 focus:border-[#d4af37] focus:ring-1 focus:ring-[#d4af37] rounded-lg px-3.5 py-2.5 text-white placeholder-stone-700 outline-none transition-all text-xs"
+                      className="w-full bg-amber-950/10 border border-amber-900/30 focus:border-[#fda85d] focus:ring-1 focus:ring-[#fda85d] rounded-lg px-3.5 py-2.5 text-white placeholder-stone-700 outline-none transition-all text-xs"
                     />
                   </div>
                 )}
@@ -309,14 +309,14 @@ export default function InteractiveModal() {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Tell us about your business goals..."
-                    className="w-full bg-amber-950/10 border border-amber-900/30 focus:border-[#d4af37] focus:ring-1 focus:ring-[#d4af37] rounded-lg px-3.5 py-2.5 text-white placeholder-stone-700 outline-none transition-all text-xs resize-none"
+                    className="w-full bg-amber-950/10 border border-amber-900/30 focus:border-[#fda85d] focus:ring-1 focus:ring-[#fda85d] rounded-lg px-3.5 py-2.5 text-white placeholder-stone-700 outline-none transition-all text-xs resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full flex items-center justify-center bg-gradient-to-r from-[#d4af37] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black font-extrabold py-3 px-4 rounded-lg transition-colors text-xs disabled:opacity-75 disabled:cursor-not-allowed mt-6 cursor-pointer uppercase tracking-wider"
+                  className="w-full flex items-center justify-center bg-gradient-to-r from-[#fda85d] to-[#f97316] hover:from-[#e0924f] hover:to-[#ea580c] text-black font-extrabold py-3 px-4 rounded-lg transition-colors text-xs disabled:opacity-75 disabled:cursor-not-allowed mt-6 cursor-pointer uppercase tracking-wider"
                 >
                   {isSubmitting ? (
                     <>
@@ -332,7 +332,7 @@ export default function InteractiveModal() {
           ) : (
             <div className="py-8 text-center flex flex-col items-center justify-center space-y-4">
               {/* Success Checkmark */}
-              <div className="w-12 h-12 bg-amber-950/40 rounded-full flex items-center justify-center text-[#d4af37] ring-4 ring-[#d4af37]/10">
+              <div className="w-12 h-12 bg-amber-950/40 rounded-full flex items-center justify-center text-[#fda85d] ring-4 ring-[#fda85d]/10">
                 <CheckCircle2 className="w-6 h-6" />
               </div>
 
@@ -341,12 +341,12 @@ export default function InteractiveModal() {
               </h3>
               
               <p className="text-xs text-stone-450 max-w-sm leading-relaxed">
-                Thank you, <span className="font-semibold text-white">{formData.name}</span>. A business advisor from The Sector will contact you at <span className="font-semibold text-white">{formData.email}</span> within 24 hours to schedule your strategy call.
+                Thank you, <span className="font-semibold text-white">{formData.name}</span>. A business advisor from The Sector of Collectives will contact you at <span className="font-semibold text-white">{formData.email}</span> within 24 hours to schedule your strategy call.
               </p>
 
               <button
                 onClick={handleReset}
-                className="mt-6 bg-[#d4af37] hover:bg-[#c29e2f] text-black font-extrabold py-2 px-6 rounded-lg transition-colors text-xs cursor-pointer uppercase tracking-wider"
+                className="mt-6 bg-[#fda85d] hover:bg-[#e0924f] text-black font-extrabold py-2 px-6 rounded-lg transition-colors text-xs cursor-pointer uppercase tracking-wider"
               >
                 Close Window
               </button>

@@ -1,6 +1,6 @@
 export const SITE_URL = "https://thesectortax.com"; // Placeholder URL
-export const SITE_NAME = "The Sector";
-export const DEFAULT_TITLE = "The Sector | Professional Tax Software & Community";
+export const SITE_NAME = "The Sector of Collectives";
+export const DEFAULT_TITLE = "The Sector of Collectives | Professional Tax Software & Community";
 export const DEFAULT_DESCRIPTION = "Helping tax professionals launch, grow, and scale profitable tax businesses. Keep more revenue, build better systems, and create year-round income.";
 
 export const NAV_LINKS = [

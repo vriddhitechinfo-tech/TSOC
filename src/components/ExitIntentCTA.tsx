@@ -110,12 +110,12 @@ export default function ExitIntentCTA() {
 
   return (
     <div className="fixed bottom-0 inset-x-0 z-40 p-4 md:p-6 animate-slide-up pointer-events-none">
-      <div className="mx-auto max-w-4xl bg-gradient-to-r from-[#22150d] to-[#120b06] border border-[#d4af37]/30 hover:border-[#d4af37]/50 rounded-xl shadow-2xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pointer-events-auto relative overflow-hidden">
+      <div className="mx-auto max-w-4xl bg-gradient-to-r from-[#22150d] to-[#120b06] border border-[#fda85d]/30 hover:border-[#fda85d]/50 rounded-xl shadow-2xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pointer-events-auto relative overflow-hidden">
         {/* Subtle decorative glow */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_left,rgba(212,175,55,0.06)_0%,transparent_60%)] pointer-events-none" />
 
         <div className="flex items-center space-x-3 z-10">
-          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-amber-950/40 border border-amber-900/30 text-[#d4af37]">
+          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-amber-950/40 border border-amber-900/30 text-[#fda85d]">
             <Bell className="h-4 w-4 animate-swing" />
           </span>
           <div>
@@ -127,7 +127,7 @@ export default function ExitIntentCTA() {
         <div className="flex items-center space-x-3 z-10">
           <button
             onClick={cta.action}
-            className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#d4af37] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black px-5 py-2.5 text-[10px] font-extrabold uppercase tracking-wider transition-all shadow-md cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#fda85d] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black px-5 py-2.5 text-[10px] font-extrabold uppercase tracking-wider transition-all shadow-md cursor-pointer"
           >
             {cta.actionText}
             <ArrowRight className="w-3 h-3 ml-2" />

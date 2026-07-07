@@ -4,7 +4,8 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useModal } from "@/context/ModalContext";
-import { Menu, X, FileText } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Logo from "@/components/ui/Logo";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -29,17 +30,15 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-amber-950/40 bg-[#120b06]/85 backdrop-blur-md">
+    <header className="sticky top-0 z-40 w-full border-b border-amber-950/40 bg-[#0f0a06]/85 backdrop-blur-md">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2 group">
-              <span className="flex h-8 w-8 items-center justify-center rounded-md bg-amber-950/30 border border-amber-900/40 text-[#d4af37] group-hover:text-white transition-colors duration-200">
-                <FileText className="h-4.5 w-4.5" />
-              </span>
-              <span className="font-bold text-base tracking-wider text-white uppercase group-hover:text-[#d4af37] transition-colors">
-                The Sector
+              <Logo size={28} />
+              <span className="font-bold text-sm tracking-wider text-white uppercase group-hover:text-[#fda85d] transition-colors">
+                The Sector of Collectives
               </span>
             </Link>
           </div>
@@ -52,7 +51,7 @@ export default function Navbar() {
                 href={link.href}
                 className={`px-3 py-1.5 rounded-md text-xs font-semibold tracking-wide transition-all duration-150 ${
                   isActive(link.href)
-                    ? "bg-amber-950/40 text-[#d4af37] border-b border-amber-500/30"
+                    ? "bg-amber-950/40 text-[#fda85d] border-b border-amber-500/30"
                     : "text-stone-400 hover:text-white hover:bg-amber-950/20"
                 }`}
               >
@@ -65,7 +64,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center space-x-3">
             <button
               onClick={() => openModal("strategy")}
-              className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#d4af37] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black px-4 py-2 text-xs font-extrabold shadow-md hover:shadow-[#d4af37]/10 transition-all cursor-pointer uppercase tracking-wider"
+              className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#fda85d] to-[#f97316] hover:from-[#e0924f] hover:to-[#ea580c] text-black px-4 py-2 text-xs font-extrabold shadow-md hover:shadow-[#fda85d]/10 transition-all cursor-pointer uppercase tracking-wider"
             >
               Book Strategy Call
             </button>
@@ -75,7 +74,7 @@ export default function Navbar() {
           <div className="flex lg:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="inline-flex items-center justify-center rounded-md p-1.5 text-stone-400 hover:text-white hover:bg-amber-950/20 focus:outline-none"
+              className="inline-flex items-center justify-center rounded-md p-1.5 text-stone-400 hover:text-white hover:bg-amber-955/20 focus:outline-none"
             >
               <span className="sr-only">Open main menu</span>
               {isMobileMenuOpen ? (
@@ -90,7 +89,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-[#120b06] border-b border-amber-950/40">
+        <div className="lg:hidden bg-[#0f0a06] border-b border-amber-950/40">
           <div className="space-y-1 px-3 pt-2 pb-4">
             {navLinks.map((link) => (
               <Link
@@ -99,7 +98,7 @@ export default function Navbar() {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={`block px-3 py-2.5 rounded-lg text-sm font-semibold tracking-wide ${
                   isActive(link.href)
-                    ? "bg-amber-950/40 text-[#d4af37]"
+                    ? "bg-amber-950/40 text-[#fda85d]"
                     : "text-stone-400 hover:text-white hover:bg-amber-950/20"
                 }`}
               >
@@ -112,7 +111,7 @@ export default function Navbar() {
                   setIsMobileMenuOpen(false);
                   openModal("strategy");
                 }}
-                className="w-full text-center bg-gradient-to-r from-[#d4af37] to-[#f59e0b] text-black font-extrabold py-2.5 px-4 rounded-lg text-xs transition-all cursor-pointer uppercase tracking-wider"
+                className="w-full text-center bg-gradient-to-r from-[#fda85d] to-[#f97316] text-black font-extrabold py-2.5 px-4 rounded-lg text-xs transition-all cursor-pointer uppercase tracking-wider"
               >
                 Book Strategy Call
               </button>

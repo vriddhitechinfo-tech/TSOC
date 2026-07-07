@@ -47,7 +47,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
         {/* Article Header */}
         <div className="space-y-4 mb-12 pb-8 border-b border-amber-950/20">
-          <span className="inline-flex items-center rounded-lg bg-amber-955/35 border border-amber-900/40 px-3.5 py-1 text-xs font-semibold text-[#d4af37]">
+          <span className="inline-flex items-center rounded-lg bg-amber-955/35 border border-amber-900/40 px-3.5 py-1 text-xs font-semibold text-[#fda85d]">
             Sector Blog &amp; Resources
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight font-sans">
@@ -72,7 +72,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             }
             if (paragraph.startsWith("*") || paragraph.startsWith("-")) {
               return (
-                <ul key={index} className="list-disc pl-6 space-y-2 text-[#d4af37]">
+                <ul key={index} className="list-disc pl-6 space-y-2 text-[#fda85d]">
                   {paragraph.split("\n").map((li, liIdx) => (
                     <li key={liIdx} className="text-stone-300">
                       {li.replace(/^[*\-]\s+/, "").trim()}
@@ -83,7 +83,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             }
             if (/^\d+\./.test(paragraph)) {
               return (
-                <ol key={index} className="list-decimal pl-6 space-y-2 text-[#d4af37]">
+                <ol key={index} className="list-decimal pl-6 space-y-2 text-[#fda85d]">
                   {paragraph.split("\n").map((li, liIdx) => (
                     <li key={liIdx} className="text-stone-300">
                       {li.replace(/^\d+\.\s+/, "").trim()}
@@ -98,8 +98,8 @@ export default async function BlogPostPage({ params }: PageProps) {
 
         {/* CTA section inside blog */}
         <div className="glass-card p-6 md:p-8 mt-16 text-center space-y-4">
-          <BookOpen className="w-8 h-8 text-[#d4af37] mx-auto" />
-          <h4 className="text-sm font-bold text-white uppercase tracking-wider">Scale Your Tax Business with The Sector</h4>
+          <BookOpen className="w-8 h-8 text-[#fda85d] mx-auto" />
+          <h4 className="text-sm font-bold text-white uppercase tracking-wider">Scale Your Tax Business with The Sector of Collectives</h4>
           <p className="text-xs text-stone-450 max-w-md mx-auto leading-relaxed">
             Gain access to cloud-based professional tax software, ERO Application compliance checks, and a collaborative peer network.
           </p>

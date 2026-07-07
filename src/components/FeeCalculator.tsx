@@ -40,7 +40,7 @@ export default function FeeCalculator() {
         {/* Left Side: Inputs */}
         <div className="p-6 md:p-8 space-y-6">
           <div className="space-y-2">
-            <span className="text-[9px] font-bold uppercase tracking-widest text-[#d4af37] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded">
+            <span className="text-[9px] font-bold uppercase tracking-widest text-[#fda85d] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded">
               Revenue Simulator
             </span>
             <h3 className="text-base sm:text-lg font-bold text-white uppercase tracking-wider">
@@ -56,7 +56,7 @@ export default function FeeCalculator() {
             <div className="space-y-2">
               <div className="flex items-center justify-between text-xs font-semibold text-stone-300">
                 <label htmlFor="calc-returns">Annual Tax Returns Prepared</label>
-                <span className="text-[#d4af37] font-mono text-sm font-black">{returns}</span>
+                <span className="text-[#fda85d] font-mono text-sm font-black">{returns}</span>
               </div>
               <input
                 type="range"
@@ -66,7 +66,7 @@ export default function FeeCalculator() {
                 step="5"
                 value={returns}
                 onChange={(e) => setReturns(Number(e.target.value))}
-                className="w-full h-1 bg-amber-950 rounded-lg appearance-none cursor-pointer accent-[#d4af37]"
+                className="w-full h-1 bg-amber-950 rounded-lg appearance-none cursor-pointer accent-[#fda85d]"
               />
               <div className="flex justify-between text-[9px] text-stone-600">
                 <span>10</span>
@@ -79,7 +79,7 @@ export default function FeeCalculator() {
             <div className="space-y-2">
               <div className="flex items-center justify-between text-xs font-semibold text-stone-300">
                 <label htmlFor="calc-charge">Average Preparation Fee Charged</label>
-                <span className="text-[#d4af37] font-mono text-sm font-black">${avgCharge}</span>
+                <span className="text-[#fda85d] font-mono text-sm font-black">${avgCharge}</span>
               </div>
               <input
                 type="range"
@@ -89,7 +89,7 @@ export default function FeeCalculator() {
                 step="25"
                 value={avgCharge}
                 onChange={(e) => setAvgCharge(Number(e.target.value))}
-                className="w-full h-1 bg-amber-950 rounded-lg appearance-none cursor-pointer accent-[#d4af37]"
+                className="w-full h-1 bg-amber-950 rounded-lg appearance-none cursor-pointer accent-[#fda85d]"
               />
               <div className="flex justify-between text-[9px] text-stone-600">
                 <span>$150</span>
@@ -102,7 +102,7 @@ export default function FeeCalculator() {
             <div className="space-y-2">
               <div className="flex items-center justify-between text-xs font-semibold text-stone-300">
                 <label htmlFor="calc-split">Your Current Fee Split (kept by ERO/Franchise)</label>
-                <span className="text-[#d4af37] font-mono text-sm font-black">{splitPercent}%</span>
+                <span className="text-[#fda85d] font-mono text-sm font-black">{splitPercent}%</span>
               </div>
               <input
                 type="range"
@@ -112,7 +112,7 @@ export default function FeeCalculator() {
                 step="5"
                 value={splitPercent}
                 onChange={(e) => setSplitPercent(Number(e.target.value))}
-                className="w-full h-1 bg-amber-950 rounded-lg appearance-none cursor-pointer accent-[#d4af37]"
+                className="w-full h-1 bg-amber-950 rounded-lg appearance-none cursor-pointer accent-[#fda85d]"
               />
               <div className="flex justify-between text-[9px] text-stone-600">
                 <span>10%</span>
@@ -127,7 +127,7 @@ export default function FeeCalculator() {
         <div className="bg-[#24160f]/60 border-t lg:border-t-0 lg:border-l border-amber-900/35 p-6 md:p-8 flex flex-col justify-between space-y-6">
           <div className="space-y-4">
             <div>
-              <span className="text-[9px] font-bold uppercase tracking-widest text-[#d4af37]">Total Annual Revenue</span>
+              <span className="text-[9px] font-bold uppercase tracking-widest text-[#fda85d]">Total Annual Revenue</span>
               <div className="text-2xl font-black text-white font-mono mt-0.5">
                 {formatCurrency(totalRevenue)}
               </div>
@@ -142,7 +142,7 @@ export default function FeeCalculator() {
                 <span className="text-[8px] text-stone-550 block mt-0.5">({100 - splitPercent}% kept)</span>
               </div>
               <div className="bg-[#120b06]/40 border border-amber-900/15 p-3 rounded-lg">
-                <span className="text-[8px] font-bold text-[#d4af37] uppercase tracking-wider block">Independent ERO Income</span>
+                <span className="text-[8px] font-bold text-[#fda85d] uppercase tracking-wider block">Independent ERO Income</span>
                 <span className="text-xs font-mono font-bold text-white">
                   {formatCurrency(revenueKeptUnderEfin)}
                 </span>
@@ -151,9 +151,9 @@ export default function FeeCalculator() {
             </div>
 
             {/* Savings Highlight */}
-            <div className="bg-[#d4af37]/5 border border-[#d4af37]/25 p-4 rounded-xl space-y-1">
-              <span className="text-[8px] font-bold uppercase tracking-widest text-[#d4af37] block">Estimated Revenue Increase</span>
-              <div className="text-2xl sm:text-3xl font-black text-[#d4af37] font-mono leading-none">
+            <div className="bg-[#fda85d]/5 border border-[#fda85d]/25 p-4 rounded-xl space-y-1">
+              <span className="text-[8px] font-bold uppercase tracking-widest text-[#fda85d] block">Estimated Revenue Increase</span>
+              <div className="text-2xl sm:text-3xl font-black text-[#fda85d] font-mono leading-none">
                 +{formatCurrency(Math.max(0, annualSavings))}
               </div>
               <p className="text-[9px] text-stone-400 pt-1 leading-relaxed">
@@ -165,7 +165,7 @@ export default function FeeCalculator() {
           <div className="space-y-3">
             <button
               onClick={() => openModal("ero")}
-              className="w-full inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#d4af37] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black py-3 text-xs font-extrabold uppercase tracking-wider shadow-md hover:shadow-[#d4af37]/10 transition-all cursor-pointer"
+              className="w-full inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#fda85d] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black py-3 text-xs font-extrabold uppercase tracking-wider shadow-md hover:shadow-[#fda85d]/10 transition-all cursor-pointer"
             >
               Get Your EFIN &amp; Keep 100%
               <ArrowRight className="w-3.5 h-3.5 ml-2" />

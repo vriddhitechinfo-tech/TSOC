@@ -124,7 +124,7 @@ export default function OpenOfficePage() {
   const openOfficeFaqs = [
     {
       question: "Who can participate in the Open Office community?",
-      answer: "Open Office is designed for independent tax preparers, bookkeeping partners, EROs, and Service Bureau owners who are members of The Sector. It acts as a collaborative daily workspace where you can coworking and consult with experts."
+      answer: "Open Office is designed for independent tax preparers, bookkeeping partners, EROs, and Service Bureau owners who are members of The Sector of Collectives. It acts as a collaborative daily workspace where you can coworking and consult with experts."
     },
     {
       question: "Are the Zoom support blocks recorded?",
@@ -147,9 +147,9 @@ export default function OpenOfficePage() {
     const icsContent = [
       "BEGIN:VCALENDAR",
       "VERSION:2.0",
-      "PRODID:-//The Sector//Open Office Schedule//EN",
+      "PRODID:-//The Sector of Collectives//Open Office Schedule//EN",
       "BEGIN:VEVENT",
-      `SUMMARY:The Sector: ${item.title} (${item.dayName})`,
+      `SUMMARY:The Sector of Collectives: ${item.title} (${item.dayName})`,
       `DESCRIPTION:Join our weekly live block. Topic: ${item.desc}`,
       `LOCATION:Zoom Link Provided in Portal`,
       `RRULE:FREQ=WEEKLY;BYDAY=${item.byDay}`,
@@ -174,7 +174,7 @@ export default function OpenOfficePage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-24">
         {/* Header Section */}
         <div className="gsap-reveal text-center max-w-3xl mx-auto space-y-4">
-          <span className="inline-flex items-center rounded-lg bg-amber-955/35 border border-amber-900/40 px-3.5 py-1.5 text-xs font-semibold text-[#d4af37]">
+          <span className="inline-flex items-center rounded-lg bg-amber-955/35 border border-amber-900/40 px-3.5 py-1.5 text-xs font-semibold text-[#fda85d]">
             Tax Professional Community
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
@@ -186,7 +186,7 @@ export default function OpenOfficePage() {
           <div className="pt-4">
             <button
               onClick={() => openModal("openoffice")}
-              className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#d4af37] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
+              className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#fda85d] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
             >
               Join The Open Office
             </button>
@@ -208,7 +208,7 @@ export default function OpenOfficePage() {
                 onClick={() => setActiveDay(item.id)}
                 className={`py-2 px-5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
                   activeDay === item.id
-                    ? "bg-[#d4af37] text-black font-bold shadow-md"
+                    ? "bg-[#fda85d] text-black font-bold shadow-md"
                     : "bg-amber-955/35 hover:bg-amber-950/20 border border-amber-900/30 text-stone-400 hover:text-white"
                 }`}
               >
@@ -221,10 +221,10 @@ export default function OpenOfficePage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
             <div className="space-y-4 lg:col-span-2">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-[#d4af37] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-[#fda85d] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded">
                   {activeDaySchedule.pillar}
                 </span>
-                <span className="text-[10px] text-[#d4af37] font-semibold flex items-center gap-1.5">
+                <span className="text-[10px] text-[#fda85d] font-semibold flex items-center gap-1.5">
                   <Clock className="w-3.5 h-3.5" />
                   {activeDaySchedule.time}
                 </span>
@@ -238,13 +238,13 @@ export default function OpenOfficePage() {
                 <h4 className="text-[9px] font-bold text-stone-400 uppercase tracking-wider mb-3">Participant Perks</h4>
                 <ul className="space-y-2 text-xs text-stone-500">
                   <li className="flex items-center gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#d4af37] shrink-0" /> Live text-based Q&amp;A
+                    <Check className="w-3.5 h-3.5 text-[#fda85d] shrink-0" /> Live text-based Q&amp;A
                   </li>
                   <li className="flex items-center gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#d4af37] shrink-0" /> Screen-sharing diagnostics
+                    <Check className="w-3.5 h-3.5 text-[#fda85d] shrink-0" /> Screen-sharing diagnostics
                   </li>
                   <li className="flex items-center gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#d4af37] shrink-0" /> Replay recordings vault access
+                    <Check className="w-3.5 h-3.5 text-[#fda85d] shrink-0" /> Replay recordings vault access
                   </li>
                 </ul>
               </div>
@@ -252,7 +252,7 @@ export default function OpenOfficePage() {
               <div className="flex flex-col gap-2 mt-4">
                 <button
                   onClick={() => downloadIcs(activeDaySchedule)}
-                  className="w-full text-center bg-gradient-to-r from-[#d4af37] to-[#f59e0b] text-black font-extrabold py-2.5 px-4 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider flex items-center justify-center gap-1.5"
+                  className="w-full text-center bg-gradient-to-r from-[#fda85d] to-[#f59e0b] text-black font-extrabold py-2.5 px-4 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider flex items-center justify-center gap-1.5"
                 >
                   <Plus className="w-3.5 h-3.5" />
                   Add to Calendar (.ics)
@@ -283,7 +283,7 @@ export default function OpenOfficePage() {
               return (
                 <div key={b.name} className="gsap-reveal glass-card p-5">
                   <div className="flex items-center space-x-3 mb-2">
-                    <span className="text-[#d4af37]">
+                    <span className="text-[#fda85d]">
                       <IconComponent className="w-5 h-5" />
                     </span>
                     <h3 className="text-xs font-bold text-white uppercase tracking-wider">{b.name}</h3>

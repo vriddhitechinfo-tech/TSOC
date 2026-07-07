@@ -40,7 +40,7 @@ export default function TestimonialCarousel() {
       avatar: "/avatar_tasha.png", // Reusing Tasha's/other avatar as fallback or generating new ones as needed
     },
     {
-      quote: "I've been in the tax industry for 8 years, and The Sector is the first community that actually delivers on its promises. Real attorney consultations and actual systems support.",
+      quote: "I've been in the tax industry for 8 years, and The Sector of Collectives is the first community that actually delivers on its promises. Real attorney consultations and actual systems support.",
       name: "Alicia R.",
       role: "Multi-Location Firm Owner",
       location: "Chicago, IL",
@@ -79,7 +79,7 @@ export default function TestimonialCarousel() {
       {/* Slide Container */}
       <div className="relative min-h-[180px] flex flex-col justify-between">
         <div className="space-y-4">
-          <Quote className="w-8 h-8 text-[#d4af37]/80 shrink-0" />
+          <Quote className="w-8 h-8 text-[#fda85d]/80 shrink-0" />
           <p className="text-sm md:text-base italic text-stone-250 leading-relaxed font-medium">
             &quot;{testimonials[activeIndex].quote}&quot;
           </p>
@@ -103,7 +103,7 @@ export default function TestimonialCarousel() {
               <p className="text-[10px] text-stone-400 font-semibold uppercase tracking-wider">
                 {testimonials[activeIndex].role}
               </p>
-              <p className="text-[9px] text-[#d4af37] font-semibold">
+              <p className="text-[9px] text-[#fda85d] font-semibold">
                 {testimonials[activeIndex].location}
               </p>
             </div>
@@ -126,7 +126,7 @@ export default function TestimonialCarousel() {
                   key={i}
                   onClick={() => setActiveIndex(i)}
                   className={`h-1.5 w-1.5 rounded-full transition-all cursor-pointer ${
-                    activeIndex === i ? "bg-[#d4af37] w-3" : "bg-stone-700 hover:bg-stone-500"
+                    activeIndex === i ? "bg-[#fda85d] w-3" : "bg-stone-700 hover:bg-stone-500"
                   }`}
                   aria-label={`Go to slide ${i + 1}`}
                 />

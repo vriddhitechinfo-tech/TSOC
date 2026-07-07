@@ -42,19 +42,19 @@ export default function AboutPage() {
   return (
     <div ref={pageRef} className="relative overflow-hidden bg-[#120b06] min-h-screen py-16 sm:py-24">
       {/* Background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.03)_0%,transparent_60%)] pointer-events-none -z-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(253,168,93,0.03)_0%,transparent_60%)] pointer-events-none -z-10" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="gsap-reveal text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="inline-flex items-center rounded-lg bg-amber-955/35 border border-amber-900/40 px-3.5 py-1.5 text-xs font-semibold text-[#d4af37]">
+          <span className="inline-flex items-center rounded-lg bg-amber-955/35 border border-amber-900/40 px-3.5 py-1.5 text-xs font-semibold text-[#fda85d]">
             More Than Tax Software
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
             Our Story &amp; Mission
           </h1>
           <p className="text-sm text-stone-400 leading-relaxed">
-            At The Sector, we believe tax professionals deserve more than software. We help tax professionals build businesses, secure independence, and develop year-round systems.
+            At The Sector of Collectives, we believe tax professionals deserve more than software. We help tax professionals build businesses, secure independence, and develop year-round systems.
           </p>
         </div>
 
@@ -77,12 +77,12 @@ export default function AboutPage() {
           </div>
 
           <div className="gsap-reveal relative bg-[#18100a] border border-amber-900/30 rounded-xl p-8 md:p-12 text-center space-y-6 overflow-hidden">
-            <FileText className="w-10 h-10 text-[#d4af37] mx-auto" />
+            <FileText className="w-10 h-10 text-[#fda85d] mx-auto" />
             <h3 className="text-xs font-bold tracking-wider text-stone-500 uppercase">Our Community Motto</h3>
             <div className="text-2xl sm:text-3xl font-black tracking-wider text-white select-none">
-              <span className="text-[#d4af37]">Connect</span>
+              <span className="text-[#fda85d]">Connect</span>
               <span className="text-amber-900/60 mx-2">•</span>
-              <span className="text-amber-500">Create</span>
+              <span className="text-[#fda85d]">Create</span>
               <span className="text-amber-900/60 mx-2">•</span>
               <span className="text-white">Conquer</span>
             </div>
@@ -97,7 +97,7 @@ export default function AboutPage() {
           <h2 className="gsap-reveal text-lg font-bold text-center text-white mb-10 uppercase tracking-wider">Our Core Principles</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="gsap-reveal glass-card glass-card-hover-emerald p-6 space-y-3">
-              <div className="h-9 w-9 rounded-md bg-[#18100a] border border-amber-900/30 flex items-center justify-center text-[#d4af37] mb-2">
+              <div className="h-9 w-9 rounded-md bg-[#18100a] border border-amber-900/30 flex items-center justify-center text-[#fda85d] mb-2">
                 <TrendingUp className="w-4.5 h-4.5" />
               </div>
               <h3 className="text-sm font-bold text-white uppercase tracking-wider">Revenue Growth</h3>
@@ -107,7 +107,7 @@ export default function AboutPage() {
             </div>
 
             <div className="gsap-reveal glass-card glass-card-hover p-6 space-y-3">
-              <div className="h-9 w-9 rounded-md bg-[#18100a] border border-amber-900/30 flex items-center justify-center text-[#d4af37] mb-2">
+              <div className="h-9 w-9 rounded-md bg-[#18100a] border border-amber-900/30 flex items-center justify-center text-[#fda85d] mb-2">
                 <ShieldAlert className="w-4.5 h-4.5" />
               </div>
               <h3 className="text-sm font-bold text-white uppercase tracking-wider">Compliance Education</h3>
@@ -117,7 +117,7 @@ export default function AboutPage() {
             </div>
 
             <div className="gsap-reveal glass-card glass-card-hover p-6 space-y-3">
-              <div className="h-9 w-9 rounded-md bg-[#18100a] border border-amber-900/30 flex items-center justify-center text-[#d4af37] mb-2">
+              <div className="h-9 w-9 rounded-md bg-[#18100a] border border-amber-900/30 flex items-center justify-center text-[#fda85d] mb-2">
                 <Cpu className="w-4.5 h-4.5" />
               </div>
               <h3 className="text-sm font-bold text-white uppercase tracking-wider">Technology Integration</h3>

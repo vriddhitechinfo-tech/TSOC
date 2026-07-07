@@ -12,7 +12,7 @@ export default function TrustSection() {
           <div className="flex flex-col items-center md:items-start space-y-2 border-b md:border-b-0 md:border-r border-amber-950/20 pb-6 md:pb-0 md:pr-8">
             <div className="flex items-center space-x-1.5">
               <span className="text-white font-black text-xl">4.9</span>
-              <div className="flex text-[#d4af37]">
+              <div className="flex text-[#fda85d]">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 fill-current" />
                 ))}
@@ -28,7 +28,7 @@ export default function TrustSection() {
 
           {/* Industry Credentials */}
           <div className="flex flex-col items-center md:items-start space-y-2.5 border-b md:border-b-0 md:border-r border-amber-950/20 pb-6 md:pb-0 md:px-8">
-            <div className="flex items-center space-x-2 text-[#d4af37]">
+            <div className="flex items-center space-x-2 text-[#fda85d]">
               <ShieldCheck className="w-6 h-6" />
               <span className="text-white font-extrabold text-sm uppercase tracking-wider">IRS E-File Partner</span>
             </div>
@@ -43,7 +43,7 @@ export default function TrustSection() {
           {/* Partner Banks */}
           <div className="flex flex-col items-center md:items-start space-y-2 md:pl-8">
             <div className="flex items-center space-x-2 text-stone-400">
-              <Landmark className="w-5 h-5 text-[#d4af37]" />
+              <Landmark className="w-5 h-5 text-[#fda85d]" />
               <span className="text-white font-extrabold text-xs uppercase tracking-wider">Integrated Bank Products</span>
             </div>
             <div className="flex flex-wrap justify-center md:justify-start gap-3 mt-1">

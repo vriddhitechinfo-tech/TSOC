@@ -23,7 +23,7 @@ export default function FaqAccordion({ items, title = "Frequently Asked Question
   return (
     <div className="w-full max-w-4xl mx-auto py-12 px-4 animate-fade-in">
       {title && (
-        <h2 className="text-xl sm:text-2xl font-bold text-center text-white mb-8 tracking-tight uppercase tracking-wider text-[#d4af37]">
+        <h2 className="text-xl sm:text-2xl font-bold text-center text-white mb-8 tracking-tight uppercase tracking-wider text-[#fda85d]">
           {title}
         </h2>
       )}
@@ -37,7 +37,7 @@ export default function FaqAccordion({ items, title = "Frequently Asked Question
             >
               <button
                 onClick={() => toggleIndex(index)}
-                className="w-full flex items-center justify-between p-5 text-left text-white hover:text-[#d4af37] focus:outline-none focus:ring-1 focus:ring-[#d4af37] rounded-xl transition-colors duration-200 cursor-pointer"
+                className="w-full flex items-center justify-between p-5 text-left text-white hover:text-[#fda85d] focus:outline-none focus:ring-1 focus:ring-[#fda85d] rounded-xl transition-colors duration-200 cursor-pointer"
                 aria-expanded={isOpen}
                 aria-controls={`faq-answer-${index}`}
                 id={`faq-btn-${index}`}
@@ -47,7 +47,7 @@ export default function FaqAccordion({ items, title = "Frequently Asked Question
                 </span>
                 <ChevronDown
                   className={`w-4 h-4 text-stone-400 shrink-0 transition-transform duration-300 ${
-                    isOpen ? "transform rotate-180 text-[#d4af37]" : ""
+                    isOpen ? "transform rotate-180 text-[#fda85d]" : ""
                   }`}
                 />
               </button>

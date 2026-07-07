@@ -19,8 +19,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | The Sector",
-    default: "The Sector | Professional Tax Software & Community",
+    template: "%s | The Sector of Collectives",
+    default: "The Sector of Collectives | Professional Tax Software & Community",
   },
   description: "Helping tax professionals launch, grow, and scale profitable tax businesses. Keep more revenue, build better systems, and create year-round income with professional tax software access, ERO enablement, and Service Bureau mentorship.",
   keywords: [

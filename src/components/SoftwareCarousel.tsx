@@ -23,7 +23,7 @@ export default function SoftwareCarousel() {
       mockupContent: (
         <div className="w-full h-full bg-[#120b06] text-white p-4 font-mono text-[9px] flex flex-col justify-between">
           <div className="flex items-center justify-between border-b border-amber-900/20 pb-2 mb-3">
-            <span className="font-bold text-[#d4af37]">THE SECTOR CORE • OFFICE CONSOLE</span>
+            <span className="font-bold text-[#fda85d]">THE SECTOR OF COLLECTIVES CORE • OFFICE CONSOLE</span>
             <span className="bg-emerald-950 text-emerald-400 px-1.5 py-0.5 rounded text-[8px] font-bold border border-emerald-900/35">ACTIVE SEASON</span>
           </div>
 
@@ -38,7 +38,7 @@ export default function SoftwareCarousel() {
             </div>
             <div className="bg-[#18100a] border border-amber-900/20 p-2 rounded">
               <span className="text-stone-500 block uppercase text-[7px]">Bank Payouts</span>
-              <span className="text-base font-black text-[#d4af37] font-sans">$148K</span>
+              <span className="text-base font-black text-[#fda85d] font-sans">$148K</span>
             </div>
           </div>
 
@@ -55,7 +55,7 @@ export default function SoftwareCarousel() {
                 <span>Johnson, Alicia</span>
                 <span>1040, Sch C</span>
                 <span className="text-emerald-400 font-bold">ACCEPTED</span>
-                <span className="text-[#d4af37]">TPG ADVANCE</span>
+                <span className="text-[#fda85d]">TPG ADVANCE</span>
               </div>
               <div className="flex justify-between text-stone-300">
                 <span>Rodriguez, Miguel</span>
@@ -83,10 +83,10 @@ export default function SoftwareCarousel() {
         <div className="w-full h-full bg-[#120b06] text-white p-4 font-mono text-[9px] flex flex-col justify-between">
           <div className="flex items-center justify-between border-b border-amber-900/20 pb-2 mb-2">
             <div className="flex items-center space-x-1">
-              <FileText className="w-3.5 h-3.5 text-[#d4af37]" />
+              <FileText className="w-3.5 h-3.5 text-[#fda85d]" />
               <span className="font-bold">Form 1040 (Filer: ALICIA JOHNSON)</span>
             </div>
-            <span className="text-[#d4af37] font-sans font-black">Refund: $6,412</span>
+            <span className="text-[#fda85d] font-sans font-black">Refund: $6,412</span>
           </div>
 
           <div className="grid grid-cols-2 gap-4 flex-1 pt-1">
@@ -96,7 +96,7 @@ export default function SoftwareCarousel() {
                 <div>Wages (W2 Box 1): <span className="text-white">$54,200</span></div>
                 <div>Federal WH (W2 Box 2): <span className="text-white">$4,850</span></div>
                 <div>Schedule C Net Profit: <span className="text-white">$12,410</span></div>
-                <div>Dependents: <span className="text-[#d4af37]">2 Qual. Children</span></div>
+                <div>Dependents: <span className="text-[#fda85d]">2 Qual. Children</span></div>
               </div>
             </div>
 
@@ -153,7 +153,7 @@ export default function SoftwareCarousel() {
           <div className="bg-[#18100a] border border-amber-900/20 rounded p-2.5 space-y-1">
             <div className="text-stone-500 uppercase text-[7px] font-bold">IRS ACK (Submission ID: 1040-564201-2026)</div>
             <div className="text-stone-300">Form: 1040 U.S. Individual Income Tax Return</div>
-            <div className="text-[#d4af37] font-bold">Status: ACCEPTED (Acknowledge Code: 00)</div>
+            <div className="text-[#fda85d] font-bold">Status: ACCEPTED (Acknowledge Code: 00)</div>
             <div className="text-stone-500">Processed at: 2026-07-07 17:41:00 EST</div>
           </div>
         </div>
@@ -168,7 +168,7 @@ export default function SoftwareCarousel() {
         <div className="w-full h-full bg-[#120b06] text-white p-4 font-mono text-[9px] flex flex-col justify-between">
           <div className="flex items-center justify-between border-b border-amber-900/20 pb-2 mb-2">
             <div className="flex items-center space-x-1">
-              <Landmark className="w-3.5 h-3.5 text-[#d4af37]" />
+              <Landmark className="w-3.5 h-3.5 text-[#fda85d]" />
               <span className="font-bold">BANK PRODUCT DISBURSEMENT</span>
             </div>
             <span className="text-emerald-400 font-bold uppercase text-[7px]">Direct Connect API</span>
@@ -191,7 +191,7 @@ export default function SoftwareCarousel() {
               </div>
               <div className="flex justify-between border-b border-amber-900/20 pb-1">
                 <span>Tax Preparation Fee:</span>
-                <span className="text-[#d4af37] font-bold">-$450.00</span>
+                <span className="text-[#fda85d] font-bold">-$450.00</span>
               </div>
               <div className="flex justify-between pt-0.5 text-white font-bold">
                 <span>Net Client Payout:</span>
@@ -216,7 +216,7 @@ export default function SoftwareCarousel() {
             onClick={() => setActiveTab(s.id)}
             className={`py-2 px-4 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer ${
               activeTab === s.id
-                ? "bg-[#d4af37] text-black font-bold shadow-md"
+                ? "bg-[#fda85d] text-black font-bold shadow-md"
                 : "bg-amber-955/30 hover:bg-amber-950/20 border border-amber-900/25 text-stone-400 hover:text-white"
             }`}
           >
@@ -228,7 +228,7 @@ export default function SoftwareCarousel() {
       {/* Screen Layout: Text on Left, Browser Mockup on Right */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#18100a]/40 border border-amber-900/30 rounded-2xl p-6 md:p-8 backdrop-blur-md">
         <div className="lg:col-span-4 space-y-4 text-center lg:text-left">
-          <span className="inline-flex items-center justify-center h-7 w-7 rounded bg-amber-950/30 border border-amber-900/40 text-[#d4af37] font-black text-[10px]">
+          <span className="inline-flex items-center justify-center h-7 w-7 rounded bg-amber-950/30 border border-amber-900/40 text-[#fda85d] font-black text-[10px]">
             0{screens.findIndex((s) => s.id === activeTab) + 1}
           </span>
           <h3 className="text-base sm:text-lg font-black text-white uppercase tracking-wider">

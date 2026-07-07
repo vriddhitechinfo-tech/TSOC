@@ -118,7 +118,7 @@ export default function TaxSoftwarePage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-24">
         {/* Header Section */}
         <div className="gsap-reveal text-center max-w-3xl mx-auto space-y-4">
-          <span className="inline-flex items-center rounded-lg bg-amber-955/35 border border-amber-900/40 px-3.5 py-1.5 text-xs font-semibold text-[#d4af37]">
+          <span className="inline-flex items-center rounded-lg bg-amber-955/35 border border-amber-900/40 px-3.5 py-1.5 text-xs font-semibold text-[#fda85d]">
             Professional Tax Software for Tax Preparers
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
@@ -130,7 +130,7 @@ export default function TaxSoftwarePage() {
           <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
             <button
               onClick={() => openModal("demo")}
-              className="bg-[#d4af37] text-black hover:bg-[#c29e2f] font-extrabold px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-colors cursor-pointer"
+              className="bg-[#fda85d] text-black hover:bg-[#c29e2f] font-extrabold px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-colors cursor-pointer"
             >
               See the Software in Action
             </button>
@@ -155,7 +155,7 @@ export default function TaxSoftwarePage() {
         {/* Feature Highlights Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="gsap-reveal glass-card p-6 space-y-4">
-            <div className="h-9 w-9 rounded-md bg-[#18100a] border border-amber-900/30 flex items-center justify-center text-[#d4af37]">
+            <div className="h-9 w-9 rounded-md bg-[#18100a] border border-amber-900/30 flex items-center justify-center text-[#fda85d]">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <h3 className="text-base font-bold text-white uppercase tracking-wider">Full IRS Compliance &amp; Review</h3>
@@ -165,7 +165,7 @@ export default function TaxSoftwarePage() {
           </div>
 
           <div className="gsap-reveal glass-card-hover-emerald p-6 space-y-4 border border-emerald-950 bg-[#160f0a]/30 rounded-xl">
-            <div className="h-9 w-9 rounded-md bg-[#18100a] border border-amber-900/30 flex items-center justify-center text-[#d4af37]">
+            <div className="h-9 w-9 rounded-md bg-[#18100a] border border-amber-900/30 flex items-center justify-center text-[#fda85d]">
               <DollarSign className="w-5 h-5" />
             </div>
             <h3 className="text-base font-bold text-white uppercase tracking-wider">Integrated Bank Products</h3>
@@ -175,7 +175,7 @@ export default function TaxSoftwarePage() {
           </div>
 
           <div className="gsap-reveal glass-card p-6 space-y-4">
-            <div className="h-9 w-9 rounded-md bg-[#18100a] border border-amber-900/30 flex items-center justify-center text-[#d4af37]">
+            <div className="h-9 w-9 rounded-md bg-[#18100a] border border-amber-900/30 flex items-center justify-center text-[#fda85d]">
               <Users className="w-5 h-5" />
             </div>
             <h3 className="text-base font-bold text-white uppercase tracking-wider">Unlimited Multi-User Console</h3>
@@ -199,11 +199,11 @@ export default function TaxSoftwarePage() {
               <div 
                 key={pkg.name}
                 className={`gsap-reveal flex flex-col justify-between bg-[#1d140e]/30 border border-amber-900/20 rounded-xl p-8 relative ${
-                  pkg.isPopular ? "border-[#d4af37]/35 shadow-xl shadow-[#d4af37]/5 bg-[#221811]/45" : ""
+                  pkg.isPopular ? "border-[#fda85d]/35 shadow-xl shadow-[#fda85d]/5 bg-[#221811]/45" : ""
                 }`}
               >
                 {pkg.isPopular && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#d4af37] text-black font-extrabold text-[9px] tracking-widest px-3 py-1 rounded uppercase">
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#fda85d] text-black font-extrabold text-[9px] tracking-widest px-3 py-1 rounded uppercase">
                     E-file Standard
                   </span>
                 )}
@@ -214,7 +214,7 @@ export default function TaxSoftwarePage() {
                     <p className="text-xs text-stone-500 mt-2">{pkg.desc}</p>
                   </div>
 
-                  <div className="text-xl font-black text-[#d4af37] font-mono">
+                  <div className="text-xl font-black text-[#fda85d] font-mono">
                     {pkg.priceText}
                   </div>
 
@@ -223,7 +223,7 @@ export default function TaxSoftwarePage() {
                   <ul className="space-y-3.5">
                     {pkg.features.map((feat) => (
                       <li key={feat} className="flex items-start space-x-2.5 text-xs text-stone-400">
-                        <Check className="w-3.5 h-3.5 text-[#d4af37] shrink-0 mt-0.5" />
+                        <Check className="w-3.5 h-3.5 text-[#fda85d] shrink-0 mt-0.5" />
                         <span>{feat}</span>
                       </li>
                     ))}
@@ -235,8 +235,8 @@ export default function TaxSoftwarePage() {
                     onClick={pkg.action}
                     className={`w-full py-2.5 px-4 rounded-lg text-xs font-extrabold transition-all cursor-pointer uppercase tracking-wider ${
                       pkg.isPopular 
-                        ? "bg-gradient-to-r from-[#d4af37] to-[#f59e0b] text-black hover:from-[#c29e2f] hover:to-[#e08d03]"
-                        : "bg-[#18100a] hover:bg-amber-950 border border-amber-900/30 text-[#d4af37]"
+                        ? "bg-gradient-to-r from-[#fda85d] to-[#f59e0b] text-black hover:from-[#c29e2f] hover:to-[#e08d03]"
+                        : "bg-[#18100a] hover:bg-amber-950 border border-amber-900/30 text-[#fda85d]"
                     }`}
                   >
                     {pkg.ctaText}
@@ -255,18 +255,18 @@ export default function TaxSoftwarePage() {
         {/* Community Banner */}
         <div className="gsap-reveal glass-card p-8 md:p-12 relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-8">
           <div className="space-y-3 max-w-2xl">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-[#d4af37] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-[#fda85d] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded">
               Tax Software Community
             </span>
             <h3 className="text-xl font-bold text-white uppercase tracking-wider">Join More Than Just a Software Company</h3>
             <p className="text-xs text-stone-450 leading-relaxed">
-              When you purchase professional tax software through The Sector, you gain access to our live coworking community, Tech Tuesday workshops, and year-round business advice resources.
+              When you purchase professional tax software through The Sector of Collectives, you gain access to our live coworking community, Tech Tuesday workshops, and year-round business advice resources.
             </p>
           </div>
           <div className="shrink-0 flex items-center">
             <button
               onClick={() => openModal("software")}
-              className="bg-gradient-to-r from-[#d4af37] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black font-extrabold py-3.5 px-8 rounded-lg text-xs transition-all shadow-md cursor-pointer uppercase tracking-wider"
+              className="bg-gradient-to-r from-[#fda85d] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black font-extrabold py-3.5 px-8 rounded-lg text-xs transition-all shadow-md cursor-pointer uppercase tracking-wider"
             >
               Get Started Now
             </button>
