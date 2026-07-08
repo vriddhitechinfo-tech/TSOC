@@ -1,7 +1,9 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useLayoutEffect, useRef } from "react";
 import Link from "next/link";
+
+const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
 import { useModal } from "@/context/ModalContext";
 import { 
   Check, 
@@ -35,16 +37,20 @@ export default function Home() {
   const servicesRef = useRef<HTMLDivElement>(null);
   const pricingRef = useRef<HTMLDivElement>(null);
   const faqRef = useRef<HTMLDivElement>(null);
+  const ecosystemSectionRef = useRef<HTMLDivElement>(null);
+  const ecosystemContainerRef = useRef<HTMLDivElement>(null);
 
   // Stats refs for counting animation
   const yearsValRef = useRef<HTMLSpanElement>(null);
   const erosValRef = useRef<HTMLSpanElement>(null);
   const membersValRef = useRef<HTMLSpanElement>(null);
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (typeof window !== "undefined") {
       gsap.registerPlugin(ScrollTrigger);
     }
+
+    let handleEcosystemResize: (() => void) | null = null;
 
     const ctx = gsap.context(() => {
       // 1. Hero Entrance Animations (staggered fade/slide-up)
@@ -171,12 +177,163 @@ export default function Home() {
           }
         );
       }
+
+      // 7. Collective Ecosystem Pinned Card Stack Animation
+      if (ecosystemSectionRef.current && ecosystemContainerRef.current) {
+        const section = ecosystemSectionRef.current;
+        const container = ecosystemContainerRef.current;
+        const cards = container.querySelectorAll(".gsap-ecosystem-card");
+
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (prefersReducedMotion) {
+          gsap.set(cards, { opacity: 1 });
+          return;
+        }
+
+        if (cards.length > 0) {
+          let timeline: gsap.core.Timeline | null = null;
+
+          const initEcosystemAnimation = () => {
+            // Reset state
+            gsap.set(cards, { clearProps: "all" });
+
+            const isDesktop = window.innerWidth >= 1024;
+
+            if (!isDesktop) {
+              // Mobile/Tablet Reveal
+              const mobileTl = gsap.timeline({
+                scrollTrigger: {
+                  trigger: container,
+                  start: "top 85%",
+                  toggleActions: "play none none none",
+                }
+              });
+              mobileTl.fromTo(
+                cards,
+                { opacity: 0, y: 30 },
+                {
+                  opacity: 1,
+                  y: 0,
+                  duration: 0.6,
+                  stagger: 0.15,
+                  ease: "power2.out"
+                }
+              );
+              return mobileTl;
+            }
+
+            // Desktop Stacking logic (lg breakpoint)
+            // Set cards stacked at the center of the container
+            cards.forEach((card, i) => {
+              gsap.set(card, {
+                xPercent: 0,
+                yPercent: 0,
+                x: 0,
+                y: i * 8, // staggered offsets
+                scale: 1 - i * 0.03,
+                rotate: i % 2 === 0 ? -2 : 2,
+                zIndex: cards.length - i,
+                opacity: 1 // make visible in stacked state
+              });
+            });
+
+            // Create desktop timeline with ScrollTrigger
+            const desktopTl = gsap.timeline({
+              scrollTrigger: {
+                trigger: section,
+                start: "top top",
+                end: "+=1500", // Scroll height
+                pin: true,
+                scrub: 1,
+                invalidateOnRefresh: true
+              }
+            });
+
+            // Spacing percentages relative to card size to form a 3x2 grid
+            const finalPositions = [
+              { xPercent: -110, yPercent: 0 },  // Card 0: Top-left
+              { xPercent: 0,    yPercent: 0 },  // Card 1: Top-center
+              { xPercent: 110,  yPercent: 0 },  // Card 2: Top-right
+              { xPercent: -110, yPercent: 110 }, // Card 3: Bottom-left
+              { xPercent: 0,    yPercent: 110 }, // Card 4: Bottom-center
+              { xPercent: 110,  yPercent: 110 }  // Card 5: Bottom-right
+            ];
+
+            cards.forEach((card, i) => {
+              desktopTl.to(card, {
+                xPercent: finalPositions[i].xPercent,
+                yPercent: finalPositions[i].yPercent,
+                scale: 1,
+                rotate: 0,
+                duration: 1,
+                ease: "power2.inOut"
+              }, i * 0.6); // stagger transitions
+            });
+
+            return desktopTl;
+          };
+
+          timeline = initEcosystemAnimation();
+
+          handleEcosystemResize = () => {
+            if (timeline) {
+              timeline.scrollTrigger?.kill(true);
+              timeline.kill();
+            }
+            timeline = initEcosystemAnimation();
+          };
+
+          window.addEventListener("resize", handleEcosystemResize);
+        }
+      }
     }); // using GSAP context
 
     return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
+      ctx.revert();
+      if (handleEcosystemResize) {
+        window.removeEventListener("resize", handleEcosystemResize);
+      }
     };
   }, []);
+
+  const ecosystemPillars = [
+    {
+      title: "Professional Tax Software",
+      tag: "Software",
+      desc: "Get unlimited cloud e-filing for individual and business returns. Supported by direct desktop access and active database recovery features.",
+      actionText: "Learn About Software"
+    },
+    {
+      title: "ERO Enablement",
+      tag: "Credentialing",
+      desc: "Step-by-step guidance to apply for your independent EFIN with the IRS, including ID.me registration, fingerprint coordination, and security reviews.",
+      actionText: "Learn About ERO Setup"
+    },
+    {
+      title: "Service Bureau Scaling",
+      tag: "Mentorship",
+      desc: "Transition to a distribution model: sub-license software, build onboarding processes, and generate residual revenue splits on sub-office return volume.",
+      actionText: "Explore Mentorship"
+    },
+    {
+      title: "Daily Open Office",
+      tag: "Support Desk",
+      desc: "Never file alone. Daily coworking blocks, Zoom sharing diagnostics, live attorney Q&As, and community brainstorming support you year-round.",
+      actionText: "Join Open Office"
+    },
+    {
+      title: "Ancillary Revenue",
+      tag: "Diversification",
+      desc: "Implement structured bookkeeping, credit coaching, and business registration setups to unlock additional year-round income pipelines.",
+      actionText: "View Expansion Guide"
+    },
+    {
+      title: "Automation & CRM Setup",
+      tag: "Operations",
+      desc: "Cut admin workload in half. Build automated customer intake systems, calendar auto-scheduling, and customized text/email marketing pipelines.",
+      actionText: "See Automation Pathways"
+    }
+  ];
 
   const services = [
     {
@@ -399,6 +556,51 @@ export default function Home() {
 
       {/* 5. Trust Signals */}
       <TrustSection />
+
+      {/* Pinned Card Stack Ecosystem Section */}
+      <section ref={ecosystemSectionRef} className="relative py-20 bg-[#120b06] border-b border-amber-955/10 overflow-hidden flex flex-col justify-center min-h-screen">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full space-y-12">
+          {/* Header */}
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-[#fda85d] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded inline-block">
+              Our Core Architecture
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight uppercase">
+              The Collective Growth Ecosystem
+            </h2>
+            <p className="text-xs text-stone-450">
+              Scroll down to peel back the layers of tools, training, and systems that scale your business.
+            </p>
+          </div>
+
+          {/* Card Stack Grid/Container */}
+          <div ref={ecosystemContainerRef} className="relative grid grid-cols-1 md:grid-cols-2 lg:block lg:max-w-xs xl:max-w-sm lg:mx-auto lg:h-[350px] lg:mb-[400px] gap-6 w-full py-8">
+            {ecosystemPillars.map((pillar, idx) => (
+              <div
+                key={pillar.title}
+                className="gsap-ecosystem-card opacity-0 lg:absolute lg:inset-0 glass-card p-6 md:p-8 flex flex-col justify-between border border-amber-900/30 bg-[#1a100a]/90 md:bg-[#1a100a]/95 backdrop-blur shadow-xl relative select-none w-full h-full"
+              >
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[9px] font-bold uppercase tracking-wider text-[#fda85d] bg-amber-955/20 border border-amber-900/35 px-2.5 py-0.5 rounded">
+                      Pillar 0{idx + 1}
+                    </span>
+                    <span className="text-stone-500 font-bold text-xs uppercase tracking-wider">
+                      {pillar.tag}
+                    </span>
+                  </div>
+                  <h3 className="text-base font-bold text-white uppercase tracking-wider">{pillar.title}</h3>
+                  <p className="text-xs text-stone-400 leading-relaxed">{pillar.desc}</p>
+                </div>
+                <div className="pt-6 border-t border-amber-955/15 flex items-center justify-between text-[10px] uppercase font-bold tracking-wider text-[#fda85d]">
+                  <span>{pillar.actionText}</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* 6. Services Grid */}
       <section ref={servicesRef} className="py-20">
