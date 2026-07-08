@@ -124,14 +124,14 @@ export default function RevenueExpansionPage() {
   ];
 
   return (
-    <div ref={pageRef} className="relative overflow-hidden bg-[#120b06] min-h-screen py-16 sm:py-10 animate-fade-in">
+    <div ref={pageRef} className="relative overflow-hidden bg-[#0a0605] min-h-screen py-16 sm:py-10 animate-fade-in">
       {/* Background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.03)_0%,transparent_60%)] pointer-events-none -z-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(251,191,36,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="gsap-reveal text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="inline-flex items-center rounded-lg bg-amber-955/35 border border-amber-900/40 px-3.5 py-1.5 text-xs font-semibold text-[#fda85d]">
+          <span className="inline-flex items-center rounded-full bg-amber-955/35 border border-amber-900/40 px-3 py-1 text-xs font-semibold text-[#fda85d]">
             Year-Round Growth Strategy
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
@@ -161,7 +161,7 @@ export default function RevenueExpansionPage() {
                     <span className="text-[#fda85d]">
                       <Icon className="w-5 h-5" />
                     </span>
-                    <span className="text-[8px] font-bold text-stone-500 uppercase tracking-wider bg-[#120b06] border border-amber-900/25 px-2 py-0.5 rounded">
+                    <span className="text-[8px] font-bold text-stone-500 uppercase tracking-wider bg-[#0a0605] border border-amber-900/25 px-2 py-0.5 rounded">
                       {op.tag}
                     </span>
                   </div>
@@ -171,7 +171,7 @@ export default function RevenueExpansionPage() {
                   </div>
                 </div>
                 
-                <div className="pt-4 border-t border-amber-955/10 mt-4">
+                <div className="pt-4 mt-4">
                   <button
                     onClick={() => openModal("strategy")}
                     className="text-[9px] font-bold text-stone-400 hover:text-[#fda85d] flex items-center gap-1 uppercase tracking-wider transition-colors cursor-pointer"

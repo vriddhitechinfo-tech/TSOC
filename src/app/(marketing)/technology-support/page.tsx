@@ -7,13 +7,20 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import FaqAccordion from "@/components/ui/FaqAccordion";
+import TestimonialCarousel from "@/components/TestimonialCarousel";
 
 export default function TechnologySupportPage() {
   const { openModal } = useModal();
   const [activeStep, setActiveStep] = useState(0);
-  
+
   const pageRef = useRef<HTMLDivElement>(null);
   const diagramRef = useRef<HTMLDivElement>(null);
+  const statsContainerRef = useRef<HTMLDivElement>(null);
+
+  // Stats refs for counting animation
+  const officesValRef = useRef<HTMLSpanElement>(null);
+  const automationValRef = useRef<HTMLSpanElement>(null);
+  const timeValRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -21,6 +28,34 @@ export default function TechnologySupportPage() {
     }
 
     const ctx = gsap.context(() => {
+      // Stats Counter Animation
+      if (statsContainerRef.current) {
+        const statsData = { offices: 0, automation: 0, time: 0 };
+        gsap.to(statsData, {
+          offices: 300,
+          automation: 75,
+          time: 50,
+          duration: 1.6,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: statsContainerRef.current,
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+          onUpdate: () => {
+            if (officesValRef.current) {
+              officesValRef.current.innerText = `${Math.floor(statsData.offices)}+`;
+            }
+            if (automationValRef.current) {
+              automationValRef.current.innerText = `${Math.floor(statsData.automation)}%`;
+            }
+            if (timeValRef.current) {
+              timeValRef.current.innerText = `${Math.floor(statsData.time)}%`;
+            }
+          },
+        });
+      }
+
       // General reveals
       if (pageRef.current) {
         const reveals = pageRef.current.querySelectorAll(".gsap-reveal");
@@ -120,14 +155,14 @@ export default function TechnologySupportPage() {
   ];
 
   return (
-    <div ref={pageRef} className="relative overflow-hidden bg-[#120b06] min-h-screen py-16 sm:py-10 animate-fade-in">
+    <div ref={pageRef} className="relative overflow-hidden bg-[#0a0605] min-h-screen py-16 sm:py-10 animate-fade-in">
       {/* Background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.03)_0%,transparent_60%)] pointer-events-none -z-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(253,168,93,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-24">
         {/* Header Section */}
         <div className="gsap-reveal text-center max-w-3xl mx-auto space-y-4">
-          <span className="inline-flex items-center rounded-lg bg-amber-955/35 border border-amber-900/40 px-3.5 py-1.5 text-xs font-semibold text-[#fda85d]">
+          <span className="inline-flex items-center rounded-full bg-amber-955/35 border border-amber-900/40 px-3 py-1 text-xs font-semibold text-[#fda85d]">
             CRM &amp; Automation Support
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
@@ -146,9 +181,60 @@ export default function TechnologySupportPage() {
           </div>
         </div>
 
+        {/* Animated Stats Section */}
+        <div
+          ref={statsContainerRef}
+          className="bg-gradient-to-b from-[#18100a]/80 to-[#120b06] border border-amber-900/30 rounded-2xl py-12 px-6 md:px-8 relative overflow-hidden"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div className="space-y-2">
+              <span
+                ref={officesValRef}
+                className="text-4xl md:text-5xl font-black text-[#fda85d] font-mono block"
+              >
+                0+
+              </span>
+              <span className="text-xs text-white font-bold uppercase tracking-wider block">
+                Offices Automated
+              </span>
+              <p className="text-[10px] text-stone-500">
+                Tax practices running streamlined CRM and automation systems
+              </p>
+            </div>
+            <div className="space-y-2">
+              <span
+                ref={automationValRef}
+                className="text-4xl md:text-5xl font-black text-[#fda85d] font-mono block"
+              >
+                0%
+              </span>
+              <span className="text-xs text-white font-bold uppercase tracking-wider block">
+                Admin Work Eliminated
+              </span>
+              <p className="text-[10px] text-stone-500">
+                Average reduction in manual document handling and client follow-ups
+              </p>
+            </div>
+            <div className="space-y-2">
+              <span
+                ref={timeValRef}
+                className="text-4xl md:text-5xl font-black text-[#fda85d] font-mono block"
+              >
+                0%
+              </span>
+              <span className="text-xs text-white font-bold uppercase tracking-wider block">
+                Faster Lead Response
+              </span>
+              <p className="text-[10px] text-stone-500">
+                Automated systems respond to leads instantly, 24/7
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* CRM Dashboard Mockup */}
         <div className="gsap-reveal relative rounded-2xl overflow-hidden border border-amber-900/30 shadow-2xl shadow-black/60">
-          <div className="absolute top-0 left-0 right-0 h-8 bg-[#18100a] border-b border-amber-900/20 flex items-center px-4 gap-1.5 z-10">
+          <div className="absolute top-0 left-0 right-0 h-8 bg-[#0f0805] border-b border-amber-900/20 flex items-center px-4 gap-1.5 z-10">
             <span className="h-2.5 w-2.5 rounded-full bg-red-500/70" />
             <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/70" />
             <span className="h-2.5 w-2.5 rounded-full bg-green-500/70" />
@@ -171,7 +257,7 @@ export default function TechnologySupportPage() {
             <p className="text-xs text-stone-500 mt-1">Scroll to watch a lead navigate the automated client lifecycle from start to end.</p>
           </div>
 
-          <div ref={diagramRef} className="glass-card p-8 overflow-x-auto select-none bg-[#18100a]/50">
+          <div ref={diagramRef} className="glass-card p-8 overflow-x-auto select-none bg-[#0f0805]/50">
             <div className="min-w-[800px] flex items-center justify-between relative py-6">
               {/* Flow Steps */}
               {[
@@ -183,7 +269,7 @@ export default function TechnologySupportPage() {
               ].map((step, idx) => (
                 <React.Fragment key={idx}>
                   <div className="gsap-flow-node flex flex-col items-center text-center space-y-2 z-10 w-28">
-                    <div className="h-12 w-12 rounded-xl bg-[#120b06] border border-amber-900/35 hover:border-amber-400 flex items-center justify-center text-[#fda85d] shadow transition-colors">
+                    <div className="h-12 w-12 rounded-xl bg-[#0a0605] border border-amber-900/35 hover:border-amber-400 flex items-center justify-center text-[#fda85d] shadow transition-colors">
                       <step.icon className="w-5 h-5" />
                     </div>
                     <div>
@@ -283,8 +369,8 @@ export default function TechnologySupportPage() {
                 onClick={() => setActiveStep(idx)}
                 className={`p-3.5 rounded-lg border text-center transition-all cursor-pointer flex flex-col items-center justify-center focus:outline-none ${
                   activeStep === idx
-                    ? "bg-[#18100a] border-amber-500/30 text-[#fda85d] font-semibold"
-                    : "bg-[#18100a]/40 border-amber-900/30 text-stone-500 hover:text-white"
+                    ? "bg-[#0f0805] border-amber-500/30 text-[#fda85d] font-semibold"
+                    : "bg-[#0f0805]/40 border-amber-900/30 text-stone-500 hover:text-white"
                 }`}
               >
                 <div className="text-[9px] font-bold uppercase tracking-wider mb-1">Step {s.num}</div>
@@ -293,7 +379,7 @@ export default function TechnologySupportPage() {
             ))}
           </div>
 
-          <div className="bg-[#18100a]/50 border border-amber-900/30 rounded-xl p-6 space-y-4">
+          <div className="bg-[#0f0805]/50 border border-amber-900/30 rounded-xl p-6 space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <span className="text-[9px] font-bold tracking-widest text-[#fda85d] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded inline-block">
                 Step {automationSteps[activeStep].num} Configuration
@@ -305,6 +391,22 @@ export default function TechnologySupportPage() {
             <h3 className="text-base font-bold text-white uppercase tracking-wider">{automationSteps[activeStep].title}</h3>
             <p className="text-xs text-stone-450 leading-relaxed">{automationSteps[activeStep].desc}</p>
           </div>
+        </div>
+
+        {/* Testimonials Section */}
+        <div className="gsap-reveal space-y-8">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-[#fda85d] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded inline-block">
+              Operations Transformation
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight uppercase">
+              Tax Offices Working Smarter
+            </h2>
+            <p className="text-xs text-stone-500">
+              Professionals who've implemented automation and CRM systems, and now spend less time on admin and more time growing their businesses.
+            </p>
+          </div>
+          <TestimonialCarousel />
         </div>
 
         {/* FAQs */}

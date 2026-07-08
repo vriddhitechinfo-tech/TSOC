@@ -2,16 +2,16 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { useModal } from "@/context/ModalContext";
-import { 
-  Users, 
-  Phone, 
-  Settings, 
-  Scale, 
-  BookOpen, 
-  Heart, 
-  TrendingUp, 
-  Globe, 
-  Check, 
+import {
+  Users,
+  Phone,
+  Settings,
+  Scale,
+  BookOpen,
+  Heart,
+  TrendingUp,
+  Globe,
+  Check,
   Clock,
   CalendarDays,
   Plus
@@ -20,11 +20,18 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import FaqAccordion from "@/components/ui/FaqAccordion";
+import TestimonialCarousel from "@/components/TestimonialCarousel";
 
 export default function OpenOfficePage() {
   const { openModal } = useModal();
   const [activeDay, setActiveDay] = useState("mon");
   const pageRef = useRef<HTMLDivElement>(null);
+  const statsContainerRef = useRef<HTMLDivElement>(null);
+
+  // Stats refs for counting animation
+  const membersValRef = useRef<HTMLSpanElement>(null);
+  const sessionsValRef = useRef<HTMLSpanElement>(null);
+  const supportValRef = useRef<HTMLSpanElement>(null);
 
   // Auto-detect current weekday on client load
   useEffect(() => {
@@ -39,25 +46,55 @@ export default function OpenOfficePage() {
       gsap.registerPlugin(ScrollTrigger);
     }
 
-    if (pageRef.current) {
-      const reveals = pageRef.current.querySelectorAll(".gsap-reveal");
-      gsap.fromTo(
-        reveals,
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
+    const ctx = gsap.context(() => {
+      // Stats Counter Animation
+      if (statsContainerRef.current) {
+        const statsData = { members: 0, sessions: 0, support: 0 };
+        gsap.to(statsData, {
+          members: 2000,
+          sessions: 365,
+          support: 24,
+          duration: 1.6,
           ease: "power2.out",
-          stagger: 0.15,
           scrollTrigger: {
-            trigger: pageRef.current,
+            trigger: statsContainerRef.current,
             start: "top 85%",
             toggleActions: "play none none none",
           },
-        }
-      );
-    }
+          onUpdate: () => {
+            if (membersValRef.current) {
+              membersValRef.current.innerText = `${Math.floor(statsData.members)}+`;
+            }
+            if (sessionsValRef.current) {
+              sessionsValRef.current.innerText = `${Math.floor(statsData.sessions)}`;
+            }
+            if (supportValRef.current) {
+              supportValRef.current.innerText = `${Math.floor(statsData.support)}/7`;
+            }
+          },
+        });
+      }
+
+      if (pageRef.current) {
+        const reveals = pageRef.current.querySelectorAll(".gsap-reveal");
+        gsap.fromTo(
+          reveals,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            stagger: 0.15,
+            scrollTrigger: {
+              trigger: pageRef.current,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+    });
 
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
@@ -169,14 +206,14 @@ export default function OpenOfficePage() {
   };
 
   return (
-    <div ref={pageRef} className="relative overflow-hidden bg-[#120b06] min-h-screen py-16 sm:py-10 animate-fade-in">
+    <div ref={pageRef} className="relative overflow-hidden bg-[#0a0605] min-h-screen py-16 sm:py-10 animate-fade-in">
       {/* Background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.03)_0%,transparent_60%)] pointer-events-none -z-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(251,191,36,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-24">
         {/* Header Section */}
         <div className="gsap-reveal text-center max-w-3xl mx-auto space-y-4">
-          <span className="inline-flex items-center rounded-lg bg-amber-955/35 border border-amber-900/40 px-3.5 py-1.5 text-xs font-semibold text-[#fda85d]">
+          <span className="inline-flex items-center rounded-full bg-amber-955/35 border border-amber-900/40 px-3 py-1 text-xs font-semibold text-[#fbbf24]">
             Tax Professional Community
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
@@ -188,10 +225,61 @@ export default function OpenOfficePage() {
           <div className="pt-4">
             <button
               onClick={() => openModal("openoffice")}
-              className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#fda85d] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
+              className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#fbbf24] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
             >
               Join The Open Office
             </button>
+          </div>
+        </div>
+
+        {/* Animated Stats Section */}
+        <div
+          ref={statsContainerRef}
+          className="bg-gradient-to-b from-[#18100a]/80 to-[#120b06] border border-amber-900/30 rounded-2xl py-12 px-6 md:px-8 relative overflow-hidden"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div className="space-y-2">
+              <span
+                ref={membersValRef}
+                className="text-4xl md:text-5xl font-black text-[#fbbf24] font-mono block"
+              >
+                0+
+              </span>
+              <span className="text-xs text-white font-bold uppercase tracking-wider block">
+                Active Community Members
+              </span>
+              <p className="text-[10px] text-stone-500">
+                Tax professionals, bookkeepers, and business owners collaborating daily
+              </p>
+            </div>
+            <div className="space-y-2">
+              <span
+                ref={sessionsValRef}
+                className="text-4xl md:text-5xl font-black text-[#fbbf24] font-mono block"
+              >
+                0
+              </span>
+              <span className="text-xs text-white font-bold uppercase tracking-wider block">
+                Annual Coworking Sessions
+              </span>
+              <p className="text-[10px] text-stone-500">
+                Year-round support, Mon–Fri live coworking and expert consultations
+              </p>
+            </div>
+            <div className="space-y-2">
+              <span
+                ref={supportValRef}
+                className="text-4xl md:text-5xl font-black text-[#fbbf24] font-mono block"
+              >
+                0/7
+              </span>
+              <span className="text-xs text-white font-bold uppercase tracking-wider block">
+                Days of Support Access
+              </span>
+              <p className="text-[10px] text-stone-500">
+                Attorney Q&As, bookkeeping guidance, and wellness resources available
+              </p>
+            </div>
           </div>
         </div>
 
@@ -206,7 +294,7 @@ export default function OpenOfficePage() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#120b06]/70 via-transparent to-transparent pointer-events-none" />
           <div className="absolute bottom-4 left-6 flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 bg-[#120b06]/80 backdrop-blur border border-amber-900/40 px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider text-[#fda85d]">
+            <span className="inline-flex items-center gap-1.5 bg-[#0a0605]/80 backdrop-blur border border-amber-900/40 px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider text-[#fbbf24]">
               <span className="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />
               Daily Coworking Sessions · Mon–Fri
             </span>
@@ -221,14 +309,14 @@ export default function OpenOfficePage() {
           </div>
 
           {/* Tab buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mb-8 border-b border-amber-950/30 pb-6">
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-8 pb-6">
             {weeklySchedule.map((item) => (
               <button
                 key={item.id}
                 onClick={() => setActiveDay(item.id)}
                 className={`py-2 px-5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
                   activeDay === item.id
-                    ? "bg-[#fda85d] text-black font-bold shadow-md"
+                    ? "bg-[#fbbf24] text-black font-bold shadow-md"
                     : "bg-amber-955/35 hover:bg-amber-950/20 border border-amber-900/30 text-stone-400 hover:text-white"
                 }`}
               >
@@ -241,10 +329,10 @@ export default function OpenOfficePage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
             <div className="space-y-4 lg:col-span-2">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-[#fda85d] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-[#fbbf24] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded">
                   {activeDaySchedule.pillar}
                 </span>
-                <span className="text-[10px] text-[#fda85d] font-semibold flex items-center gap-1.5">
+                <span className="text-[10px] text-[#fbbf24] font-semibold flex items-center gap-1.5">
                   <Clock className="w-3.5 h-3.5" />
                   {activeDaySchedule.time}
                 </span>
@@ -253,18 +341,18 @@ export default function OpenOfficePage() {
               <p className="text-xs text-stone-400 leading-relaxed max-w-3xl">{activeDaySchedule.desc}</p>
             </div>
             
-            <div className="bg-[#18100a] border border-amber-900/30 rounded-xl p-5 space-y-4 flex flex-col justify-between h-full">
+            <div className="bg-[#0f0805] border border-amber-900/30 rounded-xl p-5 space-y-4 flex flex-col justify-between h-full">
               <div>
                 <h4 className="text-[9px] font-bold text-stone-400 uppercase tracking-wider mb-3">Participant Perks</h4>
                 <ul className="space-y-2 text-xs text-stone-500">
                   <li className="flex items-center gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#fda85d] shrink-0" /> Live text-based Q&amp;A
+                    <Check className="w-3.5 h-3.5 text-[#fbbf24] shrink-0" /> Live text-based Q&amp;A
                   </li>
                   <li className="flex items-center gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#fda85d] shrink-0" /> Screen-sharing diagnostics
+                    <Check className="w-3.5 h-3.5 text-[#fbbf24] shrink-0" /> Screen-sharing diagnostics
                   </li>
                   <li className="flex items-center gap-2">
-                    <Check className="w-3.5 h-3.5 text-[#fda85d] shrink-0" /> Replay recordings vault access
+                    <Check className="w-3.5 h-3.5 text-[#fbbf24] shrink-0" /> Replay recordings vault access
                   </li>
                 </ul>
               </div>
@@ -272,14 +360,14 @@ export default function OpenOfficePage() {
               <div className="flex flex-col gap-2 mt-4">
                 <button
                   onClick={() => downloadIcs(activeDaySchedule)}
-                  className="w-full text-center bg-gradient-to-r from-[#fda85d] to-[#f59e0b] text-black font-extrabold py-2.5 px-4 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider flex items-center justify-center gap-1.5"
+                  className="w-full text-center bg-gradient-to-r from-[#fbbf24] to-[#f59e0b] text-black font-extrabold py-2.5 px-4 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider flex items-center justify-center gap-1.5"
                 >
                   <Plus className="w-3.5 h-3.5" />
                   Add to Calendar (.ics)
                 </button>
                 <button
                   onClick={() => openModal("openoffice")}
-                  className="w-full text-center bg-[#120b06] border border-amber-900/30 text-stone-300 hover:text-white font-bold py-2 px-4 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider"
+                  className="w-full text-center bg-[#0a0605] border border-amber-900/30 text-stone-300 hover:text-white font-bold py-2 px-4 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider"
                 >
                   Access Stream Details
                 </button>
@@ -303,7 +391,7 @@ export default function OpenOfficePage() {
               return (
                 <div key={b.name} className="gsap-reveal glass-card p-5">
                   <div className="flex items-center space-x-3 mb-2">
-                    <span className="text-[#fda85d]">
+                    <span className="text-[#fbbf24]">
                       <IconComponent className="w-5 h-5" />
                     </span>
                     <h3 className="text-xs font-bold text-white uppercase tracking-wider">{b.name}</h3>
@@ -313,6 +401,22 @@ export default function OpenOfficePage() {
               );
             })}
           </div>
+        </div>
+
+        {/* Testimonials Section */}
+        <div className="gsap-reveal space-y-8">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-[#fbbf24] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded inline-block">
+              Community Voices
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight uppercase">
+              Tax Professionals Thriving Together
+            </h2>
+            <p className="text-xs text-stone-500">
+              Hear from members who've transformed their businesses through community support, expert guidance, and collaborative problem-solving.
+            </p>
+          </div>
+          <TestimonialCarousel />
         </div>
 
         {/* FAQs */}

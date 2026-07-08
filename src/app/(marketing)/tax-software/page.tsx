@@ -8,35 +8,72 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SoftwareCarousel from "@/components/SoftwareCarousel";
 import FaqAccordion from "@/components/ui/FaqAccordion";
+import TestimonialCarousel from "@/components/TestimonialCarousel";
 
 export default function TaxSoftwarePage() {
   const { openModal } = useModal();
   const pageRef = useRef<HTMLDivElement>(null);
+  const statsContainerRef = useRef<HTMLDivElement>(null);
+
+  // Stats refs for counting animation
+  const usersValRef = useRef<HTMLSpanElement>(null);
+  const returnsValRef = useRef<HTMLSpanElement>(null);
+  const upTimeValRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       gsap.registerPlugin(ScrollTrigger);
     }
 
-    if (pageRef.current) {
-      const reveals = pageRef.current.querySelectorAll(".gsap-reveal");
-      gsap.fromTo(
-        reveals,
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
+    const ctx = gsap.context(() => {
+      // Stats Counter Animation
+      if (statsContainerRef.current) {
+        const statsData = { users: 0, returns: 0, uptime: 0 };
+        gsap.to(statsData, {
+          users: 500,
+          returns: 50,
+          uptime: 99.9,
+          duration: 1.6,
           ease: "power2.out",
-          stagger: 0.15,
           scrollTrigger: {
-            trigger: pageRef.current,
-            start: "top 80%",
+            trigger: statsContainerRef.current,
+            start: "top 85%",
             toggleActions: "play none none none",
           },
-        }
-      );
-    }
+          onUpdate: () => {
+            if (usersValRef.current) {
+              usersValRef.current.innerText = `${Math.floor(statsData.users)}+`;
+            }
+            if (returnsValRef.current) {
+              returnsValRef.current.innerText = `${Math.floor(statsData.returns)}K+`;
+            }
+            if (upTimeValRef.current) {
+              upTimeValRef.current.innerText = `${statsData.uptime.toFixed(1)}%`;
+            }
+          },
+        });
+      }
+
+      if (pageRef.current) {
+        const reveals = pageRef.current.querySelectorAll(".gsap-reveal");
+        gsap.fromTo(
+          reveals,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            stagger: 0.15,
+            scrollTrigger: {
+              trigger: pageRef.current,
+              start: "top 80%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+    });
 
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
@@ -112,55 +149,121 @@ export default function TaxSoftwarePage() {
   ];
 
   return (
-    <div ref={pageRef} className="relative overflow-hidden bg-[#120b06] min-h-screen py-16 sm:py-10">
+    <div ref={pageRef} className="relative overflow-hidden bg-[#0a0605] min-h-screen">
       {/* Background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.03)_0%,transparent_60%)] pointer-events-none -z-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(253,168,93,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-24">
-        {/* Header Section */}
-        <div className="gsap-reveal text-center max-w-3xl mx-auto space-y-4">
-          <span className="inline-flex items-center rounded-lg bg-amber-955/35 border border-amber-900/40 px-3.5 py-1.5 text-xs font-semibold text-[#fda85d]">
-            Professional Tax Software for Tax Preparers
-          </span>
-          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
-            Cloud-Based Tax Software Built for Profitability
-          </h1>
-          <p className="text-sm text-stone-400 leading-relaxed">
-            Access robust, reliable, and compliant tax software. File federal and state returns quickly, offer bank products directly, and grow a tax business with zero limits.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
-            <button
-              onClick={() => openModal("demo")}
-              className="bg-[#fda85d] text-black hover:bg-[#c29e2f] font-extrabold px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-colors cursor-pointer"
-            >
-              See the Software in Action
-            </button>
-            <button
-              onClick={() => openModal("demo")}
-              className="bg-[#18100a] text-stone-300 hover:text-white border border-amber-900/30 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-colors cursor-pointer"
-            >
-              Request Free Live Demo
-            </button>
+      <style>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) translateX(0px); }
+          50% { transform: translateY(-20px) translateX(10px); }
+        }
+      `}</style>
+
+      {/* Hero Section with Left/Right Split */}
+      <section className="relative pt-6 pb-20 lg:py-20 overflow-hidden">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 relative z-10 h-auto lg:h-[520px]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center h-full">
+            {/* Left: Content */}
+            <div className="space-y-6 flex flex-col justify-center">
+              <span className="gsap-reveal inline-flex w-fit items-center rounded-full bg-amber-955/35 border border-amber-900/40 px-3 py-1 text-xs font-semibold text-[#fda85d]">
+                Professional Tax Software for Tax Preparers
+              </span>
+              <h1 className="gsap-reveal text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-snug text-white">
+                Cloud-Based Tax Software Built for Profitability
+              </h1>
+              <p className="gsap-reveal text-sm text-stone-400 leading-relaxed line-clamp-3">
+                Access robust, reliable, and compliant tax software. File federal and state returns quickly, offer bank products directly, and grow a tax business with zero limits.
+              </p>
+              <div className="gsap-reveal flex flex-col sm:flex-row gap-4 pt-4">
+                <button
+                  onClick={() => openModal("demo")}
+                  className="bg-[#fda85d] text-black hover:bg-[#c29e2f] font-extrabold px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-colors cursor-pointer"
+                >
+                  See the Software in Action
+                </button>
+                <button
+                  onClick={() => openModal("demo")}
+                  className="bg-[#0f0805] text-stone-300 hover:text-white border border-amber-900/30 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-colors cursor-pointer"
+                >
+                  Request Free Live Demo
+                </button>
+              </div>
+            </div>
+
+            {/* Right: Dashboard Image with Floating Animation */}
+            <div className="relative h-full rounded-2xl overflow-hidden border border-amber-900/30 shadow-2xl shadow-black/60" style={{animation: 'float 6s ease-in-out infinite'}}>
+              <div className="absolute top-0 left-0 right-0 h-8 bg-[#0f0805] border-b border-amber-900/20 flex items-center px-4 gap-1.5 z-10">
+                <span className="h-2.5 w-2.5 rounded-full bg-red-500/70" />
+                <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/70" />
+                <span className="h-2.5 w-2.5 rounded-full bg-green-500/70" />
+                <span className="ml-4 text-[10px] text-stone-500 font-mono">Pro Tax Software — Dashboard</span>
+              </div>
+              <Image
+                src="/tax_software_dashboard.png"
+                alt="Professional tax software dashboard showing client management, filing status, and return analytics"
+                width={1440}
+                height={810}
+                className="w-full h-full object-cover mt-8"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#120b06]/60 via-transparent to-transparent pointer-events-none" />
+            </div>
           </div>
         </div>
+      </section>
 
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-24">
 
-        {/* Software Dashboard Mockup */}
-        <div className="gsap-reveal relative rounded-2xl overflow-hidden border border-amber-900/30 shadow-2xl shadow-black/60">
-          <div className="absolute top-0 left-0 right-0 h-8 bg-[#18100a] border-b border-amber-900/20 flex items-center px-4 gap-1.5">
-            <span className="h-2.5 w-2.5 rounded-full bg-red-500/70" />
-            <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/70" />
-            <span className="h-2.5 w-2.5 rounded-full bg-green-500/70" />
-            <span className="ml-4 text-[10px] text-stone-500 font-mono">Pro Tax Software — Dashboard</span>
+        {/* Animated Stats Section */}
+        <div
+          ref={statsContainerRef}
+          className="bg-gradient-to-b from-[#18100a]/80 to-[#120b06] border border-amber-900/30 rounded-2xl py-12 px-6 md:px-8 relative overflow-hidden"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div className="space-y-2">
+              <span
+                ref={usersValRef}
+                className="text-4xl md:text-5xl font-black text-[#fda85d] font-mono block"
+              >
+                0+
+              </span>
+              <span className="text-xs text-white font-bold uppercase tracking-wider block">
+                Active Professional Users
+              </span>
+              <p className="text-[10px] text-stone-500">
+                Tax preparers and EROs filing returns on our platform
+              </p>
+            </div>
+            <div className="space-y-2">
+              <span
+                ref={returnsValRef}
+                className="text-4xl md:text-5xl font-black text-[#fda85d] font-mono block"
+              >
+                0K+
+              </span>
+              <span className="text-xs text-white font-bold uppercase tracking-wider block">
+                Returns Filed Annually
+              </span>
+              <p className="text-[10px] text-stone-500">
+                Federal and state returns processed through our cloud platform
+              </p>
+            </div>
+            <div className="space-y-2">
+              <span
+                ref={upTimeValRef}
+                className="text-4xl md:text-5xl font-black text-[#fda85d] font-mono block"
+              >
+                0%
+              </span>
+              <span className="text-xs text-white font-bold uppercase tracking-wider block">
+                Uptime Guarantee
+              </span>
+              <p className="text-[10px] text-stone-500">
+                Enterprise-grade reliability for mission-critical filing season
+              </p>
+            </div>
           </div>
-          <Image
-            src="/tax_software_dashboard.png"
-            alt="Professional tax software dashboard showing client management, filing status, and return analytics"
-            width={1440}
-            height={810}
-            className="w-full h-auto object-cover mt-8"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#120b06]/60 via-transparent to-transparent pointer-events-none" />
         </div>
 
         {/* Walkthrough Carousel Section */}
@@ -175,7 +278,7 @@ export default function TaxSoftwarePage() {
         {/* Feature Highlights Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="gsap-reveal glass-card p-6 space-y-4">
-            <div className="h-9 w-9 rounded-md bg-[#18100a] border border-amber-900/30 flex items-center justify-center text-[#fda85d]">
+            <div className="h-9 w-9 rounded-md bg-[#0f0805] border border-amber-900/30 flex items-center justify-center text-[#fda85d]">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <h3 className="text-base font-bold text-white uppercase tracking-wider">Full IRS Compliance &amp; Review</h3>
@@ -185,7 +288,7 @@ export default function TaxSoftwarePage() {
           </div>
 
           <div className="gsap-reveal glass-card-hover-emerald p-6 space-y-4 border border-emerald-950 bg-[#160f0a]/30 rounded-xl">
-            <div className="h-9 w-9 rounded-md bg-[#18100a] border border-amber-900/30 flex items-center justify-center text-[#fda85d]">
+            <div className="h-9 w-9 rounded-md bg-[#0f0805] border border-amber-900/30 flex items-center justify-center text-[#fda85d]">
               <DollarSign className="w-5 h-5" />
             </div>
             <h3 className="text-base font-bold text-white uppercase tracking-wider">Integrated Bank Products</h3>
@@ -195,7 +298,7 @@ export default function TaxSoftwarePage() {
           </div>
 
           <div className="gsap-reveal glass-card p-6 space-y-4">
-            <div className="h-9 w-9 rounded-md bg-[#18100a] border border-amber-900/30 flex items-center justify-center text-[#fda85d]">
+            <div className="h-9 w-9 rounded-md bg-[#0f0805] border border-amber-900/30 flex items-center justify-center text-[#fda85d]">
               <Users className="w-5 h-5" />
             </div>
             <h3 className="text-base font-bold text-white uppercase tracking-wider">Unlimited Multi-User Console</h3>
@@ -256,7 +359,7 @@ export default function TaxSoftwarePage() {
                     className={`w-full py-2.5 px-4 rounded-lg text-xs font-extrabold transition-all cursor-pointer uppercase tracking-wider ${
                       pkg.isPopular 
                         ? "bg-gradient-to-r from-[#fda85d] to-[#f59e0b] text-black hover:from-[#c29e2f] hover:to-[#e08d03]"
-                        : "bg-[#18100a] hover:bg-amber-950 border border-amber-900/30 text-[#fda85d]"
+                        : "bg-[#0f0805] hover:bg-amber-950 border border-amber-900/30 text-[#fda85d]"
                     }`}
                   >
                     {pkg.ctaText}
@@ -265,6 +368,22 @@ export default function TaxSoftwarePage() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Testimonials Section */}
+        <div className="gsap-reveal space-y-8">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-[#fda85d] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded inline-block">
+              User Success Stories
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight uppercase">
+              Tax Professionals Trusting Our Platform
+            </h2>
+            <p className="text-xs text-stone-500">
+              Real stories from preparers and EROs who rely on our software to file with confidence and scale their businesses.
+            </p>
+          </div>
+          <TestimonialCarousel />
         </div>
 
         {/* FAQs */}

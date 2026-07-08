@@ -46,7 +46,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         </div>
 
         {/* Article Header */}
-        <div className="space-y-4 mb-12 pb-8 border-b border-amber-950/20">
+        <div className="space-y-4 mb-12 pb-8">
           <span className="inline-flex items-center rounded-lg bg-amber-955/35 border border-amber-900/40 px-3.5 py-1 text-xs font-semibold text-[#fda85d]">
             Sector Blog &amp; Resources
           </span>

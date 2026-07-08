@@ -78,14 +78,14 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div ref={pageRef} className="relative overflow-hidden bg-[#120b06] min-h-screen py-16 sm:py-10">
+    <div ref={pageRef} className="relative overflow-hidden bg-[#0a0605] min-h-screen py-16 sm:py-10">
       {/* Background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.03)_0%,transparent_60%)] pointer-events-none -z-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(253,168,93,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="gsap-reveal text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="inline-flex items-center rounded-lg bg-amber-955/35 border border-amber-900/40 px-3.5 py-1.5 text-xs font-semibold text-[#fda85d]">
+          <span className="inline-flex items-center rounded-full bg-amber-955/35 border border-amber-900/40 px-3 py-1 text-xs font-semibold text-[#fda85d]">
             How We Support Tax Professionals
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
@@ -108,7 +108,7 @@ export default function ServicesPage() {
                   <span className="text-xs font-bold text-[#fda85d] font-mono">
                     {srv.num}
                   </span>
-                  <span className="text-[9px] font-bold text-stone-400 uppercase tracking-widest bg-[#18100a] border border-amber-900/30 px-2.5 py-0.5 rounded">
+                  <span className="text-[9px] font-bold text-stone-400 uppercase tracking-widest bg-[#0f0805] border border-amber-900/30 px-2.5 py-0.5 rounded">
                     {srv.tag}
                   </span>
                 </div>
@@ -121,7 +121,7 @@ export default function ServicesPage() {
               <div className="shrink-0">
                 <Link
                   href={srv.href}
-                  className="inline-flex items-center gap-1.5 bg-[#18100a] hover:bg-amber-950 border border-amber-900/30 text-[#fda85d] hover:text-white px-5 py-2.5 rounded-lg text-xs font-extrabold transition-all uppercase tracking-wider"
+                  className="inline-flex items-center gap-1.5 bg-[#0f0805] hover:bg-amber-950 border border-amber-900/30 text-[#fda85d] hover:text-white px-5 py-2.5 rounded-lg text-xs font-extrabold transition-all uppercase tracking-wider"
                 >
                   View Details
                   <ArrowRight className="w-3.5 h-3.5" />

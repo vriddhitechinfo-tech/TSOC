@@ -27,17 +27,17 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #0f0a06; /* Adjusted for warmer brand palette */
+  background-color: #050302; /* Deep dark background */
   color: #fafaf9; /* warm stone-50 */
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
 
 /* Luxury Card Styling */
 .glass-card {
-  background: rgba(24, 15, 9, 0.45);
+  background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(253, 168, 93, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 0.75rem;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }

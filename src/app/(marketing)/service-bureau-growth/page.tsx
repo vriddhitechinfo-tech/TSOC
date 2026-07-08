@@ -2,16 +2,23 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { useModal } from "@/context/ModalContext";
-import { Check, ArrowRight, Activity, Download, Mail, User, Phone, CheckCircle } from "lucide-react";
+import { Check, ArrowRight, Activity, Download, Mail, User, Phone, CheckCircle, Star } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import FaqAccordion from "@/components/ui/FaqAccordion";
+import TestimonialCarousel from "@/components/TestimonialCarousel";
 
 export default function ServiceBureauGrowthPage() {
   const { openModal } = useModal();
   const pageRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const leftMenuRef = useRef<HTMLDivElement>(null);
+  const statsContainerRef = useRef<HTMLDivElement>(null);
+
+  // Stats refs for counting animation
+  const officesValRef = useRef<HTMLSpanElement>(null);
+  const revenueValRef = useRef<HTMLSpanElement>(null);
+  const preparersValRef = useRef<HTMLSpanElement>(null);
 
   // Lead magnet state
   const [leadData, setLeadData] = useState({ name: "", email: "", phone: "" });
@@ -27,6 +34,34 @@ export default function ServiceBureauGrowthPage() {
     }
 
     const ctx = gsap.context(() => {
+      // Stats Counter Animation
+      if (statsContainerRef.current) {
+        const statsData = { offices: 0, revenue: 0, preparers: 0 };
+        gsap.to(statsData, {
+          offices: 150,
+          revenue: 500,
+          preparers: 5000,
+          duration: 1.6,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: statsContainerRef.current,
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+          onUpdate: () => {
+            if (officesValRef.current) {
+              officesValRef.current.innerText = `${Math.floor(statsData.offices)}+`;
+            }
+            if (revenueValRef.current) {
+              revenueValRef.current.innerText = `$${Math.floor(statsData.revenue).toLocaleString()}K`;
+            }
+            if (preparersValRef.current) {
+              preparersValRef.current.innerText = `${Math.floor(statsData.preparers).toLocaleString()}+`;
+            }
+          },
+        });
+      }
+
       // General reveals
       if (pageRef.current) {
         gsap.fromTo(
@@ -172,14 +207,14 @@ export default function ServiceBureauGrowthPage() {
   };
 
   return (
-    <div ref={pageRef} className="relative overflow-hidden bg-[#120b06] min-h-screen py-16 sm:py-10 animate-fade-in">
+    <div ref={pageRef} className="relative overflow-hidden bg-[#0a0605] min-h-screen py-16 sm:py-10 animate-fade-in">
       {/* Background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.03)_0%,transparent_60%)] pointer-events-none -z-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(52,211,153,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-24">
         {/* Header Section */}
         <div className="gsap-reveal text-center max-w-3xl mx-auto space-y-4">
-          <span className="inline-flex items-center rounded-lg bg-amber-955/35 border border-amber-900/40 px-3.5 py-1.5 text-xs font-semibold text-[#fda85d]">
+          <span className="inline-flex items-center rounded-full bg-amber-955/35 border border-amber-900/40 px-3 py-1 text-xs font-semibold text-[#34d399]">
             Service Bureau Mentorship &amp; Scale
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
@@ -191,11 +226,78 @@ export default function ServiceBureauGrowthPage() {
           <div className="pt-4">
             <button
               onClick={() => openModal("bureau")}
-              className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#fda85d] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
+              className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#34d399] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
             >
               Apply for Service Bureau Mentorship
             </button>
           </div>
+        </div>
+
+        {/* Animated Stats Section */}
+        <div
+          ref={statsContainerRef}
+          className="bg-gradient-to-b from-[#18100a]/80 to-[#120b06] border border-amber-900/30 rounded-2xl py-12 px-6 md:px-8 relative overflow-hidden"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div className="space-y-2">
+              <span
+                ref={officesValRef}
+                className="text-4xl md:text-5xl font-black text-[#34d399] font-mono block"
+              >
+                0+
+              </span>
+              <span className="text-xs text-white font-bold uppercase tracking-wider block">
+                Sub-Offices Supported
+              </span>
+              <p className="text-[10px] text-stone-500">
+                Tax professionals managing networks through our platform
+              </p>
+            </div>
+            <div className="space-y-2">
+              <span
+                ref={revenueValRef}
+                className="text-4xl md:text-5xl font-black text-[#34d399] font-mono block"
+              >
+                $0K
+              </span>
+              <span className="text-xs text-white font-bold uppercase tracking-wider block">
+                Average Recurring Revenue
+              </span>
+              <p className="text-[10px] text-stone-500">
+                Additional annual income from sub-office licensing fees
+              </p>
+            </div>
+            <div className="space-y-2">
+              <span
+                ref={preparersValRef}
+                className="text-4xl md:text-5xl font-black text-[#34d399] font-mono block"
+              >
+                0+
+              </span>
+              <span className="text-xs text-white font-bold uppercase tracking-wider block">
+                Preparers in Network
+              </span>
+              <p className="text-[10px] text-stone-500">
+                Professional tax preparers scaling through our model
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Testimonials Section */}
+        <div className="gsap-reveal space-y-8">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-[#34d399] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded inline-block">
+              Service Bureau Success Stories
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight uppercase">
+              Proven Growth Across Our Network
+            </h2>
+            <p className="text-xs text-stone-500">
+              Tax professionals who transitioned to Service Bureau models and built sustainable, scaling revenue streams.
+            </p>
+          </div>
+          <TestimonialCarousel />
         </div>
 
         {/* Pinned Scroll-Scrub Phase Section */}
@@ -208,7 +310,7 @@ export default function ServiceBureauGrowthPage() {
           <div ref={containerRef} className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative pb-16">
             {/* Left Column - Pinned Menu (Desktop only) */}
             <div className="hidden lg:block lg:col-span-4 sticky top-24 self-start space-y-3" ref={leftMenuRef}>
-              <div className="bg-[#18100a]/80 border border-amber-900/30 rounded-xl p-4 space-y-2">
+              <div className="bg-[#0f0805]/80 border border-amber-900/30 rounded-xl p-4 space-y-2">
                 <span className="text-[9px] font-bold text-stone-500 uppercase tracking-widest block mb-2">Phase Navigator</span>
                 {phases.map((p, idx) => (
                   <button
@@ -216,19 +318,19 @@ export default function ServiceBureauGrowthPage() {
                     onClick={() => scrollToPhaseBlock(idx)}
                     className={`w-full text-left p-3 rounded-lg border text-xs transition-all duration-200 cursor-pointer flex items-center justify-between focus:outline-none ${
                       activeScrollPhase === idx
-                        ? "bg-amber-950/45 border-amber-500/40 text-[#fda85d] font-bold"
+                        ? "bg-amber-950/45 border-amber-500/40 text-[#34d399] font-bold"
                         : "bg-transparent border-transparent text-stone-500 hover:text-white"
                     }`}
                   >
                     <div className="flex items-center space-x-3">
                       <span className={`h-6 w-6 rounded flex items-center justify-center text-[9px] font-bold border ${
-                        activeScrollPhase === idx ? "bg-[#18100a] border-amber-500/40 text-[#fda85d]" : "bg-[#120b06] border-amber-905/30 text-stone-600"
+                        activeScrollPhase === idx ? "bg-[#0f0805] border-amber-500/40 text-[#34d399]" : "bg-[#0a0605] border-amber-905/30 text-stone-600"
                       }`}>
                         {idx + 1}
                       </span>
                       <span>{p.title}</span>
                     </div>
-                    <ArrowRight className={`w-3.5 h-3.5 shrink-0 transition-transform ${activeScrollPhase === idx ? "translate-x-0.5 text-[#fda85d]" : "text-transparent"}`} />
+                    <ArrowRight className={`w-3.5 h-3.5 shrink-0 transition-transform ${activeScrollPhase === idx ? "translate-x-0.5 text-[#34d399]" : "text-transparent"}`} />
                   </button>
                 ))}
               </div>
@@ -243,10 +345,10 @@ export default function ServiceBureauGrowthPage() {
                   className="phase-scroll-block glass-card p-6 md:p-8 space-y-4 border border-amber-900/20 scroll-mt-24 transition-opacity duration-300"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-[9px] font-bold uppercase tracking-widest text-[#fda85d] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded">
+                    <span className="text-[9px] font-bold uppercase tracking-widest text-[#34d399] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded">
                       {p.num} Details
                     </span>
-                    <span className="text-[9px] text-[#fda85d] font-semibold uppercase tracking-wider">Growth Blueprint</span>
+                    <span className="text-[9px] text-[#34d399] font-semibold uppercase tracking-wider">Growth Blueprint</span>
                   </div>
 
                   <h3 className="text-base sm:text-lg font-bold text-white uppercase tracking-wider">{p.title}</h3>
@@ -259,7 +361,7 @@ export default function ServiceBureauGrowthPage() {
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {p.items.map((it) => (
                         <li key={it} className="flex items-start space-x-2 text-xs text-stone-450">
-                          <Check className="w-3.5 h-3.5 text-[#fda85d] shrink-0 mt-0.5" />
+                          <Check className="w-3.5 h-3.5 text-[#34d399] shrink-0 mt-0.5" />
                           <span>{it}</span>
                         </li>
                       ))}
@@ -274,12 +376,12 @@ export default function ServiceBureauGrowthPage() {
         {/* Lead Magnet checklist form */}
         <div className="gsap-reveal max-w-4xl mx-auto bg-gradient-to-r from-[#20140e] to-[#120b06] border border-amber-500/25 rounded-2xl p-6 md:p-10 relative overflow-hidden shadow-xl">
           <div className="absolute top-0 right-0 p-8 opacity-5">
-            <Download className="w-40 h-40 text-[#fda85d]" />
+            <Download className="w-40 h-40 text-[#34d399]" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center z-10 relative">
             <div className="space-y-4">
-              <span className="text-[9px] font-bold uppercase tracking-widest text-[#fda85d] bg-amber-955/30 border border-amber-900/40 px-2.5 py-1 rounded inline-block">
+              <span className="text-[9px] font-bold uppercase tracking-widest text-[#34d399] bg-amber-955/30 border border-amber-900/40 px-2.5 py-1 rounded inline-block">
                 Lead Magnet
               </span>
               <h3 className="text-xl font-bold text-white uppercase tracking-wider">Which Phase Are You In?</h3>
@@ -287,14 +389,14 @@ export default function ServiceBureauGrowthPage() {
                 Download the complete Service Bureau audit checklist. This questionnaire helps evaluate your tech readiness, document pipeline templates, ERO onboarding systems, and recruitment setups.
               </p>
               <ul className="space-y-2 text-xs text-stone-500">
-                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#fda85d]" /> EFIN Audit guidelines</li>
-                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#fda85d]" /> Multi-user software checks</li>
-                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#fda85d]" /> CRM pipeline triggers map</li>
+                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#34d399]" /> EFIN Audit guidelines</li>
+                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#34d399]" /> Multi-user software checks</li>
+                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#34d399]" /> CRM pipeline triggers map</li>
               </ul>
             </div>
 
             {/* Checklist Form */}
-            <div className="bg-[#120b06]/60 border border-amber-900/30 rounded-xl p-5 md:p-6">
+            <div className="bg-[#0a0605]/60 border border-amber-900/30 rounded-xl p-5 md:p-6">
               {!isFormSubmitted ? (
                 <form onSubmit={handleLeadSubmit} className="space-y-3.5">
                   <h4 className="text-[10px] font-bold text-stone-300 uppercase tracking-wider mb-2 text-center">Get Your Free Copy</h4>
@@ -309,7 +411,7 @@ export default function ServiceBureauGrowthPage() {
                         placeholder="John Doe"
                         value={leadData.name}
                         onChange={(e) => setLeadData({ ...leadData, name: e.target.value })}
-                        className="w-full bg-[#18100a]/50 border border-amber-900/30 focus:border-[#fda85d] rounded-lg pl-9 pr-3 py-2 text-xs text-white placeholder-stone-700 outline-none transition-all"
+                        className="w-full bg-[#0f0805]/50 border border-amber-900/30 focus:border-[#34d399] rounded-lg pl-9 pr-3 py-2 text-xs text-white placeholder-stone-700 outline-none transition-all"
                       />
                     </div>
                   </div>
@@ -324,7 +426,7 @@ export default function ServiceBureauGrowthPage() {
                         placeholder="john@example.com"
                         value={leadData.email}
                         onChange={(e) => setLeadData({ ...leadData, email: e.target.value })}
-                        className="w-full bg-[#18100a]/50 border border-amber-900/30 focus:border-[#fda85d] rounded-lg pl-9 pr-3 py-2 text-xs text-white placeholder-stone-700 outline-none transition-all"
+                        className="w-full bg-[#0f0805]/50 border border-amber-900/30 focus:border-[#34d399] rounded-lg pl-9 pr-3 py-2 text-xs text-white placeholder-stone-700 outline-none transition-all"
                       />
                     </div>
                   </div>
@@ -339,14 +441,14 @@ export default function ServiceBureauGrowthPage() {
                         placeholder="(555) 555-5555"
                         value={leadData.phone}
                         onChange={(e) => setLeadData({ ...leadData, phone: e.target.value })}
-                        className="w-full bg-[#18100a]/50 border border-amber-900/30 focus:border-[#fda85d] rounded-lg pl-9 pr-3 py-2 text-xs text-white placeholder-stone-700 outline-none transition-all"
+                        className="w-full bg-[#0f0805]/50 border border-amber-900/30 focus:border-[#34d399] rounded-lg pl-9 pr-3 py-2 text-xs text-white placeholder-stone-700 outline-none transition-all"
                       />
                     </div>
                   </div>
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-[#fda85d] hover:bg-[#c29e2f] text-black font-extrabold py-2.5 rounded-lg text-xs uppercase tracking-wider transition-colors cursor-pointer flex items-center justify-center gap-1.5"
+                    className="w-full bg-[#34d399] hover:bg-[#c29e2f] text-black font-extrabold py-2.5 rounded-lg text-xs uppercase tracking-wider transition-colors cursor-pointer flex items-center justify-center gap-1.5"
                   >
                     {isSubmitting ? "Generating..." : "Download Checklist PDF"}
                     <Download className="w-3.5 h-3.5" />
@@ -357,7 +459,7 @@ export default function ServiceBureauGrowthPage() {
                   <CheckCircle className="w-10 h-10 text-emerald-400 mx-auto" />
                   <h4 className="text-xs font-bold text-white uppercase tracking-wider">Checklist Sent Successfully!</h4>
                   <p className="text-[10px] text-stone-400">
-                    Your PDF download has started. If the download didn&apos;t trigger, check your email inbox at <span className="text-[#fda85d] font-semibold">{leadData.email}</span>.
+                    Your PDF download has started. If the download didn&apos;t trigger, check your email inbox at <span className="text-[#34d399] font-semibold">{leadData.email}</span>.
                   </p>
                 </div>
               )}
@@ -379,21 +481,21 @@ export default function ServiceBureauGrowthPage() {
             </p>
             <ul className="space-y-3.5 text-xs text-stone-400">
               <li className="flex items-start space-x-2.5">
-                <Check className="w-3.5 h-3.5 text-[#fda85d] shrink-0 mt-0.5" />
+                <Check className="w-3.5 h-3.5 text-[#34d399] shrink-0 mt-0.5" />
                 <div>
                   <strong className="text-stone-350 font-bold block uppercase tracking-wider text-[10px] mb-0.5">Established EROs</strong>
                   Tax business owners with active EFINs seeking to expand their reach.
                 </div>
               </li>
               <li className="flex items-start space-x-2.5">
-                <Check className="w-3.5 h-3.5 text-[#fda85d] shrink-0 mt-0.5" />
+                <Check className="w-3.5 h-3.5 text-[#34d399] shrink-0 mt-0.5" />
                 <div>
                   <strong className="text-stone-350 font-bold block uppercase tracking-wider text-[10px] mb-0.5">Multi-preparer offices</strong>
                   Firms looking to deploy white-labeled software licenses and sub-office accounts.
                 </div>
               </li>
               <li className="flex items-start space-x-2.5">
-                <Check className="w-3.5 h-3.5 text-[#fda85d] shrink-0 mt-0.5" />
+                <Check className="w-3.5 h-3.5 text-[#34d399] shrink-0 mt-0.5" />
                 <div>
                   <strong className="text-stone-350 font-bold block uppercase tracking-wider text-[10px] mb-0.5">Scaling networks</strong>
                   Professional EROs building remote agent pools or license models.
@@ -403,14 +505,14 @@ export default function ServiceBureauGrowthPage() {
           </div>
 
           <div className="gsap-reveal glass-card p-8 text-center space-y-5">
-            <Activity className="w-8 h-8 text-[#fda85d] mx-auto" />
+            <Activity className="w-8 h-8 text-[#34d399] mx-auto" />
             <h3 className="text-base font-bold text-white uppercase tracking-wider">Apply for Mentorship</h3>
             <p className="text-xs text-stone-500 max-w-sm mx-auto leading-relaxed">
               We accept a limited number of offices into our Service Bureau Growth Program each quarter. Secure an audit to verify if your systems are scaling-ready.
             </p>
             <button
               onClick={() => openModal("bureau")}
-              className="bg-gradient-to-r from-[#fda85d] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black font-extrabold py-3 px-8 rounded-lg text-xs transition-colors mt-2 cursor-pointer uppercase tracking-wider"
+              className="bg-gradient-to-r from-[#34d399] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black font-extrabold py-3 px-8 rounded-lg text-xs transition-colors mt-2 cursor-pointer uppercase tracking-wider"
             >
               Start Mentorship Application
             </button>
