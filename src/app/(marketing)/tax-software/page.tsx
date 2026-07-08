@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import { useModal } from "@/context/ModalContext";
 import { Check, ShieldCheck, DollarSign, Users } from "lucide-react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SoftwareCarousel from "@/components/SoftwareCarousel";
@@ -111,7 +112,7 @@ export default function TaxSoftwarePage() {
   ];
 
   return (
-    <div ref={pageRef} className="relative overflow-hidden bg-[#120b06] min-h-screen py-16 sm:py-24">
+    <div ref={pageRef} className="relative overflow-hidden bg-[#120b06] min-h-screen py-16 sm:py-10">
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.03)_0%,transparent_60%)] pointer-events-none -z-10" />
 
@@ -141,6 +142,25 @@ export default function TaxSoftwarePage() {
               Request Free Live Demo
             </button>
           </div>
+        </div>
+
+
+        {/* Software Dashboard Mockup */}
+        <div className="gsap-reveal relative rounded-2xl overflow-hidden border border-amber-900/30 shadow-2xl shadow-black/60">
+          <div className="absolute top-0 left-0 right-0 h-8 bg-[#18100a] border-b border-amber-900/20 flex items-center px-4 gap-1.5">
+            <span className="h-2.5 w-2.5 rounded-full bg-red-500/70" />
+            <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/70" />
+            <span className="h-2.5 w-2.5 rounded-full bg-green-500/70" />
+            <span className="ml-4 text-[10px] text-stone-500 font-mono">Pro Tax Software — Dashboard</span>
+          </div>
+          <Image
+            src="/tax_software_dashboard.png"
+            alt="Professional tax software dashboard showing client management, filing status, and return analytics"
+            width={1440}
+            height={810}
+            className="w-full h-auto object-cover mt-8"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#120b06]/60 via-transparent to-transparent pointer-events-none" />
         </div>
 
         {/* Walkthrough Carousel Section */}

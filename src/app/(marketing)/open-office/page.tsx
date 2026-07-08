@@ -16,6 +16,7 @@ import {
   CalendarDays,
   Plus
 } from "lucide-react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import FaqAccordion from "@/components/ui/FaqAccordion";
@@ -29,6 +30,7 @@ export default function OpenOfficePage() {
   useEffect(() => {
     const dayIndex = new Date().getDay(); // 0 = Sun, 1 = Mon, ..., 6 = Sat
     const daysMap = ["mon", "mon", "tue", "wed", "thu", "fri", "mon"]; // map weekend to Monday
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setActiveDay(daysMap[dayIndex]);
   }, []);
 
@@ -167,7 +169,7 @@ export default function OpenOfficePage() {
   };
 
   return (
-    <div ref={pageRef} className="relative overflow-hidden bg-[#120b06] min-h-screen py-16 sm:py-24 animate-fade-in">
+    <div ref={pageRef} className="relative overflow-hidden bg-[#120b06] min-h-screen py-16 sm:py-10 animate-fade-in">
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.03)_0%,transparent_60%)] pointer-events-none -z-10" />
 
@@ -190,6 +192,24 @@ export default function OpenOfficePage() {
             >
               Join The Open Office
             </button>
+          </div>
+        </div>
+
+        {/* Open Office Community Photo */}
+        <div className="gsap-reveal relative rounded-2xl overflow-hidden border border-amber-900/30 shadow-2xl shadow-black/60">
+          <Image
+            src="/open_office_coworking.png"
+            alt="Tax professionals collaborating on a group video call coworking session in a modern home office"
+            width={1440}
+            height={810}
+            className="w-full h-auto object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#120b06]/70 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute bottom-4 left-6 flex items-center gap-2">
+            <span className="inline-flex items-center gap-1.5 bg-[#120b06]/80 backdrop-blur border border-amber-900/40 px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider text-[#fda85d]">
+              <span className="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />
+              Daily Coworking Sessions · Mon–Fri
+            </span>
           </div>
         </div>
 

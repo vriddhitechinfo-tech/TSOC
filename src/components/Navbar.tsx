@@ -32,39 +32,44 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-amber-950/40 bg-[#0f0a06]/85 backdrop-blur-md">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-14 items-center justify-between gap-4">
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center shrink-0">
             <Link href="/" className="flex items-center space-x-2 group">
-              <Logo size={28} />
-              <span className="font-bold text-sm tracking-wider text-white uppercase group-hover:text-[#fda85d] transition-colors">
+              <Logo size={26} />
+              <span className="hidden xl:block font-bold text-xs tracking-wider text-white uppercase group-hover:text-[#fda85d] transition-colors whitespace-nowrap">
                 The Sector of Collectives
+              </span>
+              <span className="xl:hidden font-bold text-xs tracking-wider text-white uppercase group-hover:text-[#fda85d] transition-colors whitespace-nowrap">
+                The Sector
               </span>
             </Link>
           </div>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center space-x-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className={`px-3 py-1.5 rounded-md text-xs font-semibold tracking-wide transition-all duration-150 ${
-                  isActive(link.href)
-                    ? "bg-amber-950/40 text-[#fda85d] border-b border-amber-500/30"
-                    : "text-stone-400 hover:text-white hover:bg-amber-950/20"
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
+          <nav className="hidden lg:flex items-center flex-1 justify-center">
+            <div className="flex items-center gap-0.5 flex-nowrap">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className={`px-2.5 py-1.5 rounded-md text-[11px] font-semibold tracking-wide transition-all duration-150 whitespace-nowrap ${
+                    isActive(link.href)
+                      ? "bg-amber-950/40 text-[#fda85d] border-b border-amber-500/30"
+                      : "text-stone-400 hover:text-white hover:bg-amber-950/20"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
           </nav>
 
           {/* CTA / Action Buttons */}
-          <div className="hidden lg:flex items-center space-x-3">
+          <div className="hidden lg:flex items-center shrink-0">
             <button
               onClick={() => openModal("strategy")}
-              className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#fda85d] to-[#f97316] hover:from-[#e0924f] hover:to-[#ea580c] text-black px-4 py-2 text-xs font-extrabold shadow-md hover:shadow-[#fda85d]/10 transition-all cursor-pointer uppercase tracking-wider"
+              className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#fda85d] to-[#f97316] hover:from-[#e0924f] hover:to-[#ea580c] text-black px-3.5 py-1.5 text-[11px] font-extrabold shadow-md hover:shadow-[#fda85d]/10 transition-all cursor-pointer uppercase tracking-wider whitespace-nowrap"
             >
               Book Strategy Call
             </button>
@@ -86,6 +91,7 @@ export default function Navbar() {
           </div>
         </div>
       </div>
+
 
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
