@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import Image from "next/image";
-import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { Quote } from "lucide-react";
 
 interface Testimonial {
   quote: string;
@@ -13,135 +13,131 @@ interface Testimonial {
 }
 
 export default function TestimonialCarousel() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-
   const testimonials: Testimonial[] = [
     {
-      quote: "Access to professional software was great, but the ERO coaching completely changed my trajectory. I went from splitting 30% of my fees to keeping 100% of my revenues and building my own office.",
+      quote:
+        "Access to professional software was great, but the ERO coaching completely changed my trajectory. I went from splitting 30% of my fees to keeping 100% of my revenues and building my own office.",
       name: "Tasha M.",
       role: "ERO & Firm Owner",
       location: "Atlanta, GA",
       avatar: "/avatar_tasha.png",
     },
     {
-      quote: "Running a Service Bureau felt overwhelming until I went through the Growth Program. Having step-by-step audit forms, compliance blueprints, and tech automations made all the difference.",
+      quote:
+        "Running a Service Bureau felt overwhelming until I went through the Growth Program. Having step-by-step audit forms, compliance blueprints, and tech automations made all the difference.",
       name: "David C.",
       role: "Service Bureau Owner",
       location: "Dallas, TX",
       avatar: "/avatar_david.png",
     },
     {
-      quote: "The Tech Tuesday CRM setup saved our office over 40 hours of manual work in February alone. Clients loved the automated document uploads, and we doubled our filing throughput.",
+      quote:
+        "The Tech Tuesday CRM setup saved our office over 40 hours of manual work in February alone. Clients loved the automated document uploads, and we doubled our filing throughput.",
       name: "Marcus K.",
       role: "Independent Tax Preparer",
       location: "Houston, TX",
-      avatar: "/avatar_tasha.png", // Reusing Tasha's/other avatar as fallback or generating new ones as needed
+      avatar: "/avatar_tasha.png",
     },
     {
-      quote: "I've been in the tax industry for 8 years, and The Sector of Collectives is the first community that actually delivers on its promises. Real attorney consultations and actual systems support.",
+      quote:
+        "I've been in the tax industry for 8 years, and The Sector of Collectives is the first community that actually delivers on its promises. Real attorney consultations and actual systems support.",
       name: "Alicia R.",
       role: "Multi-Location Firm Owner",
       location: "Chicago, IL",
       avatar: "/avatar_david.png",
     },
+    {
+      quote:
+        "Joining this collective was the best business decision I've made. The daily open office hours are like having an on-demand operations team ready to solve any diagnostic or software issue.",
+      name: "Sarah P.",
+      role: "Firm Owner",
+      location: "Tampa, FL",
+      avatar: "/avatar_tasha.png",
+    },
+    {
+      quote:
+        "The compliance blueprints alone saved us from several audit risks. Our sub-offices feel supported, and our software distribution runs completely on auto-pilot now.",
+      name: "James L.",
+      role: "Service Bureau Operator",
+      location: "Charlotte, NC",
+      avatar: "/avatar_david.png",
+    },
+    {
+      quote:
+        "The community of fellow EROs is worth the entry fee alone. You get to mastermind with tax pros doing 6 and 7 figures, sharing marketing scripts that actually convert clients.",
+      name: "Elena R.",
+      role: "Tax Consultant",
+      location: "Phoenix, AZ",
+      avatar: "/avatar_tasha.png",
+    },
   ];
 
-  const nextSlide = () => {
-    setActiveIndex((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevSlide = () => {
-    setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
-
-  useEffect(() => {
-    if (!isPaused) {
-      timeoutRef.current = setInterval(nextSlide, 6000);
-    }
-    return () => {
-      if (timeoutRef.current) {
-        clearInterval(timeoutRef.current);
-      }
-    };
-  }, [isPaused]);
+  // Duplicate the list to create a seamless looping marquee
+  const doubledTestimonials = [...testimonials, ...testimonials];
 
   return (
-    <div
-      className="w-full max-w-4xl mx-auto bg-[#18100a]/50 border border-amber-900/35 rounded-2xl p-6 md:p-10 relative overflow-hidden backdrop-blur-md shadow-xl"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
-      {/* Background quote glow */}
-      <Quote className="absolute right-6 top-6 w-28 h-28 text-amber-900/5 -z-10 select-none pointer-events-none" />
+    <div className="w-full relative overflow-hidden py-4 select-none">
+      {/* CSS keyframe styles for infinite translation */}
+      <style dangerouslySetInnerHTML={{ __html: `
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-marquee-infinite {
+          display: flex;
+          width: max-content;
+          animation: marquee 35s linear infinite;
+        }
+        .animate-marquee-infinite:hover {
+          animation-play-state: paused;
+        }
+      `}} />
 
-      {/* Slide Container */}
-      <div className="relative min-h-[180px] flex flex-col justify-between">
-        <div className="space-y-4">
-          <Quote className="w-8 h-8 text-[#fda85d]/80 shrink-0" />
-          <p className="text-sm md:text-base italic text-stone-250 leading-relaxed font-medium">
-            &quot;{testimonials[activeIndex].quote}&quot;
-          </p>
-        </div>
+      {/* Modern gradient fade overlay on sides to blend marquee seamlessly */}
+      <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#120b06] to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#120b06] to-transparent z-10 pointer-events-none" />
 
-        {/* User Info & Slide Controls */}
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-6 pt-6 border-t border-amber-950/20">
-          <div className="flex items-center space-x-3.5">
-            <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-amber-900/40 shrink-0">
-              <Image
-                src={testimonials[activeIndex].avatar}
-                alt={testimonials[activeIndex].name}
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="text-left">
-              <h4 className="text-xs font-bold text-white uppercase tracking-wider">
-                {testimonials[activeIndex].name}
-              </h4>
-              <p className="text-[10px] text-stone-400 font-semibold uppercase tracking-wider">
-                {testimonials[activeIndex].role}
-              </p>
-              <p className="text-[9px] text-[#fda85d] font-semibold">
-                {testimonials[activeIndex].location}
+      {/* Marquee Wrapper Row */}
+      <div className="animate-marquee-infinite gap-6">
+        {doubledTestimonials.map((item, idx) => (
+          <div
+            key={`${item.name}-${idx}`}
+            className="w-[320px] sm:w-[380px] h-[210px] bg-[#18100a]/50 border border-amber-900/30 hover:border-amber-500/30 rounded-2xl p-5 relative backdrop-blur-md shadow-xl flex flex-col justify-between transition-colors duration-300 shrink-0"
+          >
+            {/* Background quote glow decoration */}
+            <Quote className="absolute right-4 top-4 w-16 h-16 text-amber-900/5 -z-10 pointer-events-none" />
+
+            <div className="space-y-3">
+              <Quote className="w-5 h-5 text-[#fda85d]/70 shrink-0" />
+              <p className="text-xs sm:text-[13px] italic text-stone-250 leading-relaxed font-medium line-clamp-4">
+                &quot;{item.quote}&quot;
               </p>
             </div>
-          </div>
 
-          {/* Navigation Controls */}
-          <div className="flex items-center space-x-2">
-            <button
-              onClick={prevSlide}
-              className="p-2 rounded-lg bg-[#120b06]/80 hover:bg-amber-950/50 border border-amber-900/30 text-stone-400 hover:text-white transition-colors cursor-pointer"
-              aria-label="Previous testimonial"
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-            
-            {/* Dots indicator */}
-            <div className="flex space-x-1.5 px-2">
-              {testimonials.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActiveIndex(i)}
-                  className={`h-1.5 w-1.5 rounded-full transition-all cursor-pointer ${
-                    activeIndex === i ? "bg-[#fda85d] w-3" : "bg-stone-700 hover:bg-stone-500"
-                  }`}
-                  aria-label={`Go to slide ${i + 1}`}
+            {/* User details */}
+            <div className="border-t border-amber-955/15 pt-3.5 flex items-center gap-3">
+              <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-amber-900/40 shrink-0">
+                <Image
+                  src={item.avatar}
+                  alt={item.name}
+                  fill
+                  className="object-cover"
                 />
-              ))}
+              </div>
+              <div className="text-left leading-none">
+                <h4 className="text-[11px] font-bold text-white uppercase tracking-wider">
+                  {item.name}
+                </h4>
+                <p className="text-[9px] text-stone-400 font-semibold uppercase tracking-wider mt-0.5">
+                  {item.role}
+                </p>
+                <p className="text-[8px] text-[#fda85d] font-semibold mt-0.5">
+                  {item.location}
+                </p>
+              </div>
             </div>
-
-            <button
-              onClick={nextSlide}
-              className="p-2 rounded-lg bg-[#120b06]/80 hover:bg-amber-950/50 border border-amber-900/30 text-stone-400 hover:text-white transition-colors cursor-pointer"
-              aria-label="Next testimonial"
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   );

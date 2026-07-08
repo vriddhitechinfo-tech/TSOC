@@ -11,28 +11,38 @@ export default function ExitIntentCTA() {
   const [isVisible, setIsVisible] = useState(false);
   const [hasTriggered, setHasTriggered] = useState(false);
 
+  const hasTriggeredRef = React.useRef(hasTriggered);
+  const isVisibleRef = React.useRef(isVisible);
+
+  useEffect(() => {
+    hasTriggeredRef.current = hasTriggered;
+  }, [hasTriggered]);
+
+  useEffect(() => {
+    isVisibleRef.current = isVisible;
+  }, [isVisible]);
+
   const triggerCTA = () => {
     setIsVisible(true);
     setHasTriggered(true);
   };
 
+  // Reset state on path change
   useEffect(() => {
-    // Reset state on path change
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsVisible(false);
-    
-    // Check if already dismissed this session for this path
     const isDismissed = sessionStorage.getItem(`dismissed-cta-${pathname}`);
     if (isDismissed) {
       setHasTriggered(true);
-      return;
+    } else {
+      setHasTriggered(false);
     }
+  }, [pathname]);
 
-    setHasTriggered(false);
-
-    // 1. Scroll depth handler (60%)
+  useEffect(() => {
+    // 1. Scroll depth handler (55%)
     const handleScroll = () => {
-      if (hasTriggered || isVisible) return;
+      if (hasTriggeredRef.current || isVisibleRef.current) return;
 
       const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
       if (scrollHeight <= 0) return;
@@ -45,7 +55,7 @@ export default function ExitIntentCTA() {
 
     // 2. Exit Intent handler (mouse leaves top of screen)
     const handleMouseLeave = (e: MouseEvent) => {
-      if (hasTriggered || isVisible) return;
+      if (hasTriggeredRef.current || isVisibleRef.current) return;
       if (e.clientY < 15) {
         triggerCTA();
       }
@@ -58,7 +68,7 @@ export default function ExitIntentCTA() {
       window.removeEventListener("scroll", handleScroll);
       document.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, [pathname, hasTriggered, isVisible]);
+  }, [pathname]);
 
   const handleDismiss = () => {
     setIsVisible(false);
