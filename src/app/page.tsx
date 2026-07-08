@@ -457,7 +457,7 @@ export default function Home() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(253,168,93,0.04)_0%,transparent_50%)] pointer-events-none -z-10" />
 
       {/* 1. Hero Section */}
-      <section ref={heroRef} className="relative py-20 lg:py-">
+      <section ref={heroRef} className="relative py-20 lg:py-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <span className="gsap-hero-el inline-flex items-center rounded-lg bg-amber-955/30 border border-amber-900/40 px-3.5 py-1.5 text-xs font-semibold text-[#fda85d]">
             The Sector of Collectives Tax Software &amp; Community
