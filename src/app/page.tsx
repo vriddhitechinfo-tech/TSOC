@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useLayoutEffect, useRef } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -21,6 +21,7 @@ import {
   Megaphone,
   FileText,
   X,
+  Play,
 } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -31,6 +32,8 @@ import FaqAccordion from "@/components/ui/FaqAccordion";
 
 export default function Home() {
   const { openModal } = useModal();
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [autoPlay, setAutoPlay] = useState(true);
 
   const heroRef = useRef<HTMLDivElement>(null);
   const quizRef = useRef<HTMLDivElement>(null);
@@ -41,11 +44,110 @@ export default function Home() {
   const faqRef = useRef<HTMLDivElement>(null);
   const ecosystemSectionRef = useRef<HTMLDivElement>(null);
   const ecosystemContainerRef = useRef<HTMLDivElement>(null);
+  const autoPlayTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   // Stats refs for counting animation
   const yearsValRef = useRef<HTMLSpanElement>(null);
   const erosValRef = useRef<HTMLSpanElement>(null);
   const membersValRef = useRef<HTMLSpanElement>(null);
+
+  const heroSlides = [
+    {
+      tag: "Tax Software Access",
+      title: "Launch Your Tax Business",
+      titleHighlight: "Business",
+      description: "Get everything you need to start filing returns independently with professional cloud software, e-filing, and dedicated support.",
+      stats: [
+        { value: "500+", label: "Active Preparers" },
+        { value: "50K+", label: "Returns Filed" },
+        { value: "24/7", label: "Support" },
+      ],
+      bgFrom: "#120b06",
+      bgTo: "#1a0f08",
+      accentColor: "#fda85d",
+      cta1: "View Software Plans",
+      cta2: "See The Software In Action",
+      image: "/hero_tax_professional.png",
+    },
+    {
+      tag: "ERO Enablement",
+      title: "Stop Splitting Fees. Become an Independent ERO.",
+      titleHighlight: "Independent ERO",
+      description: "Step-by-step guidance through EFIN application, IRS setup, and compliance review to keep 100% of your fees.",
+      stats: [
+        { value: "500+", label: "EROs Enabled" },
+        { value: "100%", label: "Fee Retention" },
+        { value: "4-8 Weeks", label: "EFIN Setup" },
+      ],
+      bgFrom: "#0f0c0a",
+      bgTo: "#1a0f08",
+      accentColor: "#60a5fa",
+      cta1: "Schedule ERO Consultation",
+      cta2: "Start Your Application",
+      image: "/about_community.png",
+    },
+    {
+      tag: "Service Bureau Growth",
+      title: "Build a Scaling Tax Business With Sub-Offices.",
+      titleHighlight: "Scaling Tax Business",
+      description: "Transition to a distribution model: sub-license software, build onboarding, and generate recurring revenue on every return processed.",
+      stats: [
+        { value: "150+", label: "Sub-offices Managed" },
+        { value: "Recurring", label: "Revenue Streams" },
+        { value: "White-label", label: "Ready" },
+      ],
+      bgFrom: "#0a0f15",
+      bgTo: "#120b06",
+      accentColor: "#34d399",
+      cta1: "Apply for Mentorship",
+      cta2: "See Growth Blueprint",
+      image: "/open_office_coworking.png",
+    },
+    {
+      tag: "Open Office Community",
+      title: "Join Our Daily Community.",
+      titleHighlight: "Daily Community",
+      description: "Daily coworking blocks, live tax attorney Q&As, bookkeeping guidance, and year-round support for tax professionals.",
+      stats: [
+        { value: "2000+", label: "Community Members" },
+        { value: "365", label: "Days Of Support" },
+        { value: "Live", label: "Expert Access" },
+      ],
+      bgFrom: "#0d1117",
+      bgTo: "#1a0f08",
+      accentColor: "#fbbf24",
+      cta1: "Join The Open Office",
+      cta2: "Try Free Week",
+      image: "/crm_workflow_dashboard.png",
+    },
+  ];
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+    setAutoPlay(false);
+    if (autoPlayTimerRef.current) clearTimeout(autoPlayTimerRef.current);
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    setAutoPlay(false);
+    if (autoPlayTimerRef.current) clearTimeout(autoPlayTimerRef.current);
+  };
+
+  // Auto-play carousel
+  useEffect(() => {
+    if (!autoPlay) return;
+
+    if (autoPlayTimerRef.current) clearTimeout(autoPlayTimerRef.current);
+
+    autoPlayTimerRef.current = setTimeout(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 6000);
+
+    return () => {
+      if (autoPlayTimerRef.current) clearTimeout(autoPlayTimerRef.current);
+    };
+  }, [autoPlay, currentSlide, heroSlides.length]);
 
   useIsomorphicLayoutEffect(() => {
     if (typeof window !== "undefined") {
@@ -452,96 +554,219 @@ export default function Home() {
   ];
 
   return (
-    <div className="relative overflow-hidden bg-[#120b06] min-h-screen">
+    <div className="relative overflow-hidden bg-[#0a0605] min-h-screen">
+      <style>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) translateX(0px); }
+          50% { transform: translateY(-20px) translateX(10px); }
+        }
+      `}</style>
       {/* Subtle modern golden background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(253,168,93,0.04)_0%,transparent_50%)] pointer-events-none -z-10" />
 
-      {/* 1. Hero Section */}
-      <section ref={heroRef} className="relative py-20 lg:py-10">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <span className="gsap-hero-el inline-flex items-center rounded-lg bg-amber-955/30 border border-amber-900/40 px-3.5 py-1.5 text-xs font-semibold text-[#fda85d]">
-            The Sector of Collectives Tax Software &amp; Community
-          </span>
-          <h1 className="gsap-hero-el text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-tight">
-            Helping Tax Professionals Launch, Grow, and Scale Profitable
-            Businesses
-          </h1>
-          <p className="gsap-hero-el text-xs sm:text-sm md:text-base text-stone-400 max-w-2xl mx-auto leading-relaxed">
-            Tax software is just the beginning. Whether you&apos;re a new
-            preparer, an established ERO, or scaling a Service Bureau, The
-            Sector of Collectives provides the tools, mentorship, and support
-            structures to secure your business independence.
-          </p>
+      {/* 1. Hero Carousel Section - InWork Style */}
+      <section
+        ref={heroRef}
+        className="relative pt-4 pb-24 lg:py-24 overflow-hidden transition-all duration-700"
+        style={{
+          backgroundColor: heroSlides[currentSlide].bgFrom,
+        }}
+      >
+        {/* Background gradient based on slide */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-50 transition-all duration-700"
+          style={{
+            background: `linear-gradient(135deg, ${heroSlides[currentSlide].bgFrom} 0%, ${heroSlides[currentSlide].bgTo} 100%)`,
+          }}
+        />
 
-          {/* Quick Pillars Grid */}
-          <div className="gsap-hero-el grid grid-cols-2 md:grid-cols-3 gap-4 max-w-3xl mx-auto text-left py-4">
-            {[
-              "Tax Software Access",
-              "ERO Enablement",
-              "Service Bureau Growth",
-              "Open Office Community",
-              "Tax Business Coaching",
-              "Technology & Automation",
-            ].map((pillar) => (
-              <div
-                key={pillar}
-                className="flex items-center space-x-2 text-xs text-stone-250"
-              >
-                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-amber-500/10 border border-amber-900/35 text-[#fda85d]">
-                  <Check className="h-3 w-3" />
-                </span>
-                <span className="font-semibold text-stone-300">{pillar}</span>
-              </div>
-            ))}
-          </div>
-
-          {/* CTAs */}
-          <div className="gsap-hero-el flex flex-col sm:flex-row items-center justify-center gap-3 pt-4">
-            <button
-              onClick={() => openModal("strategy")}
-              className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#fda85d] to-[#f97316] hover:from-[#e0924f] hover:to-[#ea580c] text-black px-8 py-3.5 text-xs font-extrabold shadow-md hover:shadow-[#fda85d]/10 transition-all cursor-pointer uppercase tracking-wider"
-            >
-              Get Started Today
-            </button>
-            <button
-              onClick={() => openModal("strategy")}
-              className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-[#1a100a] border border-amber-900/40 hover:border-amber-500/45 px-8 py-3.5 text-xs font-bold text-stone-300 hover:text-white transition-all cursor-pointer uppercase tracking-wider"
-            >
-              Book a Strategy Call
-            </button>
-            <Link
-              href="/tax-software"
-              className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-[#1a100a]/40 border border-amber-900/30 hover:bg-[#1a100a] px-8 py-3.5 text-xs font-semibold text-[#fda85d] hover:text-white transition-all"
-            >
-              View Software Packages
-            </Link>
-          </div>
-
-          {/* Hero Image */}
-          <div className="gsap-hero-el relative mt-10 mx-auto max-w-5xl rounded-2xl overflow-hidden border border-amber-900/30 shadow-2xl shadow-black/60">
-            <Image
-              src="/hero_tax_professional.png"
-              alt="Tax professional working at a modern home office with dual monitors showing tax software"
-              width={1280}
-              height={720}
-              className="w-full h-auto object-cover"
-              priority
+        {/* Animated background circles/dots effect */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {[...Array(3)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute rounded-full opacity-5 animate-pulse"
+              style={{
+                width: "200px",
+                height: "200px",
+                backgroundColor: heroSlides[currentSlide].accentColor,
+                top: `${20 + i * 30}%`,
+                left: `${10 + i * 25}%`,
+                animation: `float ${6 + i * 2}s ease-in-out infinite`,
+              }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#120b06]/70 via-transparent to-transparent pointer-events-none" />
-            <div className="absolute bottom-4 left-6 flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 bg-[#120b06]/80 backdrop-blur border border-amber-900/40 px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider text-[#fda85d]">
-                <span className="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />
-                Live ERO Support {'\u00b7'} Open Office Daily
-              </span>
-            </div>
-          </div>
+          ))}
         </div>
+
+        {/* Grid pattern effect */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage: `linear-gradient(0deg, transparent 24%, ${heroSlides[currentSlide].accentColor}05 25%, ${heroSlides[currentSlide].accentColor}05 26%, transparent 27%, transparent 74%, ${heroSlides[currentSlide].accentColor}05 75%, ${heroSlides[currentSlide].accentColor}05 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, ${heroSlides[currentSlide].accentColor}05 25%, ${heroSlides[currentSlide].accentColor}05 26%, transparent 27%, transparent 74%, ${heroSlides[currentSlide].accentColor}05 75%, ${heroSlides[currentSlide].accentColor}05 76%, transparent 77%, transparent)`,
+            backgroundSize: "50px 50px",
+          }}
+        />
+
+        {/* Radial glow effect */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: `radial-gradient(circle at ${50 + Math.sin(currentSlide) * 20}% ${50 + Math.cos(currentSlide) * 20}%, ${heroSlides[currentSlide].accentColor}08 0%, transparent 50%)`,
+            transition: "all 0.7s ease",
+          }}
+        />
+
+
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 relative z-10 h-[620px]">
+          {/* Carousel Slides */}
+          {heroSlides.map((slide, idx) => (
+            <div
+              key={idx}
+              className={`${
+                idx === currentSlide ? "opacity-100 relative" : "opacity-0 absolute inset-0 pointer-events-none"
+              } transition-opacity duration-700 h-full`}
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center h-full w-full">
+                {/* Left: Text Content */}
+                <div className="space-y-4 flex flex-col justify-center h-full overflow-hidden">
+                  {/* Title with Accent */}
+                  <h1 className="gsap-hero-el text-5xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-snug min-h-fit max-h-40">
+                    {slide.title.split(" ").map((word, i) => {
+                      const isHighlight = slide.titleHighlight.split(" ").includes(word);
+                      return (
+                        <span
+                          key={i}
+                          style={{ color: isHighlight ? slide.accentColor : "white" }}
+                        >
+                          {word}{" "}
+                        </span>
+                      );
+                    })}
+                  </h1>
+
+                  {/* Description */}
+                  <p className="gsap-hero-el text-sm text-stone-400 leading-relaxed line-clamp-2 max-h-10">
+                    {slide.description}
+                  </p>
+
+                  {/* Progress Line with Pause Button */}
+                  <div className="gsap-hero-el flex items-center gap-4 py-4 h-6">
+                    {/* Dashed Progress Line - Bigger Dashes */}
+                    <div className="flex-1 flex gap-2">
+                      {heroSlides.map((_, i) => (
+                        <div
+                          key={i}
+                          className="h-1 transition-all duration-300"
+                          style={{
+                            width: i <= currentSlide ? "16px" : "8px",
+                            backgroundColor:
+                              i <= currentSlide
+                                ? slide.accentColor
+                                : "rgba(255,255,255,0.1)",
+                          }}
+                        />
+                      ))}
+                    </div>
+                    {/* Pause Button */}
+                    <button
+                      onClick={() => setAutoPlay(!autoPlay)}
+                      className="flex items-center justify-center w-8 h-8 rounded-full border border-white/30 hover:border-white/50 transition-colors flex-shrink-0"
+                      aria-label={autoPlay ? "Pause" : "Play"}
+                    >
+                      <span className="text-white/50 text-[10px] font-bold">
+                        {autoPlay ? "II" : "▶"}
+                      </span>
+                    </button>
+                  </div>
+
+                  {/* Stats */}
+                  <div className="gsap-hero-el flex gap-12 h-16">
+                    {slide.stats.map((stat) => (
+                      <div key={stat.label} className="space-y-0">
+                        <p
+                          className="text-2xl sm:text-3xl font-black font-mono leading-none"
+                          style={{ color: slide.accentColor }}
+                        >
+                          {stat.value}
+                        </p>
+                        <p className="text-[10px] text-stone-500 font-semibold uppercase tracking-wider">
+                          {stat.label}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* CTAs */}
+                  <div className="gsap-hero-el flex flex-col sm:flex-row gap-4 h-12">
+                    <button
+                      onClick={() => openModal("strategy")}
+                      className="inline-flex items-center justify-center rounded-lg text-black px-8 py-3 text-xs font-extrabold transition-all cursor-pointer uppercase tracking-wider hover:shadow-lg"
+                      style={{
+                        background: slide.accentColor,
+                      }}
+                    >
+                      {slide.cta1}
+                    </button>
+                    <button
+                      onClick={() => openModal("strategy")}
+                      className="inline-flex items-center justify-center rounded-lg border px-8 py-3 text-xs font-bold text-white transition-all cursor-pointer uppercase tracking-wider hover:bg-white/5"
+                      style={{
+                        borderColor: `${slide.accentColor}40`,
+                      }}
+                    >
+                      {slide.cta2}
+                    </button>
+                  </div>
+                </div>
+
+                {/* Right: Hero Image */}
+                <div className="relative h-full rounded-2xl overflow-hidden border shadow-2xl shadow-black/60" style={{borderColor: `${slide.accentColor}30`}}>
+                  <Image
+                    src={slide.image}
+                    alt={slide.title}
+                    width={1280}
+                    height={720}
+                    className="w-full h-full object-cover"
+                    priority
+                  />
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background: `linear-gradient(135deg, ${slide.bgFrom}60 0%, transparent 50%, ${slide.bgTo}99 100%)`,
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Navigation Arrows - Large & Clear */}
+        <button
+          onClick={() =>
+            setCurrentSlide((prev) =>
+              prev === 0 ? heroSlides.length - 1 : prev - 1
+            )
+          }
+          className="absolute left-6 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full border border-white/30 text-white hover:border-white/60 hover:bg-white/10 transition-all"
+          aria-label="Previous slide"
+        >
+          <ArrowRight className="w-6 h-6 rotate-180" />
+        </button>
+
+        <button
+          onClick={nextSlide}
+          className="absolute right-6 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full border border-white/30 text-white hover:border-white/60 hover:bg-white/10 transition-all"
+          aria-label="Next slide"
+        >
+          <ArrowRight className="w-6 h-6" />
+        </button>
       </section>
 
       {/* 2. Interactive Business Stage Quiz Router */}
       <section
         ref={quizRef}
-        className="py-12 border-t border-amber-950/20 bg-amber-955/5"
+        className="py-12 bg-black/20"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-4">
           <h2 className="text-lg font-bold text-white uppercase tracking-wider">
@@ -560,7 +785,7 @@ export default function Home() {
       {/* 3. Animated Stat Counters Banner */}
       <section
         ref={statsContainerRef}
-        className="py-16 bg-[#18100a]/80 border-y border-amber-950/30 relative"
+        className="py-16 bg-[#18100a]/80 relative"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
@@ -578,7 +803,7 @@ export default function Home() {
                 Established training, setups, and support structures since 2014
               </p>
             </div>
-            <div className="space-y-1 border-y md:border-y-0 md:border-x border-amber-950/20 py-6 md:py-0">
+            <div className="space-y-1 py-6 md:py-0">
               <span
                 ref={erosValRef}
                 className="text-4xl md:text-5xl font-black text-[#fda85d] font-mono block"
@@ -612,7 +837,7 @@ export default function Home() {
       </section>
 
       {/* 4. About Section */}
-      <section ref={aboutRef} className="py-20 border-b border-amber-955/10">
+      <section ref={aboutRef} className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="gsap-about-el space-y-6">
@@ -630,7 +855,7 @@ export default function Home() {
                 Whether you&apos;re filing your first return or scaling a
                 multi-location brand, we&apos;re committed to your independence.
               </p>
-              <div className="pt-4 border-t border-amber-955/20 space-y-3">
+              <div className="pt-4 space-y-3">
                 <h3 className="text-xs font-bold text-white uppercase tracking-wider">
                   Our Mission
                 </h3>
@@ -674,7 +899,7 @@ export default function Home() {
       {/* Pinned Card Stack Ecosystem Section */}
       <section
         ref={ecosystemSectionRef}
-        className="relative py-20 bg-[#120b06] border-b border-amber-955/10 overflow-hidden flex flex-col justify-center min-h-screen"
+        className="relative py-20 bg-[#0a0605] overflow-hidden flex flex-col justify-center min-h-screen"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full space-y-12">
           {/* Header */}
@@ -699,7 +924,7 @@ export default function Home() {
             {ecosystemPillars.map((pillar, idx) => (
               <div
                 key={pillar.title}
-                className="gsap-ecosystem-card opacity-0 lg:absolute lg:inset-0 glass-card p-6 md:p-8 flex flex-col justify-between border border-amber-900/30 bg-[#1a100a]/90 md:bg-[#1a100a]/95 backdrop-blur shadow-xl relative select-none w-full h-full"
+                className="gsap-ecosystem-card opacity-0 lg:absolute lg:inset-0 glass-card p-6 md:p-8 flex flex-col justify-between border border-white/10 bg-black/40 backdrop-blur shadow-xl relative select-none w-full h-full"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
@@ -717,7 +942,7 @@ export default function Home() {
                     {pillar.desc}
                   </p>
                 </div>
-                <div className="pt-6 border-t border-amber-955/15 flex items-center justify-between text-[10px] uppercase font-bold tracking-wider text-[#fda85d]">
+                <div className="pt-6 flex items-center justify-between text-[10px] uppercase font-bold tracking-wider text-[#fda85d]">
                   <span>{pillar.actionText}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </div>
@@ -821,7 +1046,7 @@ export default function Home() {
       {/* 7. Membership Comparison Table */}
       <section
         ref={pricingRef}
-        className="py-20 border-t border-amber-955/10 bg-amber-955/5"
+        className="py-20 bg-black/20"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-3 gsap-pricing-el">
@@ -838,10 +1063,10 @@ export default function Home() {
           </div>
 
           {/* Comparison Table Container */}
-          <div className="gsap-pricing-el overflow-x-auto border border-amber-900/35 rounded-xl bg-[#18100a]/50 backdrop-blur-md">
+          <div className="gsap-pricing-el overflow-x-auto border border-white/10 rounded-xl bg-black/30 backdrop-blur-md">
             <table className="w-full min-w-[700px] border-collapse text-left text-xs text-stone-300">
               {/* Sticky Table Header */}
-              <thead className="bg-[#120b06] border-b border-amber-900/35 sticky top-16 z-20">
+              <thead className="bg-[#0a0605] sticky top-16 z-20">
                 <tr>
                   <th className="p-4 font-bold text-stone-400 uppercase tracking-wider w-[40%]">
                     Capabilities &amp; Benefits
@@ -1001,7 +1226,7 @@ export default function Home() {
                   </td>
                 </tr>
                 {/* Button actions row */}
-                <tr className="bg-[#120b06]/40">
+                <tr className="bg-[#0a0605]/40">
                   <td className="p-4 font-bold text-stone-400">
                     Select Access Tier
                   </td>
@@ -1037,7 +1262,7 @@ export default function Home() {
       </section>
 
       {/* 8. Testimonials Section */}
-      <section className="py-20 border-b border-amber-955/10">
+      <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <span className="text-[10px] font-bold uppercase tracking-widest text-[#fda85d] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded inline-block">
