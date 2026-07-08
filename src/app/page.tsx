@@ -2,6 +2,7 @@
 
 import React, { useEffect, useLayoutEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const useIsomorphicLayoutEffect =
   typeof window !== "undefined" ? useLayoutEffect : useEffect;
@@ -515,6 +516,25 @@ export default function Home() {
               View Software Packages
             </Link>
           </div>
+
+          {/* Hero Image */}
+          <div className="gsap-hero-el relative mt-10 mx-auto max-w-5xl rounded-2xl overflow-hidden border border-amber-900/30 shadow-2xl shadow-black/60">
+            <Image
+              src="/hero_tax_professional.png"
+              alt="Tax professional working at a modern home office with dual monitors showing tax software"
+              width={1280}
+              height={720}
+              className="w-full h-auto object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#120b06]/70 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute bottom-4 left-6 flex items-center gap-2">
+              <span className="inline-flex items-center gap-1.5 bg-[#120b06]/80 backdrop-blur border border-amber-900/40 px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider text-[#fda85d]">
+                <span className="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />
+                Live ERO Support {'\u00b7'} Open Office Daily
+              </span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -622,22 +642,27 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="gsap-about-el relative bg-[#18100a] border border-amber-900/30 rounded-xl p-8 md:p-10 flex flex-col items-center justify-center text-center space-y-6">
-              <FileText className="w-10 h-10 text-[#fda85d]/80" />
-              <h3 className="text-xs font-bold tracking-wider text-stone-500 uppercase">
-                Our Community Motto
-              </h3>
-              <div className="text-2xl sm:text-3xl font-black tracking-wider text-white select-none">
-                <span className="text-[#fda85d]">Connect</span>
-                <span className="text-amber-900/60 mx-2">•</span>
-                <span className="text-[#fda85d]">Create</span>
-                <span className="text-amber-900/60 mx-2">•</span>
-                <span className="text-white">Conquer</span>
+            <div className="gsap-about-el relative rounded-2xl overflow-hidden border border-amber-900/30 shadow-xl shadow-black/40">
+              <Image
+                src="/about_community.png"
+                alt="Diverse community of tax professionals collaborating in a modern office setting"
+                width={800}
+                height={560}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#120b06]/80 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute bottom-5 left-5 right-5">
+                <div className="text-xl sm:text-2xl font-black tracking-wider text-white select-none">
+                  <span className="text-[#fda85d]">Connect</span>
+                  <span className="text-amber-900/60 mx-2">•</span>
+                  <span className="text-[#fda85d]">Create</span>
+                  <span className="text-amber-900/60 mx-2">•</span>
+                  <span className="text-white">Conquer</span>
+                </div>
+                <p className="text-stone-300 text-[10px] mt-1 leading-relaxed">
+                  Connect with peers. Create scalable revenue models. Conquer the tax industry on your own terms.
+                </p>
               </div>
-              <p className="text-stone-500 text-[10px] max-w-xs leading-relaxed">
-                Connect with peers. Create scalable revenue models. Conquer the
-                tax industry on your own terms.
-              </p>
             </div>
           </div>
         </div>

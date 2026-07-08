@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useModal } from "@/context/ModalContext";
 import { ChevronRight, Database, MessageSquare, ShieldAlert, Laptop, MailOpen, Check, Play } from "lucide-react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import FaqAccordion from "@/components/ui/FaqAccordion";
@@ -143,6 +144,24 @@ export default function TechnologySupportPage() {
               Book a Technology Consultation
             </button>
           </div>
+        </div>
+
+        {/* CRM Dashboard Mockup */}
+        <div className="gsap-reveal relative rounded-2xl overflow-hidden border border-amber-900/30 shadow-2xl shadow-black/60">
+          <div className="absolute top-0 left-0 right-0 h-8 bg-[#18100a] border-b border-amber-900/20 flex items-center px-4 gap-1.5 z-10">
+            <span className="h-2.5 w-2.5 rounded-full bg-red-500/70" />
+            <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/70" />
+            <span className="h-2.5 w-2.5 rounded-full bg-green-500/70" />
+            <span className="ml-4 text-[10px] text-stone-500 font-mono">CRM & Workflow Automation — Dashboard</span>
+          </div>
+          <Image
+            src="/crm_workflow_dashboard.png"
+            alt="CRM and workflow automation dashboard showing client pipeline, automated sequences, and lead management"
+            width={1440}
+            height={810}
+            className="w-full h-auto object-cover mt-8"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#120b06]/60 via-transparent to-transparent pointer-events-none" />
         </div>
 
         {/* Horizontal flow diagram with laser line animations */}
