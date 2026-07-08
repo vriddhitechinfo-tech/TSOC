@@ -29,6 +29,7 @@ export default function OpenOfficePage() {
   useEffect(() => {
     const dayIndex = new Date().getDay(); // 0 = Sun, 1 = Mon, ..., 6 = Sat
     const daysMap = ["mon", "mon", "tue", "wed", "thu", "fri", "mon"]; // map weekend to Monday
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setActiveDay(daysMap[dayIndex]);
   }, []);
 

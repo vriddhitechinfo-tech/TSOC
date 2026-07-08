@@ -11,8 +11,14 @@ export default function ExitIntentCTA() {
   const [isVisible, setIsVisible] = useState(false);
   const [hasTriggered, setHasTriggered] = useState(false);
 
+  const triggerCTA = () => {
+    setIsVisible(true);
+    setHasTriggered(true);
+  };
+
   useEffect(() => {
     // Reset state on path change
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsVisible(false);
     
     // Check if already dismissed this session for this path
@@ -53,11 +59,6 @@ export default function ExitIntentCTA() {
       document.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, [pathname, hasTriggered, isVisible]);
-
-  const triggerCTA = () => {
-    setIsVisible(true);
-    setHasTriggered(true);
-  };
 
   const handleDismiss = () => {
     setIsVisible(false);
