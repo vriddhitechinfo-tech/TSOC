@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useModal } from "@/context/ModalContext";
 import { ChevronRight, Database, MessageSquare, ShieldAlert, Laptop, MailOpen, Check, Play } from "lucide-react";
 import Image from "next/image";
@@ -11,7 +11,7 @@ import TestimonialCarousel from "@/components/TestimonialCarousel";
 
 export default function TechnologySupportPage() {
   const { openModal } = useModal();
-  const [activeStep, setActiveStep] = useState(0);
+  const blueprintRef = useRef<HTMLDivElement>(null);
 
   const pageRef = useRef<HTMLDivElement>(null);
   const diagramRef = useRef<HTMLDivElement>(null);
@@ -95,9 +95,81 @@ export default function TechnologySupportPage() {
         tl.fromTo(nodes, { scale: 0.7, opacity: 0.3 }, { scale: 1, opacity: 1, stagger: 0.15 })
           .fromTo(lines, { strokeDashoffset: 100 }, { strokeDashoffset: 0, stagger: 0.15 }, "<");
       }
+
+      // Blueprint animation handled in separate useEffect below
     });
 
     return () => {
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
+  }, []);
+
+  // ── Blueprint stacked-deck scroll animation ──────────────────────────────
+  useEffect(() => {
+    if (!blueprintRef.current) return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    const wrapper = blueprintRef.current;
+    const sectionEl = wrapper.parentElement as HTMLElement;
+    const cards = Array.from(wrapper.querySelectorAll(".blueprint-card")) as HTMLElement[];
+    const total = cards.length;
+    const GAP = 16;
+    const STACK_DEPTH = 9; // px offset per card in the stack
+
+    // Defer until after browser layout so getBoundingClientRect is accurate
+    const raf = requestAnimationFrame(() => {
+      // Measure each card's natural height
+      const heights = cards.map((c) => c.getBoundingClientRect().height || c.offsetHeight || 140);
+
+      // Compute each card's final Y position in the vertical list
+      let cumY = 0;
+      const finalYs = heights.map((h) => {
+        const y = cumY;
+        cumY += h + GAP;
+        return y;
+      });
+      const totalListHeight = cumY - GAP;
+
+      // Set wrapper height = final layout height so page flow is preserved
+      gsap.set(wrapper, { position: "relative", height: totalListHeight });
+
+      // Stack every card at y=0 with depth offsets (card[0] on top)
+      cards.forEach((card, i) => {
+        gsap.set(card, {
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          y: i * STACK_DEPTH,
+          scale: 1 - i * 0.035,
+          opacity: Math.max(0.25, 1 - i * 0.18),
+          zIndex: total - i,
+          transformOrigin: "top center",
+        });
+      });
+
+      // For each card, create a ScrollTrigger that scrubs it from stack → final position
+      cards.forEach((card, i) => {
+        // Each card starts releasing after the previous one has mostly landed
+        const startOffset = i * 110; // px of scroll per card
+        gsap.to(card, {
+          y: finalYs[i],
+          scale: 1,
+          opacity: 1,
+          zIndex: i + 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionEl,
+            start: `top+=${startOffset} 55%`,
+            end: `top+=${startOffset + 90} 55%`,
+            scrub: 0.6,
+          },
+        });
+      });
+    });
+
+    return () => {
+      cancelAnimationFrame(raf);
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, []);
@@ -377,41 +449,48 @@ export default function TechnologySupportPage() {
           </div>
         </div>
 
-        {/* Blueprint Stepper Details */}
-        <div className="gsap-reveal glass-card p-8 md:p-12 relative overflow-hidden">
-          <div className="text-center max-w-2xl mx-auto mb-10">
+        {/* Blueprint Stepper — Stacked Deck Scroll Animation */}
+        <div>
+          <div className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="text-xl font-bold text-white uppercase tracking-wider">Automated Tax Workflow Blueprint</h2>
-            <p className="text-xs text-stone-555 mt-1">Click on each node below to review our automated system touchpoints.</p>
+            <p className="text-xs text-stone-500 mt-1">Scroll to watch each workflow phase deal out from the stack.</p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-3 mb-8">
-            {automationSteps.map((s, idx) => (
-              <button
-                key={s.num}
-                onClick={() => setActiveStep(idx)}
-                className={`p-3.5 rounded-lg border text-center transition-all cursor-pointer flex flex-col items-center justify-center focus:outline-none ${
-                  activeStep === idx
-                    ? "bg-[#0f0805] border-amber-500/30 text-[#fda85d] font-semibold"
-                    : "bg-[#0f0805]/40 border-amber-900/30 text-stone-500 hover:text-white"
-                }`}
-              >
-                <div className="text-[9px] font-bold uppercase tracking-wider mb-1">Step {s.num}</div>
-                <div className="text-[10px] truncate w-full">{s.title}</div>
-              </button>
-            ))}
-          </div>
-
-          <div className="bg-[#0f0805]/50 border border-amber-900/30 rounded-xl p-6 space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-              <span className="text-[9px] font-bold tracking-widest text-[#fda85d] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded inline-block">
-                Step {automationSteps[activeStep].num} Configuration
-              </span>
-              <span className="text-[9px] text-[#fda85d] font-mono">
-                System: {automationSteps[activeStep].tool}
-              </span>
+          {/* Outer section gives scroll room for the pin; blueprintRef measures/positions cards */}
+          <div className="pb-8">
+            <div ref={blueprintRef}>
+              {automationSteps.map((s, idx) => (
+                <div key={s.num} className="blueprint-card">
+                  {/* Card */}
+                  <div className="rounded-2xl overflow-hidden border border-amber-900/30 bg-[#0f0805]/80 backdrop-blur shadow-2xl shadow-black/60">
+                    {/* Amber accent stripe */}
+                    <div className="h-0.5 bg-gradient-to-r from-[#fda85d] via-[#f59e0b] to-transparent" />
+                    {/* Header row */}
+                    <div className="flex items-center justify-between gap-4 px-6 py-4 border-b border-amber-900/20">
+                      <div className="flex items-center gap-3">
+                        <span className="text-[9px] font-black font-mono text-black bg-[#fda85d] px-2 py-1 rounded leading-none">
+                          {s.num}
+                        </span>
+                        <h3 className="text-sm font-bold text-white uppercase tracking-wider">{s.title}</h3>
+                      </div>
+                      <span className="shrink-0 text-[8px] text-[#fda85d] font-mono bg-amber-955/20 border border-amber-900/30 px-2.5 py-1 rounded hidden sm:block">
+                        {s.tool}
+                      </span>
+                    </div>
+                    {/* Body */}
+                    <div className="px-6 py-5 flex flex-col gap-3">
+                      <p className="text-xs text-stone-400 leading-relaxed">{s.desc}</p>
+                      <div className="flex items-center gap-2">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#fda85d] shrink-0" />
+                        <span className="text-[8px] font-mono text-stone-600 uppercase tracking-wider">
+                          {s.tool}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-            <h3 className="text-base font-bold text-white uppercase tracking-wider">{automationSteps[activeStep].title}</h3>
-            <p className="text-xs text-stone-450 leading-relaxed">{automationSteps[activeStep].desc}</p>
           </div>
         </div>
 
