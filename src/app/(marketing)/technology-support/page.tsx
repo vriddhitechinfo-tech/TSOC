@@ -155,31 +155,71 @@ export default function TechnologySupportPage() {
   ];
 
   return (
-    <div ref={pageRef} className="relative overflow-hidden bg-[#0a0605] min-h-screen py-16 sm:py-10 animate-fade-in">
+    <div ref={pageRef} className="relative overflow-hidden bg-[#0a0605] min-h-screen">
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(253,168,93,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-24">
-        {/* Header Section */}
-        <div className="gsap-reveal text-center max-w-3xl mx-auto space-y-4">
-          <span className="inline-flex items-center rounded-full bg-amber-955/35 border border-amber-900/40 px-3 py-1 text-xs font-semibold text-[#fda85d]">
-            CRM &amp; Automation Support
-          </span>
-          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
-            Automate Your Operations. Double Your Intake.
-          </h1>
-          <p className="text-sm text-stone-400 leading-relaxed">
-            Stop chasing documents, manually texting clients, and managing files on sheets. We set up custom CRMs, document workflows, and client messaging pipelines specifically for tax professionals.
-          </p>
-          <div className="pt-4">
-            <button
-              onClick={() => openModal("technology")}
-              className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#fda85d] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
-            >
-              Book a Technology Consultation
-            </button>
+      <style>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) translateX(0px); }
+          50% { transform: translateY(-20px) translateX(10px); }
+        }
+      `}</style>
+
+      {/* Hero Section with Left/Right Split */}
+      <section className="relative pt-6 pb-20 lg:py-20 overflow-hidden">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 relative z-10 h-auto lg:h-[520px]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center h-full">
+            {/* Left: Content */}
+            <div className="space-y-6 flex flex-col justify-center">
+              <span className="gsap-reveal inline-flex w-fit items-center rounded-full bg-amber-955/35 border border-amber-900/40 px-3 py-1 text-xs font-semibold text-[#fda85d]">
+                CRM &amp; Automation Support
+              </span>
+              <h1 className="gsap-reveal text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-snug text-white">
+                Automate Your Operations. Double Your Intake.
+              </h1>
+              <p className="gsap-reveal text-sm text-stone-400 leading-relaxed line-clamp-3">
+                Stop chasing documents, manually texting clients, and managing files on sheets. We set up custom CRMs, document workflows, and client messaging pipelines specifically for tax professionals.
+              </p>
+              <div className="gsap-reveal flex flex-col sm:flex-row gap-4 pt-4">
+                <button
+                  onClick={() => openModal("technology")}
+                  className="bg-[#fda85d] text-black hover:bg-[#c29e2f] font-extrabold px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-colors cursor-pointer"
+                >
+                  Book a Technology Consultation
+                </button>
+                <button
+                  onClick={() => openModal("technology")}
+                  className="bg-[#0f0805] text-stone-300 hover:text-white border border-amber-900/30 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-colors cursor-pointer"
+                >
+                  Request Technology Audit
+                </button>
+              </div>
+            </div>
+
+            {/* Right: CRM Dashboard Image with Floating Animation */}
+            <div className="relative h-full rounded-2xl overflow-hidden border border-amber-900/30 shadow-2xl shadow-black/60" style={{animation: 'float 6s ease-in-out infinite'}}>
+              <div className="absolute top-0 left-0 right-0 h-8 bg-[#0f0805] border-b border-amber-900/20 flex items-center px-4 gap-1.5 z-10">
+                <span className="h-2.5 w-2.5 rounded-full bg-red-500/70" />
+                <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/70" />
+                <span className="h-2.5 w-2.5 rounded-full bg-green-500/70" />
+                <span className="ml-4 text-[10px] text-stone-500 font-mono">CRM &amp; Workflow Automation — Dashboard</span>
+              </div>
+              <Image
+                src="/crm_workflow_dashboard.png"
+                alt="CRM and workflow automation dashboard showing client pipeline, automated sequences, and lead management"
+                width={1440}
+                height={810}
+                className="w-full h-full object-cover mt-8"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#120b06]/60 via-transparent to-transparent pointer-events-none" />
+            </div>
           </div>
         </div>
+      </section>
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-24">
 
         {/* Animated Stats Section */}
         <div
@@ -230,24 +270,6 @@ export default function TechnologySupportPage() {
               </p>
             </div>
           </div>
-        </div>
-
-        {/* CRM Dashboard Mockup */}
-        <div className="gsap-reveal relative rounded-2xl overflow-hidden border border-amber-900/30 shadow-2xl shadow-black/60">
-          <div className="absolute top-0 left-0 right-0 h-8 bg-[#0f0805] border-b border-amber-900/20 flex items-center px-4 gap-1.5 z-10">
-            <span className="h-2.5 w-2.5 rounded-full bg-red-500/70" />
-            <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/70" />
-            <span className="h-2.5 w-2.5 rounded-full bg-green-500/70" />
-            <span className="ml-4 text-[10px] text-stone-500 font-mono">CRM & Workflow Automation — Dashboard</span>
-          </div>
-          <Image
-            src="/crm_workflow_dashboard.png"
-            alt="CRM and workflow automation dashboard showing client pipeline, automated sequences, and lead management"
-            width={1440}
-            height={810}
-            className="w-full h-auto object-cover mt-8"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#120b06]/60 via-transparent to-transparent pointer-events-none" />
         </div>
 
         {/* Horizontal flow diagram with laser line animations */}
@@ -356,7 +378,7 @@ export default function TechnologySupportPage() {
         </div>
 
         {/* Blueprint Stepper Details */}
-        <div className="gsap-reveal glass-card p-8 md:p-12 mb-24 relative overflow-hidden">
+        <div className="gsap-reveal glass-card p-8 md:p-12 relative overflow-hidden">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <h2 className="text-xl font-bold text-white uppercase tracking-wider">Automated Tax Workflow Blueprint</h2>
             <p className="text-xs text-stone-555 mt-1">Click on each node below to review our automated system touchpoints.</p>
@@ -414,18 +436,25 @@ export default function TechnologySupportPage() {
           <FaqAccordion items={techFaqs} title="CRM &amp; Automation FAQs" />
         </div>
 
-        {/* CTA section */}
-        <div className="gsap-reveal text-center max-w-xl mx-auto space-y-4">
-          <h3 className="text-lg font-bold text-white uppercase tracking-wider">Tired of manual administrative chaos?</h3>
-          <p className="text-xs text-stone-500 leading-relaxed">
-            Schedule a technology audit call. We will review your current software tools and draft a workflow automation blueprint to double your capacity this season.
-          </p>
-          <button
-            onClick={() => openModal("technology")}
-            className="bg-gradient-to-r from-[#fda85d] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black font-extrabold py-3 px-6 rounded-lg text-xs transition-colors shadow-md mt-2 cursor-pointer uppercase tracking-wider"
-          >
-            Request Technology Setup Audit
-          </button>
+        {/* Community Banner CTA */}
+        <div className="gsap-reveal glass-card p-8 md:p-12 relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-8">
+          <div className="space-y-3 max-w-2xl">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-[#fda85d] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded">
+              Technology & Automation Support
+            </span>
+            <h3 className="text-xl font-bold text-white uppercase tracking-wider">Tired of Manual Administrative Chaos?</h3>
+            <p className="text-xs text-stone-450 leading-relaxed">
+              Schedule a technology audit call. We will review your current software tools and draft a workflow automation blueprint to double your capacity this season.
+            </p>
+          </div>
+          <div className="shrink-0 flex items-center">
+            <button
+              onClick={() => openModal("technology")}
+              className="bg-gradient-to-r from-[#fda85d] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black font-extrabold py-3.5 px-8 rounded-lg text-xs transition-all shadow-md cursor-pointer uppercase tracking-wider"
+            >
+              Request Technology Setup Audit
+            </button>
+          </div>
         </div>
       </div>
     </div>

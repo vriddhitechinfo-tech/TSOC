@@ -13,7 +13,10 @@ interface FaqAccordionProps {
   title?: string;
 }
 
-export default function FaqAccordion({ items, title = "Frequently Asked Questions" }: FaqAccordionProps) {
+export default function FaqAccordion({
+  items,
+  title = "Frequently Asked Questions",
+}: FaqAccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleIndex = (index: number) => {
@@ -56,11 +59,13 @@ export default function FaqAccordion({ items, title = "Frequently Asked Question
                 role="region"
                 aria-labelledby={`faq-btn-${index}`}
                 className={`grid transition-all duration-300 ease-in-out ${
-                  isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                  isOpen
+                    ? "grid-rows-[1fr] opacity-100"
+                    : "grid-rows-[0fr] opacity-0"
                 }`}
               >
                 <div className="overflow-hidden">
-                  <div className="p-5 pt-0 text-xs sm:text-sm text-stone-450 leading-relaxed border-t border-amber-955/20 mt-2">
+                  <div className="p-5 pt-0 text-xs sm:text-sm text-stone-450 leading-relaxed  mt-2">
                     {item.answer}
                   </div>
                 </div>
