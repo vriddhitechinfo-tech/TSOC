@@ -1,11 +1,9 @@
 "use client";
 
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const useIsomorphicLayoutEffect =
-  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 import { useModal } from "@/context/ModalContext";
 import {
   Check,
@@ -149,9 +147,10 @@ export default function Home() {
     };
   }, [autoPlay, currentSlide, heroSlides.length]);
 
-  useIsomorphicLayoutEffect(() => {
+  useEffect(() => {
     if (typeof window !== "undefined") {
       gsap.registerPlugin(ScrollTrigger);
+      ScrollTrigger.refresh();
     }
 
     let handleEcosystemResize: (() => void) | null = null;
@@ -414,6 +413,7 @@ export default function Home() {
 
     return () => {
       ctx.revert();
+      ScrollTrigger.getAll().forEach((t) => t.kill());
       if (handleEcosystemResize) {
         window.removeEventListener("resize", handleEcosystemResize);
       }
