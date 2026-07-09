@@ -329,8 +329,8 @@ export default function OpenOfficePage() {
           </div>
         </div>
 
-        {/* Weekly Programming — Calendar Layout */}
-        <div className="gsap-reveal relative overflow-hidden">
+        {/* Weekly Programming Interactive Component */}
+        <div className="gsap-reveal glass-card p-8 md:p-12 relative overflow-hidden">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <h2 className="text-xl font-bold text-white uppercase tracking-wider">Weekly Live Schedule</h2>
             <p className="text-xs text-stone-500 mt-1">Click any day to view session details, perks, and add it to your calendar.</p>

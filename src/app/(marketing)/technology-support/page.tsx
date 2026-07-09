@@ -449,9 +449,9 @@ export default function TechnologySupportPage() {
           </div>
         </div>
 
-        {/* Blueprint Stepper — Stacked Deck Scroll Animation */}
-        <div>
-          <div className="text-center max-w-2xl mx-auto mb-12">
+        {/* Blueprint Stepper Details */}
+        <div className="gsap-reveal glass-card p-8 md:p-12 relative overflow-hidden">
+          <div className="text-center max-w-2xl mx-auto mb-10">
             <h2 className="text-xl font-bold text-white uppercase tracking-wider">Automated Tax Workflow Blueprint</h2>
             <p className="text-xs text-stone-500 mt-1">Scroll to watch each workflow phase deal out from the stack.</p>
           </div>
