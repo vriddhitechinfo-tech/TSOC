@@ -132,10 +132,10 @@ export default function StageQuiz() {
   const progressPercent = (step / questions.length) * 100;
 
   return (
-    <div className="w-full max-w-2xl mx-auto bg-[#18100a]/60 border border-amber-900/35 rounded-xl p-6 md:p-8 relative overflow-hidden backdrop-blur-md shadow-lg">
-      <div className="absolute inset-x-0 top-0 h-1 bg-amber-950/40">
+    <div className="w-full max-w-2xl mx-auto bg-[#1C2A47]/40 border border-[#FFD94A]/20 rounded-xl p-6 md:p-8 relative overflow-hidden backdrop-blur-md shadow-lg">
+      <div className="absolute inset-x-0 top-0 h-1 bg-[#1C2A47]/60">
         <div
-          className="h-full bg-gradient-to-r from-[#fda85d] to-[#f97316] transition-all duration-300"
+          className="h-full bg-gradient-to-r from-[#FFD94A] to-[#FFAA2A] transition-all duration-300"
           style={{ width: `${progressPercent}%` }}
         />
       </div>
@@ -143,10 +143,10 @@ export default function StageQuiz() {
       {step < questions.length ? (
         <div className="space-y-6">
           <div className="flex items-center justify-between">
-            <span className="text-[9px] font-bold uppercase tracking-widest text-[#fda85d] bg-amber-955/30 border border-amber-900/40 px-2 py-0.5 rounded">
+            <span className="text-[9px] font-bold uppercase tracking-widest text-[#FFD94A] bg-[#FFD94A]/10 border border-[#FFD94A]/25 px-2 py-0.5 rounded">
               Step {step + 1} of {questions.length}
             </span>
-            <span className="text-[10px] text-stone-500 font-semibold">Business Router</span>
+            <span className="text-[10px] text-[#EDE9E0]/40 font-semibold">Business Router</span>
           </div>
 
           <h3 className="text-sm md:text-base font-extrabold text-white leading-snug">
@@ -158,10 +158,10 @@ export default function StageQuiz() {
               <button
                 key={opt.value}
                 onClick={() => handleOptionSelect(opt)}
-                className="w-full text-left p-4 rounded-lg bg-[#120b06]/40 border border-amber-900/20 hover:border-amber-500/40 text-xs sm:text-sm text-stone-300 hover:text-white transition-all duration-200 cursor-pointer flex items-center justify-between group focus:outline-none focus:ring-1 focus:ring-[#fda85d]"
+                className="w-full text-left p-4 rounded-lg bg-[#1C2A47]/30 border border-[#FFD94A]/15 hover:border-[#FFD94A]/40 text-xs sm:text-sm text-[#EDE9E0]/70 hover:text-white transition-all duration-200 cursor-pointer flex items-center justify-between group focus:outline-none focus:ring-1 focus:ring-[#FFD94A]/50"
               >
                 <span>{opt.label}</span>
-                <span className="h-5 w-5 rounded bg-amber-950/40 border border-amber-900/50 flex items-center justify-center text-[#fda85d] opacity-0 group-hover:opacity-100 transition-opacity">
+                <span className="h-5 w-5 rounded bg-[#FFD94A]/10 border border-[#FFD94A]/30 flex items-center justify-center text-[#FFD94A] opacity-0 group-hover:opacity-100 transition-opacity">
                   <ArrowRight className="w-3 h-3" />
                 </span>
               </button>
@@ -170,18 +170,18 @@ export default function StageQuiz() {
         </div>
       ) : (
         <div className="space-y-6 animate-fade-in text-center py-4">
-          <div className="h-12 w-12 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-[#fda85d] mx-auto mb-4 animate-bounce">
-            <Check className="w-6 h-6 text-emerald-400" />
+          <div className="h-12 w-12 rounded-full bg-[#FFD94A]/10 border border-[#FFD94A]/25 flex items-center justify-center text-[#FFD94A] mx-auto mb-4 animate-bounce">
+            <Check className="w-6 h-6 text-[#FFD94A]" />
           </div>
 
           <div className="space-y-2">
-            <span className="text-[9px] font-bold uppercase tracking-widest text-emerald-400 bg-emerald-950/20 border border-emerald-900/30 px-3 py-1 rounded">
+            <span className="text-[9px] font-bold uppercase tracking-widest text-[#FFD94A] bg-[#FFD94A]/10 border border-[#FFD94A]/25 px-3 py-1 rounded">
               Analysis Complete
             </span>
             <h3 className="text-base sm:text-lg font-black text-white pt-2">
-              Recommended Stage: <span className="text-[#fda85d]">{getRecommendation().title}</span>
+              Recommended Stage: <span className="text-[#FFD94A]">{getRecommendation().title}</span>
             </h3>
-            <p className="text-xs text-stone-400 max-w-md mx-auto leading-relaxed">
+            <p className="text-xs text-[#EDE9E0]/50 max-w-md mx-auto leading-relaxed">
               {getRecommendation().desc}
             </p>
           </div>
@@ -189,14 +189,14 @@ export default function StageQuiz() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-6">
             <Link
               href={getRecommendation().link}
-              className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#fda85d] to-[#f97316] hover:from-[#e0924f] hover:to-[#ea580c] text-black px-6 py-3 text-xs font-extrabold shadow-md uppercase tracking-wider transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#FFD94A] to-[#FFAA2A] hover:from-[#FFAA2A] hover:to-[#FF8C00] text-[#050A14] px-6 py-3 text-xs font-extrabold shadow-md uppercase tracking-wider transition-all"
             >
               {getRecommendation().cta}
               <ArrowRight className="w-3.5 h-3.5 ml-2" />
             </Link>
             <button
               onClick={resetQuiz}
-              className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-[#120b06] border border-amber-900/35 px-6 py-3 text-xs font-bold text-stone-400 hover:text-white uppercase tracking-wider transition-all cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-[#1C2A47] border border-[#FFD94A]/20 px-6 py-3 text-xs font-bold text-[#EDE9E0]/60 hover:text-white uppercase tracking-wider transition-all cursor-pointer"
             >
               <RefreshCw className="w-3 h-3 mr-2" />
               Retake Quiz

@@ -2,75 +2,117 @@
 
 @layer base {
   :root {
-    --background: 15 40% 4%;
-    --foreground: 40 20% 98%;
-    --card: 15 40% 4%;
-    --card-foreground: 40 20% 98%;
-    --popover: 15 40% 4%;
-    --popover-foreground: 40 20% 98%;
-    --primary: 28 98% 68%;
-    --primary-foreground: 15 40% 4%;
-    --secondary: 28 20% 10%;
-    --secondary-foreground: 40 20% 98%;
-    --muted: 28 20% 10%;
-    --muted-foreground: 40 10% 60%;
-    --accent: 28 98% 68%;
-    --accent-foreground: 15 40% 4%;
+    --background: 220 67% 4%;
+    --foreground: 40 20% 91%;
+    --card: 220 42% 19%;
+    --card-foreground: 40 20% 91%;
+    --popover: 220 42% 19%;
+    --popover-foreground: 40 20% 91%;
+    --primary: 47 100% 65%;
+    --primary-foreground: 220 67% 4%;
+    --secondary: 220 42% 14%;
+    --secondary-foreground: 40 20% 91%;
+    --muted: 220 42% 14%;
+    --muted-foreground: 220 15% 50%;
+    --accent: 38 100% 58%;
+    --accent-foreground: 220 67% 4%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 40 20% 98%;
-    --border: 28 20% 10%;
-    --input: 28 20% 10%;
-    --ring: 28 98% 68%;
+    --destructive-foreground: 40 20% 91%;
+    --border: 220 35% 20%;
+    --input: 220 35% 20%;
+    --ring: 47 100% 65%;
     --radius: 0.75rem;
   }
 }
 
+/* ─── Typography System ─────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
-  background-color: #050302; /* Deep dark background */
-  color: #fafaf9; /* warm stone-50 */
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  background-color: #050A14;
+  color: #EDE9E0;
+  /* Body font: DM Sans (Neue Haas Grotesk / Helvetica Neue alternative) */
+  font-family: var(--font-body), ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Luxury Card Styling */
+/* Display Serif: Cormorant Garamond on all headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display), "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+}
+
+/* Tailwind utility classes for the font system */
+.font-display {
+  font-family: var(--font-display), "Cormorant Garamond", Georgia, serif;
+}
+
+.font-body {
+  font-family: var(--font-body), ui-sans-serif, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Script Accent: Allura — one word only, used sparingly */
+.font-script {
+  font-family: var(--font-script), "Allura", cursive;
+}
+
+/* ─── Midnight & Gold Glass Card ─────────────────────────────────── */
 .glass-card {
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(28, 42, 71, 0.45);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 217, 74, 0.10);
   border-radius: 0.75rem;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glass-card-hover:hover {
-  border-color: rgba(253, 168, 93, 0.25); /* Subtle Peachy Orange Glow */
-  background: rgba(34, 21, 13, 0.65);
-  box-shadow: 0 10px 35px -15px rgba(253, 168, 93, 0.12);
+  border-color: rgba(255, 217, 74, 0.30);
+  background: rgba(28, 42, 71, 0.65);
+  box-shadow: 0 10px 40px -15px rgba(255, 217, 74, 0.20);
   transform: translateY(-2px);
 }
 
 .glass-card-hover-emerald:hover {
-  border-color: rgba(253, 168, 93, 0.25); /* Consistent Peachy Orange Glow */
-  background: rgba(34, 21, 13, 0.65);
-  box-shadow: 0 10px 35px -15px rgba(253, 168, 93, 0.12);
+  border-color: rgba(255, 217, 74, 0.30);
+  background: rgba(28, 42, 71, 0.65);
+  box-shadow: 0 10px 40px -15px rgba(255, 217, 74, 0.20);
   transform: translateY(-2px);
 }
 
-/* Custom Scrollbar */
+/* ─── Gold shimmer animation ──────────────────────────────────────── */
+@keyframes gold-shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.gold-shimmer-text {
+  background: linear-gradient(90deg, #FFD94A, #FFAA2A, #FFD94A, #FFAA2A);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gold-shimmer 4s linear infinite;
+}
+
+/* ─── Custom Scrollbar ───────────────────────────────────────────── */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #120b06;
+  background: #050A14;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2b1a0e;
+  background: #1C2A47;
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3e2716;
+  background: #2a3d63;
 }

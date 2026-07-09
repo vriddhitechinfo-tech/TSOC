@@ -94,29 +94,29 @@ export default function TestimonialCarousel() {
       `}} />
 
       {/* Modern gradient fade overlay on sides to blend marquee seamlessly */}
-      <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#120b06] to-transparent z-10 pointer-events-none" />
-      <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#120b06] to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#050A14] to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#050A14] to-transparent z-10 pointer-events-none" />
 
       {/* Marquee Wrapper Row */}
       <div className="animate-marquee-infinite gap-6">
         {doubledTestimonials.map((item, idx) => (
           <div
             key={`${item.name}-${idx}`}
-            className="w-[320px] sm:w-[380px] h-[210px] bg-[#18100a]/50 border border-amber-900/30 hover:border-amber-500/30 rounded-2xl p-5 relative backdrop-blur-md shadow-xl flex flex-col justify-between transition-colors duration-300 shrink-0"
+            className="w-[320px] sm:w-[380px] h-[210px] bg-[#1C2A47]/40 border border-[#FFD94A]/15 hover:border-[#FFD94A]/35 rounded-2xl p-5 relative backdrop-blur-md shadow-xl flex flex-col justify-between transition-all duration-300 shrink-0 hover:shadow-[#FFD94A]/10 hover:shadow-lg"
           >
             {/* Background quote glow decoration */}
-            <Quote className="absolute right-4 top-4 w-16 h-16 text-amber-900/5 -z-10 pointer-events-none" />
+            <Quote className="absolute right-4 top-4 w-16 h-16 text-[#FFD94A]/5 -z-10 pointer-events-none" />
 
             <div className="space-y-3">
-              <Quote className="w-5 h-5 text-[#fda85d]/70 shrink-0" />
-              <p className="text-xs sm:text-[13px] italic text-stone-250 leading-relaxed font-medium line-clamp-4">
+              <Quote className="w-5 h-5 text-[#FFD94A]/70 shrink-0" />
+              <p className="text-xs sm:text-[13px] italic text-[#EDE9E0]/80 leading-relaxed font-medium line-clamp-4">
                 &quot;{item.quote}&quot;
               </p>
             </div>
 
             {/* User details */}
-            <div className="border-t border-amber-955/15 pt-3.5 flex items-center gap-3">
-              <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-amber-900/40 shrink-0">
+            <div className="border-t border-[#FFD94A]/10 pt-3.5 flex items-center gap-3">
+              <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-[#FFD94A]/25 shrink-0">
                 <Image
                   src={item.avatar}
                   alt={item.name}
@@ -128,10 +128,10 @@ export default function TestimonialCarousel() {
                 <h4 className="text-[11px] font-bold text-white uppercase tracking-wider">
                   {item.name}
                 </h4>
-                <p className="text-[9px] text-stone-400 font-semibold uppercase tracking-wider mt-0.5">
+                <p className="text-[9px] text-[#EDE9E0]/50 font-semibold uppercase tracking-wider mt-0.5">
                   {item.role}
                 </p>
-                <p className="text-[8px] text-[#fda85d] font-semibold mt-0.5">
+                <p className="text-[8px] text-[#FFD94A] font-semibold mt-0.5">
                   {item.location}
                 </p>
               </div>

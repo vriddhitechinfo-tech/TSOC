@@ -121,12 +121,12 @@ export default function ExitIntentCTA() {
 
   return (
     <div className="fixed bottom-0 inset-x-0 z-40 p-4 md:p-6 animate-slide-up pointer-events-none">
-      <div className="mx-auto max-w-4xl bg-gradient-to-r from-[#22150d] to-[#120b06] border border-[#fda85d]/30 hover:border-[#fda85d]/50 rounded-xl shadow-2xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pointer-events-auto relative overflow-hidden">
+      <div className="mx-auto max-w-4xl bg-gradient-to-r from-[#0a1630] to-[#050A14] border border-[#FFD94A]/25 hover:border-[#FFD94A]/45 rounded-xl shadow-2xl shadow-[#FFD94A]/5 p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pointer-events-auto relative overflow-hidden">
         {/* Subtle decorative glow */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_left,rgba(212,175,55,0.06)_0%,transparent_60%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_left,rgba(255,217,74,0.05)_0%,transparent_60%)] pointer-events-none" />
 
         <div className="flex items-center space-x-3 z-10">
-          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-amber-950/40 border border-amber-900/30 text-[#fda85d]">
+          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#FFD94A]/10 border border-[#FFD94A]/20 text-[#FFD94A]">
             <Bell className="h-4 w-4 animate-swing" />
           </span>
           <div>
@@ -138,7 +138,7 @@ export default function ExitIntentCTA() {
         <div className="flex items-center space-x-3 z-10">
           <button
             onClick={cta.action}
-            className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#fda85d] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black px-5 py-2.5 text-[10px] font-extrabold uppercase tracking-wider transition-all shadow-md cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#FFD94A] to-[#FFAA2A] hover:from-[#FFAA2A] hover:to-[#FF8C00] text-[#050A14] px-5 py-2.5 text-[10px] font-extrabold uppercase tracking-wider transition-all shadow-md cursor-pointer"
           >
             {cta.actionText}
             <ArrowRight className="w-3 h-3 ml-2" />
@@ -146,7 +146,7 @@ export default function ExitIntentCTA() {
           
           <button
             onClick={handleDismiss}
-            className="p-2 text-stone-500 hover:text-white hover:bg-amber-950/20 rounded-lg transition-colors cursor-pointer"
+            className="p-2 text-[#EDE9E0]/40 hover:text-white hover:bg-[#1C2A47]/40 rounded-lg transition-colors cursor-pointer"
             aria-label="Dismiss message"
           >
             <X className="w-4 h-4" />
