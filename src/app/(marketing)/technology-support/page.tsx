@@ -174,6 +174,76 @@ export default function TechnologySupportPage() {
     };
   }, []);
 
+  // ── Blueprint stacked-deck scroll animation ──────────────────────────────
+  useEffect(() => {
+    if (!blueprintRef.current) return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    const wrapper = blueprintRef.current;
+    const sectionEl = wrapper.parentElement as HTMLElement;
+    const cards = Array.from(wrapper.querySelectorAll(".blueprint-card")) as HTMLElement[];
+    const total = cards.length;
+    const GAP = 16;
+    const STACK_DEPTH = 9; // px offset per card in the stack
+
+    // Defer until after browser layout so getBoundingClientRect is accurate
+    const raf = requestAnimationFrame(() => {
+      // Measure each card's natural height
+      const heights = cards.map((c) => c.getBoundingClientRect().height || c.offsetHeight || 140);
+
+      // Compute each card's final Y position in the vertical list
+      let cumY = 0;
+      const finalYs = heights.map((h) => {
+        const y = cumY;
+        cumY += h + GAP;
+        return y;
+      });
+      const totalListHeight = cumY - GAP;
+
+      // Set wrapper height = final layout height so page flow is preserved
+      gsap.set(wrapper, { position: "relative", height: totalListHeight });
+
+      // Stack every card at y=0 with depth offsets (card[0] on top)
+      cards.forEach((card, i) => {
+        gsap.set(card, {
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          y: i * STACK_DEPTH,
+          scale: 1 - i * 0.035,
+          opacity: Math.max(0.25, 1 - i * 0.18),
+          zIndex: total - i,
+          transformOrigin: "top center",
+        });
+      });
+
+      // For each card, create a ScrollTrigger that scrubs it from stack → final position
+      cards.forEach((card, i) => {
+        // Each card starts releasing after the previous one has mostly landed
+        const startOffset = i * 110; // px of scroll per card
+        gsap.to(card, {
+          y: finalYs[i],
+          scale: 1,
+          opacity: 1,
+          zIndex: i + 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionEl,
+            start: `top+=${startOffset} 55%`,
+            end: `top+=${startOffset + 90} 55%`,
+            scrub: 0.6,
+          },
+        });
+      });
+    });
+
+    return () => {
+      cancelAnimationFrame(raf);
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
+  }, []);
+
   const automationSteps = [
     {
       num: "01",
@@ -453,7 +523,7 @@ export default function TechnologySupportPage() {
         <div className="gsap-reveal glass-card p-8 md:p-12 relative overflow-hidden">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <h2 className="text-xl font-bold text-white uppercase tracking-wider">Automated Tax Workflow Blueprint</h2>
-            <p className="text-xs text-[#EDE9E0]/35 mt-1">Scroll to watch each workflow phase deal out from the stack.</p>
+            <p className="text-xs text-stone-500 mt-1">Scroll to watch each workflow phase deal out from the stack.</p>
           </div>
 
           {/* Outer section gives scroll room for the pin; blueprintRef measures/positions cards */}
@@ -462,27 +532,27 @@ export default function TechnologySupportPage() {
               {automationSteps.map((s, idx) => (
                 <div key={s.num} className="blueprint-card">
                   {/* Card */}
-                  <div className="rounded-2xl overflow-hidden border border-[#FFD94A]/15 bg-[#0d1526]/80 backdrop-blur shadow-2xl shadow-black/60">
-                    {/* Gold accent stripe */}
-                    <div className="h-0.5 bg-gradient-to-r from-[#FFD94A] via-[#FFAA2A] to-transparent" />
+                  <div className="rounded-2xl overflow-hidden border border-amber-900/30 bg-[#0f0805]/80 backdrop-blur shadow-2xl shadow-black/60">
+                    {/* Amber accent stripe */}
+                    <div className="h-0.5 bg-gradient-to-r from-[#fda85d] via-[#f59e0b] to-transparent" />
                     {/* Header row */}
-                    <div className="flex items-center justify-between gap-4 px-6 py-4 border-b border-[#FFD94A]/10">
+                    <div className="flex items-center justify-between gap-4 px-6 py-4 border-b border-amber-900/20">
                       <div className="flex items-center gap-3">
-                        <span className="text-[9px] font-black font-mono text-[#050A14] bg-gradient-to-r from-[#FFD94A] to-[#FFAA2A] px-2 py-1 rounded leading-none">
+                        <span className="text-[9px] font-black font-mono text-black bg-[#fda85d] px-2 py-1 rounded leading-none">
                           {s.num}
                         </span>
                         <h3 className="text-sm font-bold text-white uppercase tracking-wider">{s.title}</h3>
                       </div>
-                      <span className="shrink-0 text-[8px] text-[#FFD94A] font-mono bg-[#FFD94A]/8 border border-[#FFD94A]/20 px-2.5 py-1 rounded hidden sm:block">
+                      <span className="shrink-0 text-[8px] text-[#fda85d] font-mono bg-amber-955/20 border border-amber-900/30 px-2.5 py-1 rounded hidden sm:block">
                         {s.tool}
                       </span>
                     </div>
                     {/* Body */}
                     <div className="px-6 py-5 flex flex-col gap-3">
-                      <p className="text-xs text-[#EDE9E0]/55 leading-relaxed">{s.desc}</p>
+                      <p className="text-xs text-stone-400 leading-relaxed">{s.desc}</p>
                       <div className="flex items-center gap-2">
-                        <span className="h-1.5 w-1.5 rounded-full bg-[#FFD94A] shrink-0" />
-                        <span className="text-[8px] font-mono text-[#EDE9E0]/30 uppercase tracking-wider">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#fda85d] shrink-0" />
+                        <span className="text-[8px] font-mono text-stone-600 uppercase tracking-wider">
                           {s.tool}
                         </span>
                       </div>
