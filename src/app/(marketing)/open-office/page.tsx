@@ -206,31 +206,77 @@ export default function OpenOfficePage() {
   };
 
   return (
-    <div ref={pageRef} className="relative overflow-hidden bg-[#0a0605] min-h-screen py-16 sm:py-10 animate-fade-in">
+    <div ref={pageRef} className="relative overflow-hidden bg-[#0a0605] min-h-screen">
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(251,191,36,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-24">
-        {/* Header Section */}
-        <div className="gsap-reveal text-center max-w-3xl mx-auto space-y-4">
-          <span className="inline-flex items-center rounded-full bg-amber-955/35 border border-amber-900/40 px-3 py-1 text-xs font-semibold text-[#fbbf24]">
-            Tax Professional Community
-          </span>
-          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
-            Where Access Meets Opportunity. The Open Office.
-          </h1>
-          <p className="text-sm text-stone-400 leading-relaxed">
-            A collaborative community built to support tax business owners year-round. Connect with experts, participate in daily coworking blocks, and get answers to your tech, tax, and legal questions.
-          </p>
-          <div className="pt-4">
-            <button
-              onClick={() => openModal("openoffice")}
-              className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#fbbf24] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
-            >
-              Join The Open Office
-            </button>
+      <style>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) translateX(0px); }
+          50% { transform: translateY(-20px) translateX(10px); }
+        }
+      `}</style>
+
+      {/* Hero Section with Left/Right Split */}
+      <section className="relative pt-6 pb-20 lg:py-20 overflow-hidden">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 relative z-10 h-auto lg:h-[520px]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center h-full">
+            {/* Left: Content */}
+            <div className="space-y-6 flex flex-col justify-center">
+              <span className="gsap-reveal inline-flex w-fit items-center rounded-full bg-amber-955/35 border border-amber-900/40 px-3 py-1 text-xs font-semibold text-[#fbbf24]">
+                Tax Professional Community
+              </span>
+              <h1 className="gsap-reveal text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-snug text-white">
+                Where Access Meets Opportunity. The Open Office.
+              </h1>
+              <p className="gsap-reveal text-sm text-stone-400 leading-relaxed line-clamp-3">
+                A collaborative community built to support tax business owners year-round. Connect with experts, participate in daily coworking blocks, and get answers to your tech, tax, and legal questions.
+              </p>
+              <div className="gsap-reveal flex flex-col sm:flex-row gap-4 pt-4">
+                <button
+                  onClick={() => openModal("openoffice")}
+                  className="bg-[#fbbf24] text-black hover:bg-[#c29e2f] font-extrabold px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-colors cursor-pointer"
+                >
+                  Join The Open Office
+                </button>
+                <button
+                  onClick={() => openModal("openoffice")}
+                  className="bg-[#0f0805] text-stone-300 hover:text-white border border-amber-900/30 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-colors cursor-pointer"
+                >
+                  View Live Schedule
+                </button>
+              </div>
+            </div>
+
+            {/* Right: Coworking Image with Floating Animation */}
+            <div className="relative h-full rounded-2xl overflow-hidden border border-amber-900/30 shadow-2xl shadow-black/60" style={{animation: 'float 6s ease-in-out infinite'}}>
+              <div className="absolute top-0 left-0 right-0 h-8 bg-[#0f0805] border-b border-amber-900/20 flex items-center px-4 gap-1.5 z-10">
+                <span className="h-2.5 w-2.5 rounded-full bg-red-500/70" />
+                <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/70" />
+                <span className="h-2.5 w-2.5 rounded-full bg-green-500/70" />
+                <span className="ml-4 text-[10px] text-stone-500 font-mono">Open Office — Daily Coworking</span>
+              </div>
+              <Image
+                src="/open_office_coworking.png"
+                alt="Tax professionals collaborating on a group video call coworking session in a modern home office"
+                width={1440}
+                height={810}
+                className="w-full h-full object-cover mt-8"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#120b06]/60 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute bottom-4 left-4 flex items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 bg-[#0a0605]/80 backdrop-blur border border-amber-900/40 px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider text-[#fbbf24]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />
+                  Daily Coworking Sessions · Mon–Fri
+                </span>
+              </div>
+            </div>
           </div>
         </div>
+      </section>
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-24">
 
         {/* Animated Stats Section */}
         <div
@@ -283,26 +329,8 @@ export default function OpenOfficePage() {
           </div>
         </div>
 
-        {/* Open Office Community Photo */}
-        <div className="gsap-reveal relative rounded-2xl overflow-hidden border border-amber-900/30 shadow-2xl shadow-black/60">
-          <Image
-            src="/open_office_coworking.png"
-            alt="Tax professionals collaborating on a group video call coworking session in a modern home office"
-            width={1440}
-            height={810}
-            className="w-full h-auto object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#120b06]/70 via-transparent to-transparent pointer-events-none" />
-          <div className="absolute bottom-4 left-6 flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 bg-[#0a0605]/80 backdrop-blur border border-amber-900/40 px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider text-[#fbbf24]">
-              <span className="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />
-              Daily Coworking Sessions · Mon–Fri
-            </span>
-          </div>
-        </div>
-
         {/* Weekly Programming Interactive Component */}
-        <div className="gsap-reveal glass-card p-8 md:p-12 mb-24 relative overflow-hidden">
+        <div className="gsap-reveal glass-card p-8 md:p-12 relative overflow-hidden">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <h2 className="text-xl font-bold text-white uppercase tracking-wider">Weekly Live Schedule</h2>
             <p className="text-xs text-stone-500 mt-1">Select a weekday to review the programming topics and times.</p>
@@ -380,7 +408,7 @@ export default function OpenOfficePage() {
         <div>
           <div className="gsap-reveal text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-xl sm:text-2xl font-bold text-white uppercase tracking-wider">Open Office Community Benefits</h2>
-            <p className="text-xs text-stone-555 mt-2">
+            <p className="text-xs text-stone-500 mt-2">
               Our workspace compiles tools, networks, and events into a single membership designed to support tax business growth.
             </p>
           </div>
@@ -422,6 +450,27 @@ export default function OpenOfficePage() {
         {/* FAQs */}
         <div className="gsap-reveal">
           <FaqAccordion items={openOfficeFaqs} title="Open Office Community FAQs" />
+        </div>
+
+        {/* Community Banner CTA */}
+        <div className="gsap-reveal glass-card p-8 md:p-12 relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-8">
+          <div className="space-y-3 max-w-2xl">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-[#fbbf24] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded">
+              Open Office Community
+            </span>
+            <h3 className="text-xl font-bold text-white uppercase tracking-wider">Join More Than Just a Workspace</h3>
+            <p className="text-xs text-stone-450 leading-relaxed">
+              When you join The Sector of Collectives Open Office, you gain access to daily coworking sessions, Tech Tuesday workshops, Attorney Q&As, and year-round business advice resources designed to help your tax business thrive.
+            </p>
+          </div>
+          <div className="shrink-0 flex items-center">
+            <button
+              onClick={() => openModal("openoffice")}
+              className="bg-gradient-to-r from-[#fbbf24] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black font-extrabold py-3.5 px-8 rounded-lg text-xs transition-all shadow-md cursor-pointer uppercase tracking-wider"
+            >
+              Get Started Now
+            </button>
+          </div>
         </div>
       </div>
     </div>
