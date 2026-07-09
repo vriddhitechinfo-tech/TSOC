@@ -332,8 +332,8 @@ export default function OpenOfficePage() {
         {/* Weekly Programming Interactive Component */}
         <div className="gsap-reveal glass-card p-8 md:p-12 relative overflow-hidden">
           <div className="text-center max-w-2xl mx-auto mb-10">
-            <h2 className="font-display text-2xl sm:text-3xl font-semibold text-white tracking-normal uppercase">Weekly Live Schedule</h2>
-            <p className="text-xs text-[#EDE9E0]/35 mt-1">Click any day to view session details, perks, and add it to your calendar.</p>
+            <h2 className="text-xl font-bold text-white uppercase tracking-wider">Weekly Live Schedule</h2>
+            <p className="text-xs text-stone-500 mt-1">Click any day to view session details, perks, and add it to your calendar.</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
@@ -341,23 +341,23 @@ export default function OpenOfficePage() {
             {/* Left: Calendar Grid (Mon–Fri) */}
             <div className="lg:col-span-2">
               {/* Calendar chrome header */}
-              <div className="bg-[#0d1526] border border-[#FFD94A]/15 rounded-2xl overflow-hidden shadow-2xl shadow-black/50">
+              <div className="bg-[#0f0805] border border-amber-900/30 rounded-2xl overflow-hidden shadow-2xl shadow-black/50">
                 {/* Month bar */}
-                <div className="flex items-center justify-between px-5 py-3.5 border-b border-[#FFD94A]/10 bg-[#050A14]">
+                <div className="flex items-center justify-between px-5 py-3.5 border-b border-amber-900/20 bg-[#120b06]">
                   <div className="flex items-center gap-2">
-                    <CalendarDays className="w-4 h-4 text-[#FFD94A]" />
+                    <CalendarDays className="w-4 h-4 text-[#fbbf24]" />
                     <span className="text-xs font-bold text-white uppercase tracking-widest">Open Office · Weekly</span>
                   </div>
-                  <span className="text-[9px] font-mono text-[#EDE9E0]/35 bg-[#FFD94A]/8 border border-[#FFD94A]/10 px-2 py-1 rounded">Mon – Fri · Recurring</span>
+                  <span className="text-[9px] font-mono text-stone-500 bg-amber-900/10 border border-amber-900/20 px-2 py-1 rounded">Mon – Fri · Recurring</span>
                 </div>
 
                 {/* Day column headers */}
-                <div className="grid grid-cols-5 border-b border-[#FFD94A]/10">
+                <div className="grid grid-cols-5 border-b border-amber-900/20">
                   {weeklySchedule.map((item) => (
                     <div
                       key={item.id}
-                      className={`text-center py-2 text-[9px] font-bold uppercase tracking-widest border-r border-[#FFD94A]/8 last:border-r-0 ${
-                        activeDay === item.id ? "text-[#FFD94A]" : "text-[#EDE9E0]/30"
+                      className={`text-center py-2 text-[9px] font-bold uppercase tracking-widest border-r border-amber-900/10 last:border-r-0 ${
+                        activeDay === item.id ? "text-[#fbbf24]" : "text-stone-600"
                       }`}
                     >
                       {item.dayName.slice(0, 3)}
@@ -373,42 +373,42 @@ export default function OpenOfficePage() {
                       <button
                         key={item.id}
                         onClick={() => setActiveDay(item.id)}
-                        className={`group relative flex flex-col items-start p-3 sm:p-4 border-r border-b border-[#FFD94A]/8 last:border-r-0 text-left transition-all duration-200 cursor-pointer min-h-[160px] ${
+                        className={`group relative flex flex-col items-start p-3 sm:p-4 border-r border-b border-amber-900/10 last:border-r-0 text-left transition-all duration-200 cursor-pointer min-h-[160px] ${
                           isActive
-                            ? "bg-[#FFD94A]/10 border-b-[#FFD94A]/40"
-                            : "hover:bg-[#1C2A47]/30"
+                            ? "bg-[#fbbf24]/10 border-b-[#fbbf24]/40"
+                            : "hover:bg-amber-900/5"
                         }`}
                       >
                         {/* Day number */}
                         <span className={`text-base font-black font-mono mb-2 leading-none w-7 h-7 flex items-center justify-center rounded-full transition-all ${
-                          isActive ? "bg-[#FFD94A] text-[#050A14]" : "text-[#EDE9E0]/30 group-hover:text-[#EDE9E0]/55"
+                          isActive ? "bg-[#fbbf24] text-black" : "text-stone-600 group-hover:text-stone-400"
                         }`}>
                           {idx + 1}
                         </span>
 
                         {/* Time badge */}
-                        <span className={`text-[8px] font-mono mb-2 flex items-center gap-1 ${isActive ? "text-[#FFD94A]" : "text-[#EDE9E0]/30 group-hover:text-[#EDE9E0]/35"}`}>
+                        <span className={`text-[8px] font-mono mb-2 flex items-center gap-1 ${isActive ? "text-[#fbbf24]" : "text-stone-600 group-hover:text-stone-500"}`}>
                           <Clock className="w-2.5 h-2.5 shrink-0" />
                           {item.time}
                         </span>
 
                         {/* Session title */}
                         <p className={`text-[9px] font-bold uppercase tracking-wide leading-tight line-clamp-2 ${
-                          isActive ? "text-white" : "text-[#EDE9E0]/30 group-hover:text-[#EDE9E0]/55"
+                          isActive ? "text-white" : "text-stone-600 group-hover:text-stone-400"
                         }`}>
                           {item.title}
                         </p>
 
                         {/* Pillar tag */}
                         <span className={`mt-auto pt-2 text-[7px] font-semibold uppercase tracking-wider leading-tight line-clamp-1 ${
-                          isActive ? "text-[#FFD94A]" : "text-[#EDE9E0]/25 group-hover:text-[#EDE9E0]/30"
+                          isActive ? "text-[#fbbf24]" : "text-stone-700 group-hover:text-stone-600"
                         }`}>
                           {item.pillar}
                         </span>
 
                         {/* Active indicator dot */}
                         {isActive && (
-                          <span className="absolute top-2 right-2 h-1.5 w-1.5 rounded-full bg-[#FFD94A] animate-pulse" />
+                          <span className="absolute top-2 right-2 h-1.5 w-1.5 rounded-full bg-[#fbbf24] animate-pulse" />
                         )}
                       </button>
                     );
@@ -418,56 +418,56 @@ export default function OpenOfficePage() {
             </div>
 
             {/* Right: Detail + Perks Panel */}
-            <div className="bg-[#0d1526] border border-[#FFD94A]/15 rounded-2xl overflow-hidden shadow-2xl shadow-black/50 flex flex-col">
+            <div className="bg-[#0f0805] border border-amber-900/30 rounded-2xl overflow-hidden shadow-2xl shadow-black/50 flex flex-col">
               {/* Panel header */}
-              <div className="px-5 py-3.5 border-b border-[#FFD94A]/10 bg-[#050A14] flex items-center gap-2">
+              <div className="px-5 py-3.5 border-b border-amber-900/20 bg-[#120b06] flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />
-                <span className="text-[9px] font-bold uppercase tracking-widest text-[#EDE9E0]/55">Session Details</span>
+                <span className="text-[9px] font-bold uppercase tracking-widest text-stone-400">Session Details</span>
               </div>
 
               {/* Session info */}
               <div className="p-5 space-y-3 flex-1">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-[9px] font-bold uppercase tracking-wider text-[#FFD94A] bg-[#FFD94A]/10 border border-[#FFD94A]/20 px-2.5 py-1 rounded">
+                  <span className="text-[9px] font-bold uppercase tracking-wider text-[#fbbf24] bg-amber-955/35 border border-amber-900/40 px-2.5 py-1 rounded">
                     {activeDaySchedule.pillar}
                   </span>
-                  <span className="text-[9px] text-[#FFD94A] font-mono flex items-center gap-1">
+                  <span className="text-[9px] text-[#fbbf24] font-mono flex items-center gap-1">
                     <Clock className="w-3 h-3" />
                     {activeDaySchedule.time}
                   </span>
                 </div>
-                <h3 className="font-display text-base font-semibold text-white uppercase tracking-wider leading-snug">{activeDaySchedule.title}</h3>
-                <p className="text-[11px] text-[#EDE9E0]/55 leading-relaxed">{activeDaySchedule.desc}</p>
+                <h3 className="text-sm font-bold text-white uppercase tracking-wider leading-snug">{activeDaySchedule.title}</h3>
+                <p className="text-[11px] text-stone-400 leading-relaxed">{activeDaySchedule.desc}</p>
 
                 {/* Divider */}
-                <div className="border-t border-[#FFD94A]/10 pt-3">
-                  <h4 className="text-[9px] font-bold text-[#EDE9E0]/35 uppercase tracking-wider mb-2.5">Participant Perks</h4>
+                <div className="border-t border-amber-900/20 pt-3">
+                  <h4 className="text-[9px] font-bold text-stone-500 uppercase tracking-wider mb-2.5">Participant Perks</h4>
                   <ul className="space-y-2">
-                    <li className="flex items-center gap-2 text-[11px] text-[#EDE9E0]/55">
-                      <Check className="w-3.5 h-3.5 text-[#FFD94A] shrink-0" /> Live text-based Q&amp;A
+                    <li className="flex items-center gap-2 text-[11px] text-stone-400">
+                      <Check className="w-3.5 h-3.5 text-[#fbbf24] shrink-0" /> Live text-based Q&amp;A
                     </li>
-                    <li className="flex items-center gap-2 text-[11px] text-[#EDE9E0]/55">
-                      <Check className="w-3.5 h-3.5 text-[#FFD94A] shrink-0" /> Screen-sharing diagnostics
+                    <li className="flex items-center gap-2 text-[11px] text-stone-400">
+                      <Check className="w-3.5 h-3.5 text-[#fbbf24] shrink-0" /> Screen-sharing diagnostics
                     </li>
-                    <li className="flex items-center gap-2 text-[11px] text-[#EDE9E0]/55">
-                      <Check className="w-3.5 h-3.5 text-[#FFD94A] shrink-0" /> Replay recordings vault access
+                    <li className="flex items-center gap-2 text-[11px] text-stone-400">
+                      <Check className="w-3.5 h-3.5 text-[#fbbf24] shrink-0" /> Replay recordings vault access
                     </li>
                   </ul>
                 </div>
               </div>
 
               {/* CTA buttons */}
-              <div className="p-5 pt-0 flex flex-col gap-2 border-t border-[#FFD94A]/10">
+              <div className="p-5 pt-0 flex flex-col gap-2 border-t border-amber-900/20">
                 <button
                   onClick={() => downloadIcs(activeDaySchedule)}
-                  className="w-full bg-gradient-to-r from-[#FFD94A] to-[#FFAA2A] hover:from-[#FFAA2A] hover:to-[#FF8C00] text-[#050A14] font-extrabold py-2.5 px-4 rounded-lg text-[10px] transition-all cursor-pointer uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-md"
+                  className="w-full bg-gradient-to-r from-[#fbbf24] to-[#f59e0b] text-black font-extrabold py-2.5 px-4 rounded-lg text-[10px] transition-colors cursor-pointer uppercase tracking-wider flex items-center justify-center gap-1.5"
                 >
                   <Plus className="w-3.5 h-3.5" />
                   Add to Calendar (.ics)
                 </button>
                 <button
                   onClick={() => openModal("openoffice")}
-                  className="w-full bg-[#1C2A47] border border-[#FFD94A]/25 text-[#EDE9E0]/70 hover:text-white font-bold py-2 px-4 rounded-lg text-[10px] transition-all cursor-pointer uppercase tracking-wider"
+                  className="w-full bg-[#0a0605] border border-amber-900/30 text-stone-300 hover:text-white font-bold py-2 px-4 rounded-lg text-[10px] transition-colors cursor-pointer uppercase tracking-wider"
                 >
                   Access Stream Details
                 </button>
