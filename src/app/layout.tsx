@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Cormorant_Garamond, DM_Sans, Allura } from "next/font/google";
 import "./globals.css";
 import { ModalProvider } from "@/context/ModalContext";
 import Navbar from "@/components/Navbar";
@@ -7,14 +7,29 @@ import Footer from "@/components/Footer";
 import InteractiveModal from "@/components/InteractiveModal";
 import ExitIntentCTA from "@/components/ExitIntentCTA";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Display Serif — for hero titles and large headings
+const cormorantGaramond = Cormorant_Garamond({
+  variable: "--font-display",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// Body Font — Neue Haas Grotesk closest Google Fonts match
+const dmSans = DM_Sans({
+  variable: "--font-body",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+// Script Accent — used sparingly (one word only)
+const allura = Allura({
+  variable: "--font-script",
+  subsets: ["latin"],
+  weight: ["400"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -42,11 +57,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
+      className={`${cormorantGaramond.variable} ${dmSans.variable} ${allura.variable} h-full antialiased dark`}
       suppressHydrationWarning
     >
       <body
-        className="min-h-full flex flex-col bg-zinc-950 text-zinc-100 selection:bg-emerald-500/30 selection:text-emerald-300"
+        className="min-h-full flex flex-col bg-[#050A14] text-[#EDE9E0] selection:bg-[#FFD94A]/30 selection:text-[#FFD94A]"
         suppressHydrationWarning
       >
         <ModalProvider>
@@ -62,4 +77,3 @@ export default function RootLayout({
     </html>
   );
 }
-

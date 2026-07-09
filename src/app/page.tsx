@@ -62,9 +62,9 @@ export default function Home() {
         { value: "50K+", label: "Returns Filed" },
         { value: "24/7", label: "Support" },
       ],
-      bgFrom: "#120b06",
-      bgTo: "#1a0f08",
-      accentColor: "#fda85d",
+      bgFrom: "#050A14",
+      bgTo: "#0d1526",
+      accentColor: "#FFD94A",
       cta1: "View Software Plans",
       cta2: "See The Software In Action",
       image: "/hero_tax_professional.png",
@@ -79,9 +79,9 @@ export default function Home() {
         { value: "100%", label: "Fee Retention" },
         { value: "4-8 Weeks", label: "EFIN Setup" },
       ],
-      bgFrom: "#0f0c0a",
-      bgTo: "#1a0f08",
-      accentColor: "#60a5fa",
+      bgFrom: "#060c1a",
+      bgTo: "#0d1526",
+      accentColor: "#FFAA2A",
       cta1: "Schedule ERO Consultation",
       cta2: "Start Your Application",
       image: "/about_community.png",
@@ -96,9 +96,9 @@ export default function Home() {
         { value: "Recurring", label: "Revenue Streams" },
         { value: "White-label", label: "Ready" },
       ],
-      bgFrom: "#0a0f15",
-      bgTo: "#120b06",
-      accentColor: "#34d399",
+      bgFrom: "#050A14",
+      bgTo: "#0a1020",
+      accentColor: "#FFD94A",
       cta1: "Apply for Mentorship",
       cta2: "See Growth Blueprint",
       image: "/open_office_coworking.png",
@@ -113,9 +113,9 @@ export default function Home() {
         { value: "365", label: "Days Of Support" },
         { value: "Live", label: "Expert Access" },
       ],
-      bgFrom: "#0d1117",
-      bgTo: "#1a0f08",
-      accentColor: "#fbbf24",
+      bgFrom: "#060d1a",
+      bgTo: "#0d1526",
+      accentColor: "#FFAA2A",
       cta1: "Join The Open Office",
       cta2: "Try Free Week",
       image: "/crm_workflow_dashboard.png",
@@ -554,15 +554,15 @@ export default function Home() {
   ];
 
   return (
-    <div className="relative overflow-hidden bg-[#0a0605] min-h-screen">
+    <div className="relative overflow-hidden bg-[#050A14] min-h-screen">
       <style>{`
         @keyframes float {
           0%, 100% { transform: translateY(0px) translateX(0px); }
           50% { transform: translateY(-20px) translateX(10px); }
         }
       `}</style>
-      {/* Subtle modern golden background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(253,168,93,0.04)_0%,transparent_50%)] pointer-events-none -z-10" />
+      {/* Midnight & Gold background glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,217,74,0.04)_0%,transparent_50%)] pointer-events-none -z-10" />
 
       {/* 1. Hero Carousel Section - InWork Style */}
       <section
@@ -630,7 +630,7 @@ export default function Home() {
                 {/* Left: Text Content */}
                 <div className="space-y-4 flex flex-col justify-center h-full overflow-hidden">
                   {/* Title with Accent */}
-                  <h1 className="gsap-hero-el text-5xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-snug min-h-fit max-h-40">
+                  <h1 className="gsap-hero-el font-display text-5xl sm:text-5xl lg:text-6xl font-semibold tracking-normal leading-tight min-h-fit max-h-40">
                     {slide.title.split(" ").map((word, i) => {
                       const isHighlight = slide.titleHighlight.split(" ").includes(word);
                       return (
@@ -645,7 +645,7 @@ export default function Home() {
                   </h1>
 
                   {/* Description */}
-                  <p className="gsap-hero-el text-sm text-stone-400 leading-relaxed line-clamp-2 max-h-10">
+                  <p className="gsap-hero-el font-body text-sm text-[#EDE9E0]/60 leading-relaxed line-clamp-2 max-h-10">
                     {slide.description}
                   </p>
 
@@ -766,13 +766,13 @@ export default function Home() {
       {/* 2. Interactive Business Stage Quiz Router */}
       <section
         ref={quizRef}
-        className="py-12 bg-black/20"
+        className="py-12 bg-[#1C2A47]/20 border-y border-[#FFD94A]/10"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-4">
           <h2 className="text-lg font-bold text-white uppercase tracking-wider">
             What stage is your tax business at?
           </h2>
-          <p className="text-xs text-stone-500 max-w-md mx-auto">
+          <p className="text-xs text-[#EDE9E0]/50 max-w-md mx-auto">
             Take our 30-second router quiz to pinpoint the exact software setup
             and mentorship support suited for your team.
           </p>
@@ -785,49 +785,51 @@ export default function Home() {
       {/* 3. Animated Stat Counters Banner */}
       <section
         ref={statsContainerRef}
-        className="py-16 bg-[#18100a]/80 relative"
+        className="py-16 bg-[#1C2A47]/30 relative border-y border-[#FFD94A]/10"
       >
+        {/* Gold glow line */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#FFD94A]/40 to-transparent" />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="space-y-1">
               <span
                 ref={yearsValRef}
-                className="text-4xl md:text-5xl font-black text-[#fda85d] font-mono block"
+                className="text-4xl md:text-5xl font-black text-[#FFD94A] font-mono block"
               >
                 0+
               </span>
               <span className="text-xs text-white font-bold uppercase tracking-wider block">
                 Years Supporting Tax Pros
               </span>
-              <p className="text-[10px] text-stone-500">
+              <p className="text-[10px] text-[#EDE9E0]/40">
                 Established training, setups, and support structures since 2014
               </p>
             </div>
             <div className="space-y-1 py-6 md:py-0">
               <span
                 ref={erosValRef}
-                className="text-4xl md:text-5xl font-black text-[#fda85d] font-mono block"
+                className="text-4xl md:text-5xl font-black text-[#FFD94A] font-mono block"
               >
                 0+
               </span>
               <span className="text-xs text-white font-bold uppercase tracking-wider block">
                 Independent EROs Supported
               </span>
-              <p className="text-[10px] text-stone-500">
+              <p className="text-[10px] text-[#EDE9E0]/40">
                 Firms transitioned from splits to keeping 100% of their fees
               </p>
             </div>
             <div className="space-y-1">
               <span
                 ref={membersValRef}
-                className="text-4xl md:text-5xl font-black text-[#fda85d] font-mono block"
+                className="text-4xl md:text-5xl font-black text-[#FFD94A] font-mono block"
               >
                 0+
               </span>
               <span className="text-xs text-white font-bold uppercase tracking-wider block">
                 Active Community Members
               </span>
-              <p className="text-[10px] text-stone-500">
+              <p className="text-[10px] text-[#EDE9E0]/40">
                 Coworking, legal consultations, and business workshops
                 year-round
               </p>
@@ -841,14 +843,14 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="gsap-about-el space-y-6">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#fda85d] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded inline-block">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#FFD94A] bg-[#1C2A47]/50 border border-[#FFD94A]/20 px-3 py-1 rounded inline-block">
                 More Than Tax Software
               </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-snug uppercase">
+              <h2 className="font-display text-2xl sm:text-4xl font-semibold text-white tracking-normal leading-tight uppercase">
                 At The Sector of Collectives, we believe tax professionals
                 deserve more than tools.
               </h2>
-              <p className="text-xs md:text-sm text-stone-400 leading-relaxed">
+              <p className="text-xs md:text-sm text-[#EDE9E0]/60 leading-relaxed">
                 Our collaborative community combines professional cloud-based
                 tax software, ERO Application setup, scaling strategies, and
                 live access to experts who understand what it takes to succeed.
@@ -859,7 +861,7 @@ export default function Home() {
                 <h3 className="text-xs font-bold text-white uppercase tracking-wider">
                   Our Mission
                 </h3>
-                <p className="text-stone-500 text-xs leading-relaxed">
+                <p className="text-[#EDE9E0]/50 text-xs leading-relaxed">
                   To create a collaborative community where tax professionals
                   have access to the tools, education, relationships, and
                   opportunities needed to grow sustainable businesses.
@@ -867,7 +869,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="gsap-about-el relative rounded-2xl overflow-hidden border border-amber-900/30 shadow-xl shadow-black/40">
+            <div className="gsap-about-el relative rounded-2xl overflow-hidden border border-[#FFD94A]/20 shadow-xl shadow-black/60">
               <Image
                 src="/about_community.png"
                 alt="Diverse community of tax professionals collaborating in a modern office setting"
@@ -875,16 +877,16 @@ export default function Home() {
                 height={560}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#120b06]/80 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050A14]/90 via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-5 left-5 right-5">
-                <div className="text-xl sm:text-2xl font-black tracking-wider text-white select-none">
-                  <span className="text-[#fda85d]">Connect</span>
-                  <span className="text-amber-900/60 mx-2">•</span>
-                  <span className="text-[#fda85d]">Create</span>
-                  <span className="text-amber-900/60 mx-2">•</span>
-                  <span className="text-white">Conquer</span>
+                <div className="text-xl sm:text-2xl font-display font-semibold tracking-wider text-white select-none">
+                  <span className="font-script text-3xl sm:text-4xl" style={{color: '#FFD94A'}}>Connect</span>
+                  <span className="text-[#FFD94A]/30 mx-2">•</span>
+                  <span className="font-script text-3xl sm:text-4xl" style={{color: '#FFD94A'}}>Create</span>
+                  <span className="text-[#FFD94A]/30 mx-2">•</span>
+                  <span className="font-display font-semibold text-2xl text-white">Conquer</span>
                 </div>
-                <p className="text-stone-300 text-[10px] mt-1 leading-relaxed">
+                <p className="text-[#EDE9E0]/70 text-[10px] mt-1 leading-relaxed">
                   Connect with peers. Create scalable revenue models. Conquer the tax industry on your own terms.
                 </p>
               </div>
@@ -899,18 +901,20 @@ export default function Home() {
       {/* Pinned Card Stack Ecosystem Section */}
       <section
         ref={ecosystemSectionRef}
-        className="relative py-20 bg-[#0a0605] overflow-hidden flex flex-col justify-center min-h-screen"
+        className="relative py-20 bg-[#050A14] overflow-hidden flex flex-col justify-center min-h-screen"
       >
+        {/* Decorative gold gradient top */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#FFD94A]/30 to-transparent" />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full space-y-12">
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-[#fda85d] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded inline-block">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-[#FFD94A] bg-[#1C2A47]/50 border border-[#FFD94A]/20 px-3 py-1 rounded inline-block">
               Our Core Architecture
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight uppercase">
+            <h2 className="font-display text-2xl sm:text-4xl font-semibold text-white tracking-normal uppercase">
               The Collective Growth Ecosystem
             </h2>
-            <p className="text-xs text-stone-450">
+            <p className="text-xs text-[#EDE9E0]/50">
               Scroll down to peel back the layers of tools, training, and
               systems that scale your business.
             </p>
@@ -924,25 +928,25 @@ export default function Home() {
             {ecosystemPillars.map((pillar, idx) => (
               <div
                 key={pillar.title}
-                className="gsap-ecosystem-card opacity-0 lg:absolute lg:inset-0 glass-card p-6 md:p-8 flex flex-col justify-between border border-white/10 bg-black/40 backdrop-blur shadow-xl relative select-none w-full h-full"
+                className="gsap-ecosystem-card opacity-0 lg:absolute lg:inset-0 glass-card p-6 md:p-8 flex flex-col justify-between border border-[#FFD94A]/10 bg-[#1C2A47]/40 backdrop-blur shadow-xl relative select-none w-full h-full"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-[9px] font-bold uppercase tracking-wider text-[#fda85d] bg-amber-955/20 border border-amber-900/35 px-2.5 py-0.5 rounded">
+                    <span className="text-[9px] font-bold uppercase tracking-wider text-[#FFD94A] bg-[#FFD94A]/10 border border-[#FFD94A]/25 px-2.5 py-0.5 rounded">
                       Pillar 0{idx + 1}
                     </span>
-                    <span className="text-stone-500 font-bold text-xs uppercase tracking-wider">
+                    <span className="text-[#EDE9E0]/40 font-bold text-xs uppercase tracking-wider">
                       {pillar.tag}
                     </span>
                   </div>
                   <h3 className="text-base font-bold text-white uppercase tracking-wider">
                     {pillar.title}
                   </h3>
-                  <p className="text-xs text-stone-400 leading-relaxed">
+                  <p className="text-xs text-[#EDE9E0]/60 leading-relaxed">
                     {pillar.desc}
                   </p>
                 </div>
-                <div className="pt-6 flex items-center justify-between text-[10px] uppercase font-bold tracking-wider text-[#fda85d]">
+                <div className="pt-6 flex items-center justify-between text-[10px] uppercase font-bold tracking-wider text-[#FFD94A]">
                   <span>{pillar.actionText}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </div>
@@ -956,13 +960,13 @@ export default function Home() {
       <section ref={servicesRef} className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-[#fda85d] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded inline-block">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-[#FFD94A] bg-[#1C2A47]/50 border border-[#FFD94A]/20 px-3 py-1 rounded inline-block">
               Business Support Pathways
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight uppercase">
+            <h2 className="font-display text-2xl sm:text-4xl font-semibold text-white tracking-normal uppercase">
               Tailored Pathways for Every Stage of Your Business
             </h2>
-            <p className="text-xs text-stone-505">
+            <p className="text-xs text-[#EDE9E0]/50">
               Select the support stream matching your experience level and
               organizational volume.
             </p>
@@ -972,16 +976,16 @@ export default function Home() {
             {services.map((service, idx) => (
               <div
                 key={service.title}
-                className="gsap-service-card opacity-0 flex flex-col justify-between glass-card p-6 md:p-8"
+                className="gsap-service-card opacity-0 flex flex-col justify-between glass-card glass-card-hover p-6 md:p-8"
               >
                 <div className="space-y-6">
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#fda85d] bg-amber-950/30 border border-amber-900/40 px-2.5 py-0.5 rounded">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#FFD94A] bg-[#FFD94A]/10 border border-[#FFD94A]/25 px-2.5 py-0.5 rounded">
                       Program 0{idx + 1}
                     </span>
                     <Link
                       href={service.link}
-                      className="text-[10px] font-bold text-stone-500 hover:text-[#fda85d] transition-colors flex items-center gap-1 uppercase tracking-wider"
+                      className="text-[10px] font-bold text-[#EDE9E0]/40 hover:text-[#FFD94A] transition-colors flex items-center gap-1 uppercase tracking-wider"
                     >
                       Read Guide
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -992,22 +996,22 @@ export default function Home() {
                     <h3 className="text-base font-bold text-white uppercase tracking-wider mb-2">
                       {service.title}
                     </h3>
-                    <p className="text-xs text-stone-400 leading-relaxed">
+                    <p className="text-xs text-[#EDE9E0]/60 leading-relaxed">
                       {service.desc}
                     </p>
                   </div>
 
                   <div className="space-y-2">
-                    <h4 className="text-[10px] font-bold uppercase tracking-wider text-stone-500">
+                    <h4 className="text-[10px] font-bold uppercase tracking-wider text-[#EDE9E0]/40">
                       Includes:
                     </h4>
                     <ul className="grid grid-cols-1 gap-2">
                       {service.includes.map((inc) => (
                         <li
                           key={inc}
-                          className="flex items-start space-x-2 text-xs text-stone-400"
+                          className="flex items-start space-x-2 text-xs text-[#EDE9E0]/60"
                         >
-                          <Check className="w-3.5 h-3.5 text-[#fda85d] shrink-0 mt-0.5" />
+                          <Check className="w-3.5 h-3.5 text-[#FFD94A] shrink-0 mt-0.5" />
                           <span>{inc}</span>
                         </li>
                       ))}
@@ -1015,13 +1019,13 @@ export default function Home() {
                   </div>
 
                   <div className="pt-2 flex flex-wrap gap-1.5 items-center">
-                    <span className="text-[9px] font-bold text-stone-500 uppercase tracking-wider mr-1.5">
+                    <span className="text-[9px] font-bold text-[#EDE9E0]/40 uppercase tracking-wider mr-1.5">
                       Best For:
                     </span>
                     {service.bestFor.map((bf) => (
                       <span
                         key={bf}
-                        className="bg-amber-955/35 border border-amber-900/30 text-[9px] font-semibold text-stone-450 px-2 py-0.5 rounded"
+                        className="bg-[#1C2A47]/60 border border-[#FFD94A]/15 text-[9px] font-semibold text-[#EDE9E0]/60 px-2 py-0.5 rounded"
                       >
                         {bf}
                       </span>
@@ -1032,7 +1036,7 @@ export default function Home() {
                 <div className="pt-8">
                   <button
                     onClick={service.action}
-                    className="w-full text-center bg-[#1a100a] hover:bg-amber-950 border border-amber-900/30 text-[#fda85d] hover:text-white font-bold py-2.5 px-4 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider"
+                    className="w-full text-center bg-gradient-to-r from-[#FFD94A] to-[#FFAA2A] hover:from-[#FFAA2A] hover:to-[#FF8C00] text-[#050A14] font-extrabold py-2.5 px-4 rounded-lg text-xs transition-all cursor-pointer uppercase tracking-wider shadow-lg shadow-[#FFD94A]/10"
                   >
                     {service.ctaText}
                   </button>
@@ -1046,202 +1050,202 @@ export default function Home() {
       {/* 7. Membership Comparison Table */}
       <section
         ref={pricingRef}
-        className="py-20 bg-black/20"
+        className="py-20 bg-[#1C2A47]/15"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-3 gsap-pricing-el">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-[#fda85d] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded inline-block">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-[#FFD94A] bg-[#1C2A47]/50 border border-[#FFD94A]/20 px-3 py-1 rounded inline-block">
               Pricing Matrices
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight uppercase">
+            <h2 className="font-display text-2xl sm:text-4xl font-semibold text-white tracking-normal uppercase">
               Compare Membership Options
             </h2>
-            <p className="text-xs text-stone-500">
+            <p className="text-xs text-[#EDE9E0]/50">
               Clear structures. Side-by-side access capabilities designed for
               independent tax offices.
             </p>
           </div>
 
           {/* Comparison Table Container */}
-          <div className="gsap-pricing-el overflow-x-auto border border-white/10 rounded-xl bg-black/30 backdrop-blur-md">
-            <table className="w-full min-w-[700px] border-collapse text-left text-xs text-stone-300">
+          <div className="gsap-pricing-el overflow-x-auto border border-[#FFD94A]/15 rounded-xl bg-[#1C2A47]/20 backdrop-blur-md">
+            <table className="w-full min-w-[700px] border-collapse text-left text-xs text-[#EDE9E0]/70">
               {/* Sticky Table Header */}
-              <thead className="bg-[#0a0605] sticky top-16 z-20">
+              <thead className="bg-[#050A14] sticky top-16 z-20">
                 <tr>
-                  <th className="p-4 font-bold text-stone-400 uppercase tracking-wider w-[40%]">
+                  <th className="p-4 font-bold text-[#EDE9E0]/50 uppercase tracking-wider w-[40%]">
                     Capabilities &amp; Benefits
                   </th>
-                  <th className="p-4 text-center font-bold text-stone-300 uppercase tracking-wider w-[20%]">
+                  <th className="p-4 text-center font-bold text-[#EDE9E0]/70 uppercase tracking-wider w-[20%]">
                     Community Access
                   </th>
-                  <th className="p-4 text-center font-bold text-[#fda85d] uppercase tracking-wider w-[20%] bg-amber-950/20 border-x border-[#fda85d]/20">
+                  <th className="p-4 text-center font-bold text-[#FFD94A] uppercase tracking-wider w-[20%] bg-[#FFD94A]/8 border-x border-[#FFD94A]/25">
                     Growth Access
-                    <span className="block text-[8px] font-black text-stone-400 mt-0.5 uppercase tracking-normal font-sans">
+                    <span className="block text-[8px] font-black text-[#FFAA2A] mt-0.5 uppercase tracking-normal font-sans">
                       Most Popular
                     </span>
                   </th>
-                  <th className="p-4 text-center font-bold text-stone-300 uppercase tracking-wider w-[20%]">
+                  <th className="p-4 text-center font-bold text-[#EDE9E0]/70 uppercase tracking-wider w-[20%]">
                     Expansion Access
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-amber-950/30">
+              <tbody className="divide-y divide-[#1C2A47]/60">
                 {/* Feature Rows */}
-                <tr>
+                <tr className="hover:bg-[#1C2A47]/20 transition-colors">
                   <td className="p-4 font-semibold text-white">
                     Professional Tax Software Access
                   </td>
-                  <td className="p-4 text-center text-emerald-400 font-bold font-mono">
+                  <td className="p-4 text-center text-[#FFD94A] font-bold font-mono">
                     YES (Cloud)
                   </td>
-                  <td className="p-4 text-center text-emerald-400 font-bold font-mono bg-amber-955/20 border-x border-[#fda85d]/10">
+                  <td className="p-4 text-center text-[#FFD94A] font-bold font-mono bg-[#FFD94A]/5 border-x border-[#FFD94A]/20">
                     YES (Cloud)
                   </td>
-                  <td className="p-4 text-center text-emerald-400 font-bold font-mono">
+                  <td className="p-4 text-center text-[#FFD94A] font-bold font-mono">
                     YES (Enterprise)
                   </td>
                 </tr>
-                <tr>
+                <tr className="hover:bg-[#1C2A47]/20 transition-colors">
                   <td className="p-4 font-semibold text-white">
                     Weekly Open Office Live Hours
                   </td>
-                  <td className="p-4 text-center text-emerald-400 font-bold font-mono">
+                  <td className="p-4 text-center text-[#FFD94A] font-bold font-mono">
                     YES
                   </td>
-                  <td className="p-4 text-center text-emerald-400 font-bold font-mono bg-amber-955/20 border-x border-[#fda85d]/10">
+                  <td className="p-4 text-center text-[#FFD94A] font-bold font-mono bg-[#FFD94A]/5 border-x border-[#FFD94A]/20">
                     YES
                   </td>
-                  <td className="p-4 text-center text-emerald-400 font-bold font-mono">
+                  <td className="p-4 text-center text-[#FFD94A] font-bold font-mono">
                     YES
                   </td>
                 </tr>
-                <tr>
+                <tr className="hover:bg-[#1C2A47]/20 transition-colors">
                   <td className="p-4 font-semibold text-white">
                     Software Walkthrough Guides
                   </td>
-                  <td className="p-4 text-center text-stone-400">Basic</td>
-                  <td className="p-4 text-center text-white font-semibold bg-amber-955/20 border-x border-[#fda85d]/10">
+                  <td className="p-4 text-center text-[#EDE9E0]/50">Basic</td>
+                  <td className="p-4 text-center text-white font-semibold bg-[#FFD94A]/5 border-x border-[#FFD94A]/20">
                     Advanced
                   </td>
                   <td className="p-4 text-center text-white font-semibold">
                     Advanced
                   </td>
                 </tr>
-                <tr>
+                <tr className="hover:bg-[#1C2A47]/20 transition-colors">
                   <td className="p-4 font-semibold text-white">
                     IRS ERO Enablement Setup
                   </td>
-                  <td className="p-4 text-center text-stone-600 font-mono">
+                  <td className="p-4 text-center text-[#EDE9E0]/25 font-mono">
                     NO
                   </td>
-                  <td className="p-4 text-center text-emerald-400 font-bold font-mono bg-amber-955/20 border-x border-[#fda85d]/10">
+                  <td className="p-4 text-center text-[#FFD94A] font-bold font-mono bg-[#FFD94A]/5 border-x border-[#FFD94A]/20">
                     YES
                   </td>
-                  <td className="p-4 text-center text-emerald-400 font-bold font-mono">
+                  <td className="p-4 text-center text-[#FFD94A] font-bold font-mono">
                     YES
                   </td>
                 </tr>
-                <tr>
+                <tr className="hover:bg-[#1C2A47]/20 transition-colors">
                   <td className="p-4 font-semibold text-white">
                     Ancillary Revenue Systems Guides
                   </td>
-                  <td className="p-4 text-center text-stone-600 font-mono">
+                  <td className="p-4 text-center text-[#EDE9E0]/25 font-mono">
                     NO
                   </td>
-                  <td className="p-4 text-center text-emerald-400 font-bold font-mono bg-amber-955/20 border-x border-[#fda85d]/10">
+                  <td className="p-4 text-center text-[#FFD94A] font-bold font-mono bg-[#FFD94A]/5 border-x border-[#FFD94A]/20">
                     YES
                   </td>
-                  <td className="p-4 text-center text-emerald-400 font-bold font-mono">
+                  <td className="p-4 text-center text-[#FFD94A] font-bold font-mono">
                     YES
                   </td>
                 </tr>
-                <tr>
+                <tr className="hover:bg-[#1C2A47]/20 transition-colors">
                   <td className="p-4 font-semibold text-white">
                     CRM Templates &amp; Automations
                   </td>
-                  <td className="p-4 text-center text-stone-600 font-mono">
+                  <td className="p-4 text-center text-[#EDE9E0]/25 font-mono">
                     NO
                   </td>
-                  <td className="p-4 text-center text-emerald-400 font-bold font-mono bg-amber-955/20 border-x border-[#fda85d]/10">
+                  <td className="p-4 text-center text-[#FFD94A] font-bold font-mono bg-[#FFD94A]/5 border-x border-[#FFD94A]/20">
                     YES
                   </td>
-                  <td className="p-4 text-center text-emerald-400 font-bold font-mono">
+                  <td className="p-4 text-center text-[#FFD94A] font-bold font-mono">
                     YES
                   </td>
                 </tr>
-                <tr>
+                <tr className="hover:bg-[#1C2A47]/20 transition-colors">
                   <td className="p-4 font-semibold text-white">
                     Live Attorney consultations
                   </td>
-                  <td className="p-4 text-center text-stone-600 font-mono">
+                  <td className="p-4 text-center text-[#EDE9E0]/25 font-mono">
                     NO
                   </td>
-                  <td className="p-4 text-center text-emerald-400 font-bold font-mono bg-amber-955/20 border-x border-[#fda85d]/10">
+                  <td className="p-4 text-center text-[#FFD94A] font-bold font-mono bg-[#FFD94A]/5 border-x border-[#FFD94A]/20">
                     YES
                   </td>
-                  <td className="p-4 text-center text-emerald-400 font-bold font-mono">
+                  <td className="p-4 text-center text-[#FFD94A] font-bold font-mono">
                     YES
                   </td>
                 </tr>
-                <tr>
+                <tr className="hover:bg-[#1C2A47]/20 transition-colors">
                   <td className="p-4 font-semibold text-white">
                     Service Bureau Audits &amp; Setup
                   </td>
-                  <td className="p-4 text-center text-stone-600 font-mono">
+                  <td className="p-4 text-center text-[#EDE9E0]/25 font-mono">
                     NO
                   </td>
-                  <td className="p-4 text-center text-stone-600 font-mono bg-amber-955/20 border-x border-[#fda85d]/10">
+                  <td className="p-4 text-center text-[#EDE9E0]/25 font-mono bg-[#FFD94A]/5 border-x border-[#FFD94A]/20">
                     NO
                   </td>
-                  <td className="p-4 text-center text-emerald-400 font-bold font-mono">
+                  <td className="p-4 text-center text-[#FFD94A] font-bold font-mono">
                     YES
                   </td>
                 </tr>
-                <tr>
+                <tr className="hover:bg-[#1C2A47]/20 transition-colors">
                   <td className="p-4 font-semibold text-white">
                     White-label branding deployment
                   </td>
-                  <td className="p-4 text-center text-stone-600 font-mono">
+                  <td className="p-4 text-center text-[#EDE9E0]/25 font-mono">
                     NO
                   </td>
-                  <td className="p-4 text-center text-stone-600 font-mono bg-amber-955/20 border-x border-[#fda85d]/10">
+                  <td className="p-4 text-center text-[#EDE9E0]/25 font-mono bg-[#FFD94A]/5 border-x border-[#FFD94A]/20">
                     NO
                   </td>
-                  <td className="p-4 text-center text-emerald-400 font-bold font-mono">
+                  <td className="p-4 text-center text-[#FFD94A] font-bold font-mono">
                     YES
                   </td>
                 </tr>
-                <tr>
+                <tr className="hover:bg-[#1C2A47]/20 transition-colors">
                   <td className="p-4 font-semibold text-white">
                     1-on-1 advisor strategy checks
                   </td>
-                  <td className="p-4 text-center text-stone-600 font-mono">
+                  <td className="p-4 text-center text-[#EDE9E0]/25 font-mono">
                     NO
                   </td>
-                  <td className="p-4 text-center text-stone-600 font-mono bg-amber-955/20 border-x border-[#fda85d]/10">
+                  <td className="p-4 text-center text-[#EDE9E0]/25 font-mono bg-[#FFD94A]/5 border-x border-[#FFD94A]/20">
                     NO
                   </td>
-                  <td className="p-4 text-center text-emerald-400 font-bold font-mono">
+                  <td className="p-4 text-center text-[#FFD94A] font-bold font-mono">
                     YES
                   </td>
                 </tr>
                 {/* Button actions row */}
-                <tr className="bg-[#0a0605]/40">
-                  <td className="p-4 font-bold text-stone-400">
+                <tr className="bg-[#050A14]/60">
+                  <td className="p-4 font-bold text-[#EDE9E0]/50">
                     Select Access Tier
                   </td>
                   <td className="p-4 text-center">
                     <button
                       onClick={() => openModal("strategy")}
-                      className="px-4 py-2 rounded-lg bg-[#18100a] hover:bg-amber-950 text-stone-300 hover:text-white font-bold border border-amber-900/30 tracking-wider uppercase text-[9px] cursor-pointer w-full"
+                      className="px-4 py-2 rounded-lg bg-[#1C2A47] hover:bg-[#243352] text-[#EDE9E0]/70 hover:text-white font-bold border border-[#FFD94A]/20 tracking-wider uppercase text-[9px] cursor-pointer w-full transition-all"
                     >
                       Choose Community
                     </button>
                   </td>
-                  <td className="p-4 text-center bg-amber-950/20 border-x border-[#fda85d]/25">
+                  <td className="p-4 text-center bg-[#FFD94A]/5 border-x border-[#FFD94A]/20">
                     <button
                       onClick={() => openModal("strategy")}
-                      className="px-4 py-2 rounded-lg bg-gradient-to-r from-[#fda85d] to-[#f97316] hover:from-[#e0924f] hover:to-[#ea580c] text-black font-extrabold tracking-wider uppercase text-[9px] cursor-pointer w-full shadow"
+                      className="px-4 py-2 rounded-lg bg-gradient-to-r from-[#FFD94A] to-[#FFAA2A] hover:from-[#FFAA2A] hover:to-[#FF8C00] text-[#050A14] font-extrabold tracking-wider uppercase text-[9px] cursor-pointer w-full shadow-lg shadow-[#FFD94A]/20"
                     >
                       Choose Growth
                     </button>
@@ -1249,7 +1253,7 @@ export default function Home() {
                   <td className="p-4 text-center">
                     <button
                       onClick={() => openModal("strategy")}
-                      className="px-4 py-2 rounded-lg bg-[#18100a] hover:bg-amber-950 text-stone-300 hover:text-white font-bold border border-amber-900/30 tracking-wider uppercase text-[9px] cursor-pointer w-full"
+                      className="px-4 py-2 rounded-lg bg-[#1C2A47] hover:bg-[#243352] text-[#EDE9E0]/70 hover:text-white font-bold border border-[#FFD94A]/20 tracking-wider uppercase text-[9px] cursor-pointer w-full transition-all"
                     >
                       Choose Expansion
                     </button>
@@ -1265,13 +1269,13 @@ export default function Home() {
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-[#fda85d] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded inline-block">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-[#FFD94A] bg-[#1C2A47]/50 border border-[#FFD94A]/20 px-3 py-1 rounded inline-block">
               Client Stories
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight uppercase">
+            <h2 className="font-display text-2xl sm:text-4xl font-semibold text-white tracking-normal uppercase">
               Proven Success in the Community
             </h2>
-            <p className="text-xs text-stone-500">
+            <p className="text-xs text-[#EDE9E0]/50">
               Verified success stories from tax professionals who transitioned
               to independent EROs and Service Bureaus.
             </p>

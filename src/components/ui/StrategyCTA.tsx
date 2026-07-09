@@ -16,7 +16,7 @@ export default function StrategyCTA({
   return (
     <button
       onClick={() => openModal("strategy")}
-      className={`inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#fda85d] to-[#f97316] hover:from-[#e0924f] hover:to-[#ea580c] text-black font-extrabold py-3 px-6 text-xs transition-colors shadow-md hover:shadow-[#fda85d]/10 cursor-pointer ${className}`}
+      className={`inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#FFD94A] to-[#FFAA2A] hover:from-[#FFAA2A] hover:to-[#FF8C00] text-[#050A14] font-extrabold py-3 px-6 text-xs transition-all shadow-md hover:shadow-[#FFD94A]/20 cursor-pointer ${className}`}
     >
       {children}
     </button>

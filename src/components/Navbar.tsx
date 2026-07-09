@@ -30,17 +30,17 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-amber-950/40 bg-[#0f0a06]/85 backdrop-blur-md">
+    <header className="sticky top-0 z-40 w-full border-b border-[#FFD94A]/15 bg-[#050A14]/90 backdrop-blur-md">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-14 items-center justify-between gap-4">
           {/* Logo */}
           <div className="flex items-center shrink-0">
             <Link href="/" className="flex items-center space-x-2 group">
               <Logo size={26} />
-              <span className="hidden xl:block font-bold text-xs tracking-wider text-white uppercase group-hover:text-[#fda85d] transition-colors whitespace-nowrap">
+              <span className="hidden xl:block font-display font-semibold text-sm tracking-wide text-white uppercase group-hover:text-[#FFD94A] transition-colors whitespace-nowrap">
                 The Sector of Collectives
               </span>
-              <span className="xl:hidden font-bold text-xs tracking-wider text-white uppercase group-hover:text-[#fda85d] transition-colors whitespace-nowrap">
+              <span className="xl:hidden font-display font-semibold text-sm tracking-wide text-white uppercase group-hover:text-[#FFD94A] transition-colors whitespace-nowrap">
                 The Sector
               </span>
             </Link>
@@ -55,8 +55,8 @@ export default function Navbar() {
                   href={link.href}
                   className={`px-2.5 py-1.5 rounded-md text-[11px] font-semibold tracking-wide transition-all duration-150 whitespace-nowrap ${
                     isActive(link.href)
-                      ? "bg-amber-950/40 text-[#fda85d] border-b border-amber-500/30"
-                      : "text-stone-400 hover:text-white hover:bg-amber-950/20"
+                      ? "bg-[#1C2A47] text-[#FFD94A] border-b border-[#FFD94A]/40"
+                      : "text-[#EDE9E0]/60 hover:text-white hover:bg-[#1C2A47]/60"
                   }`}
                 >
                   {link.name}
@@ -69,7 +69,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center shrink-0">
             <button
               onClick={() => openModal("strategy")}
-              className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#fda85d] to-[#f97316] hover:from-[#e0924f] hover:to-[#ea580c] text-black px-3.5 py-1.5 text-[11px] font-extrabold shadow-md hover:shadow-[#fda85d]/10 transition-all cursor-pointer uppercase tracking-wider whitespace-nowrap"
+              className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#FFD94A] to-[#FFAA2A] hover:from-[#FFAA2A] hover:to-[#FF8C00] text-[#050A14] px-3.5 py-1.5 text-[11px] font-extrabold shadow-md hover:shadow-[#FFD94A]/25 transition-all cursor-pointer uppercase tracking-wider whitespace-nowrap"
             >
               Book Strategy Call
             </button>
@@ -79,7 +79,7 @@ export default function Navbar() {
           <div className="flex lg:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="inline-flex items-center justify-center rounded-md p-1.5 text-stone-400 hover:text-white hover:bg-amber-955/20 focus:outline-none"
+              className="inline-flex items-center justify-center rounded-md p-1.5 text-[#EDE9E0]/60 hover:text-white hover:bg-[#1C2A47]/60 focus:outline-none"
             >
               <span className="sr-only">Open main menu</span>
               {isMobileMenuOpen ? (
@@ -95,7 +95,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-[#0f0a06] border-b border-amber-950/40">
+        <div className="lg:hidden bg-[#050A14] border-b border-[#FFD94A]/15">
           <div className="space-y-1 px-3 pt-2 pb-4">
             {navLinks.map((link) => (
               <Link
@@ -104,8 +104,8 @@ export default function Navbar() {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={`block px-3 py-2.5 rounded-lg text-sm font-semibold tracking-wide ${
                   isActive(link.href)
-                    ? "bg-amber-950/40 text-[#fda85d]"
-                    : "text-stone-400 hover:text-white hover:bg-amber-950/20"
+                    ? "bg-[#1C2A47] text-[#FFD94A]"
+                    : "text-[#EDE9E0]/60 hover:text-white hover:bg-[#1C2A47]/60"
                 }`}
               >
                 {link.name}
@@ -117,7 +117,7 @@ export default function Navbar() {
                   setIsMobileMenuOpen(false);
                   openModal("strategy");
                 }}
-                className="w-full text-center bg-gradient-to-r from-[#fda85d] to-[#f97316] text-black font-extrabold py-2.5 px-4 rounded-lg text-xs transition-all cursor-pointer uppercase tracking-wider"
+                className="w-full text-center bg-gradient-to-r from-[#FFD94A] to-[#FFAA2A] text-[#050A14] font-extrabold py-2.5 px-4 rounded-lg text-xs transition-all cursor-pointer uppercase tracking-wider"
               >
                 Book Strategy Call
               </button>

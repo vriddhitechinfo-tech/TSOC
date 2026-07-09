@@ -26,7 +26,7 @@ export default function FaqAccordion({
   return (
     <div className="w-full max-w-4xl mx-auto py-12 px-4 animate-fade-in">
       {title && (
-        <h2 className="text-xl sm:text-2xl font-bold text-center text-white mb-8 tracking-tight uppercase tracking-wider text-[#fda85d]">
+        <h2 className="text-xl sm:text-2xl font-bold text-center text-white mb-8 tracking-tight uppercase tracking-wider text-[#FFD94A]">
           {title}
         </h2>
       )}
@@ -36,11 +36,11 @@ export default function FaqAccordion({
           return (
             <div
               key={index}
-              className="border border-amber-900/30 bg-[#160f0a]/50 hover:bg-[#1a110b]/75 rounded-xl transition-all duration-300 overflow-hidden"
+              className="border border-[#FFD94A]/15 bg-[#1C2A47]/25 hover:bg-[#1C2A47]/50 rounded-xl transition-all duration-300 overflow-hidden"
             >
               <button
                 onClick={() => toggleIndex(index)}
-                className="w-full flex items-center justify-between p-5 text-left text-white hover:text-[#fda85d] focus:outline-none focus:ring-1 focus:ring-[#fda85d] rounded-xl transition-colors duration-200 cursor-pointer"
+                className="w-full flex items-center justify-between p-5 text-left text-white hover:text-[#FFD94A] focus:outline-none focus:ring-1 focus:ring-[#FFD94A]/50 rounded-xl transition-colors duration-200 cursor-pointer"
                 aria-expanded={isOpen}
                 aria-controls={`faq-answer-${index}`}
                 id={`faq-btn-${index}`}
@@ -49,8 +49,8 @@ export default function FaqAccordion({
                   {item.question}
                 </span>
                 <ChevronDown
-                  className={`w-4 h-4 text-stone-400 shrink-0 transition-transform duration-300 ${
-                    isOpen ? "transform rotate-180 text-[#fda85d]" : ""
+                  className={`w-4 h-4 text-[#EDE9E0]/40 shrink-0 transition-transform duration-300 ${
+                    isOpen ? "transform rotate-180 text-[#FFD94A]" : ""
                   }`}
                 />
               </button>
@@ -65,7 +65,7 @@ export default function FaqAccordion({
                 }`}
               >
                 <div className="overflow-hidden">
-                  <div className="p-5 pt-0 text-xs sm:text-sm text-stone-450 leading-relaxed  mt-2">
+                  <div className="p-5 pt-0 text-xs sm:text-sm text-[#EDE9E0]/50 leading-relaxed  mt-2">
                     {item.answer}
                   </div>
                 </div>
