@@ -9,6 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import FaqAccordion from "@/components/ui/FaqAccordion";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import TiltCard from "@/components/motion/TiltCard";
+import VideoMeshBackground from "@/components/VideoMeshBackground";
 
 export default function TechnologySupportPage() {
   const { openModal } = useModal();
@@ -342,6 +343,7 @@ export default function TechnologySupportPage() {
 
       {/* Hero Section with Left/Right Split */}
       <section className="relative pt-6 pb-20 lg:py-20 overflow-hidden">
+        <VideoMeshBackground className="opacity-15" />
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 relative z-10 h-auto lg:h-[520px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center h-full">
             {/* Left: Content */}

@@ -31,6 +31,7 @@ import TrustSection from "@/components/TrustSection";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import FaqAccordion from "@/components/ui/FaqAccordion";
 import TiltCard from "@/components/motion/TiltCard";
+import VideoMeshBackground from "@/components/VideoMeshBackground";
 
 export default function Home() {
   const { openModal } = useModal();
@@ -517,6 +518,9 @@ export default function Home() {
           }}
         />
 
+        {/* Ambient mesh/network video accent */}
+        <VideoMeshBackground className="opacity-15" />
+
         {/* Animated background circles/dots effect */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {[...Array(3)].map((_, i) => (
@@ -823,7 +827,9 @@ export default function Home() {
       >
         {/* Decorative gold gradient top */}
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#FFD94A]/30 to-transparent" />
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full space-y-12">
+        {/* Ambient mesh/network video accent */}
+        <VideoMeshBackground className="opacity-25" />
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full space-y-12 relative z-10">
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <span className="text-xs font-bold uppercase tracking-widest text-[#FFD94A] bg-[#1C2A47]/50 border border-[#FFD94A]/20 px-3 py-1 rounded inline-block">
