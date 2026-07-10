@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import InteractiveModal from "@/components/InteractiveModal";
 import ExitIntentCTA from "@/components/ExitIntentCTA";
 import ParticleBackground from "@/components/ParticleBackground";
+import CursorGlow from "@/components/CursorGlow";
 
 // Display Sans — bold, wide sans-serif for hero titles and large headings
 const archivo = Archivo({
@@ -65,6 +66,7 @@ export default function RootLayout({
           <Footer />
           <InteractiveModal />
           <ExitIntentCTA />
+          <CursorGlow />
         </ModalProvider>
       </body>
     </html>
