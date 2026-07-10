@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import TiltCard from "@/components/motion/TiltCard";
 
 export default function ServicesPage() {
   const pageRef = useRef<HTMLDivElement>(null);
@@ -78,42 +79,44 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div ref={pageRef} className="relative overflow-hidden bg-[#0a0605] min-h-screen py-16 sm:py-10">
+    <div ref={pageRef} className="relative overflow-hidden bg-[#050A14] min-h-screen py-16 sm:py-10">
       {/* Background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(253,168,93,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,217,74,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="gsap-reveal text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="inline-flex items-center rounded-full bg-amber-955/35 border border-amber-900/40 px-3 py-1 text-xs font-semibold text-[#fda85d]">
+          <span className="inline-flex items-center rounded-full bg-[#FFD94A]/35 border border-[#FFD94A]/40 px-3 py-1 text-xs font-semibold text-[#FFD94A]">
             How We Support Tax Professionals
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
             Our Business Scaling Programs
           </h1>
-          <p className="text-sm text-stone-400 leading-relaxed">
+          <p className="text-sm text-[#EDE9E0]/60 leading-relaxed">
             We provide the infrastructure, software tools, IRS compliance setups, and coworking networks required to scale a profitable tax practice.
           </p>
         </div>
 
         {/* Services List Grid */}
         <div className="space-y-4 max-w-5xl mx-auto">
-          {serviceList.map((srv) => (
-            <div 
+          {serviceList.map((srv, i) => (
+            <TiltCard
               key={srv.num}
-              className="gsap-reveal glass-card glass-card-hover p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
+              tilt={4}
+              delay={i * 0.06}
+              className="glass-card glass-card-hover p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
             >
               <div className="space-y-3 flex-1">
                 <div className="flex items-center space-x-3">
-                  <span className="text-xs font-bold text-[#fda85d] font-mono">
+                  <span className="text-xs font-bold text-[#FFD94A] font-mono">
                     {srv.num}
                   </span>
-                  <span className="text-[9px] font-bold text-stone-400 uppercase tracking-widest bg-[#0f0805] border border-amber-900/30 px-2.5 py-0.5 rounded">
+                  <span className="text-xs font-bold text-[#EDE9E0]/60 uppercase tracking-widest bg-[#1C2A47] border border-[#FFD94A]/30 px-2.5 py-0.5 rounded">
                     {srv.tag}
                   </span>
                 </div>
                 <h3 className="text-base font-bold text-white uppercase tracking-wider">{srv.title}</h3>
-                <p className="text-xs text-stone-450 leading-relaxed max-w-3xl">
+                <p className="text-xs text-[#EDE9E0]/55 leading-relaxed max-w-3xl">
                   {srv.desc}
                 </p>
               </div>
@@ -121,13 +124,13 @@ export default function ServicesPage() {
               <div className="shrink-0">
                 <Link
                   href={srv.href}
-                  className="inline-flex items-center gap-1.5 bg-[#0f0805] hover:bg-amber-950 border border-amber-900/30 text-[#fda85d] hover:text-white px-5 py-2.5 rounded-lg text-xs font-extrabold transition-all uppercase tracking-wider"
+                  className="inline-flex items-center gap-1.5 bg-[#1C2A47] hover:bg-[#FFD94A] border border-[#FFD94A]/30 text-[#FFD94A] hover:text-white px-5 py-2.5 rounded-lg text-xs font-extrabold transition-all uppercase tracking-wider"
                 >
                   View Details
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
-            </div>
+            </TiltCard>
           ))}
         </div>
       </div>

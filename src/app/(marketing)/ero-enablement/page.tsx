@@ -5,14 +5,22 @@ import { useModal } from "@/context/ModalContext";
 import { DollarSign, Award, Sliders, Building, CheckCircle2 } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion, useScroll, useSpring } from "framer-motion";
 import FeeCalculator from "@/components/FeeCalculator";
 import FaqAccordion from "@/components/ui/FaqAccordion";
+import TiltCard from "@/components/motion/TiltCard";
 
 export default function EROEnablementPage() {
   const { openModal } = useModal();
   const pageRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
-  const progressLineRef = useRef<SVGLineElement>(null);
+
+  // Roadmap progress line draws itself as the timeline scrolls through view
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    offset: ["start 0.7", "end 0.75"],
+  });
+  const lineScale = useSpring(scrollYProgress, { stiffness: 90, damping: 25 });
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -41,27 +49,6 @@ export default function EROEnablementPage() {
         );
       }
 
-      // Step nodes hover & draw-line scroll-scrub
-      if (timelineRef.current) {
-        const nodes = timelineRef.current.querySelectorAll(".gsap-step-node");
-        
-        // Stagger fade-in step nodes
-        gsap.fromTo(
-          nodes,
-          { scale: 0.85, opacity: 0.4 },
-          {
-            scale: 1,
-            opacity: 1,
-            stagger: 0.15,
-            scrollTrigger: {
-              trigger: timelineRef.current,
-              start: "top 75%",
-              end: "bottom 60%",
-              scrub: true,
-            }
-          }
-        );
-      }
     });
 
     return () => {
@@ -117,26 +104,26 @@ export default function EROEnablementPage() {
   ];
 
   return (
-    <div ref={pageRef} className="relative overflow-hidden bg-[#0a0605] min-h-screen py-16 sm:py-10 animate-fade-in">
+    <div ref={pageRef} className="relative overflow-hidden bg-[#050A14] min-h-screen py-16 sm:py-10 animate-fade-in">
       {/* Background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(96,165,250,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,217,74,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-24">
         {/* Header Section */}
         <div className="gsap-reveal text-center max-w-3xl mx-auto space-y-4">
-          <span className="inline-flex items-center rounded-full bg-amber-955/35 border border-amber-900/40 px-3 py-1 text-xs font-semibold text-[#60a5fa]">
+          <span className="inline-flex items-center rounded-full bg-[#FFD94A]/35 border border-[#FFD94A]/40 px-3 py-1 text-xs font-semibold text-[#FFD94A]">
             IRS ERO Support &amp; Training
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
             Stop Splitting Fees. Become an Independent ERO.
           </h1>
-          <p className="text-sm text-stone-450 leading-relaxed">
+          <p className="text-sm text-[#EDE9E0]/55 leading-relaxed">
             Preparing taxes under another ERO or franchise can cost you 30% to 50% of your total revenue. Our ERO Enablement program guides you through the process of getting your EFIN and setting up your own company.
           </p>
           <div className="pt-4">
             <button
               onClick={() => openModal("ero")}
-              className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#60a5fa] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
+              className="inline-flex items-center justify-center rounded-lg bg-[#FFD94A] hover:bg-[#FFAA2A] text-[#050A14] font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
             >
               Book an ERO Consultation
             </button>
@@ -147,7 +134,7 @@ export default function EROEnablementPage() {
         <div className="gsap-reveal space-y-6">
           <div className="text-center max-w-xl mx-auto">
             <h2 className="text-xl font-bold text-white uppercase tracking-wider">Fee-Split Calculator</h2>
-            <p className="text-xs text-stone-500 mt-1">See how much revenue you stand to retain by acquiring your own EFIN credentials.</p>
+            <p className="text-xs text-[#EDE9E0]/50 mt-1">See how much revenue you stand to retain by acquiring your own EFIN credentials.</p>
           </div>
           <FeeCalculator />
         </div>
@@ -159,45 +146,36 @@ export default function EROEnablementPage() {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="gsap-reveal glass-card p-6 space-y-4">
-              <div className="h-9 w-9 rounded-md bg-[#0f0805] border border-amber-900/30 flex items-center justify-center text-[#60a5fa]">
-                <DollarSign className="w-5 h-5" />
-              </div>
-              <h3 className="text-xs font-bold text-white uppercase tracking-wider">Keep 100% of Revenue</h3>
-              <p className="text-xs text-stone-400 leading-relaxed">
-                Keep every dollar your office generates. No percentage split models or royalty fees standard in franchise setups.
-              </p>
-            </div>
-
-            <div className="gsap-reveal glass-card p-6 space-y-4">
-              <div className="h-9 w-9 rounded-md bg-[#0f0805] border border-amber-900/30 flex items-center justify-center text-[#60a5fa]">
-                <Award className="w-5 h-5" />
-              </div>
-              <h3 className="text-xs font-bold text-white uppercase tracking-wider">Full Brand Authority</h3>
-              <p className="text-xs text-stone-400 leading-relaxed">
-                Market your business under your own name. Build custom client relationships and value that belongs to you.
-              </p>
-            </div>
-
-            <div className="gsap-reveal glass-card p-6 space-y-4">
-              <div className="h-9 w-9 rounded-md bg-[#0f0805] border border-amber-900/30 flex items-center justify-center text-[#60a5fa]">
-                <Sliders className="w-5 h-5" />
-              </div>
-              <h3 className="text-xs font-bold text-white uppercase tracking-wider">Control Your Pricing</h3>
-              <p className="text-xs text-stone-400 leading-relaxed">
-                Define your own fee schedule, client discounts, and service offerings without standard franchise limits.
-              </p>
-            </div>
-
-            <div className="gsap-reveal glass-card p-6 space-y-4">
-              <div className="h-9 w-9 rounded-md bg-[#0f0805] border border-amber-900/30 flex items-center justify-center text-[#60a5fa]">
-                <Building className="w-5 h-5" />
-              </div>
-              <h3 className="text-xs font-bold text-white uppercase tracking-wider">Direct Bank Approvals</h3>
-              <p className="text-xs text-stone-400 leading-relaxed">
-                Receive client filing fees straight from refund processing banks directly into your own corporate bank account.
-              </p>
-            </div>
+            {[
+              {
+                icon: DollarSign,
+                title: "Keep 100% of Revenue",
+                desc: "Keep every dollar your office generates. No percentage split models or royalty fees standard in franchise setups.",
+              },
+              {
+                icon: Award,
+                title: "Full Brand Authority",
+                desc: "Market your business under your own name. Build custom client relationships and value that belongs to you.",
+              },
+              {
+                icon: Sliders,
+                title: "Control Your Pricing",
+                desc: "Define your own fee schedule, client discounts, and service offerings without standard franchise limits.",
+              },
+              {
+                icon: Building,
+                title: "Direct Bank Approvals",
+                desc: "Receive client filing fees straight from refund processing banks directly into your own corporate bank account.",
+              },
+            ].map((benefit, i) => (
+              <TiltCard key={benefit.title} delay={i * 0.1} className="glass-card glass-card-hover p-6 space-y-4">
+                <div className="h-9 w-9 rounded-md bg-[#1C2A47] border border-[#FFD94A]/30 flex items-center justify-center text-[#FFD94A]">
+                  <benefit.icon className="w-5 h-5" />
+                </div>
+                <h3 className="text-xs font-bold text-white uppercase tracking-wider">{benefit.title}</h3>
+                <p className="text-xs text-[#EDE9E0]/60 leading-relaxed">{benefit.desc}</p>
+              </TiltCard>
+            ))}
           </div>
         </div>
 
@@ -205,23 +183,80 @@ export default function EROEnablementPage() {
         <div ref={timelineRef} className="glass-card p-8 md:p-12 mb-24 relative overflow-hidden">
           <div className="max-w-2xl mb-12 space-y-2">
             <h2 className="text-xl sm:text-2xl font-bold text-white uppercase tracking-wider">How to Become an ERO: Step-by-Step</h2>
-            <p className="text-xs text-stone-500">
+            <p className="text-xs text-[#EDE9E0]/50">
               The IRS process can be confusing, taking anywhere from 4 to 8 weeks. We eliminate the guesswork with direct enablement support.
             </p>
           </div>
 
-          <div className="space-y-8 relative before:absolute before:inset-y-0 before:left-4 before:md:left-8 before:w-0.5 before:bg-amber-900/30">
-            {roadmapSteps.map((step) => (
-              <div key={step.num} className="gsap-step-node relative flex items-start space-x-4 md:space-x-8 pl-1">
-                <span className="flex h-8 w-8 md:h-14 md:w-14 shrink-0 items-center justify-center rounded-lg bg-[#0f0805] border border-amber-900/40 text-[#60a5fa] font-extrabold text-xs md:text-sm z-10 hover:border-amber-400 transition-colors">
-                  {step.num}
-                </span>
-                <div className="space-y-1.5 pt-1.5 md:pt-3">
-                  <h3 className="text-xs md:text-sm font-bold text-white uppercase tracking-wider">{step.title}</h3>
-                  <p className="text-xs text-stone-500 leading-relaxed max-w-3xl">{step.desc}</p>
+          <div className="relative">
+            {/* Track */}
+            <div className="absolute left-5 md:left-1/2 top-0 bottom-0 w-px md:-translate-x-1/2 bg-[#FFD94A]/25" />
+            {/* Progress line — draws itself as you scroll */}
+            <motion.div
+              className="absolute left-5 md:left-1/2 top-0 bottom-0 w-[3px] -translate-x-1/2 origin-top rounded-full bg-gradient-to-b from-[#FFD94A] via-[#FFAA2A] to-[#FFAA2A] shadow-[0_0_12px_rgba(255,170,42,0.45)]"
+              style={{ scaleY: lineScale }}
+            />
+
+            <div className="space-y-10 md:space-y-14">
+              {roadmapSteps.map((step, i) => (
+                <div
+                  key={step.num}
+                  className="relative md:grid md:grid-cols-[1fr_5rem_1fr] md:items-center"
+                >
+                  {/* Node dot on the line */}
+                  <motion.span
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true, margin: "-60px" }}
+                    transition={{ type: "spring", stiffness: 320, damping: 14, delay: 0.1 }}
+                    className="absolute left-5 md:left-1/2 top-7 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 z-10 h-4 w-4 rounded-full bg-[#1C2A47] border-2 border-[#FFAA2A] shadow-[0_0_14px_rgba(255,170,42,0.6)]"
+                  />
+                  {/* Connector arm (desktop) */}
+                  <motion.span
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true, margin: "-60px" }}
+                    transition={{ duration: 0.4, delay: 0.25 }}
+                    className={`hidden md:block absolute top-1/2 left-1/2 h-px w-8 bg-[#FFD94A]/40 ${
+                      i % 2 === 0 ? "-translate-x-full -ml-2 origin-right" : "ml-2 origin-left"
+                    }`}
+                  />
+
+                  {/* Step card */}
+                  <TiltCard
+                    tilt={6}
+                    fromX={i % 2 === 0 ? -48 : 48}
+                    fromY={24}
+                    delay={0.15}
+                    className={`glass-card glass-card-hover p-5 md:p-6 ml-12 md:ml-0 space-y-2.5 ${
+                      i % 2 === 0 ? "md:col-start-1" : "md:col-start-3"
+                    }`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#1C2A47] border border-[#FFD94A]/40 text-[#FFD94A] font-extrabold text-sm">
+                        {step.num}
+                      </span>
+                      <h3 className="text-xs md:text-sm font-bold text-white uppercase tracking-wider">{step.title}</h3>
+                    </div>
+                    <p className="text-xs text-[#EDE9E0]/50 leading-relaxed">{step.desc}</p>
+                  </TiltCard>
                 </div>
+              ))}
+
+              {/* Finish milestone */}
+              <div className="relative md:flex md:justify-center">
+                <TiltCard
+                  tilt={6}
+                  fromY={20}
+                  className="relative z-10 ml-12 md:ml-0 inline-flex items-center gap-2.5 rounded-full bg-[#1C2A47] border border-[#FFD94A]/40 px-5 py-3 shadow-[0_0_25px_rgba(255,170,42,0.2)]"
+                >
+                  <CheckCircle2 className="w-4 h-4 text-[#FFAA2A]" />
+                  <span className="text-xs font-bold uppercase tracking-wider text-white">
+                    EFIN Approved — You&apos;re an Independent ERO
+                  </span>
+                </TiltCard>
               </div>
-            ))}
+            </div>
           </div>
         </div>
 
@@ -233,12 +268,12 @@ export default function EROEnablementPage() {
         {/* Call to Action consultation details */}
         <div className="gsap-reveal text-center max-w-xl mx-auto space-y-4">
           <h3 className="text-lg font-bold text-white uppercase tracking-wider">Ready to secure your independence?</h3>
-          <p className="text-xs text-stone-500 leading-relaxed">
+          <p className="text-xs text-[#EDE9E0]/50 leading-relaxed">
             Schedule an ERO application consultation. We will audit your pre-requisites and structure a timeline to get you approved before next tax season.
           </p>
           <button
             onClick={() => openModal("ero")}
-            className="bg-gradient-to-r from-[#60a5fa] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black font-extrabold py-2.5 px-6 rounded-lg text-xs transition-colors shadow-md mt-2 cursor-pointer uppercase tracking-wider"
+            className="bg-[#FFD94A] hover:bg-[#FFAA2A] text-[#050A14] font-extrabold py-2.5 px-6 rounded-lg text-xs transition-colors shadow-md mt-2 cursor-pointer uppercase tracking-wider"
           >
             Start ERO Enablement Today
           </button>

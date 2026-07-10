@@ -17,11 +17,11 @@ export default function Button({
   
   const variants = {
     primary:
-      "bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white shadow-md hover:shadow-emerald-500/10",
+      "bg-[#FFD94A] hover:bg-[#FFAA2A] text-[#050A14] shadow-md hover:shadow-[#FFD94A]/10",
     secondary:
-      "bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-zinc-300 hover:text-white",
+      "bg-[#1C2A47] border border-[#FFD94A]/20 hover:border-[#FFD94A]/40 text-[#EDE9E0]/70 hover:text-white",
     ghost:
-      "bg-transparent hover:bg-zinc-900/30 text-zinc-400 hover:text-white border border-transparent",
+      "bg-transparent hover:bg-[#1C2A47]/30 text-[#EDE9E0]/50 hover:text-white border border-transparent",
   };
 
   return (

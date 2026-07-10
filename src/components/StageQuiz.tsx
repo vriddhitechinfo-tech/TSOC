@@ -143,10 +143,10 @@ export default function StageQuiz() {
       {step < questions.length ? (
         <div className="space-y-6">
           <div className="flex items-center justify-between">
-            <span className="text-[9px] font-bold uppercase tracking-widest text-[#FFD94A] bg-[#FFD94A]/10 border border-[#FFD94A]/25 px-2 py-0.5 rounded">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#FFD94A] bg-[#FFD94A]/10 border border-[#FFD94A]/25 px-2 py-0.5 rounded">
               Step {step + 1} of {questions.length}
             </span>
-            <span className="text-[10px] text-[#EDE9E0]/40 font-semibold">Business Router</span>
+            <span className="text-xs text-[#EDE9E0]/40 font-semibold">Business Router</span>
           </div>
 
           <h3 className="text-sm md:text-base font-extrabold text-white leading-snug">
@@ -175,7 +175,7 @@ export default function StageQuiz() {
           </div>
 
           <div className="space-y-2">
-            <span className="text-[9px] font-bold uppercase tracking-widest text-[#FFD94A] bg-[#FFD94A]/10 border border-[#FFD94A]/25 px-3 py-1 rounded">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#FFD94A] bg-[#FFD94A]/10 border border-[#FFD94A]/25 px-3 py-1 rounded">
               Analysis Complete
             </span>
             <h3 className="text-base sm:text-lg font-black text-white pt-2">
@@ -189,7 +189,7 @@ export default function StageQuiz() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-6">
             <Link
               href={getRecommendation().link}
-              className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#FFD94A] to-[#FFAA2A] hover:from-[#FFAA2A] hover:to-[#FF8C00] text-[#050A14] px-6 py-3 text-xs font-extrabold shadow-md uppercase tracking-wider transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-[#FFD94A] hover:bg-[#FFAA2A] text-[#050A14] px-6 py-3 text-xs font-extrabold shadow-md uppercase tracking-wider transition-all"
             >
               {getRecommendation().cta}
               <ArrowRight className="w-3.5 h-3.5 ml-2" />

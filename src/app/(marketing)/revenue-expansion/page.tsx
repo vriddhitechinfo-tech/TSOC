@@ -18,6 +18,7 @@ import {
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import FaqAccordion from "@/components/ui/FaqAccordion";
+import TiltCard from "@/components/motion/TiltCard";
 
 export default function RevenueExpansionPage() {
   const { openModal } = useModal();
@@ -143,7 +144,7 @@ export default function RevenueExpansionPage() {
           <div className="pt-4">
             <button
               onClick={() => openModal("strategy")}
-              className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#FFD94A] to-[#FFAA2A] hover:from-[#FFAA2A] hover:to-[#FF8C00] text-[#050A14] font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
+              className="inline-flex items-center justify-center rounded-lg bg-[#FFD94A] hover:bg-[#FFAA2A] text-[#050A14] font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
             >
               Consult on Revenue Expansion
             </button>
@@ -152,57 +153,57 @@ export default function RevenueExpansionPage() {
 
         {/* Opportunities Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
-          {opportunities.map((op) => {
+          {opportunities.map((op, i) => {
             const Icon = op.icon;
             return (
-              <div key={op.name} className="gsap-reveal glass-card glass-card-hover p-6 flex flex-col justify-between min-h-[220px]">
+              <TiltCard key={op.name} delay={(i % 4) * 0.08} className="glass-card glass-card-hover p-6 flex flex-col justify-between min-h-[220px]">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <span className="text-[#FFD94A]">
                       <Icon className="w-5 h-5" />
                     </span>
-                    <span className="text-[8px] font-bold text-[#EDE9E0]/40 uppercase tracking-wider bg-[#1C2A47]/60 border border-[#FFD94A]/15 px-2 py-0.5 rounded">
+                    <span className="text-xs font-bold text-[#EDE9E0]/40 uppercase tracking-wider bg-[#1C2A47]/60 border border-[#FFD94A]/15 px-2 py-0.5 rounded">
                       {op.tag}
                     </span>
                   </div>
                   <div className="space-y-1">
                     <h3 className="text-xs font-black text-white uppercase tracking-wider">{op.name}</h3>
-                    <p className="text-[10px] text-[#EDE9E0]/45 leading-relaxed">{op.desc}</p>
+                    <p className="text-xs text-[#EDE9E0]/45 leading-relaxed">{op.desc}</p>
                   </div>
                 </div>
                 
                 <div className="pt-4 mt-4">
                   <button
                     onClick={() => openModal("strategy")}
-                    className="text-[9px] font-bold text-[#EDE9E0]/40 hover:text-[#FFD94A] flex items-center gap-1 uppercase tracking-wider transition-colors cursor-pointer"
+                    className="text-xs font-bold text-[#EDE9E0]/40 hover:text-[#FFD94A] flex items-center gap-1 uppercase tracking-wider transition-colors cursor-pointer"
                   >
                     Setup Service
                     <ArrowRight className="w-3 h-3" />
                   </button>
                 </div>
-              </div>
+              </TiltCard>
             );
           })}
         </div>
 
         {/* Interactive Stats / Benefits */}
-        <div className="gsap-reveal glass-card p-8 md:p-12 mb-24 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+        <TiltCard tilt={3} className="glass-card p-8 md:p-12 mb-24 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
           <div className="space-y-2">
             <h4 className="text-[#FFD94A] font-black text-2xl font-mono">+$2,500/mo</h4>
             <p className="text-xs text-white font-bold uppercase tracking-wider">Average Retainer Lift</p>
-            <p className="text-[10px] text-[#EDE9E0]/35">By adding bookkeeping to just 10 existing small business clients</p>
+            <p className="text-xs text-[#EDE9E0]/35">By adding bookkeeping to just 10 existing small business clients</p>
           </div>
           <div className="space-y-2 border-y md:border-y-0 md:border-x border-[#FFD94A]/10 py-6 md:py-0 md:px-8">
             <h4 className="text-[#FFD94A] font-black text-2xl font-mono">3.5x</h4>
             <p className="text-xs text-white font-bold uppercase tracking-wider">Client Lifetime Value</p>
-            <p className="text-[10px] text-[#EDE9E0]/35">Clients remain connected to your firm 12 months a year, not just 3</p>
+            <p className="text-xs text-[#EDE9E0]/35">Clients remain connected to your firm 12 months a year, not just 3</p>
           </div>
           <div className="space-y-2 md:pl-8">
             <h4 className="text-[#FFD94A] font-black text-2xl font-mono">75%</h4>
             <p className="text-xs text-white font-bold uppercase tracking-wider">Preparation Efficiency</p>
-            <p className="text-[10px] text-[#EDE9E0]/35">Clean monthly records make filing tax returns incredibly fast and error-free</p>
+            <p className="text-xs text-[#EDE9E0]/35">Clean monthly records make filing tax returns incredibly fast and error-free</p>
           </div>
-        </div>
+        </TiltCard>
 
         {/* FAQs */}
         <div className="gsap-reveal">
@@ -217,7 +218,7 @@ export default function RevenueExpansionPage() {
           </p>
           <button
             onClick={() => openModal("strategy")}
-            className="bg-gradient-to-r from-[#FFD94A] to-[#FFAA2A] hover:from-[#FFAA2A] hover:to-[#FF8C00] text-[#050A14] font-extrabold py-3 px-8 rounded-lg text-xs transition-all shadow-md cursor-pointer uppercase tracking-wider"
+            className="bg-[#FFD94A] hover:bg-[#FFAA2A] text-[#050A14] font-extrabold py-3 px-8 rounded-lg text-xs transition-all shadow-md cursor-pointer uppercase tracking-wider"
           >
             Request Revenue Expansion Roadmap
           </button>

@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, DM_Sans, Allura } from "next/font/google";
+import { Archivo, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { ModalProvider } from "@/context/ModalContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import InteractiveModal from "@/components/InteractiveModal";
 import ExitIntentCTA from "@/components/ExitIntentCTA";
+import ParticleBackground from "@/components/ParticleBackground";
 
-// Display Serif — for hero titles and large headings
-const cormorantGaramond = Cormorant_Garamond({
+// Display Sans — bold, wide sans-serif for hero titles and large headings
+const archivo = Archivo({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  style: ["normal", "italic"],
+  weight: ["500", "600", "700", "800", "900"],
   display: "swap",
 });
 
@@ -21,14 +21,6 @@ const dmSans = DM_Sans({
   variable: "--font-body",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800"],
-  display: "swap",
-});
-
-// Script Accent — used sparingly (one word only)
-const allura = Allura({
-  variable: "--font-script",
-  subsets: ["latin"],
-  weight: ["400"],
   display: "swap",
 });
 
@@ -57,7 +49,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cormorantGaramond.variable} ${dmSans.variable} ${allura.variable} h-full antialiased dark`}
+      className={`${archivo.variable} ${dmSans.variable} h-full antialiased dark`}
       suppressHydrationWarning
     >
       <body
@@ -65,6 +57,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <ModalProvider>
+          <ParticleBackground />
           <Navbar />
           <main className="flex-1 flex flex-col">
             {children}

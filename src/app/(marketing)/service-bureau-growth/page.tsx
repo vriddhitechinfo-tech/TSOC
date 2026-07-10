@@ -6,6 +6,7 @@ import { Check, ArrowRight, Activity, Download, Mail, User, Phone, CheckCircle, 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import FaqAccordion from "@/components/ui/FaqAccordion";
+import TiltCard from "@/components/motion/TiltCard";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 
 export default function ServiceBureauGrowthPage() {
@@ -207,26 +208,26 @@ export default function ServiceBureauGrowthPage() {
   };
 
   return (
-    <div ref={pageRef} className="relative overflow-hidden bg-[#0a0605] min-h-screen py-16 sm:py-10 animate-fade-in">
+    <div ref={pageRef} className="relative overflow-hidden bg-[#050A14] min-h-screen py-16 sm:py-10 animate-fade-in">
       {/* Background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(52,211,153,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,217,74,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-24">
         {/* Header Section */}
         <div className="gsap-reveal text-center max-w-3xl mx-auto space-y-4">
-          <span className="inline-flex items-center rounded-full bg-amber-955/35 border border-amber-900/40 px-3 py-1 text-xs font-semibold text-[#34d399]">
+          <span className="inline-flex items-center rounded-full bg-[#FFD94A]/35 border border-[#FFD94A]/40 px-3 py-1 text-xs font-semibold text-[#FFD94A]">
             Service Bureau Mentorship &amp; Scale
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
             Start a Tax Service Bureau. Scale Beyond Preparing.
           </h1>
-          <p className="text-sm text-stone-400 leading-relaxed">
+          <p className="text-sm text-[#EDE9E0]/60 leading-relaxed">
             Ready to expand beyond individual client filings? The Service Bureau model lets you license professional tax software, train other preparers, and build scaling recurring revenue streams.
           </p>
           <div className="pt-4">
             <button
               onClick={() => openModal("bureau")}
-              className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#34d399] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
+              className="inline-flex items-center justify-center rounded-lg bg-[#FFD94A] hover:bg-[#FFAA2A] text-[#050A14] font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
             >
               Apply for Service Bureau Mentorship
             </button>
@@ -236,48 +237,48 @@ export default function ServiceBureauGrowthPage() {
         {/* Animated Stats Section */}
         <div
           ref={statsContainerRef}
-          className="bg-gradient-to-b from-[#18100a]/80 to-[#120b06] border border-amber-900/30 rounded-2xl py-12 px-6 md:px-8 relative overflow-hidden"
+          className="bg-gradient-to-b from-[#0d1526]/80 to-[#0d1526] border border-[#FFD94A]/30 rounded-2xl py-12 px-6 md:px-8 relative overflow-hidden"
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="space-y-2">
               <span
                 ref={officesValRef}
-                className="text-4xl md:text-5xl font-black text-[#34d399] font-mono block"
+                className="text-4xl md:text-5xl font-black text-[#FFD94A] font-mono block"
               >
                 0+
               </span>
               <span className="text-xs text-white font-bold uppercase tracking-wider block">
                 Sub-Offices Supported
               </span>
-              <p className="text-[10px] text-stone-500">
+              <p className="text-xs text-[#EDE9E0]/50">
                 Tax professionals managing networks through our platform
               </p>
             </div>
             <div className="space-y-2">
               <span
                 ref={revenueValRef}
-                className="text-4xl md:text-5xl font-black text-[#34d399] font-mono block"
+                className="text-4xl md:text-5xl font-black text-[#FFD94A] font-mono block"
               >
                 $0K
               </span>
               <span className="text-xs text-white font-bold uppercase tracking-wider block">
                 Average Recurring Revenue
               </span>
-              <p className="text-[10px] text-stone-500">
+              <p className="text-xs text-[#EDE9E0]/50">
                 Additional annual income from sub-office licensing fees
               </p>
             </div>
             <div className="space-y-2">
               <span
                 ref={preparersValRef}
-                className="text-4xl md:text-5xl font-black text-[#34d399] font-mono block"
+                className="text-4xl md:text-5xl font-black text-[#FFD94A] font-mono block"
               >
                 0+
               </span>
               <span className="text-xs text-white font-bold uppercase tracking-wider block">
                 Preparers in Network
               </span>
-              <p className="text-[10px] text-stone-500">
+              <p className="text-xs text-[#EDE9E0]/50">
                 Professional tax preparers scaling through our model
               </p>
             </div>
@@ -287,13 +288,13 @@ export default function ServiceBureauGrowthPage() {
         {/* Testimonials Section */}
         <div className="gsap-reveal space-y-8">
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-[#34d399] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded inline-block">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#FFD94A] bg-[#FFD94A]/35 border border-[#FFD94A]/40 px-3 py-1 rounded inline-block">
               Service Bureau Success Stories
             </span>
             <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight uppercase">
               Proven Growth Across Our Network
             </h2>
-            <p className="text-xs text-stone-500">
+            <p className="text-xs text-[#EDE9E0]/50">
               Tax professionals who transitioned to Service Bureau models and built sustainable, scaling revenue streams.
             </p>
           </div>
@@ -304,33 +305,33 @@ export default function ServiceBureauGrowthPage() {
         <div className="relative pt-6">
           <div className="gsap-reveal text-center mb-16 max-w-xl mx-auto">
             <h2 className="text-xl font-bold text-white uppercase tracking-wider">Our 4-Phase Growth Blueprint</h2>
-            <p className="text-xs text-stone-500 mt-1">Scroll down to trace each phase of our mentorship deliverables.</p>
+            <p className="text-xs text-[#EDE9E0]/50 mt-1">Scroll down to trace each phase of our mentorship deliverables.</p>
           </div>
 
           <div ref={containerRef} className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative pb-16">
             {/* Left Column - Pinned Menu (Desktop only) */}
             <div className="hidden lg:block lg:col-span-4 sticky top-24 self-start space-y-3" ref={leftMenuRef}>
-              <div className="bg-[#0f0805]/80 border border-amber-900/30 rounded-xl p-4 space-y-2">
-                <span className="text-[9px] font-bold text-stone-500 uppercase tracking-widest block mb-2">Phase Navigator</span>
+              <div className="bg-[#1C2A47]/80 border border-[#FFD94A]/30 rounded-xl p-4 space-y-2">
+                <span className="text-xs font-bold text-[#EDE9E0]/50 uppercase tracking-widest block mb-2">Phase Navigator</span>
                 {phases.map((p, idx) => (
                   <button
                     key={p.num}
                     onClick={() => scrollToPhaseBlock(idx)}
                     className={`w-full text-left p-3 rounded-lg border text-xs transition-all duration-200 cursor-pointer flex items-center justify-between focus:outline-none ${
                       activeScrollPhase === idx
-                        ? "bg-amber-950/45 border-amber-500/40 text-[#34d399] font-bold"
-                        : "bg-transparent border-transparent text-stone-500 hover:text-white"
+                        ? "bg-[#FFD94A]/45 border-[#FFD94A]/40 text-[#FFD94A] font-bold"
+                        : "bg-transparent border-transparent text-[#EDE9E0]/50 hover:text-white"
                     }`}
                   >
                     <div className="flex items-center space-x-3">
-                      <span className={`h-6 w-6 rounded flex items-center justify-center text-[9px] font-bold border ${
-                        activeScrollPhase === idx ? "bg-[#0f0805] border-amber-500/40 text-[#34d399]" : "bg-[#0a0605] border-amber-905/30 text-stone-600"
+                      <span className={`h-6 w-6 rounded flex items-center justify-center text-xs font-bold border ${
+                        activeScrollPhase === idx ? "bg-[#1C2A47] border-[#FFD94A]/40 text-[#FFD94A]" : "bg-[#050A14] border-[#FFD94A]/30 text-[#EDE9E0]/40"
                       }`}>
                         {idx + 1}
                       </span>
                       <span>{p.title}</span>
                     </div>
-                    <ArrowRight className={`w-3.5 h-3.5 shrink-0 transition-transform ${activeScrollPhase === idx ? "translate-x-0.5 text-[#34d399]" : "text-transparent"}`} />
+                    <ArrowRight className={`w-3.5 h-3.5 shrink-0 transition-transform ${activeScrollPhase === idx ? "translate-x-0.5 text-[#FFD94A]" : "text-transparent"}`} />
                   </button>
                 ))}
               </div>
@@ -339,71 +340,72 @@ export default function ServiceBureauGrowthPage() {
             {/* Right Column - Scrollable Content Blocks */}
             <div className="lg:col-span-8 space-y-12">
               {phases.map((p, idx) => (
-                <div
+                <TiltCard
                   key={p.num}
                   id={`phase-block-${idx}`}
-                  className="phase-scroll-block glass-card p-6 md:p-8 space-y-4 border border-amber-900/20 scroll-mt-24 transition-opacity duration-300"
+                  tilt={4}
+                  className="phase-scroll-block glass-card p-6 md:p-8 space-y-4 border border-[#FFD94A]/20 scroll-mt-24 transition-opacity duration-300"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-[9px] font-bold uppercase tracking-widest text-[#34d399] bg-amber-955/35 border border-amber-900/40 px-3 py-1 rounded">
+                    <span className="text-xs font-bold uppercase tracking-widest text-[#FFD94A] bg-[#FFD94A]/35 border border-[#FFD94A]/40 px-3 py-1 rounded">
                       {p.num} Details
                     </span>
-                    <span className="text-[9px] text-[#34d399] font-semibold uppercase tracking-wider">Growth Blueprint</span>
+                    <span className="text-xs text-[#FFD94A] font-semibold uppercase tracking-wider">Growth Blueprint</span>
                   </div>
 
                   <h3 className="text-base sm:text-lg font-bold text-white uppercase tracking-wider">{p.title}</h3>
-                  <p className="text-xs text-stone-400 leading-relaxed">{p.desc}</p>
+                  <p className="text-xs text-[#EDE9E0]/60 leading-relaxed">{p.desc}</p>
                   
-                  <div className="h-px bg-amber-950/20 my-4" />
+                  <div className="h-px bg-[#FFD94A]/20 my-4" />
 
                   <div className="space-y-2">
-                    <h4 className="text-[9px] font-bold uppercase tracking-wider text-stone-300">Deliverables include:</h4>
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-[#EDE9E0]/70">Deliverables include:</h4>
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {p.items.map((it) => (
-                        <li key={it} className="flex items-start space-x-2 text-xs text-stone-450">
-                          <Check className="w-3.5 h-3.5 text-[#34d399] shrink-0 mt-0.5" />
+                        <li key={it} className="flex items-start space-x-2 text-xs text-[#EDE9E0]/55">
+                          <Check className="w-3.5 h-3.5 text-[#FFD94A] shrink-0 mt-0.5" />
                           <span>{it}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
-                </div>
+                </TiltCard>
               ))}
             </div>
           </div>
         </div>
 
         {/* Lead Magnet checklist form */}
-        <div className="gsap-reveal max-w-4xl mx-auto bg-gradient-to-r from-[#20140e] to-[#120b06] border border-amber-500/25 rounded-2xl p-6 md:p-10 relative overflow-hidden shadow-xl">
+        <div className="gsap-reveal max-w-4xl mx-auto bg-gradient-to-r from-[#1C2A47] to-[#0d1526] border border-[#FFD94A]/25 rounded-2xl p-6 md:p-10 relative overflow-hidden shadow-xl">
           <div className="absolute top-0 right-0 p-8 opacity-5">
-            <Download className="w-40 h-40 text-[#34d399]" />
+            <Download className="w-40 h-40 text-[#FFD94A]" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center z-10 relative">
             <div className="space-y-4">
-              <span className="text-[9px] font-bold uppercase tracking-widest text-[#34d399] bg-amber-955/30 border border-amber-900/40 px-2.5 py-1 rounded inline-block">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#FFD94A] bg-[#FFD94A]/30 border border-[#FFD94A]/40 px-2.5 py-1 rounded inline-block">
                 Lead Magnet
               </span>
               <h3 className="text-xl font-bold text-white uppercase tracking-wider">Which Phase Are You In?</h3>
-              <p className="text-xs text-stone-400 leading-relaxed">
+              <p className="text-xs text-[#EDE9E0]/60 leading-relaxed">
                 Download the complete Service Bureau audit checklist. This questionnaire helps evaluate your tech readiness, document pipeline templates, ERO onboarding systems, and recruitment setups.
               </p>
-              <ul className="space-y-2 text-xs text-stone-500">
-                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#34d399]" /> EFIN Audit guidelines</li>
-                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#34d399]" /> Multi-user software checks</li>
-                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#34d399]" /> CRM pipeline triggers map</li>
+              <ul className="space-y-2 text-xs text-[#EDE9E0]/50">
+                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#FFD94A]" /> EFIN Audit guidelines</li>
+                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#FFD94A]" /> Multi-user software checks</li>
+                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#FFD94A]" /> CRM pipeline triggers map</li>
               </ul>
             </div>
 
             {/* Checklist Form */}
-            <div className="bg-[#0a0605]/60 border border-amber-900/30 rounded-xl p-5 md:p-6">
+            <div className="bg-[#050A14]/60 border border-[#FFD94A]/30 rounded-xl p-5 md:p-6">
               {!isFormSubmitted ? (
                 <form onSubmit={handleLeadSubmit} className="space-y-3.5">
-                  <h4 className="text-[10px] font-bold text-stone-300 uppercase tracking-wider mb-2 text-center">Get Your Free Copy</h4>
+                  <h4 className="text-xs font-bold text-[#EDE9E0]/70 uppercase tracking-wider mb-2 text-center">Get Your Free Copy</h4>
                   <div>
-                    <label htmlFor="gate-name" className="block text-[8px] font-bold text-stone-500 uppercase tracking-wider mb-1">Full Name</label>
+                    <label htmlFor="gate-name" className="block text-xs font-bold text-[#EDE9E0]/50 uppercase tracking-wider mb-1">Full Name</label>
                     <div className="relative">
-                      <User className="absolute left-3 top-2.5 w-3.5 h-3.5 text-stone-600" />
+                      <User className="absolute left-3 top-2.5 w-3.5 h-3.5 text-[#EDE9E0]/40" />
                       <input
                         type="text"
                         id="gate-name"
@@ -411,14 +413,14 @@ export default function ServiceBureauGrowthPage() {
                         placeholder="John Doe"
                         value={leadData.name}
                         onChange={(e) => setLeadData({ ...leadData, name: e.target.value })}
-                        className="w-full bg-[#0f0805]/50 border border-amber-900/30 focus:border-[#34d399] rounded-lg pl-9 pr-3 py-2 text-xs text-white placeholder-stone-700 outline-none transition-all"
+                        className="w-full bg-[#1C2A47]/50 border border-[#FFD94A]/30 focus:border-[#FFD94A] rounded-lg pl-9 pr-3 py-2 text-xs text-white placeholder-[#EDE9E0]/30 outline-none transition-all"
                       />
                     </div>
                   </div>
                   <div>
-                    <label htmlFor="gate-email" className="block text-[8px] font-bold text-stone-500 uppercase tracking-wider mb-1">Email Address</label>
+                    <label htmlFor="gate-email" className="block text-xs font-bold text-[#EDE9E0]/50 uppercase tracking-wider mb-1">Email Address</label>
                     <div className="relative">
-                      <Mail className="absolute left-3 top-2.5 w-3.5 h-3.5 text-stone-600" />
+                      <Mail className="absolute left-3 top-2.5 w-3.5 h-3.5 text-[#EDE9E0]/40" />
                       <input
                         type="email"
                         id="gate-email"
@@ -426,14 +428,14 @@ export default function ServiceBureauGrowthPage() {
                         placeholder="john@example.com"
                         value={leadData.email}
                         onChange={(e) => setLeadData({ ...leadData, email: e.target.value })}
-                        className="w-full bg-[#0f0805]/50 border border-amber-900/30 focus:border-[#34d399] rounded-lg pl-9 pr-3 py-2 text-xs text-white placeholder-stone-700 outline-none transition-all"
+                        className="w-full bg-[#1C2A47]/50 border border-[#FFD94A]/30 focus:border-[#FFD94A] rounded-lg pl-9 pr-3 py-2 text-xs text-white placeholder-[#EDE9E0]/30 outline-none transition-all"
                       />
                     </div>
                   </div>
                   <div>
-                    <label htmlFor="gate-phone" className="block text-[8px] font-bold text-stone-500 uppercase tracking-wider mb-1">Phone Number</label>
+                    <label htmlFor="gate-phone" className="block text-xs font-bold text-[#EDE9E0]/50 uppercase tracking-wider mb-1">Phone Number</label>
                     <div className="relative">
-                      <Phone className="absolute left-3 top-2.5 w-3.5 h-3.5 text-stone-600" />
+                      <Phone className="absolute left-3 top-2.5 w-3.5 h-3.5 text-[#EDE9E0]/40" />
                       <input
                         type="tel"
                         id="gate-phone"
@@ -441,14 +443,14 @@ export default function ServiceBureauGrowthPage() {
                         placeholder="(555) 555-5555"
                         value={leadData.phone}
                         onChange={(e) => setLeadData({ ...leadData, phone: e.target.value })}
-                        className="w-full bg-[#0f0805]/50 border border-amber-900/30 focus:border-[#34d399] rounded-lg pl-9 pr-3 py-2 text-xs text-white placeholder-stone-700 outline-none transition-all"
+                        className="w-full bg-[#1C2A47]/50 border border-[#FFD94A]/30 focus:border-[#FFD94A] rounded-lg pl-9 pr-3 py-2 text-xs text-white placeholder-[#EDE9E0]/30 outline-none transition-all"
                       />
                     </div>
                   </div>
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-[#34d399] hover:bg-[#c29e2f] text-black font-extrabold py-2.5 rounded-lg text-xs uppercase tracking-wider transition-colors cursor-pointer flex items-center justify-center gap-1.5"
+                    className="w-full bg-[#FFD94A] hover:bg-[#FFAA2A] text-black font-extrabold py-2.5 rounded-lg text-xs uppercase tracking-wider transition-colors cursor-pointer flex items-center justify-center gap-1.5"
                   >
                     {isSubmitting ? "Generating..." : "Download Checklist PDF"}
                     <Download className="w-3.5 h-3.5" />
@@ -456,10 +458,10 @@ export default function ServiceBureauGrowthPage() {
                 </form>
               ) : (
                 <div className="text-center py-6 space-y-3 animate-fade-in">
-                  <CheckCircle className="w-10 h-10 text-emerald-400 mx-auto" />
+                  <CheckCircle className="w-10 h-10 text-[#FFD94A] mx-auto" />
                   <h4 className="text-xs font-bold text-white uppercase tracking-wider">Checklist Sent Successfully!</h4>
-                  <p className="text-[10px] text-stone-400">
-                    Your PDF download has started. If the download didn&apos;t trigger, check your email inbox at <span className="text-[#34d399] font-semibold">{leadData.email}</span>.
+                  <p className="text-xs text-[#EDE9E0]/60">
+                    Your PDF download has started. If the download didn&apos;t trigger, check your email inbox at <span className="text-[#FFD94A] font-semibold">{leadData.email}</span>.
                   </p>
                 </div>
               )}
@@ -470,53 +472,53 @@ export default function ServiceBureauGrowthPage() {
         {/* Candidate Fit Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="gsap-reveal space-y-6">
-            <span className="text-xs font-bold uppercase tracking-wider text-stone-500 block">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#EDE9E0]/50 block">
               Is This Mentorship Right For You?
             </span>
             <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight uppercase">
               Ideal Service Bureau Candidates
             </h2>
-            <p className="text-xs text-stone-400 leading-relaxed">
+            <p className="text-xs text-[#EDE9E0]/60 leading-relaxed">
               Transitioning to a Service Bureau requires administrative maturity, solid tax experience, and leadership. We screen applicants to ensure our resources align with offices ready to scale.
             </p>
-            <ul className="space-y-3.5 text-xs text-stone-400">
+            <ul className="space-y-3.5 text-xs text-[#EDE9E0]/60">
               <li className="flex items-start space-x-2.5">
-                <Check className="w-3.5 h-3.5 text-[#34d399] shrink-0 mt-0.5" />
+                <Check className="w-3.5 h-3.5 text-[#FFD94A] shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-stone-350 font-bold block uppercase tracking-wider text-[10px] mb-0.5">Established EROs</strong>
+                  <strong className="text-[#EDE9E0]/65 font-bold block uppercase tracking-wider text-xs mb-0.5">Established EROs</strong>
                   Tax business owners with active EFINs seeking to expand their reach.
                 </div>
               </li>
               <li className="flex items-start space-x-2.5">
-                <Check className="w-3.5 h-3.5 text-[#34d399] shrink-0 mt-0.5" />
+                <Check className="w-3.5 h-3.5 text-[#FFD94A] shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-stone-350 font-bold block uppercase tracking-wider text-[10px] mb-0.5">Multi-preparer offices</strong>
+                  <strong className="text-[#EDE9E0]/65 font-bold block uppercase tracking-wider text-xs mb-0.5">Multi-preparer offices</strong>
                   Firms looking to deploy white-labeled software licenses and sub-office accounts.
                 </div>
               </li>
               <li className="flex items-start space-x-2.5">
-                <Check className="w-3.5 h-3.5 text-[#34d399] shrink-0 mt-0.5" />
+                <Check className="w-3.5 h-3.5 text-[#FFD94A] shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-stone-350 font-bold block uppercase tracking-wider text-[10px] mb-0.5">Scaling networks</strong>
+                  <strong className="text-[#EDE9E0]/65 font-bold block uppercase tracking-wider text-xs mb-0.5">Scaling networks</strong>
                   Professional EROs building remote agent pools or license models.
                 </div>
               </li>
             </ul>
           </div>
 
-          <div className="gsap-reveal glass-card p-8 text-center space-y-5">
-            <Activity className="w-8 h-8 text-[#34d399] mx-auto" />
+          <TiltCard tilt={5} className="glass-card glass-card-hover p-8 text-center space-y-5">
+            <Activity className="w-8 h-8 text-[#FFD94A] mx-auto" />
             <h3 className="text-base font-bold text-white uppercase tracking-wider">Apply for Mentorship</h3>
-            <p className="text-xs text-stone-500 max-w-sm mx-auto leading-relaxed">
+            <p className="text-xs text-[#EDE9E0]/50 max-w-sm mx-auto leading-relaxed">
               We accept a limited number of offices into our Service Bureau Growth Program each quarter. Secure an audit to verify if your systems are scaling-ready.
             </p>
             <button
               onClick={() => openModal("bureau")}
-              className="bg-gradient-to-r from-[#34d399] to-[#f59e0b] hover:from-[#c29e2f] hover:to-[#e08d03] text-black font-extrabold py-3 px-8 rounded-lg text-xs transition-colors mt-2 cursor-pointer uppercase tracking-wider"
+              className="bg-[#FFD94A] hover:bg-[#FFAA2A] text-[#050A14] font-extrabold py-3 px-8 rounded-lg text-xs transition-colors mt-2 cursor-pointer uppercase tracking-wider"
             >
               Start Mentorship Application
             </button>
-          </div>
+          </TiltCard>
         </div>
 
         {/* FAQs */}

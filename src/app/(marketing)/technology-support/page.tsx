@@ -2,20 +2,22 @@
 
 import React, { useEffect, useRef } from "react";
 import { useModal } from "@/context/ModalContext";
-import { ChevronRight, Database, MessageSquare, ShieldAlert, Laptop, MailOpen, Check, Play } from "lucide-react";
+import { CheckCircle2, Play } from "lucide-react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import FaqAccordion from "@/components/ui/FaqAccordion";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
+import TiltCard from "@/components/motion/TiltCard";
 
 export default function TechnologySupportPage() {
   const { openModal } = useModal();
   const blueprintRef = useRef<HTMLDivElement>(null);
 
   const pageRef = useRef<HTMLDivElement>(null);
-  const diagramRef = useRef<HTMLDivElement>(null);
   const statsContainerRef = useRef<HTMLDivElement>(null);
+  const pipelineRef = useRef<HTMLDivElement>(null);
+  const pipelineLineRef = useRef<HTMLDivElement>(null);
 
   // Stats refs for counting animation
   const officesValRef = useRef<HTMLSpanElement>(null);
@@ -77,25 +79,6 @@ export default function TechnologySupportPage() {
         );
       }
 
-      // Horizontal diagram node reveal and link line drawing
-      if (diagramRef.current) {
-        const nodes = diagramRef.current.querySelectorAll(".gsap-flow-node");
-        const lines = diagramRef.current.querySelectorAll(".gsap-flow-line");
-
-        // Stagger fade-in nodes and scale lines
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: diagramRef.current,
-            start: "top 75%",
-            end: "bottom 55%",
-            scrub: true,
-          }
-        });
-
-        tl.fromTo(nodes, { scale: 0.7, opacity: 0.3 }, { scale: 1, opacity: 1, stagger: 0.15 })
-          .fromTo(lines, { strokeDashoffset: 100 }, { strokeDashoffset: 0, stagger: 0.15 }, "<");
-      }
-
       // Blueprint animation handled in separate useEffect below
     });
 
@@ -104,74 +87,66 @@ export default function TechnologySupportPage() {
     };
   }, []);
 
-  // ── Blueprint stacked-deck scroll animation ──────────────────────────────
+  // ── Operational pipeline: reversible scroll reveal per row ───────────────
   useEffect(() => {
-    if (!blueprintRef.current) return;
+    if (!pipelineRef.current) return;
     gsap.registerPlugin(ScrollTrigger);
 
-    const wrapper = blueprintRef.current;
-    const sectionEl = wrapper.parentElement as HTMLElement;
-    const cards = Array.from(wrapper.querySelectorAll(".blueprint-card")) as HTMLElement[];
-    const total = cards.length;
-    const GAP = 16;
-    const STACK_DEPTH = 9; // px offset per card in the stack
+    const ctx = gsap.context(() => {
+      // Spine draws downward on scroll, retracts on scroll back up (scrub is
+      // inherently bidirectional — no toggleActions needed).
+      if (pipelineLineRef.current) {
+        gsap.fromTo(
+          pipelineLineRef.current,
+          { scaleY: 0 },
+          {
+            scaleY: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: pipelineRef.current,
+              start: "top 70%",
+              end: "bottom 75%",
+              scrub: 0.6,
+            },
+          }
+        );
+      }
 
-    // Defer until after browser layout so getBoundingClientRect is accurate
-    const raf = requestAnimationFrame(() => {
-      // Measure each card's natural height
-      const heights = cards.map((c) => c.getBoundingClientRect().height || c.offsetHeight || 140);
+      // Each row (node + connector + card) plays in on the way down and
+      // reverses out on the way back up past its own trigger point.
+      const rows = pipelineRef.current!.querySelectorAll(".pipeline-row");
+      rows.forEach((row) => {
+        const node = row.querySelector(".pipeline-node");
+        const connector = row.querySelector(".pipeline-connector");
+        const card = row.querySelector(".pipeline-card");
+        const fromX = row.getAttribute("data-side") === "right" ? 44 : -44;
 
-      // Compute each card's final Y position in the vertical list
-      let cumY = 0;
-      const finalYs = heights.map((h) => {
-        const y = cumY;
-        cumY += h + GAP;
-        return y;
-      });
-      const totalListHeight = cumY - GAP;
-
-      // Set wrapper height = final layout height so page flow is preserved
-      gsap.set(wrapper, { position: "relative", height: totalListHeight });
-
-      // Stack every card at y=0 with depth offsets (card[0] on top)
-      cards.forEach((card, i) => {
-        gsap.set(card, {
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          y: i * STACK_DEPTH,
-          scale: 1 - i * 0.035,
-          opacity: Math.max(0.25, 1 - i * 0.18),
-          zIndex: total - i,
-          transformOrigin: "top center",
-        });
-      });
-
-      // For each card, create a ScrollTrigger that scrubs it from stack → final position
-      cards.forEach((card, i) => {
-        // Each card starts releasing after the previous one has mostly landed
-        const startOffset = i * 110; // px of scroll per card
-        gsap.to(card, {
-          y: finalYs[i],
-          scale: 1,
-          opacity: 1,
-          zIndex: i + 1,
-          ease: "power3.out",
+        const tl = gsap.timeline({
           scrollTrigger: {
-            trigger: sectionEl,
-            start: `top+=${startOffset} 55%`,
-            end: `top+=${startOffset + 90} 55%`,
-            scrub: 0.6,
+            trigger: row,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
           },
         });
-      });
-    });
 
-    return () => {
-      cancelAnimationFrame(raf);
-      ScrollTrigger.getAll().forEach((t) => t.kill());
-    };
+        if (node) {
+          tl.fromTo(node, { scale: 0 }, { scale: 1, duration: 0.4, ease: "back.out(2.5)" });
+        }
+        if (connector) {
+          tl.fromTo(connector, { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power2.out" }, "<0.1");
+        }
+        if (card) {
+          tl.fromTo(
+            card,
+            { opacity: 0, x: fromX, y: 16 },
+            { opacity: 1, x: 0, y: 0, duration: 0.5, ease: "power3.out" },
+            "<"
+          );
+        }
+      });
+    }, pipelineRef);
+
+    return () => ctx.revert();
   }, []);
 
   // ── Blueprint stacked-deck scroll animation ──────────────────────────────
@@ -277,6 +252,63 @@ export default function TechnologySupportPage() {
     },
   ];
 
+  const pipelineSteps = [
+    {
+      num: "1",
+      time: "Instant",
+      title: "Lead Capture & Routing",
+      accent: "gold" as const,
+      points: ["Facebook Leads & Web Forms", "Instant CRM assignment", "Real-time lead validation"],
+    },
+    {
+      num: "2",
+      time: "< 5 sec",
+      title: "CRM Routing & Validation",
+      accent: "blue" as const,
+      points: ["Duplicate & data validation", "Preparer workload balancing", "Automatic queue sync"],
+    },
+    {
+      num: "3",
+      time: "< 2 min",
+      title: "Secure SMS Intake Request",
+      accent: "emerald" as const,
+      points: ["Secure portal link", "Encrypted document upload", "Automated reminder sequences"],
+    },
+    {
+      num: "4",
+      time: "Same day",
+      title: "Filer Assignment & Review",
+      accent: "gold" as const,
+      points: ["Task queue alert", "Slack / email notification", "Preparer review checklist"],
+    },
+    {
+      num: "5",
+      time: "Auto-looped",
+      title: "Filing Accepted & Loop",
+      accent: "blue" as const,
+      points: ["Review & e-file confirmation", "Automated year-round follow-up", "Client retention campaign"],
+      highlight: true,
+    },
+  ];
+
+  const PIPELINE_ACCENTS = {
+    gold: {
+      border: "border-l-[#FFD94A]",
+      text: "text-[#FFD94A]",
+      pill: "bg-gradient-to-r from-[#FFD94A] to-[#FFAA2A] text-[#050A14]",
+    },
+    blue: {
+      border: "border-l-[#FFD94A]",
+      text: "text-[#FFD94A]",
+      pill: "bg-gradient-to-r from-[#FFD94A] to-[#FFD94A] text-[#050A14]",
+    },
+    emerald: {
+      border: "border-l-[#FFD94A]",
+      text: "text-[#FFD94A]",
+      pill: "bg-gradient-to-r from-[#FFD94A] to-[#FFD94A] text-[#050A14]",
+    },
+  };
+
   const techFaqs = [
     {
       question: "Which CRM software does The Sector of Collectives support?",
@@ -326,7 +358,7 @@ export default function TechnologySupportPage() {
               <div className="gsap-reveal flex flex-col sm:flex-row gap-4 pt-4">
                 <button
                   onClick={() => openModal("technology")}
-                  className="bg-gradient-to-r from-[#FFD94A] to-[#FFAA2A] hover:from-[#FFAA2A] hover:to-[#FF8C00] text-[#050A14] font-extrabold px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer shadow-md"
+                  className="bg-[#FFD94A] hover:bg-[#FFAA2A] text-[#050A14] font-extrabold px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer shadow-md"
                 >
                   Book a Technology Consultation
                 </button>
@@ -342,10 +374,10 @@ export default function TechnologySupportPage() {
             {/* Right: CRM Dashboard Image with Floating Animation */}
             <div className="relative h-full rounded-2xl overflow-hidden border border-[#FFD94A]/20 shadow-2xl shadow-black/60" style={{animation: 'float 6s ease-in-out infinite'}}>
               <div className="absolute top-0 left-0 right-0 h-8 bg-[#0d1526] border-b border-[#FFD94A]/15 flex items-center px-4 gap-1.5 z-10">
-                <span className="h-2.5 w-2.5 rounded-full bg-red-500/70" />
-                <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/70" />
-                <span className="h-2.5 w-2.5 rounded-full bg-green-500/70" />
-                <span className="ml-4 text-[10px] text-[#EDE9E0]/30 font-mono">CRM &amp; Workflow Automation — Dashboard</span>
+                <span className="h-2.5 w-2.5 rounded-full bg-[#FFD94A]/40" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#FFD94A]/65" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#FFD94A]/90" />
+                <span className="ml-4 text-xs text-[#EDE9E0]/30 font-mono">CRM &amp; Workflow Automation — Dashboard</span>
               </div>
               <Image
                 src="/crm_workflow_dashboard.png"
@@ -379,7 +411,7 @@ export default function TechnologySupportPage() {
               <span className="text-xs text-white font-bold uppercase tracking-wider block">
                 Offices Automated
               </span>
-              <p className="text-[10px] text-[#EDE9E0]/35">
+              <p className="text-xs text-[#EDE9E0]/35">
                 Tax practices running streamlined CRM and automation systems
               </p>
             </div>
@@ -393,7 +425,7 @@ export default function TechnologySupportPage() {
               <span className="text-xs text-white font-bold uppercase tracking-wider block">
                 Admin Work Eliminated
               </span>
-              <p className="text-[10px] text-[#EDE9E0]/35">
+              <p className="text-xs text-[#EDE9E0]/35">
                 Average reduction in manual document handling and client follow-ups
               </p>
             </div>
@@ -407,123 +439,122 @@ export default function TechnologySupportPage() {
               <span className="text-xs text-white font-bold uppercase tracking-wider block">
                 Faster Lead Response
               </span>
-              <p className="text-[10px] text-[#EDE9E0]/35">
+              <p className="text-xs text-[#EDE9E0]/35">
                 Automated systems respond to leads instantly, 24/7
               </p>
             </div>
           </div>
         </div>
 
-        {/* Horizontal flow diagram with laser line animations */}
+        {/* Operational Pipeline: numbered phase diagram, reveals on scroll down, retracts on scroll back up */}
         <div className="space-y-6">
           <div className="text-center max-w-xl mx-auto">
             <h2 className="text-xl font-bold text-white uppercase tracking-wider">Operational Pipeline Diagram</h2>
-            <p className="text-xs text-[#EDE9E0]/35 mt-1">Scroll to watch a lead navigate the automated client lifecycle from start to end.</p>
+            <p className="text-xs text-[#EDE9E0]/35 mt-1">Scroll to reveal each stage of the automated client lifecycle.</p>
           </div>
 
-          <div ref={diagramRef} className="glass-card p-8 overflow-x-auto select-none bg-[#1C2A47]/10">
-            <div className="min-w-[800px] flex items-center justify-between relative py-6">
-              {/* Flow Steps */}
-              {[
-                { label: "Lead Capture", icon: Laptop, desc: "Facebook/Ads Form" },
-                { label: "CRM Routing", icon: Database, desc: "Instant assignment" },
-                { label: "SMS Intake Request", icon: MessageSquare, desc: "Secure portal link" },
-                { label: "Filer Assignment", icon: MailOpen, desc: "Task queue alert" },
-                { label: "Filing Accepted", icon: ShieldAlert, desc: "Review request & loop" }
-              ].map((step, idx) => (
-                <React.Fragment key={idx}>
-                  <div className="gsap-flow-node flex flex-col items-center text-center space-y-2 z-10 w-28">
-                    <div className="h-12 w-12 rounded-xl bg-[#050A14] border border-[#FFD94A]/20 hover:border-[#FFD94A]/50 flex items-center justify-center text-[#FFD94A] shadow transition-colors">
-                      <step.icon className="w-5 h-5" />
+          <div ref={pipelineRef} className="relative py-6">
+            {/* Spine track */}
+            <div className="absolute left-5 lg:left-1/2 top-0 bottom-0 w-px lg:-translate-x-1/2 bg-white/10" />
+            {/* Spine progress — drawn by GSAP scrub, retracts on scroll-up */}
+            <div
+              ref={pipelineLineRef}
+              className="absolute left-5 lg:left-1/2 top-0 bottom-0 w-[3px] lg:-translate-x-1/2 origin-top rounded-full bg-gradient-to-b from-[#FFD94A] via-[#FFD94A] to-[#FFD94A]"
+              style={{ transform: "scaleY(0)" }}
+            />
+
+            <div className="space-y-14 lg:space-y-20">
+              {pipelineSteps.map((step, i) => {
+                const accent = PIPELINE_ACCENTS[step.accent];
+                const isRight = i % 2 === 1;
+                return (
+                  <div
+                    key={step.num}
+                    data-side={isRight ? "right" : "left"}
+                    className="pipeline-row relative lg:grid lg:grid-cols-2 lg:items-center"
+                  >
+                    {/* Numbered node on the spine */}
+                    <div className="pipeline-node absolute left-5 lg:left-1/2 top-6 lg:top-1/2 -translate-x-1/2 lg:-translate-y-1/2 z-10 h-9 w-9 rounded-full bg-[#0d1526] border-2 border-white/25 flex items-center justify-center text-sm font-bold text-white">
+                      {step.num}
                     </div>
-                    <div>
-                      <div className="text-[10px] font-bold text-white uppercase tracking-wider">{step.label}</div>
-                      <div className="text-[8px] text-[#EDE9E0]/30">{step.desc}</div>
+
+                    {/* Connector arm (desktop only) */}
+                    <div
+                      className={`pipeline-connector hidden lg:block absolute top-1/2 h-px bg-white/15 -translate-y-1/2 w-14 ${
+                        isRight ? "left-1/2 origin-left" : "right-1/2 origin-right"
+                      }`}
+                    />
+
+                    {/* Card */}
+                    <div
+                      className={`pipeline-card glass-card glass-card-hover overflow-hidden border-l-4 ${accent.border} pl-14 lg:pl-0 lg:max-w-md ${
+                        isRight ? "lg:col-start-2 lg:ml-14" : "lg:col-start-1 lg:mr-14 lg:justify-self-end"
+                      } ${step.highlight ? "bg-gradient-to-br from-[#1C2A47]/80 to-[#0d1526] ring-1 ring-[#FFD94A]/20" : ""}`}
+                    >
+                      <div className="p-6 space-y-4">
+                        <div className="flex items-center justify-between gap-3">
+                          <h3 className="text-sm font-bold text-white uppercase tracking-wider">{step.title}</h3>
+                          <span className={`shrink-0 text-xs font-bold px-3 py-1 rounded-full ${accent.pill}`}>
+                            {step.time}
+                          </span>
+                        </div>
+                        <ul className="space-y-2">
+                          {step.points.map((pt) => (
+                            <li key={pt} className="flex items-center gap-2 text-xs text-[#EDE9E0]/60">
+                              <CheckCircle2 className={`w-4 h-4 shrink-0 ${accent.text}`} />
+                              {pt}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   </div>
-
-                  {idx < 4 && (
-                    <div className="flex-1 px-4 relative flex items-center justify-center">
-                      <svg className="w-full h-2" overflow="visible">
-                        <line
-                          x1="0"
-                          y1="4"
-                          x2="100%"
-                          y2="4"
-                          stroke="#1C2A47"
-                          strokeWidth="2"
-                        />
-                        <line
-                          className="gsap-flow-line"
-                          x1="0"
-                          y1="4"
-                          x2="100%"
-                          y2="4"
-                          stroke="#FFD94A"
-                          strokeWidth="2"
-                          strokeDasharray="100"
-                          strokeDashoffset="100"
-                        />
-                      </svg>
-                      <ChevronRight className="w-3.5 h-3.5 text-[#FFD94A] absolute right-2.5" />
-                    </div>
-                  )}
-                </React.Fragment>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
 
         {/* Feature list */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="gsap-reveal glass-card p-6 space-y-3">
-            <h3 className="text-sm font-bold text-white uppercase tracking-wider">CRM for Tax Professionals</h3>
-            <p className="text-xs text-[#EDE9E0]/35 leading-relaxed">
-              Consolidate leads, tracking stages, and communication histories into a centralized dashboard. Easily view filing metrics for each preparer on your team.
-            </p>
-          </div>
-
-          <div className="gsap-reveal glass-card p-6 space-y-3">
-            <h3 className="text-sm font-bold text-white uppercase tracking-wider">Automated SMS &amp; Follow-Ups</h3>
-            <p className="text-xs text-[#EDE9E0]/35 leading-relaxed">
-              When a lead submits details, automated text and email campaigns reach out within minutes, improving booking conversion rates by up to 80%.
-            </p>
-          </div>
-
-          <div className="gsap-reveal glass-card p-6 space-y-3">
-            <h3 className="text-sm font-bold text-white uppercase tracking-wider">Secure Intake Document Requests</h3>
-            <p className="text-xs text-[#EDE9E0]/35 leading-relaxed">
-              Replace messy email attachments. Clients receive a secure mobile-friendly link to snap pictures of documents, which upload directly to their CRM profiles.
-            </p>
-          </div>
-
-          <div className="gsap-reveal glass-card p-6 space-y-3">
-            <h3 className="text-sm font-bold text-white uppercase tracking-wider">Calendar Scheduling Integration</h3>
-            <p className="text-xs text-[#EDE9E0]/35 leading-relaxed">
-              Synchronize GCal or Outlook schedules. Clients select open times directly based on preparer availability, sending auto-reminders to reduce no-shows.
-            </p>
-          </div>
-
-          <div className="gsap-reveal glass-card p-6 space-y-3">
-            <h3 className="text-sm font-bold text-white uppercase tracking-wider">AI for Tax Professionals</h3>
-            <p className="text-xs text-[#EDE9E0]/35 leading-relaxed">
-              Use custom AI templates to generate customer service replies, translate client forms, draft email responses, and summarize complex IRS tax codes.
-            </p>
-          </div>
-
-          <div className="gsap-reveal glass-card p-6 space-y-3">
-            <h3 className="text-sm font-bold text-white uppercase tracking-wider">Workflow Design Blueprint</h3>
-            <p className="text-xs text-[#EDE9E0]/35 leading-relaxed">
-              We design custom workflows that integrate tax preparation software with client-facing platforms, ensuring data updates are synchronized.
-            </p>
-          </div>
+          {[
+            {
+              title: "CRM for Tax Professionals",
+              desc: "Consolidate leads, tracking stages, and communication histories into a centralized dashboard. Easily view filing metrics for each preparer on your team.",
+            },
+            {
+              title: "Automated SMS & Follow-Ups",
+              desc: "When a lead submits details, automated text and email campaigns reach out within minutes, improving booking conversion rates by up to 80%.",
+            },
+            {
+              title: "Secure Intake Document Requests",
+              desc: "Replace messy email attachments. Clients receive a secure mobile-friendly link to snap pictures of documents, which upload directly to their CRM profiles.",
+            },
+            {
+              title: "Calendar Scheduling Integration",
+              desc: "Synchronize GCal or Outlook schedules. Clients select open times directly based on preparer availability, sending auto-reminders to reduce no-shows.",
+            },
+            {
+              title: "AI for Tax Professionals",
+              desc: "Use custom AI templates to generate customer service replies, translate client forms, draft email responses, and summarize complex IRS tax codes.",
+            },
+            {
+              title: "Workflow Design Blueprint",
+              desc: "We design custom workflows that integrate tax preparation software with client-facing platforms, ensuring data updates are synchronized.",
+            },
+          ].map((feature, i) => (
+            <TiltCard key={feature.title} delay={(i % 3) * 0.1} className="glass-card glass-card-hover p-6 space-y-3">
+              <h3 className="text-sm font-bold text-white uppercase tracking-wider">{feature.title}</h3>
+              <p className="text-xs text-[#EDE9E0]/35 leading-relaxed">{feature.desc}</p>
+            </TiltCard>
+          ))}
         </div>
 
         {/* Blueprint Stepper Details */}
         <div className="gsap-reveal glass-card p-8 md:p-12 relative overflow-hidden">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <h2 className="text-xl font-bold text-white uppercase tracking-wider">Automated Tax Workflow Blueprint</h2>
-            <p className="text-xs text-stone-500 mt-1">Scroll to watch each workflow phase deal out from the stack.</p>
+            <p className="text-xs text-[#EDE9E0]/50 mt-1">Scroll to watch each workflow phase deal out from the stack.</p>
           </div>
 
           {/* Outer section gives scroll room for the pin; blueprintRef measures/positions cards */}
@@ -532,27 +563,27 @@ export default function TechnologySupportPage() {
               {automationSteps.map((s, idx) => (
                 <div key={s.num} className="blueprint-card">
                   {/* Card */}
-                  <div className="rounded-2xl overflow-hidden border border-amber-900/30 bg-[#0f0805]/80 backdrop-blur shadow-2xl shadow-black/60">
+                  <div className="rounded-2xl overflow-hidden border border-[#FFD94A]/30 bg-[#1C2A47]/80 backdrop-blur shadow-2xl shadow-black/60">
                     {/* Amber accent stripe */}
-                    <div className="h-0.5 bg-gradient-to-r from-[#fda85d] via-[#f59e0b] to-transparent" />
+                    <div className="h-0.5 bg-gradient-to-r from-[#FFD94A] via-[#FFAA2A] to-transparent" />
                     {/* Header row */}
-                    <div className="flex items-center justify-between gap-4 px-6 py-4 border-b border-amber-900/20">
+                    <div className="flex items-center justify-between gap-4 px-6 py-4 border-b border-[#FFD94A]/20">
                       <div className="flex items-center gap-3">
-                        <span className="text-[9px] font-black font-mono text-black bg-[#fda85d] px-2 py-1 rounded leading-none">
+                        <span className="text-xs font-black font-mono text-black bg-[#FFD94A] px-2 py-1 rounded leading-none">
                           {s.num}
                         </span>
                         <h3 className="text-sm font-bold text-white uppercase tracking-wider">{s.title}</h3>
                       </div>
-                      <span className="shrink-0 text-[8px] text-[#fda85d] font-mono bg-amber-955/20 border border-amber-900/30 px-2.5 py-1 rounded hidden sm:block">
+                      <span className="shrink-0 text-xs text-[#FFD94A] font-mono bg-[#FFD94A]/20 border border-[#FFD94A]/30 px-2.5 py-1 rounded hidden sm:block">
                         {s.tool}
                       </span>
                     </div>
                     {/* Body */}
                     <div className="px-6 py-5 flex flex-col gap-3">
-                      <p className="text-xs text-stone-400 leading-relaxed">{s.desc}</p>
+                      <p className="text-xs text-[#EDE9E0]/60 leading-relaxed">{s.desc}</p>
                       <div className="flex items-center gap-2">
-                        <span className="h-1.5 w-1.5 rounded-full bg-[#fda85d] shrink-0" />
-                        <span className="text-[8px] font-mono text-stone-600 uppercase tracking-wider">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#FFD94A] shrink-0" />
+                        <span className="text-xs font-mono text-[#EDE9E0]/40 uppercase tracking-wider">
                           {s.tool}
                         </span>
                       </div>
@@ -567,7 +598,7 @@ export default function TechnologySupportPage() {
         {/* Testimonials Section */}
         <div className="gsap-reveal space-y-8">
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-[#FFD94A] bg-[#FFD94A]/10 border border-[#FFD94A]/20 px-3 py-1 rounded inline-block">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#FFD94A] bg-[#FFD94A]/10 border border-[#FFD94A]/20 px-3 py-1 rounded inline-block">
               Operations Transformation
             </span>
             <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight uppercase">
@@ -586,9 +617,9 @@ export default function TechnologySupportPage() {
         </div>
 
         {/* Community Banner CTA */}
-        <div className="gsap-reveal glass-card p-8 md:p-12 relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-8">
+        <TiltCard tilt={3} className="glass-card p-8 md:p-12 relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-8">
           <div className="space-y-3 max-w-2xl">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-[#FFD94A] bg-[#FFD94A]/10 border border-[#FFD94A]/20 px-3 py-1 rounded">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#FFD94A] bg-[#FFD94A]/10 border border-[#FFD94A]/20 px-3 py-1 rounded">
               Technology & Automation Support
             </span>
             <h3 className="text-xl font-bold text-white uppercase tracking-wider">Tired of Manual Administrative Chaos?</h3>
@@ -599,12 +630,12 @@ export default function TechnologySupportPage() {
           <div className="shrink-0 flex items-center">
             <button
               onClick={() => openModal("technology")}
-              className="bg-gradient-to-r from-[#FFD94A] to-[#FFAA2A] hover:from-[#FFAA2A] hover:to-[#FF8C00] text-[#050A14] font-extrabold py-3.5 px-8 rounded-lg text-xs transition-all shadow-md cursor-pointer uppercase tracking-wider"
+              className="bg-[#FFD94A] hover:bg-[#FFAA2A] text-[#050A14] font-extrabold py-3.5 px-8 rounded-lg text-xs transition-all shadow-md cursor-pointer uppercase tracking-wider"
             >
               Request Technology Setup Audit
             </button>
           </div>
-        </div>
+        </TiltCard>
       </div>
     </div>
   );
