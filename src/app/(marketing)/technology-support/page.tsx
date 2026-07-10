@@ -619,8 +619,8 @@ export default function TechnologySupportPage() {
         </div>
 
         {/* Community Banner CTA */}
-        <TiltCard tilt={3} className="glass-card p-8 md:p-12 relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-8">
-          <div className="space-y-3 max-w-2xl">
+        <TiltCard tilt={3} className="glass-card p-8 md:p-12 relative overflow-hidden flex flex-col md:flex-row md:items-center gap-8">
+          <div className="space-y-3 max-w-3xl">
             <span className="text-xs font-bold uppercase tracking-wider text-[#FFD94A] bg-[#FFD94A]/10 border border-[#FFD94A]/20 px-3 py-1 rounded">
               Technology & Automation Support
             </span>
