@@ -5,6 +5,7 @@ import blogs from "@/content/blogs.json";
 import StrategyCTA from "@/components/ui/StrategyCTA";
 import Link from "next/link";
 import { ArrowLeft, BookOpen } from "lucide-react";
+import TiltCard from "@/components/motion/TiltCard";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -29,16 +30,16 @@ export default async function BlogPostPage({ params }: PageProps) {
   if (!post) notFound();
 
   return (
-    <article className="relative overflow-hidden bg-[#120b06] min-h-screen py-16 sm:py-10">
+    <article className="relative overflow-hidden bg-[#0d1526] min-h-screen py-16 sm:py-10">
       {/* Background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.03)_0%,transparent_60%)] pointer-events-none -z-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,217,74,0.03)_0%,transparent_60%)] pointer-events-none -z-10" />
 
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         {/* Navigation Breadcrumb */}
         <div className="mb-8">
           <Link
             href="/"
-            className="text-xs text-stone-500 hover:text-white transition-colors inline-flex items-center gap-1.5"
+            className="text-xs text-[#EDE9E0]/50 hover:text-white transition-colors inline-flex items-center gap-1.5"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Home
@@ -47,13 +48,13 @@ export default async function BlogPostPage({ params }: PageProps) {
 
         {/* Article Header */}
         <div className="space-y-4 mb-12 pb-8">
-          <span className="inline-flex items-center rounded-lg bg-amber-955/35 border border-amber-900/40 px-3.5 py-1 text-xs font-semibold text-[#fda85d]">
+          <span className="inline-flex items-center rounded-lg bg-[#FFD94A]/35 border border-[#FFD94A]/40 px-3.5 py-1 text-xs font-semibold text-[#FFD94A]">
             Sector Blog &amp; Resources
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight font-sans">
             {post.title}
           </h1>
-          <div className="flex items-center gap-4 text-xs text-stone-500">
+          <div className="flex items-center gap-4 text-xs text-[#EDE9E0]/50">
             <span>By {post.author}</span>
             <span>•</span>
             <span>Published on {post.date}</span>
@@ -61,7 +62,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         </div>
 
         {/* Article Body */}
-        <div className="prose prose-invert max-w-none text-stone-300 space-y-6 text-sm md:text-base leading-relaxed">
+        <div className="prose prose-invert max-w-none text-[#EDE9E0]/70 space-y-6 text-sm md:text-base leading-relaxed">
           {post.content.split("\n\n").map((paragraph, index) => {
             if (paragraph.startsWith("###")) {
               return (
@@ -72,9 +73,9 @@ export default async function BlogPostPage({ params }: PageProps) {
             }
             if (paragraph.startsWith("*") || paragraph.startsWith("-")) {
               return (
-                <ul key={index} className="list-disc pl-6 space-y-2 text-[#fda85d]">
+                <ul key={index} className="list-disc pl-6 space-y-2 text-[#FFD94A]">
                   {paragraph.split("\n").map((li, liIdx) => (
-                    <li key={liIdx} className="text-stone-300">
+                    <li key={liIdx} className="text-[#EDE9E0]/70">
                       {li.replace(/^[*\-]\s+/, "").trim()}
                     </li>
                   ))}
@@ -83,9 +84,9 @@ export default async function BlogPostPage({ params }: PageProps) {
             }
             if (/^\d+\./.test(paragraph)) {
               return (
-                <ol key={index} className="list-decimal pl-6 space-y-2 text-[#fda85d]">
+                <ol key={index} className="list-decimal pl-6 space-y-2 text-[#FFD94A]">
                   {paragraph.split("\n").map((li, liIdx) => (
-                    <li key={liIdx} className="text-stone-300">
+                    <li key={liIdx} className="text-[#EDE9E0]/70">
                       {li.replace(/^\d+\.\s+/, "").trim()}
                     </li>
                   ))}
@@ -97,16 +98,16 @@ export default async function BlogPostPage({ params }: PageProps) {
         </div>
 
         {/* CTA section inside blog */}
-        <div className="glass-card p-6 md:p-8 mt-16 text-center space-y-4">
-          <BookOpen className="w-8 h-8 text-[#fda85d] mx-auto" />
+        <TiltCard tilt={4} className="glass-card glass-card-hover p-6 md:p-8 mt-16 text-center space-y-4">
+          <BookOpen className="w-8 h-8 text-[#FFD94A] mx-auto" />
           <h4 className="text-sm font-bold text-white uppercase tracking-wider">Scale Your Tax Business with The Sector of Collectives</h4>
-          <p className="text-xs text-stone-450 max-w-md mx-auto leading-relaxed">
+          <p className="text-xs text-[#EDE9E0]/55 max-w-md mx-auto leading-relaxed">
             Gain access to cloud-based professional tax software, ERO Application compliance checks, and a collaborative peer network.
           </p>
           <div className="pt-2">
             <StrategyCTA />
           </div>
-        </div>
+        </TiltCard>
       </div>
     </article>
   );

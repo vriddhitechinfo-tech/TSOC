@@ -115,7 +115,7 @@ export default function InteractiveModal() {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
       <div 
-        className="relative w-full max-w-lg bg-[#0d1832] border border-[#FFD94A]/25 overflow-hidden rounded-xl shadow-2xl transition-all duration-300 transform scale-100 max-h-[90vh] flex flex-col"
+        className="relative w-full max-w-lg bg-[#1C2A47] border border-[#FFD94A]/25 overflow-hidden rounded-xl shadow-2xl transition-all duration-300 transform scale-100 max-h-[90vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
@@ -134,13 +134,13 @@ export default function InteractiveModal() {
               <h3 className="text-lg font-bold text-white mb-2 pr-6">
                 {getModalTitle(modalType)}
               </h3>
-              <p className="text-xs text-stone-500 mb-6 leading-relaxed">
+              <p className="text-xs text-[#EDE9E0]/50 mb-6 leading-relaxed">
                 {getModalDescription(modalType)}
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label htmlFor="modal-name" className="block text-[10px] font-semibold text-stone-400 uppercase tracking-wider mb-1.5">
+                  <label htmlFor="modal-name" className="block text-xs font-semibold text-[#EDE9E0]/60 uppercase tracking-wider mb-1.5">
                     Full Name
                   </label>
                   <input
@@ -157,7 +157,7 @@ export default function InteractiveModal() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="modal-email" className="block text-[10px] font-semibold text-stone-400 uppercase tracking-wider mb-1.5">
+                    <label htmlFor="modal-email" className="block text-xs font-semibold text-[#EDE9E0]/60 uppercase tracking-wider mb-1.5">
                       Email Address
                     </label>
                     <input
@@ -172,7 +172,7 @@ export default function InteractiveModal() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="modal-phone" className="block text-[10px] font-semibold text-stone-400 uppercase tracking-wider mb-1.5">
+                    <label htmlFor="modal-phone" className="block text-xs font-semibold text-[#EDE9E0]/60 uppercase tracking-wider mb-1.5">
                       Phone Number
                     </label>
                     <input
@@ -192,7 +192,7 @@ export default function InteractiveModal() {
                 {modalType === "software" && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="modal-exp" className="block text-[10px] font-semibold text-stone-400 uppercase tracking-wider mb-1.5">
+                      <label htmlFor="modal-exp" className="block text-xs font-semibold text-[#EDE9E0]/60 uppercase tracking-wider mb-1.5">
                         Experience Level
                       </label>
                       <select
@@ -208,7 +208,7 @@ export default function InteractiveModal() {
                       </select>
                     </div>
                     <div>
-                      <label htmlFor="modal-efin-software" className="block text-[10px] font-semibold text-stone-400 uppercase tracking-wider mb-1.5">
+                      <label htmlFor="modal-efin-software" className="block text-xs font-semibold text-[#EDE9E0]/60 uppercase tracking-wider mb-1.5">
                         Do you have an EFIN?
                       </label>
                       <select
@@ -227,7 +227,7 @@ export default function InteractiveModal() {
 
                 {modalType === "ero" && (
                   <div>
-                    <label htmlFor="modal-efin-ero" className="block text-[10px] font-semibold text-stone-400 uppercase tracking-wider mb-1.5">
+                    <label htmlFor="modal-efin-ero" className="block text-xs font-semibold text-[#EDE9E0]/60 uppercase tracking-wider mb-1.5">
                       Do you currently have an EFIN (Electronic Return Originator)?
                     </label>
                     <select
@@ -235,7 +235,7 @@ export default function InteractiveModal() {
                       name="efinStatus"
                       value={formData.efinStatus}
                       onChange={handleChange}
-                      className="w-full bg-amber-950/15 border border-amber-900/30 focus:border-[#fda85d] focus:ring-1 focus:ring-[#fda85d] rounded-lg px-3.5 py-2.5 text-white outline-none transition-all text-xs"
+                      className="w-full bg-[#FFD94A]/15 border border-[#FFD94A]/30 focus:border-[#FFD94A] focus:ring-1 focus:ring-[#FFD94A] rounded-lg px-3.5 py-2.5 text-white outline-none transition-all text-xs"
                     >
                       <option value="no">No, I need guidance getting one</option>
                       <option value="yes">Yes, I already have an EFIN</option>
@@ -247,7 +247,7 @@ export default function InteractiveModal() {
                 {modalType === "bureau" && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="modal-efin-bureau" className="block text-[10px] font-semibold text-stone-400 uppercase tracking-wider mb-1.5">
+                      <label htmlFor="modal-efin-bureau" className="block text-xs font-semibold text-[#EDE9E0]/60 uppercase tracking-wider mb-1.5">
                         Are you an active ERO?
                       </label>
                       <select
@@ -262,7 +262,7 @@ export default function InteractiveModal() {
                       </select>
                     </div>
                     <div>
-                      <label htmlFor="modal-prep" className="block text-[10px] font-semibold text-stone-400 uppercase tracking-wider mb-1.5">
+                      <label htmlFor="modal-prep" className="block text-xs font-semibold text-[#EDE9E0]/60 uppercase tracking-wider mb-1.5">
                         Number of Preparers on Team
                       </label>
                       <select
@@ -283,7 +283,7 @@ export default function InteractiveModal() {
 
                 {modalType === "technology" && (
                   <div>
-                    <label htmlFor="modal-tech" className="block text-[10px] font-semibold text-stone-400 uppercase tracking-wider mb-1.5">
+                    <label htmlFor="modal-tech" className="block text-xs font-semibold text-[#EDE9E0]/60 uppercase tracking-wider mb-1.5">
                       Current Softwares/CRM Used (if any)
                     </label>
                     <input
@@ -299,7 +299,7 @@ export default function InteractiveModal() {
                 )}
 
                 <div>
-                  <label htmlFor="modal-msg" className="block text-[10px] font-semibold text-stone-400 uppercase tracking-wider mb-1.5">
+                  <label htmlFor="modal-msg" className="block text-xs font-semibold text-[#EDE9E0]/60 uppercase tracking-wider mb-1.5">
                     How can we help you succeed?
                   </label>
                   <textarea
@@ -316,7 +316,7 @@ export default function InteractiveModal() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full flex items-center justify-center bg-gradient-to-r from-[#FFD94A] to-[#FFAA2A] hover:from-[#FFAA2A] hover:to-[#FF8C00] text-[#050A14] font-extrabold py-3 px-4 rounded-lg transition-all text-xs disabled:opacity-75 disabled:cursor-not-allowed mt-6 cursor-pointer uppercase tracking-wider shadow-lg"
+                  className="w-full flex items-center justify-center bg-[#FFD94A] hover:bg-[#FFAA2A] text-[#050A14] font-extrabold py-3 px-4 rounded-lg transition-all text-xs disabled:opacity-75 disabled:cursor-not-allowed mt-6 cursor-pointer uppercase tracking-wider shadow-lg"
                 >
                   {isSubmitting ? (
                     <>
@@ -340,13 +340,13 @@ export default function InteractiveModal() {
                 Application Received
               </h3>
               
-              <p className="text-xs text-stone-450 max-w-sm leading-relaxed">
+              <p className="text-xs text-[#EDE9E0]/55 max-w-sm leading-relaxed">
                 Thank you, <span className="font-semibold text-white">{formData.name}</span>. A business advisor from The Sector of Collectives will contact you at <span className="font-semibold text-white">{formData.email}</span> within 24 hours to schedule your strategy call.
               </p>
 
               <button
                 onClick={handleReset}
-                className="mt-6 bg-gradient-to-r from-[#FFD94A] to-[#FFAA2A] hover:from-[#FFAA2A] hover:to-[#FF8C00] text-[#050A14] font-extrabold py-2 px-6 rounded-lg transition-all text-xs cursor-pointer uppercase tracking-wider shadow-md"
+                className="mt-6 bg-[#FFD94A] hover:bg-[#FFAA2A] text-[#050A14] font-extrabold py-2 px-6 rounded-lg transition-all text-xs cursor-pointer uppercase tracking-wider shadow-md"
               >
                 Close Window
               </button>

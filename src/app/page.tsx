@@ -23,17 +23,19 @@ import {
 } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { AnimatePresence, motion } from "framer-motion";
 import StageQuiz from "@/components/StageQuiz";
 import TrustSection from "@/components/TrustSection";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import FaqAccordion from "@/components/ui/FaqAccordion";
+import TiltCard from "@/components/motion/TiltCard";
+import VideoMeshBackground from "@/components/VideoMeshBackground";
 
 export default function Home() {
   const { openModal } = useModal();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [autoPlay, setAutoPlay] = useState(true);
 
-  const heroRef = useRef<HTMLDivElement>(null);
   const quizRef = useRef<HTMLDivElement>(null);
   const statsContainerRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
@@ -120,18 +122,6 @@ export default function Home() {
     },
   ];
 
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index);
-    setAutoPlay(false);
-    if (autoPlayTimerRef.current) clearTimeout(autoPlayTimerRef.current);
-  };
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    setAutoPlay(false);
-    if (autoPlayTimerRef.current) clearTimeout(autoPlayTimerRef.current);
-  };
-
   // Auto-play carousel
   useEffect(() => {
     if (!autoPlay) return;
@@ -140,7 +130,7 @@ export default function Home() {
 
     autoPlayTimerRef.current = setTimeout(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 6000);
+    }, 4000);
 
     return () => {
       if (autoPlayTimerRef.current) clearTimeout(autoPlayTimerRef.current);
@@ -156,22 +146,6 @@ export default function Home() {
     let handleEcosystemResize: (() => void) | null = null;
 
     const ctx = gsap.context(() => {
-      // 1. Hero Entrance Animations (staggered fade/slide-up)
-      if (heroRef.current) {
-        const heroElements = heroRef.current.querySelectorAll(".gsap-hero-el");
-        gsap.fromTo(
-          heroElements,
-          { opacity: 0, y: 25 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            ease: "power3.out",
-            stagger: 0.12,
-          },
-        );
-      }
-
       // 2. Business Stage Quiz entrance
       if (quizRef.current) {
         gsap.fromTo(
@@ -238,41 +212,6 @@ export default function Home() {
             },
           },
         );
-      }
-
-      // 5. Services Grid Stagger Animation
-      if (servicesRef.current) {
-        const cards = gsap.utils.toArray<HTMLElement>(".gsap-service-card");
-
-        cards.forEach((card, i) => {
-          gsap.fromTo(
-            card,
-            {
-              opacity: 0,
-              y: 120,
-              scale: 0.85,
-              rotateX: 20,
-              rotateY: i % 2 === 0 ? -8 : 8,
-              filter: "blur(10px)",
-              transformPerspective: 1000,
-            },
-            {
-              opacity: 1,
-              y: 0,
-              scale: 1,
-              rotateX: 0,
-              rotateY: 0,
-              filter: "blur(0px)",
-              ease: "power3.out",
-              scrollTrigger: {
-                trigger: card,
-                start: "top 85%",
-                end: "top 45%",
-                scrub: 1.2,
-              },
-            },
-          );
-        });
       }
 
       // 6. Pricing comparison table reveal
@@ -566,8 +505,7 @@ export default function Home() {
 
       {/* 1. Hero Carousel Section - InWork Style */}
       <section
-        ref={heroRef}
-        className="relative pt-4 pb-24 lg:py-24 overflow-hidden transition-all duration-700"
+        className="relative pt-4 pb-10 lg:py-10 overflow-hidden transition-all duration-700"
         style={{
           backgroundColor: heroSlides[currentSlide].bgFrom,
         }}
@@ -579,6 +517,9 @@ export default function Home() {
             background: `linear-gradient(135deg, ${heroSlides[currentSlide].bgFrom} 0%, ${heroSlides[currentSlide].bgTo} 100%)`,
           }}
         />
+
+        {/* Ambient mesh/network video accent */}
+        <VideoMeshBackground className="opacity-15" />
 
         {/* Animated background circles/dots effect */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -617,26 +558,28 @@ export default function Home() {
         />
 
 
-        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 relative z-10 h-[620px]">
-          {/* Carousel Slides */}
-          {heroSlides.map((slide, idx) => (
-            <div
-              key={idx}
-              className={`${
-                idx === currentSlide ? "opacity-100 relative" : "opacity-0 absolute inset-0 pointer-events-none"
-              } transition-opacity duration-700 h-full`}
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 relative z-10 h-auto lg:h-[480px]">
+          {/* Carousel Slide — single mounted slide, crossfades via AnimatePresence */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentSlide}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="h-full"
             >
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center h-full w-full">
                 {/* Left: Text Content */}
-                <div className="space-y-4 flex flex-col justify-center h-full overflow-hidden">
+                <div className="space-y-4 flex flex-col justify-center h-full">
                   {/* Title with Accent */}
-                  <h1 className="gsap-hero-el font-display text-5xl sm:text-5xl lg:text-6xl font-semibold tracking-normal leading-tight min-h-fit max-h-40">
-                    {slide.title.split(" ").map((word, i) => {
-                      const isHighlight = slide.titleHighlight.split(" ").includes(word);
+                  <h1 className="font-display text-4xl sm:text-4xl lg:text-5xl font-semibold tracking-normal leading-tight">
+                    {heroSlides[currentSlide].title.split(" ").map((word, i) => {
+                      const isHighlight = heroSlides[currentSlide].titleHighlight.split(" ").includes(word);
                       return (
                         <span
                           key={i}
-                          style={{ color: isHighlight ? slide.accentColor : "white" }}
+                          style={{ color: isHighlight ? heroSlides[currentSlide].accentColor : "white" }}
                         >
                           {word}{" "}
                         </span>
@@ -645,12 +588,12 @@ export default function Home() {
                   </h1>
 
                   {/* Description */}
-                  <p className="gsap-hero-el font-body text-sm text-[#EDE9E0]/60 leading-relaxed line-clamp-2 max-h-10">
-                    {slide.description}
+                  <p className="font-body text-sm text-[#EDE9E0]/60 leading-relaxed line-clamp-2">
+                    {heroSlides[currentSlide].description}
                   </p>
 
                   {/* Progress Line with Pause Button */}
-                  <div className="gsap-hero-el flex items-center gap-4 py-4 h-6">
+                  <div className="flex items-center gap-4 py-2">
                     {/* Dashed Progress Line - Bigger Dashes */}
                     <div className="flex-1 flex gap-2">
                       {heroSlides.map((_, i) => (
@@ -661,7 +604,7 @@ export default function Home() {
                             width: i <= currentSlide ? "16px" : "8px",
                             backgroundColor:
                               i <= currentSlide
-                                ? slide.accentColor
+                                ? heroSlides[currentSlide].accentColor
                                 : "rgba(255,255,255,0.1)",
                           }}
                         />
@@ -673,23 +616,23 @@ export default function Home() {
                       className="flex items-center justify-center w-8 h-8 rounded-full border border-white/30 hover:border-white/50 transition-colors flex-shrink-0"
                       aria-label={autoPlay ? "Pause" : "Play"}
                     >
-                      <span className="text-white/50 text-[10px] font-bold">
+                      <span className="text-white/50 text-xs font-bold">
                         {autoPlay ? "II" : "▶"}
                       </span>
                     </button>
                   </div>
 
                   {/* Stats */}
-                  <div className="gsap-hero-el flex gap-12 h-16">
-                    {slide.stats.map((stat) => (
+                  <div className="flex gap-12">
+                    {heroSlides[currentSlide].stats.map((stat) => (
                       <div key={stat.label} className="space-y-0">
                         <p
                           className="text-2xl sm:text-3xl font-black font-mono leading-none"
-                          style={{ color: slide.accentColor }}
+                          style={{ color: heroSlides[currentSlide].accentColor }}
                         >
                           {stat.value}
                         </p>
-                        <p className="text-[10px] text-stone-500 font-semibold uppercase tracking-wider">
+                        <p className="text-xs text-[#EDE9E0]/50 font-semibold uppercase tracking-wider">
                           {stat.label}
                         </p>
                       </div>
@@ -697,33 +640,33 @@ export default function Home() {
                   </div>
 
                   {/* CTAs */}
-                  <div className="gsap-hero-el flex flex-col sm:flex-row gap-4 h-12">
+                  <div className="flex flex-col sm:flex-row gap-4">
                     <button
                       onClick={() => openModal("strategy")}
                       className="inline-flex items-center justify-center rounded-lg text-black px-8 py-3 text-xs font-extrabold transition-all cursor-pointer uppercase tracking-wider hover:shadow-lg"
                       style={{
-                        background: slide.accentColor,
+                        background: heroSlides[currentSlide].accentColor,
                       }}
                     >
-                      {slide.cta1}
+                      {heroSlides[currentSlide].cta1}
                     </button>
                     <button
                       onClick={() => openModal("strategy")}
                       className="inline-flex items-center justify-center rounded-lg border px-8 py-3 text-xs font-bold text-white transition-all cursor-pointer uppercase tracking-wider hover:bg-white/5"
                       style={{
-                        borderColor: `${slide.accentColor}40`,
+                        borderColor: `${heroSlides[currentSlide].accentColor}40`,
                       }}
                     >
-                      {slide.cta2}
+                      {heroSlides[currentSlide].cta2}
                     </button>
                   </div>
                 </div>
 
                 {/* Right: Hero Image */}
-                <div className="relative h-full rounded-2xl overflow-hidden border shadow-2xl shadow-black/60" style={{borderColor: `${slide.accentColor}30`}}>
+                <div className="relative h-full rounded-2xl overflow-hidden border shadow-2xl shadow-black/60" style={{borderColor: `${heroSlides[currentSlide].accentColor}30`}}>
                   <Image
-                    src={slide.image}
-                    alt={slide.title}
+                    src={heroSlides[currentSlide].image}
+                    alt={heroSlides[currentSlide].title}
                     width={1280}
                     height={720}
                     className="w-full h-full object-cover"
@@ -732,35 +675,14 @@ export default function Home() {
                   <div
                     className="absolute inset-0 pointer-events-none"
                     style={{
-                      background: `linear-gradient(135deg, ${slide.bgFrom}60 0%, transparent 50%, ${slide.bgTo}99 100%)`,
+                      background: `linear-gradient(135deg, ${heroSlides[currentSlide].bgFrom}60 0%, transparent 50%, ${heroSlides[currentSlide].bgTo}99 100%)`,
                     }}
                   />
                 </div>
               </div>
-            </div>
-          ))}
+            </motion.div>
+          </AnimatePresence>
         </div>
-
-        {/* Navigation Arrows - Large & Clear */}
-        <button
-          onClick={() =>
-            setCurrentSlide((prev) =>
-              prev === 0 ? heroSlides.length - 1 : prev - 1
-            )
-          }
-          className="absolute left-6 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full border border-white/30 text-white hover:border-white/60 hover:bg-white/10 transition-all"
-          aria-label="Previous slide"
-        >
-          <ArrowRight className="w-6 h-6 rotate-180" />
-        </button>
-
-        <button
-          onClick={nextSlide}
-          className="absolute right-6 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full border border-white/30 text-white hover:border-white/60 hover:bg-white/10 transition-all"
-          aria-label="Next slide"
-        >
-          <ArrowRight className="w-6 h-6" />
-        </button>
       </section>
 
       {/* 2. Interactive Business Stage Quiz Router */}
@@ -801,7 +723,7 @@ export default function Home() {
               <span className="text-xs text-white font-bold uppercase tracking-wider block">
                 Years Supporting Tax Pros
               </span>
-              <p className="text-[10px] text-[#EDE9E0]/40">
+              <p className="text-xs text-[#EDE9E0]/40">
                 Established training, setups, and support structures since 2014
               </p>
             </div>
@@ -815,7 +737,7 @@ export default function Home() {
               <span className="text-xs text-white font-bold uppercase tracking-wider block">
                 Independent EROs Supported
               </span>
-              <p className="text-[10px] text-[#EDE9E0]/40">
+              <p className="text-xs text-[#EDE9E0]/40">
                 Firms transitioned from splits to keeping 100% of their fees
               </p>
             </div>
@@ -829,7 +751,7 @@ export default function Home() {
               <span className="text-xs text-white font-bold uppercase tracking-wider block">
                 Active Community Members
               </span>
-              <p className="text-[10px] text-[#EDE9E0]/40">
+              <p className="text-xs text-[#EDE9E0]/40">
                 Coworking, legal consultations, and business workshops
                 year-round
               </p>
@@ -869,7 +791,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="gsap-about-el relative rounded-2xl overflow-hidden border border-[#FFD94A]/20 shadow-xl shadow-black/60">
+            <TiltCard tilt={5} className="relative rounded-2xl overflow-hidden border border-[#FFD94A]/20 shadow-xl shadow-black/60">
               <Image
                 src="/about_community.png"
                 alt="Diverse community of tax professionals collaborating in a modern office setting"
@@ -880,17 +802,17 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#050A14]/90 via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-5 left-5 right-5">
                 <div className="text-xl sm:text-2xl font-display font-semibold tracking-wider text-white select-none">
-                  <span className="font-script text-3xl sm:text-4xl" style={{color: '#FFD94A'}}>Connect</span>
+                  <span className="font-display italic font-semibold text-2xl sm:text-3xl text-[#FFD94A]">Connect</span>
                   <span className="text-[#FFD94A]/30 mx-2">•</span>
-                  <span className="font-script text-3xl sm:text-4xl" style={{color: '#FFD94A'}}>Create</span>
+                  <span className="font-display italic font-semibold text-2xl sm:text-3xl text-[#FFD94A]">Create</span>
                   <span className="text-[#FFD94A]/30 mx-2">•</span>
-                  <span className="font-display font-semibold text-2xl text-white">Conquer</span>
+                  <span className="font-display font-semibold text-2xl sm:text-3xl text-white">Conquer</span>
                 </div>
-                <p className="text-[#EDE9E0]/70 text-[10px] mt-1 leading-relaxed">
+                <p className="text-[#EDE9E0]/70 text-xs mt-1 leading-relaxed">
                   Connect with peers. Create scalable revenue models. Conquer the tax industry on your own terms.
                 </p>
               </div>
-            </div>
+            </TiltCard>
           </div>
         </div>
       </section>
@@ -905,10 +827,12 @@ export default function Home() {
       >
         {/* Decorative gold gradient top */}
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#FFD94A]/30 to-transparent" />
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full space-y-12">
+        {/* Ambient mesh/network video accent */}
+        <VideoMeshBackground className="opacity-25" />
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full space-y-12 relative z-10">
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-[#FFD94A] bg-[#1C2A47]/50 border border-[#FFD94A]/20 px-3 py-1 rounded inline-block">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#FFD94A] bg-[#1C2A47]/50 border border-[#FFD94A]/20 px-3 py-1 rounded inline-block">
               Our Core Architecture
             </span>
             <h2 className="font-display text-2xl sm:text-4xl font-semibold text-white tracking-normal uppercase">
@@ -932,7 +856,7 @@ export default function Home() {
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-[9px] font-bold uppercase tracking-wider text-[#FFD94A] bg-[#FFD94A]/10 border border-[#FFD94A]/25 px-2.5 py-0.5 rounded">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#FFD94A] bg-[#FFD94A]/10 border border-[#FFD94A]/25 px-2.5 py-0.5 rounded">
                       Pillar 0{idx + 1}
                     </span>
                     <span className="text-[#EDE9E0]/40 font-bold text-xs uppercase tracking-wider">
@@ -946,7 +870,7 @@ export default function Home() {
                     {pillar.desc}
                   </p>
                 </div>
-                <div className="pt-6 flex items-center justify-between text-[10px] uppercase font-bold tracking-wider text-[#FFD94A]">
+                <div className="pt-6 flex items-center justify-between text-xs uppercase font-bold tracking-wider text-[#FFD94A]">
                   <span>{pillar.actionText}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </div>
@@ -960,7 +884,7 @@ export default function Home() {
       <section ref={servicesRef} className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-[#FFD94A] bg-[#1C2A47]/50 border border-[#FFD94A]/20 px-3 py-1 rounded inline-block">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#FFD94A] bg-[#1C2A47]/50 border border-[#FFD94A]/20 px-3 py-1 rounded inline-block">
               Business Support Pathways
             </span>
             <h2 className="font-display text-2xl sm:text-4xl font-semibold text-white tracking-normal uppercase">
@@ -974,18 +898,20 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {services.map((service, idx) => (
-              <div
+              <TiltCard
                 key={service.title}
-                className="gsap-service-card opacity-0 flex flex-col justify-between glass-card glass-card-hover p-6 md:p-8"
+                tilt={5}
+                delay={(idx % 2) * 0.12}
+                className="flex flex-col justify-between glass-card glass-card-hover p-6 md:p-8"
               >
                 <div className="space-y-6">
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#FFD94A] bg-[#FFD94A]/10 border border-[#FFD94A]/25 px-2.5 py-0.5 rounded">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#FFD94A] bg-[#FFD94A]/10 border border-[#FFD94A]/25 px-2.5 py-0.5 rounded">
                       Program 0{idx + 1}
                     </span>
                     <Link
                       href={service.link}
-                      className="text-[10px] font-bold text-[#EDE9E0]/40 hover:text-[#FFD94A] transition-colors flex items-center gap-1 uppercase tracking-wider"
+                      className="text-xs font-bold text-[#EDE9E0]/40 hover:text-[#FFD94A] transition-colors flex items-center gap-1 uppercase tracking-wider"
                     >
                       Read Guide
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -1002,7 +928,7 @@ export default function Home() {
                   </div>
 
                   <div className="space-y-2">
-                    <h4 className="text-[10px] font-bold uppercase tracking-wider text-[#EDE9E0]/40">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-[#EDE9E0]/40">
                       Includes:
                     </h4>
                     <ul className="grid grid-cols-1 gap-2">
@@ -1019,13 +945,13 @@ export default function Home() {
                   </div>
 
                   <div className="pt-2 flex flex-wrap gap-1.5 items-center">
-                    <span className="text-[9px] font-bold text-[#EDE9E0]/40 uppercase tracking-wider mr-1.5">
+                    <span className="text-xs font-bold text-[#EDE9E0]/40 uppercase tracking-wider mr-1.5">
                       Best For:
                     </span>
                     {service.bestFor.map((bf) => (
                       <span
                         key={bf}
-                        className="bg-[#1C2A47]/60 border border-[#FFD94A]/15 text-[9px] font-semibold text-[#EDE9E0]/60 px-2 py-0.5 rounded"
+                        className="bg-[#1C2A47]/60 border border-[#FFD94A]/15 text-xs font-semibold text-[#EDE9E0]/60 px-2 py-0.5 rounded"
                       >
                         {bf}
                       </span>
@@ -1036,12 +962,12 @@ export default function Home() {
                 <div className="pt-8">
                   <button
                     onClick={service.action}
-                    className="w-full text-center bg-gradient-to-r from-[#FFD94A] to-[#FFAA2A] hover:from-[#FFAA2A] hover:to-[#FF8C00] text-[#050A14] font-extrabold py-2.5 px-4 rounded-lg text-xs transition-all cursor-pointer uppercase tracking-wider shadow-lg shadow-[#FFD94A]/10"
+                    className="w-full text-center bg-[#FFD94A] hover:bg-[#FFAA2A] text-[#050A14] font-extrabold py-2.5 px-4 rounded-lg text-xs transition-all cursor-pointer uppercase tracking-wider shadow-lg shadow-[#FFD94A]/10"
                   >
                     {service.ctaText}
                   </button>
                 </div>
-              </div>
+              </TiltCard>
             ))}
           </div>
         </div>
@@ -1054,7 +980,7 @@ export default function Home() {
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-3 gsap-pricing-el">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-[#FFD94A] bg-[#1C2A47]/50 border border-[#FFD94A]/20 px-3 py-1 rounded inline-block">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#FFD94A] bg-[#1C2A47]/50 border border-[#FFD94A]/20 px-3 py-1 rounded inline-block">
               Pricing Matrices
             </span>
             <h2 className="font-display text-2xl sm:text-4xl font-semibold text-white tracking-normal uppercase">
@@ -1080,7 +1006,7 @@ export default function Home() {
                   </th>
                   <th className="p-4 text-center font-bold text-[#FFD94A] uppercase tracking-wider w-[20%] bg-[#FFD94A]/8 border-x border-[#FFD94A]/25">
                     Growth Access
-                    <span className="block text-[8px] font-black text-[#FFAA2A] mt-0.5 uppercase tracking-normal font-sans">
+                    <span className="block text-xs font-black text-[#FFAA2A] mt-0.5 uppercase tracking-normal font-sans">
                       Most Popular
                     </span>
                   </th>
@@ -1237,7 +1163,7 @@ export default function Home() {
                   <td className="p-4 text-center">
                     <button
                       onClick={() => openModal("strategy")}
-                      className="px-4 py-2 rounded-lg bg-[#1C2A47] hover:bg-[#243352] text-[#EDE9E0]/70 hover:text-white font-bold border border-[#FFD94A]/20 tracking-wider uppercase text-[9px] cursor-pointer w-full transition-all"
+                      className="px-4 py-2 rounded-lg bg-[#1C2A47] hover:bg-[#243352] text-[#EDE9E0]/70 hover:text-white font-bold border border-[#FFD94A]/20 tracking-wider uppercase text-xs cursor-pointer w-full transition-all"
                     >
                       Choose Community
                     </button>
@@ -1245,7 +1171,7 @@ export default function Home() {
                   <td className="p-4 text-center bg-[#FFD94A]/5 border-x border-[#FFD94A]/20">
                     <button
                       onClick={() => openModal("strategy")}
-                      className="px-4 py-2 rounded-lg bg-gradient-to-r from-[#FFD94A] to-[#FFAA2A] hover:from-[#FFAA2A] hover:to-[#FF8C00] text-[#050A14] font-extrabold tracking-wider uppercase text-[9px] cursor-pointer w-full shadow-lg shadow-[#FFD94A]/20"
+                      className="px-4 py-2 rounded-lg bg-[#FFD94A] hover:bg-[#FFAA2A] text-[#050A14] font-extrabold tracking-wider uppercase text-xs cursor-pointer w-full shadow-lg shadow-[#FFD94A]/20"
                     >
                       Choose Growth
                     </button>
@@ -1253,7 +1179,7 @@ export default function Home() {
                   <td className="p-4 text-center">
                     <button
                       onClick={() => openModal("strategy")}
-                      className="px-4 py-2 rounded-lg bg-[#1C2A47] hover:bg-[#243352] text-[#EDE9E0]/70 hover:text-white font-bold border border-[#FFD94A]/20 tracking-wider uppercase text-[9px] cursor-pointer w-full transition-all"
+                      className="px-4 py-2 rounded-lg bg-[#1C2A47] hover:bg-[#243352] text-[#EDE9E0]/70 hover:text-white font-bold border border-[#FFD94A]/20 tracking-wider uppercase text-xs cursor-pointer w-full transition-all"
                     >
                       Choose Expansion
                     </button>
@@ -1269,7 +1195,7 @@ export default function Home() {
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-[#FFD94A] bg-[#1C2A47]/50 border border-[#FFD94A]/20 px-3 py-1 rounded inline-block">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#FFD94A] bg-[#1C2A47]/50 border border-[#FFD94A]/20 px-3 py-1 rounded inline-block">
               Client Stories
             </span>
             <h2 className="font-display text-2xl sm:text-4xl font-semibold text-white tracking-normal uppercase">

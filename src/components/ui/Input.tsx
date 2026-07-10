@@ -11,13 +11,13 @@ export function Input({ label, className = "", id, ...props }: InputProps) {
     <div className={`space-y-1.5 ${className}`}>
       <label
         htmlFor={inputId}
-        className="block text-xs font-semibold text-zinc-300 uppercase tracking-wider"
+        className="block text-xs font-semibold text-[#EDE9E0]/60 uppercase tracking-wider"
       >
         {label}
       </label>
       <input
         id={inputId}
-        className="w-full bg-zinc-900/50 border border-zinc-800 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3.5 py-2.5 text-white placeholder-zinc-500 outline-none transition-all text-sm"
+        className="w-full bg-[#1C2A47]/50 border border-[#1C2A47] focus:border-[#FFD94A] focus:ring-1 focus:ring-[#FFD94A] rounded-lg px-3.5 py-2.5 text-white placeholder-[#EDE9E0]/30 outline-none transition-all text-sm"
         {...props}
       />
     </div>
@@ -35,13 +35,13 @@ export function TextArea({ label, className = "", id, ...props }: TextAreaProps)
     <div className={`space-y-1.5 ${className}`}>
       <label
         htmlFor={textareaId}
-        className="block text-xs font-semibold text-zinc-300 uppercase tracking-wider"
+        className="block text-xs font-semibold text-[#EDE9E0]/60 uppercase tracking-wider"
       >
         {label}
       </label>
       <textarea
         id={textareaId}
-        className="w-full bg-zinc-900/50 border border-zinc-800 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3.5 py-2.5 text-white placeholder-zinc-500 outline-none transition-all text-sm resize-none"
+        className="w-full bg-[#1C2A47]/50 border border-[#1C2A47] focus:border-[#FFD94A] focus:ring-1 focus:ring-[#FFD94A] rounded-lg px-3.5 py-2.5 text-white placeholder-[#EDE9E0]/30 outline-none transition-all text-sm resize-none"
         {...props}
       />
     </div>

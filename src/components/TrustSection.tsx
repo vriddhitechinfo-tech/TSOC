@@ -21,7 +21,7 @@ export default function TrustSection() {
             <p className="text-xs text-[#EDE9E0]/70 font-bold uppercase tracking-wider">
               Average Client Rating
             </p>
-            <p className="text-[10px] text-[#EDE9E0]/40">
+            <p className="text-xs text-[#EDE9E0]/40">
               Across Google Business &amp; Trustpilot verified reviews
             </p>
           </div>
@@ -35,7 +35,7 @@ export default function TrustSection() {
             <p className="text-xs text-[#EDE9E0]/70 font-bold uppercase tracking-wider">
               Authorized Service Provider
             </p>
-            <p className="text-[10px] text-[#EDE9E0]/40">
+            <p className="text-xs text-[#EDE9E0]/40">
               Fully compliant with IRS security standards and publication 1345
             </p>
           </div>
@@ -50,13 +50,13 @@ export default function TrustSection() {
               {["TPG", "Republic Bank", "Refund Advantage", "Santa Barbara"].map((bank) => (
                 <span
                   key={bank}
-                  className="bg-[#1C2A47]/60 border border-[#FFD94A]/15 text-[9px] font-bold text-[#EDE9E0]/60 px-2 py-0.5 rounded tracking-wide uppercase"
+                  className="bg-[#1C2A47]/60 border border-[#FFD94A]/15 text-xs font-bold text-[#EDE9E0]/60 px-2 py-0.5 rounded tracking-wide uppercase"
                 >
                   {bank}
                 </span>
               ))}
             </div>
-            <p className="text-[10px] text-[#EDE9E0]/40">
+            <p className="text-xs text-[#EDE9E0]/40">
               Direct processing connections for immediate client refund split payouts
             </p>
           </div>
@@ -64,7 +64,7 @@ export default function TrustSection() {
 
         {/* Client Logos / Trust banner */}
         <div className="mt-10 pt-8 border-t border-[#FFD94A]/10 flex flex-wrap items-center justify-center md:justify-between gap-6 opacity-60">
-          <span className="text-[10px] text-[#EDE9E0]/40 font-semibold uppercase tracking-widest">
+          <span className="text-xs text-[#EDE9E0]/40 font-semibold uppercase tracking-widest">
             TRUSTED BY EROS ACROSS THE NATION:
           </span>
           <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
