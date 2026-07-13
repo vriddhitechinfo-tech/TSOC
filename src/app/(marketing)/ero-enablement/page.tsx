@@ -59,47 +59,47 @@ export default function EROEnablementPage() {
   const roadmapSteps = [
     {
       num: "01",
-      title: "ERO Application & IRS e-Services",
-      desc: "Establish your secure IRS e-Services account. We guide you through completing the Electronic Return Originator application, ensuring error-free entry to avoid processing delays.",
+      title: "Business Structure & Setup",
+      desc: "Incorporate your business correctly. We recommend LLC or S-Corp setups and help you align with IRS physical and digital security compliance standards.",
     },
     {
       num: "02",
-      title: "ID.me Verification Setup",
-      desc: "Setup your ID.me security login. The IRS requires facial recognition and verification to access secure tax agent resources. We walk you through the credential verification steps.",
+      title: "Compliance Review",
+      desc: "We audit your office setup — document storage, password policies, encrypted communications — to make sure you meet IRS Publication 4557 standards before applying.",
     },
     {
       num: "03",
-      title: "Fingerprinting & Background Checks",
-      desc: "Submit fingerprint cards for background screening. We help you locate authorized digital fingerprinting centers and map out submission protocols for rapid approval.",
+      title: "EFIN Application & IRS e-Services",
+      desc: "Set up your IRS e-Services account and submit your EFIN application. We guide you through every field to avoid delays and errors. Includes ID.me verification and fingerprinting support.",
     },
     {
       num: "04",
-      title: "Business Structure & Compliance",
-      desc: "Incorporate your business correctly. We recommend LLC or S-Corp setups, audit your office for physical/digital security compliance, and align with IRS standards.",
+      title: "Software Setup",
+      desc: "While your application is processing, we get your tax software configured, users set up, and bank product connections enrolled so you\'re ready to file the moment you\'re approved.",
     },
     {
       num: "05",
-      title: "Software & EFIN Activation",
-      desc: "Link your approved EFIN with our professional tax software. Activate bank product connections, customize user privileges for staff, and file your first official return.",
+      title: "Activation & First Return",
+      desc: "Link your approved EFIN to your software. Activate bank products, set user permissions for your team, and file your first return as an independent ERO.",
     },
   ];
 
   const eroFaqs = [
     {
-      question: "What exactly is an ERO?",
-      answer: "An Electronic Return Originator (ERO) is an IRS-authorized tax professional who originates the electronic submission of tax returns. Becoming an ERO gives you the legal right to file taxes directly on behalf of clients under your own business entity."
+      question: "What is an ERO?",
+      answer: "An ERO (Electronic Return Originator) is an IRS-authorized tax professional who has their own EFIN (Electronic Filing Identification Number). Having an EFIN means you can file taxes directly on behalf of clients under your own business — without splitting fees with anyone else."
     },
     {
-      question: "How long does the IRS EFIN approval process take?",
-      answer: "Typically, the IRS takes between 4 to 8 weeks to audit applications, run background checks, and issue an Electronic Filing Identification Number (EFIN). We recommend starting your application by October to ensure full clearance before tax season begins."
+      question: "How long does the IRS EFIN approval take?",
+      answer: "Typically 4 to 8 weeks. We recommend starting by October so you're approved and ready well before tax season."
     },
     {
-      question: "What is the cost of becoming an ERO?",
-      answer: "The IRS does not charge a direct fee to apply for an EFIN. However, you will need to pay for digital fingerprinting and background processing through authorized providers, which usually costs between $50 and $100 depending on your state."
+      question: "What does it cost to become an ERO?",
+      answer: "The IRS doesn't charge a fee to apply for an EFIN. You'll need to pay for fingerprinting and background processing through an authorized provider, which typically costs $50 to $100 depending on your state."
     },
     {
-      question: "Do I need a physical retail storefront to be an ERO?",
-      answer: "No, you can operate an ERO business home-based or virtually. However, you must comply with IRS security guidelines (Publication 4557), which mandate secure storage of taxpayer documents, password policies, and encrypted communication channels. We provide full blueprints to set this up."
+      question: "Do I need a physical storefront?",
+      answer: "No. You can run your ERO business from home or virtually. You just need to meet IRS security requirements (Publication 4557) — secure document storage, password policies, and encrypted communication. We give you the full blueprint."
     }
   ];
 
@@ -111,8 +111,8 @@ export default function EROEnablementPage() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-24">
         {/* Header Section */}
         <div className="gsap-reveal text-center max-w-3xl mx-auto space-y-4">
-          <span className="inline-flex items-center rounded-full bg-[#FFD94A]/35 border border-[#FFD94A]/40 px-3 py-1 text-xs font-semibold text-[#FFD94A]">
-            IRS ERO Support &amp; Training
+          <span className="inline-flex items-center rounded-full bg-amber-955/35 border border-amber-900/40 px-3 py-1 text-xs font-semibold text-[#60a5fa]">
+            ERO Support & Training
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
             Stop Splitting Fees. Become an Independent ERO.
@@ -262,7 +262,7 @@ export default function EROEnablementPage() {
 
         {/* FAQs */}
         <div className="gsap-reveal">
-          <FaqAccordion items={eroFaqs} title="ERO Enablement FAQs" />
+          <FaqAccordion items={eroFaqs} title="FAQs" />
         </div>
 
         {/* Call to Action consultation details */}
