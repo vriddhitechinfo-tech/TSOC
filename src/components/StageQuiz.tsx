@@ -132,10 +132,10 @@ export default function StageQuiz() {
   const progressPercent = (step / questions.length) * 100;
 
   return (
-    <div className="w-full max-w-2xl mx-auto bg-[#1C2A47]/40 border border-[#FFD94A]/20 rounded-xl p-6 md:p-8 relative overflow-hidden backdrop-blur-md shadow-lg">
+    <div className="w-full max-w-2xl mx-auto bg-[#1C2A47]/40 border border-[#FF9F76]/20 rounded-xl p-6 md:p-8 relative overflow-hidden backdrop-blur-md shadow-lg">
       <div className="absolute inset-x-0 top-0 h-1 bg-[#1C2A47]/60">
         <div
-          className="h-full bg-gradient-to-r from-[#FFD94A] to-[#FFAA2A] transition-all duration-300"
+          className="h-full bg-gradient-to-r from-[#FF9F76] to-[#F4845F] transition-all duration-300"
           style={{ width: `${progressPercent}%` }}
         />
       </div>
@@ -143,7 +143,7 @@ export default function StageQuiz() {
       {step < questions.length ? (
         <div className="space-y-6">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#FFD94A] bg-[#FFD94A]/10 border border-[#FFD94A]/25 px-2 py-0.5 rounded">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#FF9F76] bg-[#FF9F76]/10 border border-[#FF9F76]/25 px-2 py-0.5 rounded">
               Step {step + 1} of {questions.length}
             </span>
             <span className="text-xs text-[#EDE9E0]/40 font-semibold">Business Router</span>
@@ -158,10 +158,10 @@ export default function StageQuiz() {
               <button
                 key={opt.value}
                 onClick={() => handleOptionSelect(opt)}
-                className="w-full text-left p-4 rounded-lg bg-[#1C2A47]/30 border border-[#FFD94A]/15 hover:border-[#FFD94A]/40 text-xs sm:text-sm text-[#EDE9E0]/70 hover:text-white transition-all duration-200 cursor-pointer flex items-center justify-between group focus:outline-none focus:ring-1 focus:ring-[#FFD94A]/50"
+                className="w-full text-left p-4 rounded-lg bg-[#1C2A47]/30 border border-[#FF9F76]/15 hover:border-[#FF9F76]/40 text-xs sm:text-sm text-[#EDE9E0]/70 hover:text-white transition-all duration-200 cursor-pointer flex items-center justify-between group focus:outline-none focus:ring-1 focus:ring-[#FF9F76]/50"
               >
                 <span>{opt.label}</span>
-                <span className="h-5 w-5 rounded bg-[#FFD94A]/10 border border-[#FFD94A]/30 flex items-center justify-center text-[#FFD94A] opacity-0 group-hover:opacity-100 transition-opacity">
+                <span className="h-5 w-5 rounded bg-[#FF9F76]/10 border border-[#FF9F76]/30 flex items-center justify-center text-[#FF9F76] opacity-0 group-hover:opacity-100 transition-opacity">
                   <ArrowRight className="w-3 h-3" />
                 </span>
               </button>
@@ -170,16 +170,16 @@ export default function StageQuiz() {
         </div>
       ) : (
         <div className="space-y-6 animate-fade-in text-center py-4">
-          <div className="h-12 w-12 rounded-full bg-[#FFD94A]/10 border border-[#FFD94A]/25 flex items-center justify-center text-[#FFD94A] mx-auto mb-4 animate-bounce">
-            <Check className="w-6 h-6 text-[#FFD94A]" />
+          <div className="h-12 w-12 rounded-full bg-[#FF9F76]/10 border border-[#FF9F76]/25 flex items-center justify-center text-[#FF9F76] mx-auto mb-4 animate-bounce">
+            <Check className="w-6 h-6 text-[#FF9F76]" />
           </div>
 
           <div className="space-y-2">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#FFD94A] bg-[#FFD94A]/10 border border-[#FFD94A]/25 px-3 py-1 rounded">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#FF9F76] bg-[#FF9F76]/10 border border-[#FF9F76]/25 px-3 py-1 rounded">
               Analysis Complete
             </span>
             <h3 className="text-base sm:text-lg font-black text-white pt-2">
-              Recommended Stage: <span className="text-[#FFD94A]">{getRecommendation().title}</span>
+              Recommended Stage: <span className="text-[#FF9F76]">{getRecommendation().title}</span>
             </h3>
             <p className="text-xs text-[#EDE9E0]/50 max-w-md mx-auto leading-relaxed">
               {getRecommendation().desc}
@@ -189,14 +189,14 @@ export default function StageQuiz() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-6">
             <Link
               href={getRecommendation().link}
-              className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-[#FFD94A] hover:bg-[#FFAA2A] text-[#050A14] px-6 py-3 text-xs font-extrabold shadow-md uppercase tracking-wider transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-[#FF9F76] hover:bg-[#F4845F] text-[#050A14] px-6 py-3 text-xs font-extrabold shadow-md uppercase tracking-wider transition-all"
             >
               {getRecommendation().cta}
               <ArrowRight className="w-3.5 h-3.5 ml-2" />
             </Link>
             <button
               onClick={resetQuiz}
-              className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-[#1C2A47] border border-[#FFD94A]/20 px-6 py-3 text-xs font-bold text-[#EDE9E0]/60 hover:text-white uppercase tracking-wider transition-all cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-[#1C2A47] border border-[#FF9F76]/20 px-6 py-3 text-xs font-bold text-[#EDE9E0]/60 hover:text-white uppercase tracking-wider transition-all cursor-pointer"
             >
               <RefreshCw className="w-3 h-3 mr-2" />
               Retake Quiz

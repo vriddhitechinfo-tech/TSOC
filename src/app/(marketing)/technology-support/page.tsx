@@ -294,19 +294,19 @@ export default function TechnologySupportPage() {
 
   const PIPELINE_ACCENTS = {
     gold: {
-      border: "border-l-[#FFD94A]",
-      text: "text-[#FFD94A]",
-      pill: "bg-gradient-to-r from-[#FFD94A] to-[#FFAA2A] text-[#050A14]",
+      border: "border-l-[#FF9F76]",
+      text: "text-[#FF9F76]",
+      pill: "bg-gradient-to-r from-[#FF9F76] to-[#F4845F] text-[#050A14]",
     },
     blue: {
-      border: "border-l-[#FFD94A]",
-      text: "text-[#FFD94A]",
-      pill: "bg-gradient-to-r from-[#FFD94A] to-[#FFD94A] text-[#050A14]",
+      border: "border-l-[#FF9F76]",
+      text: "text-[#FF9F76]",
+      pill: "bg-gradient-to-r from-[#FF9F76] to-[#FF9F76] text-[#050A14]",
     },
     emerald: {
-      border: "border-l-[#FFD94A]",
-      text: "text-[#FFD94A]",
-      pill: "bg-gradient-to-r from-[#FFD94A] to-[#FFD94A] text-[#050A14]",
+      border: "border-l-[#FF9F76]",
+      text: "text-[#FF9F76]",
+      pill: "bg-gradient-to-r from-[#FF9F76] to-[#FF9F76] text-[#050A14]",
     },
   };
 
@@ -332,7 +332,7 @@ export default function TechnologySupportPage() {
   return (
     <div ref={pageRef} className="relative overflow-hidden bg-[#050A14] min-h-screen">
       {/* Background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,217,74,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,159,118,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
 
       <style>{`
         @keyframes float {
@@ -348,7 +348,7 @@ export default function TechnologySupportPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center h-full">
             {/* Left: Content */}
             <div className="space-y-6 flex flex-col justify-center">
-              <span className="gsap-reveal inline-flex w-fit items-center rounded-full bg-[#FFD94A]/10 border border-[#FFD94A]/20 px-3 py-1 text-xs font-semibold text-[#FFD94A]">
+              <span className="gsap-reveal inline-flex w-fit items-center rounded-full bg-[#FF9F76]/10 border border-[#FF9F76]/20 px-3 py-1 text-xs font-semibold text-[#FF9F76]">
                 CRM &amp; Automation Support
               </span>
               <h1 className="gsap-reveal text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-snug text-white">
@@ -360,13 +360,13 @@ export default function TechnologySupportPage() {
               <div className="gsap-reveal flex flex-col sm:flex-row gap-4 pt-4">
                 <button
                   onClick={() => openModal("technology")}
-                  className="bg-[#FFD94A] hover:bg-[#FFAA2A] text-[#050A14] font-extrabold px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer shadow-md"
+                  className="bg-[#FF9F76] hover:bg-[#F4845F] text-[#050A14] font-extrabold px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer shadow-md"
                 >
                   Book a Technology Consultation
                 </button>
                 <button
                   onClick={() => openModal("technology")}
-                  className="bg-[#1C2A47] text-[#EDE9E0]/70 hover:text-white border border-[#FFD94A]/20 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer"
+                  className="bg-[#1C2A47] text-[#EDE9E0]/70 hover:text-white border border-[#FF9F76]/20 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer"
                 >
                   Request Technology Audit
                 </button>
@@ -374,11 +374,11 @@ export default function TechnologySupportPage() {
             </div>
 
             {/* Right: CRM Dashboard Image with Floating Animation */}
-            <div className="relative h-full rounded-2xl overflow-hidden border border-[#FFD94A]/20 shadow-2xl shadow-black/60" style={{animation: 'float 6s ease-in-out infinite'}}>
-              <div className="absolute top-0 left-0 right-0 h-8 bg-[#0d1526] border-b border-[#FFD94A]/15 flex items-center px-4 gap-1.5 z-10">
-                <span className="h-2.5 w-2.5 rounded-full bg-[#FFD94A]/40" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#FFD94A]/65" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#FFD94A]/90" />
+            <div className="relative h-full rounded-2xl overflow-hidden border border-[#FF9F76]/20 shadow-2xl shadow-black/60" style={{animation: 'float 6s ease-in-out infinite'}}>
+              <div className="absolute top-0 left-0 right-0 h-8 bg-[#0d1526] border-b border-[#FF9F76]/15 flex items-center px-4 gap-1.5 z-10">
+                <span className="h-2.5 w-2.5 rounded-full bg-[#FF9F76]/40" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#FF9F76]/65" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#FF9F76]/90" />
                 <span className="ml-4 text-xs text-[#EDE9E0]/30 font-mono">CRM &amp; Workflow Automation — Dashboard</span>
               </div>
               <Image
@@ -400,13 +400,13 @@ export default function TechnologySupportPage() {
         {/* Animated Stats Section */}
         <div
           ref={statsContainerRef}
-          className="bg-gradient-to-b from-[#1C2A47]/60 to-[#0d1526] border border-[#FFD94A]/15 rounded-2xl py-12 px-6 md:px-8 relative overflow-hidden"
+          className="bg-gradient-to-b from-[#1C2A47]/60 to-[#0d1526] border border-[#FF9F76]/15 rounded-2xl py-12 px-6 md:px-8 relative overflow-hidden"
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="space-y-2">
               <span
                 ref={officesValRef}
-                className="text-4xl md:text-5xl font-black text-[#FFD94A] font-mono block"
+                className="text-4xl md:text-5xl font-black text-[#FF9F76] font-mono block"
               >
                 0+
               </span>
@@ -420,7 +420,7 @@ export default function TechnologySupportPage() {
             <div className="space-y-2">
               <span
                 ref={automationValRef}
-                className="text-4xl md:text-5xl font-black text-[#FFD94A] font-mono block"
+                className="text-4xl md:text-5xl font-black text-[#FF9F76] font-mono block"
               >
                 0%
               </span>
@@ -434,7 +434,7 @@ export default function TechnologySupportPage() {
             <div className="space-y-2">
               <span
                 ref={timeValRef}
-                className="text-4xl md:text-5xl font-black text-[#FFD94A] font-mono block"
+                className="text-4xl md:text-5xl font-black text-[#FF9F76] font-mono block"
               >
                 0%
               </span>
@@ -461,7 +461,7 @@ export default function TechnologySupportPage() {
             {/* Spine progress — drawn by GSAP scrub, retracts on scroll-up */}
             <div
               ref={pipelineLineRef}
-              className="absolute left-5 lg:left-1/2 top-0 bottom-0 w-[3px] lg:-translate-x-1/2 origin-top rounded-full bg-gradient-to-b from-[#FFD94A] via-[#FFD94A] to-[#FFD94A]"
+              className="absolute left-5 lg:left-1/2 top-0 bottom-0 w-[3px] lg:-translate-x-1/2 origin-top rounded-full bg-gradient-to-b from-[#FF9F76] via-[#FF9F76] to-[#FF9F76]"
               style={{ transform: "scaleY(0)" }}
             />
 
@@ -491,7 +491,7 @@ export default function TechnologySupportPage() {
                     <div
                       className={`pipeline-card glass-card glass-card-hover overflow-hidden border-l-4 ${accent.border} pl-14 lg:pl-0 lg:max-w-md ${
                         isRight ? "lg:col-start-2 lg:ml-14" : "lg:col-start-1 lg:mr-14 lg:justify-self-end"
-                      } ${step.highlight ? "bg-gradient-to-br from-[#1C2A47]/80 to-[#0d1526] ring-1 ring-[#FFD94A]/20" : ""}`}
+                      } ${step.highlight ? "bg-gradient-to-br from-[#1C2A47]/80 to-[#0d1526] ring-1 ring-[#FF9F76]/20" : ""}`}
                     >
                       <div className="p-6 space-y-4">
                         <div className="flex items-center justify-between gap-3">
@@ -565,18 +565,18 @@ export default function TechnologySupportPage() {
               {automationSteps.map((s, idx) => (
                 <div key={s.num} className="blueprint-card">
                   {/* Card */}
-                  <div className="rounded-2xl overflow-hidden border border-[#FFD94A]/30 bg-[#1C2A47]/80 backdrop-blur shadow-2xl shadow-black/60">
+                  <div className="rounded-2xl overflow-hidden border border-[#FF9F76]/30 bg-[#1C2A47]/80 backdrop-blur shadow-2xl shadow-black/60">
                     {/* Amber accent stripe */}
-                    <div className="h-0.5 bg-gradient-to-r from-[#FFD94A] via-[#FFAA2A] to-transparent" />
+                    <div className="h-0.5 bg-gradient-to-r from-[#FF9F76] via-[#F4845F] to-transparent" />
                     {/* Header row */}
-                    <div className="flex items-center justify-between gap-4 px-6 py-4 border-b border-[#FFD94A]/20">
+                    <div className="flex items-center justify-between gap-4 px-6 py-4 border-b border-[#FF9F76]/20">
                       <div className="flex items-center gap-3">
-                        <span className="text-xs font-black font-mono text-black bg-[#FFD94A] px-2 py-1 rounded leading-none">
+                        <span className="text-xs font-black font-mono text-black bg-[#FF9F76] px-2 py-1 rounded leading-none">
                           {s.num}
                         </span>
                         <h3 className="text-sm font-bold text-white uppercase tracking-wider">{s.title}</h3>
                       </div>
-                      <span className="shrink-0 text-xs text-[#FFD94A] font-mono bg-[#FFD94A]/20 border border-[#FFD94A]/30 px-2.5 py-1 rounded hidden sm:block">
+                      <span className="shrink-0 text-xs text-[#FF9F76] font-mono bg-[#FF9F76]/20 border border-[#FF9F76]/30 px-2.5 py-1 rounded hidden sm:block">
                         {s.tool}
                       </span>
                     </div>
@@ -584,7 +584,7 @@ export default function TechnologySupportPage() {
                     <div className="px-6 py-5 flex flex-col gap-3">
                       <p className="text-xs text-[#EDE9E0]/60 leading-relaxed">{s.desc}</p>
                       <div className="flex items-center gap-2">
-                        <span className="h-1.5 w-1.5 rounded-full bg-[#FFD94A] shrink-0" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#FF9F76] shrink-0" />
                         <span className="text-xs font-mono text-[#EDE9E0]/40 uppercase tracking-wider">
                           {s.tool}
                         </span>
@@ -600,7 +600,7 @@ export default function TechnologySupportPage() {
         {/* Testimonials Section */}
         <div className="gsap-reveal space-y-8">
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#FFD94A] bg-[#FFD94A]/10 border border-[#FFD94A]/20 px-3 py-1 rounded inline-block">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#FF9F76] bg-[#FF9F76]/10 border border-[#FF9F76]/20 px-3 py-1 rounded inline-block">
               Operations Transformation
             </span>
             <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight uppercase">
@@ -621,7 +621,7 @@ export default function TechnologySupportPage() {
         {/* Community Banner CTA */}
         <TiltCard tilt={3} className="glass-card p-8 md:p-12 relative overflow-hidden flex flex-col md:flex-row md:items-center gap-8">
           <div className="space-y-3 max-w-3xl">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#FFD94A] bg-[#FFD94A]/10 border border-[#FFD94A]/20 px-3 py-1 rounded">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#FF9F76] bg-[#FF9F76]/10 border border-[#FF9F76]/20 px-3 py-1 rounded">
               Technology & Automation Support
             </span>
             <h3 className="text-xl font-bold text-white uppercase tracking-wider">Tired of Manual Administrative Chaos?</h3>
@@ -632,7 +632,7 @@ export default function TechnologySupportPage() {
           <div className="shrink-0 flex items-center">
             <button
               onClick={() => openModal("technology")}
-              className="bg-[#FFD94A] hover:bg-[#FFAA2A] text-[#050A14] font-extrabold py-3.5 px-8 rounded-lg text-xs transition-all shadow-md cursor-pointer uppercase tracking-wider"
+              className="bg-[#FF9F76] hover:bg-[#F4845F] text-[#050A14] font-extrabold py-3.5 px-8 rounded-lg text-xs transition-all shadow-md cursor-pointer uppercase tracking-wider"
             >
               Request Technology Setup Audit
             </button>
@@ -642,4 +642,3 @@ export default function TechnologySupportPage() {
     </div>
   );
 }
-

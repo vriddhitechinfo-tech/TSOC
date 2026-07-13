@@ -121,12 +121,12 @@ export default function ExitIntentCTA() {
 
   return (
     <div className="fixed bottom-0 inset-x-0 z-40 p-4 md:p-6 animate-slide-up pointer-events-none">
-      <div className="mx-auto max-w-4xl bg-gradient-to-r from-[#0d1526] to-[#050A14] border border-[#FFD94A]/25 hover:border-[#FFD94A]/45 rounded-xl shadow-2xl shadow-[#FFD94A]/5 p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pointer-events-auto relative overflow-hidden">
+      <div className="mx-auto max-w-4xl bg-gradient-to-r from-[#0d1526] to-[#050A14] border border-[#FF9F76]/25 hover:border-[#FF9F76]/45 rounded-xl shadow-2xl shadow-[#FF9F76]/5 p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pointer-events-auto relative overflow-hidden">
         {/* Subtle decorative glow */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_left,rgba(255,217,74,0.05)_0%,transparent_60%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_left,rgba(255,159,118,0.05)_0%,transparent_60%)] pointer-events-none" />
 
         <div className="flex items-center space-x-3 z-10">
-          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#FFD94A]/10 border border-[#FFD94A]/20 text-[#FFD94A]">
+          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#FF9F76]/10 border border-[#FF9F76]/20 text-[#FF9F76]">
             <Bell className="h-4 w-4 animate-swing" />
           </span>
           <div>
@@ -138,7 +138,7 @@ export default function ExitIntentCTA() {
         <div className="flex items-center space-x-3 z-10">
           <button
             onClick={cta.action}
-            className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-[#FFD94A] hover:bg-[#FFAA2A] text-[#050A14] px-5 py-2.5 text-xs font-extrabold uppercase tracking-wider transition-all shadow-md cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-[#FF9F76] hover:bg-[#F4845F] text-[#050A14] px-5 py-2.5 text-xs font-extrabold uppercase tracking-wider transition-all shadow-md cursor-pointer"
           >
             {cta.actionText}
             <ArrowRight className="w-3 h-3 ml-2" />

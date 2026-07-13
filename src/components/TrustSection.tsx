@@ -5,14 +5,14 @@ import { Star, ShieldCheck, Landmark } from "lucide-react";
 
 export default function TrustSection() {
   return (
-    <div className="w-full bg-[#1C2A47]/20 border-y border-[#FFD94A]/10 py-12">
+    <div className="w-full bg-[#1C2A47]/20 border-y border-[#FF9F76]/10 py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left">
           {/* Trust Ratings */}
-          <div className="flex flex-col items-center md:items-start space-y-2 border-b md:border-b-0 md:border-r border-[#FFD94A]/10 pb-6 md:pb-0 md:pr-8">
+          <div className="flex flex-col items-center md:items-start space-y-2 border-b md:border-b-0 md:border-r border-[#FF9F76]/10 pb-6 md:pb-0 md:pr-8">
             <div className="flex items-center space-x-1.5">
               <span className="text-white font-black text-xl">4.9</span>
-              <div className="flex text-[#FFD94A]">
+              <div className="flex text-[#FF9F76]">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 fill-current" />
                 ))}
@@ -27,8 +27,8 @@ export default function TrustSection() {
           </div>
 
           {/* Industry Credentials */}
-          <div className="flex flex-col items-center md:items-start space-y-2.5 border-b md:border-b-0 md:border-r border-[#FFD94A]/10 pb-6 md:pb-0 md:px-8">
-            <div className="flex items-center space-x-2 text-[#FFD94A]">
+          <div className="flex flex-col items-center md:items-start space-y-2.5 border-b md:border-b-0 md:border-r border-[#FF9F76]/10 pb-6 md:pb-0 md:px-8">
+            <div className="flex items-center space-x-2 text-[#FF9F76]">
               <ShieldCheck className="w-6 h-6" />
               <span className="text-white font-extrabold text-sm uppercase tracking-wider">IRS E-File Partner</span>
             </div>
@@ -43,14 +43,14 @@ export default function TrustSection() {
           {/* Partner Banks */}
           <div className="flex flex-col items-center md:items-start space-y-2 md:pl-8">
             <div className="flex items-center space-x-2 text-[#EDE9E0]/50">
-              <Landmark className="w-5 h-5 text-[#FFD94A]" />
+              <Landmark className="w-5 h-5 text-[#FF9F76]" />
               <span className="text-white font-extrabold text-xs uppercase tracking-wider">Integrated Bank Products</span>
             </div>
             <div className="flex flex-wrap justify-center md:justify-start gap-3 mt-1">
               {["TPG", "Republic Bank", "Refund Advantage", "Santa Barbara"].map((bank) => (
                 <span
                   key={bank}
-                  className="bg-[#1C2A47]/60 border border-[#FFD94A]/15 text-xs font-bold text-[#EDE9E0]/60 px-2 py-0.5 rounded tracking-wide uppercase"
+                  className="bg-[#1C2A47]/60 border border-[#FF9F76]/15 text-xs font-bold text-[#EDE9E0]/60 px-2 py-0.5 rounded tracking-wide uppercase"
                 >
                   {bank}
                 </span>
@@ -63,7 +63,7 @@ export default function TrustSection() {
         </div>
 
         {/* Client Logos / Trust banner */}
-        <div className="mt-10 pt-8 border-t border-[#FFD94A]/10 flex flex-wrap items-center justify-center md:justify-between gap-6 opacity-60">
+        <div className="mt-10 pt-8 border-t border-[#FF9F76]/10 flex flex-wrap items-center justify-center md:justify-between gap-6 opacity-60">
           <span className="text-xs text-[#EDE9E0]/40 font-semibold uppercase tracking-widest">
             TRUSTED BY EROS ACROSS THE NATION:
           </span>

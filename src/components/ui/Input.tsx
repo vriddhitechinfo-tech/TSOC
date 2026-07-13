@@ -39,7 +39,7 @@ export function TextArea({ label, className = "", id, ...props }: TextAreaProps)
       </label>
       <textarea
         id={textareaId}
-        className="w-full bg-[#1C2A47]/50 border border-[#1C2A47] focus:border-[#FFD94A] focus:ring-1 focus:ring-[#FFD94A] rounded-lg px-3.5 py-2.5 text-white placeholder-[#EDE9E0]/30 outline-none transition-all text-sm resize-none"
+        className="w-full bg-[#1C2A47]/50 border border-[#1C2A47] focus:border-[#FF9F76] focus:ring-1 focus:ring-[#FF9F76]/50 rounded-lg px-3.5 py-2.5 text-white placeholder-[#EDE9E0]/30 outline-none transition-all text-sm resize-none"
         {...props}
       />
     </div>

@@ -11,13 +11,13 @@ export default function NotFound() {
   return (
     <div className="relative overflow-hidden bg-[#0d1526] min-h-[70vh] flex flex-col items-center justify-center py-20 px-4 text-center">
       {/* Background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,217,74,0.03)_0%,transparent_60%)] pointer-events-none -z-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,159,118,0.03)_0%,transparent_60%)] pointer-events-none -z-10" />
 
-      <span className="text-xs font-bold tracking-widest text-[#FFD94A] bg-[#FFD94A]/30 border border-[#FFD94A]/20 px-4 py-1.5 rounded-lg mb-6 uppercase">
+      <span className="text-xs font-bold tracking-widest text-[#FF9F76] bg-[#FF9F76]/10 border border-[#FF9F76]/20 px-4 py-1.5 rounded-lg mb-6 uppercase">
         404 - Page Not Found
       </span>
       
-      <HelpCircle className="w-12 h-12 text-[#FFD94A] mb-6" />
+      <HelpCircle className="w-12 h-12 text-[#FF9F76] mb-6" />
       
       <h1 className="text-4xl sm:text-5xl font-black text-white mb-4">
         Lost in The Grid?
@@ -30,13 +30,13 @@ export default function NotFound() {
       <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
         <Link
           href="/"
-          className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-[#FFD94A] hover:bg-[#FFAA2A] text-[#050A14] font-extrabold py-3 px-6 text-xs transition-colors cursor-pointer uppercase tracking-wider shadow-md"
+          className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-[#FF9F76] hover:bg-[#F4845F] text-[#050A14] font-extrabold py-3 px-6 text-xs transition-colors cursor-pointer uppercase tracking-wider shadow-md"
         >
           Return to Dashboard
         </Link>
         <button
           onClick={() => openModal("strategy")}
-          className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-[#0d1526] border border-[#FFD94A]/20 hover:border-[#FFD94A] text-[#EDE9E0]/70 hover:text-white font-bold py-3 px-6 text-xs transition-colors cursor-pointer uppercase tracking-wider"
+          className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-[#0d1526] border border-[#FF9F76]/20 hover:border-[#FF9F76] text-[#EDE9E0]/70 hover:text-white font-bold py-3 px-6 text-xs transition-colors cursor-pointer uppercase tracking-wider"
         >
           Book a Strategy Call
         </button>

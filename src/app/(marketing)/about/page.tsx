@@ -43,12 +43,12 @@ export default function AboutPage() {
   return (
     <div ref={pageRef} className="relative overflow-hidden bg-[#050A14] min-h-screen py-16 sm:py-10">
       {/* Background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,217,74,0.03)_0%,transparent_60%)] pointer-events-none -z-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,159,118,0.03)_0%,transparent_60%)] pointer-events-none -z-10" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="gsap-reveal text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="inline-flex items-center rounded-full bg-[#FFD94A]/35 border border-[#FFD94A]/40 px-3 py-1 text-xs font-semibold text-[#FFD94A]">
+          <span className="inline-flex items-center rounded-full bg-[#FF9F76]/10 border border-[#FF9F76]/20 px-3 py-1 text-xs font-semibold text-[#FF9F76]">
             More Than Tax Software
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
@@ -77,14 +77,14 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <TiltCard tilt={5} className="relative bg-[#1C2A47] border border-[#FFD94A]/30 rounded-xl p-8 md:p-12 text-center space-y-6 overflow-hidden">
-            <FileText className="w-10 h-10 text-[#FFD94A] mx-auto" />
+          <TiltCard tilt={5} className="relative bg-[#1C2A47] border border-[#FF9F76]/30 rounded-xl p-8 md:p-12 text-center space-y-6 overflow-hidden">
+            <FileText className="w-10 h-10 text-[#FF9F76] mx-auto" />
             <h3 className="text-xs font-bold tracking-wider text-[#EDE9E0]/50 uppercase">Our Community Motto</h3>
             <div className="text-2xl sm:text-3xl font-black tracking-wider text-white select-none">
-              <span className="text-[#FFD94A]">Connect</span>
-              <span className="text-[#FFD94A]/60 mx-2">•</span>
-              <span className="text-[#FFD94A]">Create</span>
-              <span className="text-[#FFD94A]/60 mx-2">•</span>
+              <span className="text-[#FF9F76]">Connect</span>
+              <span className="text-[#FF9F76]/60 mx-2">•</span>
+              <span className="text-[#FF9F76]">Create</span>
+              <span className="text-[#FF9F76]/60 mx-2">•</span>
               <span className="text-white">Conquer</span>
             </div>
             <p className="text-[#EDE9E0]/50 text-xs max-w-sm mx-auto leading-relaxed">
@@ -98,7 +98,7 @@ export default function AboutPage() {
           <h2 className="gsap-reveal text-lg font-bold text-center text-white mb-10 uppercase tracking-wider">Our Core Principles</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <TiltCard className="glass-card glass-card-hover-emerald p-6 space-y-3">
-              <div className="h-9 w-9 rounded-md bg-[#1C2A47] border border-[#FFD94A]/30 flex items-center justify-center text-[#FFD94A] mb-2">
+              <div className="h-9 w-9 rounded-md bg-[#1C2A47] border border-[#FF9F76]/30 flex items-center justify-center text-[#FF9F76] mb-2">
                 <TrendingUp className="w-4.5 h-4.5" />
               </div>
               <h3 className="text-sm font-bold text-white uppercase tracking-wider">Revenue Growth</h3>
@@ -108,7 +108,7 @@ export default function AboutPage() {
             </TiltCard>
 
             <TiltCard delay={0.1} className="glass-card glass-card-hover p-6 space-y-3">
-              <div className="h-9 w-9 rounded-md bg-[#1C2A47] border border-[#FFD94A]/30 flex items-center justify-center text-[#FFD94A] mb-2">
+              <div className="h-9 w-9 rounded-md bg-[#1C2A47] border border-[#FF9F76]/30 flex items-center justify-center text-[#FF9F76] mb-2">
                 <ShieldAlert className="w-4.5 h-4.5" />
               </div>
               <h3 className="text-sm font-bold text-white uppercase tracking-wider">Compliance Education</h3>
@@ -118,7 +118,7 @@ export default function AboutPage() {
             </TiltCard>
 
             <TiltCard delay={0.2} className="glass-card glass-card-hover p-6 space-y-3">
-              <div className="h-9 w-9 rounded-md bg-[#1C2A47] border border-[#FFD94A]/30 flex items-center justify-center text-[#FFD94A] mb-2">
+              <div className="h-9 w-9 rounded-md bg-[#1C2A47] border border-[#FF9F76]/30 flex items-center justify-center text-[#FF9F76] mb-2">
                 <Cpu className="w-4.5 h-4.5" />
               </div>
               <h3 className="text-sm font-bold text-white uppercase tracking-wider">Technology Integration</h3>

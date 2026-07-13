@@ -127,12 +127,12 @@ export default function RevenueExpansionPage() {
   return (
     <div ref={pageRef} className="relative overflow-hidden bg-[#050A14] min-h-screen py-16 sm:py-10 animate-fade-in">
       {/* Background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,217,74,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,159,118,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="gsap-reveal text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="inline-flex items-center rounded-full bg-[#FFD94A]/10 border border-[#FFD94A]/20 px-3 py-1 text-xs font-semibold text-[#FFD94A]">
+          <span className="inline-flex items-center rounded-full bg-[#FF9F76]/10 border border-[#FF9F76]/20 px-3 py-1 text-xs font-semibold text-[#FF9F76]">
             Year-Round Growth Strategy
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
@@ -144,7 +144,7 @@ export default function RevenueExpansionPage() {
           <div className="pt-4">
             <button
               onClick={() => openModal("strategy")}
-              className="inline-flex items-center justify-center rounded-lg bg-[#FFD94A] hover:bg-[#FFAA2A] text-[#050A14] font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
+              className="inline-flex items-center justify-center rounded-lg bg-[#FF9F76] hover:bg-[#F4845F] text-[#050A14] font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
             >
               Consult on Revenue Expansion
             </button>
@@ -159,10 +159,10 @@ export default function RevenueExpansionPage() {
               <TiltCard key={op.name} delay={(i % 4) * 0.08} className="glass-card glass-card-hover p-6 flex flex-col justify-between min-h-[220px]">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-[#FFD94A]">
+                    <span className="text-[#FF9F76]">
                       <Icon className="w-5 h-5" />
                     </span>
-                    <span className="text-xs font-bold text-[#EDE9E0]/40 uppercase tracking-wider bg-[#1C2A47]/60 border border-[#FFD94A]/15 px-2 py-0.5 rounded">
+                    <span className="text-xs font-bold text-[#EDE9E0]/40 uppercase tracking-wider bg-[#1C2A47]/60 border border-[#FF9F76]/15 px-2 py-0.5 rounded">
                       {op.tag}
                     </span>
                   </div>
@@ -175,7 +175,7 @@ export default function RevenueExpansionPage() {
                 <div className="pt-4 mt-4">
                   <button
                     onClick={() => openModal("strategy")}
-                    className="text-xs font-bold text-[#EDE9E0]/40 hover:text-[#FFD94A] flex items-center gap-1 uppercase tracking-wider transition-colors cursor-pointer"
+                    className="text-xs font-bold text-[#EDE9E0]/40 hover:text-[#FF9F76] flex items-center gap-1 uppercase tracking-wider transition-colors cursor-pointer"
                   >
                     Setup Service
                     <ArrowRight className="w-3 h-3" />
@@ -189,17 +189,17 @@ export default function RevenueExpansionPage() {
         {/* Interactive Stats / Benefits */}
         <TiltCard tilt={3} className="glass-card p-8 md:p-12 mb-24 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
           <div className="space-y-2">
-            <h4 className="text-[#FFD94A] font-black text-2xl font-mono">+$2,500/mo</h4>
+            <h4 className="text-[#FF9F76] font-black text-2xl font-mono">+$2,500/mo</h4>
             <p className="text-xs text-white font-bold uppercase tracking-wider">Average Retainer Lift</p>
             <p className="text-xs text-[#EDE9E0]/35">By adding bookkeeping to just 10 existing small business clients</p>
           </div>
-          <div className="space-y-2 border-y md:border-y-0 md:border-x border-[#FFD94A]/10 py-6 md:py-0 md:px-8">
-            <h4 className="text-[#FFD94A] font-black text-2xl font-mono">3.5x</h4>
+          <div className="space-y-2 border-y md:border-y-0 md:border-x border-[#FF9F76]/10 py-6 md:py-0 md:px-8">
+            <h4 className="text-[#FF9F76] font-black text-2xl font-mono">3.5x</h4>
             <p className="text-xs text-white font-bold uppercase tracking-wider">Client Lifetime Value</p>
             <p className="text-xs text-[#EDE9E0]/35">Clients remain connected to your firm 12 months a year, not just 3</p>
           </div>
           <div className="space-y-2 md:pl-8">
-            <h4 className="text-[#FFD94A] font-black text-2xl font-mono">75%</h4>
+            <h4 className="text-[#FF9F76] font-black text-2xl font-mono">75%</h4>
             <p className="text-xs text-white font-bold uppercase tracking-wider">Preparation Efficiency</p>
             <p className="text-xs text-[#EDE9E0]/35">Clean monthly records make filing tax returns incredibly fast and error-free</p>
           </div>
@@ -218,7 +218,7 @@ export default function RevenueExpansionPage() {
           </p>
           <button
             onClick={() => openModal("strategy")}
-            className="bg-[#FFD94A] hover:bg-[#FFAA2A] text-[#050A14] font-extrabold py-3 px-8 rounded-lg text-xs transition-all shadow-md cursor-pointer uppercase tracking-wider"
+            className="bg-[#FF9F76] hover:bg-[#F4845F] text-[#050A14] font-extrabold py-3 px-8 rounded-lg text-xs transition-all shadow-md cursor-pointer uppercase tracking-wider"
           >
             Request Revenue Expansion Roadmap
           </button>
