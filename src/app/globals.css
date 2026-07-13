@@ -2,24 +2,24 @@
 
 @layer base {
   :root {
-    --background: 220 48% 5%;
+    --background: 18 43% 5%;
     --foreground: 40 20% 91%;
-    --card: 220 42% 19%;
+    --card: 18 38% 12%;
     --card-foreground: 40 20% 91%;
-    --popover: 220 42% 19%;
+    --popover: 18 38% 12%;
     --popover-foreground: 40 20% 91%;
     --primary: 18 100% 73%;
-    --primary-foreground: 220 67% 4%;
-    --secondary: 220 42% 14%;
+    --primary-foreground: 18 43% 5%;
+    --secondary: 18 40% 8%;
     --secondary-foreground: 40 20% 91%;
-    --muted: 220 42% 14%;
-    --muted-foreground: 220 15% 50%;
+    --muted: 18 40% 8%;
+    --muted-foreground: 18 15% 50%;
     --accent: 15 88% 66%;
-    --accent-foreground: 220 67% 4%;
+    --accent-foreground: 18 43% 5%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 40 20% 91%;
-    --border: 220 35% 20%;
-    --input: 220 35% 20%;
+    --border: 18 30% 16%;
+    --input: 18 30% 16%;
     --ring: 18 100% 73%;
     --radius: 0.75rem;
   }
@@ -28,7 +28,7 @@
 /* ─── Typography System ─────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
-  background-color: #050A14;
+  background-color: #140A06;
   color: #EDE9E0;
   /* Body font: DM Sans (Neue Haas Grotesk / Helvetica Neue alternative) */
   font-family: var(--font-body), ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
@@ -55,9 +55,9 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-body), ui-sans-serif, "Helvetica Neue", Arial, sans-serif;
 }
 
-/* ─── Midnight & Peach Glass Card ─────────────────────────────────── */
+/* ─── Dark Brown & Peach Glass Card ─────────────────────────────────── */
 .glass-card {
-  background: rgba(28, 42, 71, 0.45);
+  background: rgba(42, 22, 14, 0.55);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 159, 118, 0.15);
@@ -67,14 +67,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .glass-card-hover:hover {
   border-color: rgba(255, 159, 118, 0.35);
-  background: rgba(28, 42, 71, 0.65);
+  background: rgba(42, 22, 14, 0.75);
   box-shadow: 0 10px 40px -15px rgba(255, 159, 118, 0.25);
   transform: translateY(-2px);
 }
 
 .glass-card-hover-emerald:hover {
   border-color: rgba(255, 159, 118, 0.35);
-  background: rgba(28, 42, 71, 0.65);
+  background: rgba(42, 22, 14, 0.75);
   box-shadow: 0 10px 40px -15px rgba(255, 159, 118, 0.25);
   transform: translateY(-2px);
 }
@@ -101,14 +101,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background: #050A14;
+  background: #140A06;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1C2A47;
+  background: #2A160E;
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2a3d63;
+  background: #3D2216;
 }

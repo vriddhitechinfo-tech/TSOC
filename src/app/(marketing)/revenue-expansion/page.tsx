@@ -125,7 +125,7 @@ export default function RevenueExpansionPage() {
   ];
 
   return (
-    <div ref={pageRef} className="relative overflow-hidden bg-[#050A14] min-h-screen py-16 sm:py-10 animate-fade-in">
+    <div ref={pageRef} className="relative overflow-hidden bg-[#140A06] min-h-screen py-16 sm:py-10 animate-fade-in">
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,159,118,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
 
@@ -144,7 +144,7 @@ export default function RevenueExpansionPage() {
           <div className="pt-4">
             <button
               onClick={() => openModal("strategy")}
-              className="inline-flex items-center justify-center rounded-lg bg-[#FF9F76] hover:bg-[#F4845F] text-[#050A14] font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
+              className="inline-flex items-center justify-center rounded-lg bg-[#FF9F76] hover:bg-[#F4845F] text-[#140A06] font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
             >
               Consult on Revenue Expansion
             </button>
@@ -162,7 +162,7 @@ export default function RevenueExpansionPage() {
                     <span className="text-[#FF9F76]">
                       <Icon className="w-5 h-5" />
                     </span>
-                    <span className="text-xs font-bold text-[#EDE9E0]/40 uppercase tracking-wider bg-[#1C2A47]/60 border border-[#FF9F76]/15 px-2 py-0.5 rounded">
+                    <span className="text-xs font-bold text-[#EDE9E0]/40 uppercase tracking-wider bg-[#2A160E]/60 border border-[#FF9F76]/15 px-2 py-0.5 rounded">
                       {op.tag}
                     </span>
                   </div>
@@ -218,7 +218,7 @@ export default function RevenueExpansionPage() {
           </p>
           <button
             onClick={() => openModal("strategy")}
-            className="bg-[#FF9F76] hover:bg-[#F4845F] text-[#050A14] font-extrabold py-3 px-8 rounded-lg text-xs transition-all shadow-md cursor-pointer uppercase tracking-wider"
+            className="bg-[#FF9F76] hover:bg-[#F4845F] text-[#140A06] font-extrabold py-3 px-8 rounded-lg text-xs transition-all shadow-md cursor-pointer uppercase tracking-wider"
           >
             Request Revenue Expansion Roadmap
           </button>

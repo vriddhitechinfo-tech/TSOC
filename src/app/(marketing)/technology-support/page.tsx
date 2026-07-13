@@ -296,17 +296,17 @@ export default function TechnologySupportPage() {
     gold: {
       border: "border-l-[#FF9F76]",
       text: "text-[#FF9F76]",
-      pill: "bg-gradient-to-r from-[#FF9F76] to-[#F4845F] text-[#050A14]",
+      pill: "bg-gradient-to-r from-[#FF9F76] to-[#F4845F] text-[#140A06]",
     },
     blue: {
       border: "border-l-[#FF9F76]",
       text: "text-[#FF9F76]",
-      pill: "bg-gradient-to-r from-[#FF9F76] to-[#FF9F76] text-[#050A14]",
+      pill: "bg-gradient-to-r from-[#FF9F76] to-[#FF9F76] text-[#140A06]",
     },
     emerald: {
       border: "border-l-[#FF9F76]",
       text: "text-[#FF9F76]",
-      pill: "bg-gradient-to-r from-[#FF9F76] to-[#FF9F76] text-[#050A14]",
+      pill: "bg-gradient-to-r from-[#FF9F76] to-[#FF9F76] text-[#140A06]",
     },
   };
 
@@ -330,7 +330,7 @@ export default function TechnologySupportPage() {
   ];
 
   return (
-    <div ref={pageRef} className="relative overflow-hidden bg-[#050A14] min-h-screen">
+    <div ref={pageRef} className="relative overflow-hidden bg-[#140A06] min-h-screen">
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,159,118,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
 
@@ -360,13 +360,13 @@ export default function TechnologySupportPage() {
               <div className="gsap-reveal flex flex-col sm:flex-row gap-4 pt-4">
                 <button
                   onClick={() => openModal("technology")}
-                  className="bg-[#FF9F76] hover:bg-[#F4845F] text-[#050A14] font-extrabold px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer shadow-md"
+                  className="bg-[#FF9F76] hover:bg-[#F4845F] text-[#140A06] font-extrabold px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer shadow-md"
                 >
                   Book a Technology Consultation
                 </button>
                 <button
                   onClick={() => openModal("technology")}
-                  className="bg-[#1C2A47] text-[#EDE9E0]/70 hover:text-white border border-[#FF9F76]/20 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer"
+                  className="bg-[#2A160E] text-[#EDE9E0]/70 hover:text-white border border-[#FF9F76]/20 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer"
                 >
                   Request Technology Audit
                 </button>
@@ -375,7 +375,7 @@ export default function TechnologySupportPage() {
 
             {/* Right: CRM Dashboard Image with Floating Animation */}
             <div className="relative h-full rounded-2xl overflow-hidden border border-[#FF9F76]/20 shadow-2xl shadow-black/60" style={{animation: 'float 6s ease-in-out infinite'}}>
-              <div className="absolute top-0 left-0 right-0 h-8 bg-[#0d1526] border-b border-[#FF9F76]/15 flex items-center px-4 gap-1.5 z-10">
+              <div className="absolute top-0 left-0 right-0 h-8 bg-[#1C0F0A] border-b border-[#FF9F76]/15 flex items-center px-4 gap-1.5 z-10">
                 <span className="h-2.5 w-2.5 rounded-full bg-[#FF9F76]/40" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#FF9F76]/65" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#FF9F76]/90" />
@@ -389,7 +389,7 @@ export default function TechnologySupportPage() {
                 className="w-full h-full object-cover mt-8"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050A14]/60 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#140A06]/60 via-transparent to-transparent pointer-events-none" />
             </div>
           </div>
         </div>
@@ -400,7 +400,7 @@ export default function TechnologySupportPage() {
         {/* Animated Stats Section */}
         <div
           ref={statsContainerRef}
-          className="bg-gradient-to-b from-[#1C2A47]/60 to-[#0d1526] border border-[#FF9F76]/15 rounded-2xl py-12 px-6 md:px-8 relative overflow-hidden"
+          className="bg-gradient-to-b from-[#2A160E]/60 to-[#1C0F0A] border border-[#FF9F76]/15 rounded-2xl py-12 px-6 md:px-8 relative overflow-hidden"
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="space-y-2">
@@ -476,7 +476,7 @@ export default function TechnologySupportPage() {
                     className="pipeline-row relative lg:grid lg:grid-cols-2 lg:items-center"
                   >
                     {/* Numbered node on the spine */}
-                    <div className="pipeline-node absolute left-5 lg:left-1/2 top-6 lg:top-1/2 -translate-x-1/2 lg:-translate-y-1/2 z-10 h-9 w-9 rounded-full bg-[#0d1526] border-2 border-white/25 flex items-center justify-center text-sm font-bold text-white">
+                    <div className="pipeline-node absolute left-5 lg:left-1/2 top-6 lg:top-1/2 -translate-x-1/2 lg:-translate-y-1/2 z-10 h-9 w-9 rounded-full bg-[#1C0F0A] border-2 border-white/25 flex items-center justify-center text-sm font-bold text-white">
                       {step.num}
                     </div>
 
@@ -491,7 +491,7 @@ export default function TechnologySupportPage() {
                     <div
                       className={`pipeline-card glass-card glass-card-hover overflow-hidden border-l-4 ${accent.border} pl-14 lg:pl-0 lg:max-w-md ${
                         isRight ? "lg:col-start-2 lg:ml-14" : "lg:col-start-1 lg:mr-14 lg:justify-self-end"
-                      } ${step.highlight ? "bg-gradient-to-br from-[#1C2A47]/80 to-[#0d1526] ring-1 ring-[#FF9F76]/20" : ""}`}
+                      } ${step.highlight ? "bg-gradient-to-br from-[#2A160E]/80 to-[#1C0F0A] ring-1 ring-[#FF9F76]/20" : ""}`}
                     >
                       <div className="p-6 space-y-4">
                         <div className="flex items-center justify-between gap-3">
@@ -565,7 +565,7 @@ export default function TechnologySupportPage() {
               {automationSteps.map((s, idx) => (
                 <div key={s.num} className="blueprint-card">
                   {/* Card */}
-                  <div className="rounded-2xl overflow-hidden border border-[#FF9F76]/30 bg-[#1C2A47]/80 backdrop-blur shadow-2xl shadow-black/60">
+                  <div className="rounded-2xl overflow-hidden border border-[#FF9F76]/30 bg-[#2A160E]/80 backdrop-blur shadow-2xl shadow-black/60">
                     {/* Amber accent stripe */}
                     <div className="h-0.5 bg-gradient-to-r from-[#FF9F76] via-[#F4845F] to-transparent" />
                     {/* Header row */}
@@ -632,7 +632,7 @@ export default function TechnologySupportPage() {
           <div className="shrink-0 flex items-center">
             <button
               onClick={() => openModal("technology")}
-              className="bg-[#FF9F76] hover:bg-[#F4845F] text-[#050A14] font-extrabold py-3.5 px-8 rounded-lg text-xs transition-all shadow-md cursor-pointer uppercase tracking-wider"
+              className="bg-[#FF9F76] hover:bg-[#F4845F] text-[#140A06] font-extrabold py-3.5 px-8 rounded-lg text-xs transition-all shadow-md cursor-pointer uppercase tracking-wider"
             >
               Request Technology Setup Audit
             </button>

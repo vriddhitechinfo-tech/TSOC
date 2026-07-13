@@ -35,7 +35,7 @@ export default function FeeCalculator() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto bg-[#0d1526]/50 border border-[#FF9F76]/20 rounded-2xl overflow-hidden shadow-2xl backdrop-blur-md">
+    <div className="w-full max-w-4xl mx-auto bg-[#1C0F0A]/50 border border-[#FF9F76]/20 rounded-2xl overflow-hidden shadow-2xl backdrop-blur-md">
       <div className="grid grid-cols-1 lg:grid-cols-2">
         {/* Left Side: Inputs */}
         <div className="p-6 md:p-8 space-y-6">
@@ -66,7 +66,7 @@ export default function FeeCalculator() {
                 step="5"
                 value={returns}
                 onChange={(e) => setReturns(Number(e.target.value))}
-                className="w-full h-1 bg-[#1C2A47] rounded-lg appearance-none cursor-pointer accent-[#FF9F76]"
+                className="w-full h-1 bg-[#2A160E] rounded-lg appearance-none cursor-pointer accent-[#FF9F76]"
               />
               <div className="flex justify-between text-xs text-[#EDE9E0]/40">
                 <span>10</span>
@@ -89,7 +89,7 @@ export default function FeeCalculator() {
                 step="25"
                 value={avgCharge}
                 onChange={(e) => setAvgCharge(Number(e.target.value))}
-                className="w-full h-1 bg-[#1C2A47] rounded-lg appearance-none cursor-pointer accent-[#FF9F76]"
+                className="w-full h-1 bg-[#2A160E] rounded-lg appearance-none cursor-pointer accent-[#FF9F76]"
               />
               <div className="flex justify-between text-xs text-[#EDE9E0]/40">
                 <span>$150</span>
@@ -112,7 +112,7 @@ export default function FeeCalculator() {
                 step="5"
                 value={splitPercent}
                 onChange={(e) => setSplitPercent(Number(e.target.value))}
-                className="w-full h-1 bg-[#1C2A47] rounded-lg appearance-none cursor-pointer accent-[#FF9F76]"
+                className="w-full h-1 bg-[#2A160E] rounded-lg appearance-none cursor-pointer accent-[#FF9F76]"
               />
               <div className="flex justify-between text-xs text-[#EDE9E0]/40">
                 <span>10%</span>
@@ -124,7 +124,7 @@ export default function FeeCalculator() {
         </div>
 
         {/* Right Side: Results */}
-        <div className="bg-[#1C2A47]/60 border-t lg:border-t-0 lg:border-l border-[#FF9F76]/20 p-6 md:p-8 flex flex-col justify-between space-y-6">
+        <div className="bg-[#2A160E]/60 border-t lg:border-t-0 lg:border-l border-[#FF9F76]/20 p-6 md:p-8 flex flex-col justify-between space-y-6">
           <div className="space-y-4">
             <div>
               <span className="text-xs font-bold uppercase tracking-widest text-[#FF9F76]">Total Annual Revenue</span>
@@ -134,14 +134,14 @@ export default function FeeCalculator() {
             </div>
 
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-[#0d1526]/40 border border-[#FF9F76]/15 p-3 rounded-lg">
+              <div className="bg-[#1C0F0A]/40 border border-[#FF9F76]/15 p-3 rounded-lg">
                 <span className="text-xs font-bold text-[#EDE9E0]/50 uppercase tracking-wider block">Split Model Income</span>
                 <span className="text-xs font-mono font-bold text-[#EDE9E0]/70">
                   {formatCurrency(revenueKeptUnderSplit)}
                 </span>
                 <span className="text-xs text-[#EDE9E0]/45 block mt-0.5">({100 - splitPercent}% kept)</span>
               </div>
-              <div className="bg-[#0d1526]/40 border border-[#FF9F76]/15 p-3 rounded-lg">
+              <div className="bg-[#1C0F0A]/40 border border-[#FF9F76]/15 p-3 rounded-lg">
                 <span className="text-xs font-bold text-[#FF9F76] uppercase tracking-wider block">Independent ERO Income</span>
                 <span className="text-xs font-mono font-bold text-white">
                   {formatCurrency(revenueKeptUnderEfin)}
@@ -165,7 +165,7 @@ export default function FeeCalculator() {
           <div className="space-y-3">
             <button
               onClick={() => openModal("ero")}
-              className="w-full inline-flex items-center justify-center rounded-lg bg-[#FF9F76] hover:bg-[#F4845F] text-[#050A14] py-3 text-xs font-extrabold uppercase tracking-wider shadow-md hover:shadow-[#FF9F76]/10 transition-all cursor-pointer"
+              className="w-full inline-flex items-center justify-center rounded-lg bg-[#FF9F76] hover:bg-[#F4845F] text-[#140A06] py-3 text-xs font-extrabold uppercase tracking-wider shadow-md hover:shadow-[#FF9F76]/10 transition-all cursor-pointer"
             >
               Get Your EFIN &amp; Keep 100%
               <ArrowRight className="w-3.5 h-3.5 ml-2" />

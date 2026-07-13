@@ -36,7 +36,7 @@ export default function FaqAccordion({
           return (
             <div
               key={index}
-              className="border border-[#FF9F76]/15 bg-[#1C2A47]/25 hover:bg-[#1C2A47]/50 rounded-xl transition-all duration-300 overflow-hidden"
+              className="border border-[#FF9F76]/15 bg-[#2A160E]/25 hover:bg-[#2A160E]/50 rounded-xl transition-all duration-300 overflow-hidden"
             >
               <button
                 onClick={() => toggleIndex(index)}

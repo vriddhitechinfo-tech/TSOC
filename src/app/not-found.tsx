@@ -9,7 +9,7 @@ export default function NotFound() {
   const { openModal } = useModal();
 
   return (
-    <div className="relative overflow-hidden bg-[#0d1526] min-h-[70vh] flex flex-col items-center justify-center py-20 px-4 text-center">
+    <div className="relative overflow-hidden bg-[#1C0F0A] min-h-[70vh] flex flex-col items-center justify-center py-20 px-4 text-center">
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,159,118,0.03)_0%,transparent_60%)] pointer-events-none -z-10" />
 
@@ -30,13 +30,13 @@ export default function NotFound() {
       <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
         <Link
           href="/"
-          className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-[#FF9F76] hover:bg-[#F4845F] text-[#050A14] font-extrabold py-3 px-6 text-xs transition-colors cursor-pointer uppercase tracking-wider shadow-md"
+          className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-[#FF9F76] hover:bg-[#F4845F] text-[#140A06] font-extrabold py-3 px-6 text-xs transition-colors cursor-pointer uppercase tracking-wider shadow-md"
         >
           Return to Dashboard
         </Link>
         <button
           onClick={() => openModal("strategy")}
-          className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-[#0d1526] border border-[#FF9F76]/20 hover:border-[#FF9F76] text-[#EDE9E0]/70 hover:text-white font-bold py-3 px-6 text-xs transition-colors cursor-pointer uppercase tracking-wider"
+          className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-[#1C0F0A] border border-[#FF9F76]/20 hover:border-[#FF9F76] text-[#EDE9E0]/70 hover:text-white font-bold py-3 px-6 text-xs transition-colors cursor-pointer uppercase tracking-wider"
         >
           Book a Strategy Call
         </button>

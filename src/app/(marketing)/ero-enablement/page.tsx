@@ -104,7 +104,7 @@ export default function EROEnablementPage() {
   ];
 
   return (
-    <div ref={pageRef} className="relative overflow-hidden bg-[#050A14] min-h-screen py-16 sm:py-10 animate-fade-in">
+    <div ref={pageRef} className="relative overflow-hidden bg-[#140A06] min-h-screen py-16 sm:py-10 animate-fade-in">
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,159,118,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
 
@@ -123,7 +123,7 @@ export default function EROEnablementPage() {
           <div className="pt-4">
             <button
               onClick={() => openModal("ero")}
-              className="inline-flex items-center justify-center rounded-lg bg-[#FF9F76] hover:bg-[#F4845F] text-[#050A14] font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
+              className="inline-flex items-center justify-center rounded-lg bg-[#FF9F76] hover:bg-[#F4845F] text-[#140A06] font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
             >
               Book an ERO Consultation
             </button>
@@ -169,7 +169,7 @@ export default function EROEnablementPage() {
               },
             ].map((benefit, i) => (
               <TiltCard key={benefit.title} delay={i * 0.1} className="glass-card glass-card-hover p-6 space-y-4">
-                <div className="h-9 w-9 rounded-md bg-[#1C2A47] border border-[#FF9F76]/30 flex items-center justify-center text-[#FF9F76]">
+                <div className="h-9 w-9 rounded-md bg-[#2A160E] border border-[#FF9F76]/30 flex items-center justify-center text-[#FF9F76]">
                   <benefit.icon className="w-5 h-5" />
                 </div>
                 <h3 className="text-xs font-bold text-white uppercase tracking-wider">{benefit.title}</h3>
@@ -209,7 +209,7 @@ export default function EROEnablementPage() {
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true, margin: "-60px" }}
                     transition={{ type: "spring", stiffness: 320, damping: 14, delay: 0.1 }}
-                    className="absolute left-5 md:left-1/2 top-7 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 z-10 h-4 w-4 rounded-full bg-[#1C2A47] border-2 border-[#F4845F] shadow-[0_0_14px_rgba(244,132,95,0.6)]"
+                    className="absolute left-5 md:left-1/2 top-7 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 z-10 h-4 w-4 rounded-full bg-[#2A160E] border-2 border-[#F4845F] shadow-[0_0_14px_rgba(244,132,95,0.6)]"
                   />
                   {/* Connector arm (desktop) */}
                   <motion.span
@@ -233,7 +233,7 @@ export default function EROEnablementPage() {
                     }`}
                   >
                     <div className="flex items-center gap-3">
-                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#1C2A47] border border-[#FF9F76]/40 text-[#FF9F76] font-extrabold text-sm">
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#2A160E] border border-[#FF9F76]/40 text-[#FF9F76] font-extrabold text-sm">
                         {step.num}
                       </span>
                       <h3 className="text-xs md:text-sm font-bold text-white uppercase tracking-wider">{step.title}</h3>
@@ -248,7 +248,7 @@ export default function EROEnablementPage() {
                 <TiltCard
                   tilt={6}
                   fromY={20}
-                  className="relative z-10 ml-12 md:ml-0 inline-flex items-center gap-2.5 rounded-full bg-[#1C2A47] border border-[#FF9F76]/40 px-5 py-3 shadow-[0_0_25px_rgba(255,159,118,0.2)]"
+                  className="relative z-10 ml-12 md:ml-0 inline-flex items-center gap-2.5 rounded-full bg-[#2A160E] border border-[#FF9F76]/40 px-5 py-3 shadow-[0_0_25px_rgba(255,159,118,0.2)]"
                 >
                   <CheckCircle2 className="w-4 h-4 text-[#F4845F]" />
                   <span className="text-xs font-bold uppercase tracking-wider text-white">
@@ -273,7 +273,7 @@ export default function EROEnablementPage() {
           </p>
           <button
             onClick={() => openModal("ero")}
-            className="bg-gradient-to-r from-[#FF9F76] to-[#F4845F] hover:from-[#F4845F] hover:to-[#E67049] text-[#050A14] font-extrabold py-2.5 px-6 rounded-lg text-xs transition-colors shadow-md mt-2 cursor-pointer uppercase tracking-wider"
+            className="bg-gradient-to-r from-[#FF9F76] to-[#F4845F] hover:from-[#F4845F] hover:to-[#E67049] text-[#140A06] font-extrabold py-2.5 px-6 rounded-lg text-xs transition-colors shadow-md mt-2 cursor-pointer uppercase tracking-wider"
           >
             Start ERO Enablement Today
           </button>

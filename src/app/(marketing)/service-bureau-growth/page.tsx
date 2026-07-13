@@ -208,7 +208,7 @@ export default function ServiceBureauGrowthPage() {
   };
 
   return (
-    <div ref={pageRef} className="relative overflow-hidden bg-[#050A14] min-h-screen py-16 sm:py-10 animate-fade-in">
+    <div ref={pageRef} className="relative overflow-hidden bg-[#140A06] min-h-screen py-16 sm:py-10 animate-fade-in">
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,159,118,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
 
@@ -227,7 +227,7 @@ export default function ServiceBureauGrowthPage() {
           <div className="pt-4">
             <button
               onClick={() => openModal("bureau")}
-              className="inline-flex items-center justify-center rounded-lg bg-[#FF9F76] hover:bg-[#F4845F] text-[#050A14] font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
+              className="inline-flex items-center justify-center rounded-lg bg-[#FF9F76] hover:bg-[#F4845F] text-[#140A06] font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
             >
               Apply for Service Bureau Mentorship
             </button>
@@ -237,7 +237,7 @@ export default function ServiceBureauGrowthPage() {
         {/* Animated Stats Section */}
         <div
           ref={statsContainerRef}
-          className="bg-gradient-to-b from-[#0d1526]/80 to-[#0d1526] border border-[#FF9F76]/30 rounded-2xl py-12 px-6 md:px-8 relative overflow-hidden"
+          className="bg-gradient-to-b from-[#1C0F0A]/80 to-[#1C0F0A] border border-[#FF9F76]/30 rounded-2xl py-12 px-6 md:px-8 relative overflow-hidden"
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="space-y-2">
@@ -311,7 +311,7 @@ export default function ServiceBureauGrowthPage() {
           <div ref={containerRef} className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative pb-16">
             {/* Left Column - Pinned Menu (Desktop only) */}
             <div className="hidden lg:block lg:col-span-4 sticky top-24 self-start space-y-3" ref={leftMenuRef}>
-              <div className="bg-[#1C2A47]/80 border border-[#FF9F76]/30 rounded-xl p-4 space-y-2">
+              <div className="bg-[#2A160E]/80 border border-[#FF9F76]/30 rounded-xl p-4 space-y-2">
                 <span className="text-xs font-bold text-[#EDE9E0]/50 uppercase tracking-widest block mb-2">Phase Navigator</span>
                 {phases.map((p, idx) => (
                   <button
@@ -325,7 +325,7 @@ export default function ServiceBureauGrowthPage() {
                   >
                     <div className="flex items-center space-x-3">
                       <span className={`h-6 w-6 rounded flex items-center justify-center text-xs font-bold border ${
-                        activeScrollPhase === idx ? "bg-[#1C2A47] border-[#FF9F76]/40 text-[#FF9F76]" : "bg-[#050A14] border-[#FF9F76]/30 text-[#EDE9E0]/40"
+                        activeScrollPhase === idx ? "bg-[#2A160E] border-[#FF9F76]/40 text-[#FF9F76]" : "bg-[#140A06] border-[#FF9F76]/30 text-[#EDE9E0]/40"
                       }`}>
                         {idx + 1}
                       </span>
@@ -421,7 +421,7 @@ export default function ServiceBureauGrowthPage() {
             </p>
             <button
               onClick={() => openModal("bureau")}
-              className="bg-[#FF9F76] hover:bg-[#F4845F] text-[#050A14] font-extrabold py-3 px-8 rounded-lg text-xs transition-colors mt-2 cursor-pointer uppercase tracking-wider"
+              className="bg-[#FF9F76] hover:bg-[#F4845F] text-[#140A06] font-extrabold py-3 px-8 rounded-lg text-xs transition-colors mt-2 cursor-pointer uppercase tracking-wider"
             >
               Start Mentorship Application
             </button>
