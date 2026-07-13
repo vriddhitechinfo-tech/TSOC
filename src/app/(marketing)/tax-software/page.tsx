@@ -32,8 +32,8 @@ export default function TaxSoftwarePage() {
       if (statsContainerRef.current) {
         const statsData = { users: 0, returns: 0, uptime: 0 };
         gsap.to(statsData, {
-          users: 500,
-          returns: 50,
+          users: 200,
+          returns: 25,
           uptime: 99.9,
           duration: 1.6,
           ease: "power2.out",
@@ -153,7 +153,7 @@ export default function TaxSoftwarePage() {
   return (
     <div ref={pageRef} className="relative overflow-hidden bg-[#050A14] min-h-screen">
       {/* Background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,217,74,0.07)_0%,transparent_60%)] pointer-events-none -z-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,159,118,0.10)_0%,transparent_60%)] pointer-events-none -z-10" />
 
       <style>{`
         @keyframes float {
@@ -169,7 +169,7 @@ export default function TaxSoftwarePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center h-full">
             {/* Left: Content */}
             <div className="space-y-6 flex flex-col justify-center">
-              <span className="gsap-reveal inline-flex w-fit items-center rounded-full bg-[#FFD94A]/10 border border-[#FFD94A]/20 px-3 py-1 text-xs font-semibold text-[#FFD94A]">
+              <span className="gsap-reveal inline-flex w-fit items-center rounded-full bg-[#FF9F76]/10 border border-[#FF9F76]/20 px-3 py-1 text-xs font-semibold text-[#FF9F76]">
                 Professional Tax Software for Tax Preparers
               </span>
               <h1 className="gsap-reveal text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-snug text-white">
@@ -181,13 +181,13 @@ export default function TaxSoftwarePage() {
               <div className="gsap-reveal flex flex-col sm:flex-row gap-4 pt-4">
                 <button
                   onClick={() => openModal("demo")}
-                  className="bg-[#FFD94A] hover:bg-[#FFAA2A] text-[#050A14] font-extrabold px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer shadow-md"
+                  className="bg-[#FF9F76] hover:bg-[#F4845F] text-[#050A14] font-extrabold px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer shadow-md"
                 >
                   See the Software in Action
                 </button>
                 <button
                   onClick={() => openModal("strategy")}
-                  className="bg-[#1C2A47] text-[#EDE9E0]/70 hover:text-white border border-[#FFD94A]/20 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer"
+                  className="bg-[#1C2A47] text-[#EDE9E0]/70 hover:text-white border border-[#FF9F76]/20 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer"
                 >
                   Request a Live Demo
                 </button>
@@ -195,44 +195,38 @@ export default function TaxSoftwarePage() {
             </div>
 
             {/* Right: Dashboard Image with Floating Animation */}
-            <div className="relative h-full rounded-2xl overflow-hidden border border-[#FFD94A]/20 shadow-2xl shadow-black/60" style={{animation: 'float 6s ease-in-out infinite'}}>
-              <div className="absolute top-0 left-0 right-0 h-8 bg-[#0d1526] border-b border-[#FFD94A]/15 flex items-center px-4 gap-1.5 z-10">
-                <span className="h-2.5 w-2.5 rounded-full bg-[#FFD94A]/40" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#FFD94A]/65" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#FFD94A]/90" />
-                <span className="ml-4 text-xs text-[#EDE9E0]/30 font-mono">Pro Tax Software — Dashboard</span>
+            <div className="relative h-full rounded-2xl overflow-hidden border border-[#FF9F76]/20 shadow-2xl shadow-black/60" style={{animation: 'float 6s ease-in-out infinite'}}>
+              <div className="absolute top-0 left-0 right-0 h-8 bg-[#0d1526] border-b border-[#FF9F76]/15 flex items-center px-4 gap-1.5 z-10">
+                <span className="h-2.5 w-2.5 rounded-full bg-[#FF9F76]/40" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#FF9F76]/20" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#FF9F76]/20" />
+                <span className="text-[10px] font-mono text-[#EDE9E0]/30 ml-2">tsoc-software-dashboard.v16</span>
               </div>
-              <Image
-                src="/tax_software_dashboard.png"
-                alt="Professional tax software dashboard showing client management, filing status, and return analytics"
-                width={1440}
-                height={810}
-                className="w-full h-full object-cover mt-8"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050A14]/60 via-transparent to-transparent pointer-events-none" />
+              <div className="pt-8 h-full">
+                <SoftwareCarousel />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-24 pb-24">
 
         {/* Animated Stats Section */}
         <div
           ref={statsContainerRef}
-          className="bg-gradient-to-b from-[#1C2A47]/60 to-[#0d1526] border border-[#FFD94A]/15 rounded-2xl py-12 px-6 md:px-8 relative overflow-hidden"
+          className="bg-gradient-to-b from-[#1C2A47]/60 to-[#0d1526] border border-[#FF9F76]/15 rounded-2xl py-12 px-6 md:px-8 relative overflow-hidden"
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="space-y-2">
               <span
                 ref={usersValRef}
-                className="text-4xl md:text-5xl font-black text-[#FFD94A] font-mono block"
+                className="text-4xl md:text-5xl font-black text-[#FF9F76] font-mono block"
               >
                 0+
               </span>
               <span className="text-xs text-white font-bold uppercase tracking-wider block">
-                Active Professional Users
+                Active Tax Pros
               </span>
               <p className="text-xs text-[#EDE9E0]/35">
                 Tax preparers and EROs filing returns on our platform
@@ -241,21 +235,21 @@ export default function TaxSoftwarePage() {
             <div className="space-y-2">
               <span
                 ref={returnsValRef}
-                className="text-4xl md:text-5xl font-black text-[#FFD94A] font-mono block"
+                className="text-4xl md:text-5xl font-black text-[#FF9F76] font-mono block"
               >
                 0K+
               </span>
               <span className="text-xs text-white font-bold uppercase tracking-wider block">
-                Returns Filed Annually
+                Returns Filed
               </span>
               <p className="text-xs text-[#EDE9E0]/35">
-                Federal and state returns processed through our cloud platform
+                Federal and state returns processed through our platform
               </p>
             </div>
             <div className="space-y-2">
               <span
                 ref={upTimeValRef}
-                className="text-4xl md:text-5xl font-black text-[#FFD94A] font-mono block"
+                className="text-4xl md:text-5xl font-black text-[#FF9F76] font-mono block"
               >
                 0%
               </span>
@@ -263,7 +257,7 @@ export default function TaxSoftwarePage() {
                 Uptime Guarantee
               </span>
               <p className="text-xs text-[#EDE9E0]/35">
-                Enterprise-grade reliability for mission-critical filing season
+                Reliable cloud access when you need it most
               </p>
             </div>
           </div>
@@ -285,7 +279,7 @@ export default function TaxSoftwarePage() {
             <p className="text-xs text-[#EDE9E0]/35 mt-1">Full video walkthroughs covering every workspace, integration, and filing workflow — browse the playlist below.</p>
           </div>
           <div className="glass-card p-2 sm:p-3 max-w-4xl mx-auto">
-            <div className="relative aspect-video rounded-xl overflow-hidden border border-[#FFD94A]/15">
+            <div className="relative aspect-video rounded-xl overflow-hidden border border-[#FF9F76]/15">
               <iframe
                 className="absolute inset-0 h-full w-full"
                 src="https://www.youtube.com/embed/videoseries?list=PLvdGo5rAYt9iPbTwaMWjXnfGmJfPaAzi6"
@@ -300,7 +294,7 @@ export default function TaxSoftwarePage() {
         {/* Feature Highlights Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <TiltCard className="glass-card glass-card-hover p-6 space-y-4">
-            <div className="h-9 w-9 rounded-md bg-[#0d1526] border border-[#FFD94A]/15 flex items-center justify-center text-[#FFD94A]">
+            <div className="h-9 w-9 rounded-md bg-[#0d1526] border border-[#FF9F76]/15 flex items-center justify-center text-[#FF9F76]">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <h3 className="text-base font-bold text-white uppercase tracking-wider">Full IRS Compliance &amp; Review</h3>
@@ -309,8 +303,8 @@ export default function TaxSoftwarePage() {
             </p>
           </TiltCard>
 
-          <TiltCard delay={0.1} className="glass-card-hover p-6 space-y-4 border border-[#FFD94A]/15 bg-[#1C2A47]/20 rounded-xl">
-            <div className="h-9 w-9 rounded-md bg-[#0d1526] border border-[#FFD94A]/15 flex items-center justify-center text-[#FFD94A]">
+          <TiltCard delay={0.1} className="glass-card-hover p-6 space-y-4 border border-[#FF9F76]/15 bg-[#1C2A47]/20 rounded-xl">
+            <div className="h-9 w-9 rounded-md bg-[#0d1526] border border-[#FF9F76]/15 flex items-center justify-center text-[#FF9F76]">
               <DollarSign className="w-5 h-5" />
             </div>
             <h3 className="text-base font-bold text-white uppercase tracking-wider">Integrated Bank Products</h3>
@@ -320,7 +314,7 @@ export default function TaxSoftwarePage() {
           </TiltCard>
 
           <TiltCard delay={0.2} className="glass-card glass-card-hover p-6 space-y-4">
-            <div className="h-9 w-9 rounded-md bg-[#0d1526] border border-[#FFD94A]/15 flex items-center justify-center text-[#FFD94A]">
+            <div className="h-9 w-9 rounded-md bg-[#0d1526] border border-[#FF9F76]/15 flex items-center justify-center text-[#FF9F76]">
               <Users className="w-5 h-5" />
             </div>
             <h3 className="text-base font-bold text-white uppercase tracking-wider">Unlimited Multi-User Console</h3>
@@ -345,12 +339,12 @@ export default function TaxSoftwarePage() {
                 key={pkg.name}
                 tilt={5}
                 delay={idx * 0.12}
-                className={`flex flex-col justify-between bg-[#0d1526]/40 border border-[#FFD94A]/15 rounded-xl p-8 relative ${
-                  pkg.isPopular ? "border-[#FFD94A]/35 shadow-xl shadow-[#FFD94A]/5 bg-[#1C2A47]/60" : ""
+                className={`flex flex-col justify-between bg-[#0d1526]/40 border border-[#FF9F76]/15 rounded-xl p-8 relative ${
+                  pkg.isPopular ? "border-[#FF9F76]/35 shadow-xl shadow-[#FF9F76]/5 bg-[#1C2A47]/60" : ""
                 }`}
               >
                 {pkg.isPopular && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#FFD94A] to-[#FFAA2A] text-[#050A14] font-extrabold text-xs tracking-widest px-3 py-1 rounded uppercase">
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#FF9F76] to-[#F4845F] text-[#050A14] font-extrabold text-xs tracking-widest px-3 py-1 rounded uppercase">
                     E-file Standard
                   </span>
                 )}
@@ -361,11 +355,11 @@ export default function TaxSoftwarePage() {
                     <p className="text-xs text-[#EDE9E0]/35 mt-2">{pkg.desc}</p>
                   </div>
 
-                  <div className="text-xl font-black text-[#FFD94A] font-mono">
+                  <div className="text-xl font-black text-[#FF9F76] font-mono">
                     {pkg.priceText}
                   </div>
 
-                  <hr className="border-[#FFD94A]/10" />
+                  <hr className="border-[#FF9F76]/10" />
 
                   <ul className="space-y-3.5">
                     {pkg.features.map((feat) => (
@@ -382,8 +376,8 @@ export default function TaxSoftwarePage() {
                     onClick={pkg.action}
                     className={`w-full py-2.5 px-4 rounded-lg text-xs font-extrabold transition-all cursor-pointer uppercase tracking-wider ${
                       pkg.isPopular 
-                        ? "bg-[#FFD94A] hover:bg-[#FFAA2A] text-[#050A14] shadow-lg"
-                        : "bg-[#1C2A47] hover:bg-[#243352] border border-[#FFD94A]/20 text-[#FFD94A]"
+                        ? "bg-[#FF9F76] hover:bg-[#F4845F] text-[#050A14] shadow-lg"
+                        : "bg-[#1C2A47] hover:bg-[#243352] border border-[#FF9F76]/20 text-[#FF9F76]"
                     }`}
                   >
                     {pkg.ctaText}
@@ -397,7 +391,7 @@ export default function TaxSoftwarePage() {
         {/* Testimonials Section */}
         <div className="gsap-reveal space-y-8">
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#FFD94A] bg-[#FFD94A]/10 border border-[#FFD94A]/20 px-3 py-1 rounded inline-block">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#FF9F76] bg-[#FF9F76]/10 border border-[#FF9F76]/20 px-3 py-1 rounded inline-block">
               User Success Stories
             </span>
             <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight uppercase">
@@ -418,7 +412,7 @@ export default function TaxSoftwarePage() {
         {/* Community Banner */}
         <TiltCard tilt={3} className="glass-card p-8 md:p-12 relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-8">
           <div className="space-y-3 max-w-2xl">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#FFD94A] bg-[#FFD94A]/10 border border-[#FFD94A]/20 px-3 py-1 rounded">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#FF9F76] bg-[#FF9F76]/10 border border-[#FF9F76]/20 px-3 py-1 rounded">
               Tax Software + Community
             </span>
             <h3 className="text-xl font-bold text-white uppercase tracking-wider">More Than Software — A Full Support System</h3>
@@ -437,7 +431,7 @@ export default function TaxSoftwarePage() {
           <div className="shrink-0 flex items-center">
             <button
               onClick={() => openModal("software")}
-              className="bg-[#FFD94A] hover:bg-[#FFAA2A] text-[#050A14] font-extrabold py-3.5 px-8 rounded-lg text-xs transition-all shadow-md cursor-pointer uppercase tracking-wider"
+              className="bg-[#FF9F76] hover:bg-[#F4845F] text-[#050A14] font-extrabold py-3.5 px-8 rounded-lg text-xs transition-all shadow-md cursor-pointer uppercase tracking-wider"
             >
               Get Started Now
             </button>
@@ -447,4 +441,3 @@ export default function TaxSoftwarePage() {
     </div>
   );
 }
-

@@ -210,7 +210,7 @@ export default function OpenOfficePage() {
   return (
     <div ref={pageRef} className="relative overflow-hidden bg-[#050A14] min-h-screen">
       {/* Background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,217,74,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,159,118,0.10)_0%,transparent_60%)] pointer-events-none -z-10" />
 
       <style>{`
         @keyframes float {
@@ -226,7 +226,7 @@ export default function OpenOfficePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center h-full">
             {/* Left: Content */}
             <div className="space-y-6 flex flex-col justify-center">
-              <span className="gsap-reveal inline-flex w-fit items-center rounded-full bg-[#FFD94A]/10 border border-[#FFD94A]/20 px-3 py-1 text-xs font-semibold text-[#FFD94A]">
+              <span className="gsap-reveal inline-flex w-fit items-center rounded-full bg-[#FF9F76]/10 border border-[#FF9F76]/20 px-3 py-1 text-xs font-semibold text-[#FF9F76]">
                 For Tax Pros, Bookkeepers, Entrepreneurs & More
               </span>
               <h1 className="gsap-reveal font-display text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-normal leading-tight text-white">
@@ -238,13 +238,13 @@ export default function OpenOfficePage() {
               <div className="gsap-reveal flex flex-col sm:flex-row gap-4 pt-4">
                 <button
                   onClick={() => openModal("openoffice")}
-                  className="bg-[#FFD94A] hover:bg-[#FFAA2A] text-[#050A14] font-extrabold px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer shadow-md"
+                  className="bg-[#FF9F76] hover:bg-[#F4845F] text-[#050A14] font-extrabold px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer shadow-md"
                 >
                   Join Open Office Live
                 </button>
                 <button
                   onClick={() => openModal("openoffice")}
-                  className="bg-[#1C2A47] text-[#EDE9E0]/70 hover:text-white border border-[#FFD94A]/20 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer"
+                  className="bg-[#1C2A47] text-[#EDE9E0]/70 hover:text-white border border-[#FF9F76]/20 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer"
                 >
                   Ask Questions Live
                 </button>
@@ -252,11 +252,11 @@ export default function OpenOfficePage() {
             </div>
 
             {/* Right: Coworking Image with Floating Animation */}
-            <div className="relative h-full rounded-2xl overflow-hidden border border-[#FFD94A]/15 shadow-2xl shadow-black/60" style={{animation: 'float 6s ease-in-out infinite'}}>
-              <div className="absolute top-0 left-0 right-0 h-8 bg-[#0d1526] border-b border-[#FFD94A]/10 flex items-center px-4 gap-1.5 z-10">
-                <span className="h-2.5 w-2.5 rounded-full bg-[#FFD94A]/40" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#FFD94A]/65" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#FFD94A]/90" />
+            <div className="relative h-full rounded-2xl overflow-hidden border border-[#FF9F76]/15 shadow-2xl shadow-black/60" style={{animation: 'float 6s ease-in-out infinite'}}>
+              <div className="absolute top-0 left-0 right-0 h-8 bg-[#0d1526] border-b border-[#FF9F76]/10 flex items-center px-4 gap-1.5 z-10">
+                <span className="h-2.5 w-2.5 rounded-full bg-[#FF9F76]/40" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#FF9F76]/65" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#FF9F76]/90" />
                 <span className="ml-4 text-xs text-[#EDE9E0]/35 font-mono">Open Office — Daily Coworking</span>
               </div>
               <Image
@@ -269,8 +269,8 @@ export default function OpenOfficePage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#050A14]/60 via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-4 left-4 flex items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 bg-[#050A14]/80 backdrop-blur border border-[#FFD94A]/20 px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider text-[#FFD94A]">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#FFD94A] animate-pulse" />
+                <span className="inline-flex items-center gap-1.5 bg-[#050A14]/80 backdrop-blur border border-[#FF9F76]/20 px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider text-[#FF9F76]">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#FF9F76] animate-pulse" />
                   Daily Coworking Sessions · Mon–Fri
                 </span>
               </div>
@@ -284,7 +284,7 @@ export default function OpenOfficePage() {
         {/* VSL — Watch the Open Office Experience */}
         <div className="gsap-reveal space-y-6">
           <div className="text-center max-w-2xl mx-auto space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#FFD94A] bg-[#FFD94A]/10 border border-[#FFD94A]/20 px-3 py-1 rounded inline-block">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#FF9F76] bg-[#FF9F76]/10 border border-[#FF9F76]/20 px-3 py-1 rounded inline-block">
               Watch & Learn
             </span>
             <h2 className="font-display text-2xl sm:text-3xl font-semibold text-white tracking-normal uppercase">
@@ -295,7 +295,7 @@ export default function OpenOfficePage() {
             </p>
           </div>
           <div className="glass-card p-2 sm:p-3 max-w-4xl mx-auto">
-            <div className="relative aspect-video rounded-xl overflow-hidden border border-[#FFD94A]/15">
+            <div className="relative aspect-video rounded-xl overflow-hidden border border-[#FF9F76]/15">
               <iframe
                 className="absolute inset-0 h-full w-full"
                 src="https://www.youtube.com/embed/M3sJ0nSRVmg"
@@ -310,13 +310,13 @@ export default function OpenOfficePage() {
         {/* Animated Stats Section */}
         <div
           ref={statsContainerRef}
-          className="bg-gradient-to-b from-[#1C2A47]/80 to-[#050A14] border border-[#FFD94A]/15 rounded-2xl py-12 px-6 md:px-8 relative overflow-hidden"
+          className="bg-gradient-to-b from-[#1C2A47]/80 to-[#050A14] border border-[#FF9F76]/15 rounded-2xl py-12 px-6 md:px-8 relative overflow-hidden"
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="space-y-2">
               <span
                 ref={membersValRef}
-                className="text-4xl md:text-5xl font-black text-[#FFD94A] font-mono block"
+                className="text-4xl md:text-5xl font-black text-[#FF9F76] font-mono block"
               >
                 0+
               </span>
@@ -330,7 +330,7 @@ export default function OpenOfficePage() {
             <div className="space-y-2">
               <span
                 ref={sessionsValRef}
-                className="text-4xl md:text-5xl font-black text-[#FFD94A] font-mono block"
+                className="text-4xl md:text-5xl font-black text-[#FF9F76] font-mono block"
               >
                 0
               </span>
@@ -344,7 +344,7 @@ export default function OpenOfficePage() {
             <div className="space-y-2">
               <span
                 ref={supportValRef}
-                className="text-4xl md:text-5xl font-black text-[#FFD94A] font-mono block"
+                className="text-4xl md:text-5xl font-black text-[#FF9F76] font-mono block"
               >
                 0/7
               </span>

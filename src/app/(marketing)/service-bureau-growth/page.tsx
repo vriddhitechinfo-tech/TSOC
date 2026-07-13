@@ -227,7 +227,7 @@ export default function ServiceBureauGrowthPage() {
           <div className="pt-4">
             <button
               onClick={() => openModal("bureau")}
-              className="inline-flex items-center justify-center rounded-lg bg-[#FFD94A] hover:bg-[#FFAA2A] text-[#050A14] font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
+              className="inline-flex items-center justify-center rounded-lg bg-[#FF9F76] hover:bg-[#F4845F] text-[#050A14] font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
             >
               Apply for Service Bureau Mentorship
             </button>

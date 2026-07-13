@@ -64,7 +64,7 @@ export default function Home() {
       ],
       bgFrom: "#050A14",
       bgTo: "#0d1526",
-      accentColor: "#FFD94A",
+      accentColor: "#FF9F76",
       cta1: "View Software Plans",
       cta2: "See The Software In Action",
       image: "/hero_tax_professional.png",
@@ -81,7 +81,7 @@ export default function Home() {
       ],
       bgFrom: "#060c1a",
       bgTo: "#0d1526",
-      accentColor: "#FFAA2A",
+      accentColor: "#F4845F",
       cta1: "Schedule ERO Consultation",
       cta2: "Start Your Application",
       image: "/about_community.png",
@@ -1146,10 +1146,10 @@ export default function Home() {
                     1-on-1 Advisor Strategy Calls
                   </td>
                   <td className="p-4 text-center">
-                    <button onClick={() => openModal("strategy")} className="text-[10px] text-[#EDE9E0]/50 hover:text-[#FFD94A] transition-colors font-semibold underline underline-offset-2 cursor-pointer">Learn More</button>
+                    <button onClick={() => openModal("strategy")} className="text-[10px] text-[#EDE9E0]/50 hover:text-[#FF9F76] transition-colors font-semibold underline underline-offset-2 cursor-pointer">Learn More</button>
                   </td>
-                  <td className="p-4 text-center bg-[#FFD94A]/5 border-x border-[#FFD94A]/20">
-                    <button onClick={() => openModal("strategy")} className="text-[10px] text-[#EDE9E0]/50 hover:text-[#FFD94A] transition-colors font-semibold underline underline-offset-2 cursor-pointer">Learn More</button>
+                  <td className="p-4 text-center bg-[#FF9F76]/5 border-x border-[#FF9F76]/20">
+                    <button onClick={() => openModal("strategy")} className="text-[10px] text-[#EDE9E0]/50 hover:text-[#FF9F76] transition-colors font-semibold underline underline-offset-2 cursor-pointer">Learn More</button>
                   </td>
                   <td className="p-4 text-center text-green-400 font-bold">
                     <Check className="w-4 h-4 mx-auto" />
@@ -1163,15 +1163,15 @@ export default function Home() {
                   <td className="p-4 text-center">
                     <button
                       onClick={() => openModal("strategy")}
-                      className="px-4 py-2 rounded-lg bg-[#1C2A47] hover:bg-[#243352] text-[#EDE9E0]/70 hover:text-white font-bold border border-[#FFD94A]/20 tracking-wider uppercase text-[9px] cursor-pointer w-full transition-all"
+                      className="px-4 py-2 rounded-lg bg-[#1C2A47] hover:bg-[#243352] text-[#EDE9E0]/70 hover:text-white font-bold border border-[#FF9F76]/20 tracking-wider uppercase text-[9px] cursor-pointer w-full transition-all"
                     >
                       Choose Starter
                     </button>
                   </td>
-                  <td className="p-4 text-center bg-[#FFD94A]/5 border-x border-[#FFD94A]/20">
+                  <td className="p-4 text-center bg-[#FF9F76]/5 border-x border-[#FF9F76]/20">
                     <button
                       onClick={() => openModal("strategy")}
-                      className="px-4 py-2 rounded-lg bg-gradient-to-r from-[#FFD94A] to-[#FFAA2A] hover:from-[#FFAA2A] hover:to-[#FF8C00] text-[#050A14] font-extrabold tracking-wider uppercase text-[9px] cursor-pointer w-full shadow-lg shadow-[#FFD94A]/20"
+                      className="px-4 py-2 rounded-lg bg-gradient-to-r from-[#FF9F76] to-[#F4845F] hover:from-[#F4845F] hover:to-[#E67049] text-[#050A14] font-extrabold tracking-wider uppercase text-[9px] cursor-pointer w-full shadow-lg shadow-[#FF9F76]/20"
                     >
                       Choose Professional
                     </button>
@@ -1179,7 +1179,7 @@ export default function Home() {
                   <td className="p-4 text-center">
                     <button
                       onClick={() => openModal("strategy")}
-                      className="px-4 py-2 rounded-lg bg-[#1C2A47] hover:bg-[#243352] text-[#EDE9E0]/70 hover:text-white font-bold border border-[#FFD94A]/20 tracking-wider uppercase text-[9px] cursor-pointer w-full transition-all"
+                      className="px-4 py-2 rounded-lg bg-[#1C2A47] hover:bg-[#243352] text-[#EDE9E0]/70 hover:text-white font-bold border border-[#FF9F76]/20 tracking-wider uppercase text-[9px] cursor-pointer w-full transition-all"
                     >
                       Choose Enterprise
                     </button>

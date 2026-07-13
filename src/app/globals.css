@@ -8,19 +8,19 @@
     --card-foreground: 40 20% 91%;
     --popover: 220 42% 19%;
     --popover-foreground: 40 20% 91%;
-    --primary: 47 100% 65%;
+    --primary: 18 100% 73%;
     --primary-foreground: 220 67% 4%;
     --secondary: 220 42% 14%;
     --secondary-foreground: 40 20% 91%;
     --muted: 220 42% 14%;
     --muted-foreground: 220 15% 50%;
-    --accent: 38 100% 58%;
+    --accent: 15 88% 66%;
     --accent-foreground: 220 67% 4%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 40 20% 91%;
     --border: 220 35% 20%;
     --input: 220 35% 20%;
-    --ring: 47 100% 65%;
+    --ring: 18 100% 73%;
     --radius: 0.75rem;
   }
 }
@@ -55,38 +55,38 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-body), ui-sans-serif, "Helvetica Neue", Arial, sans-serif;
 }
 
-/* ─── Midnight & Gold Glass Card ─────────────────────────────────── */
+/* ─── Midnight & Peach Glass Card ─────────────────────────────────── */
 .glass-card {
   background: rgba(28, 42, 71, 0.45);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 217, 74, 0.10);
+  border: 1px solid rgba(255, 159, 118, 0.15);
   border-radius: 0.75rem;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glass-card-hover:hover {
-  border-color: rgba(255, 217, 74, 0.30);
+  border-color: rgba(255, 159, 118, 0.35);
   background: rgba(28, 42, 71, 0.65);
-  box-shadow: 0 10px 40px -15px rgba(255, 217, 74, 0.20);
+  box-shadow: 0 10px 40px -15px rgba(255, 159, 118, 0.25);
   transform: translateY(-2px);
 }
 
 .glass-card-hover-emerald:hover {
-  border-color: rgba(255, 217, 74, 0.30);
+  border-color: rgba(255, 159, 118, 0.35);
   background: rgba(28, 42, 71, 0.65);
-  box-shadow: 0 10px 40px -15px rgba(255, 217, 74, 0.20);
+  box-shadow: 0 10px 40px -15px rgba(255, 159, 118, 0.25);
   transform: translateY(-2px);
 }
 
-/* ─── Gold shimmer animation ──────────────────────────────────────── */
+/* ─── Peach shimmer animation ──────────────────────────────────────── */
 @keyframes gold-shimmer {
   0% { background-position: -200% center; }
   100% { background-position: 200% center; }
 }
 
 .gold-shimmer-text {
-  background: linear-gradient(90deg, #FFD94A, #FFAA2A, #FFD94A, #FFAA2A);
+  background: linear-gradient(90deg, #FF9F76, #F4845F, #FF9F76, #F4845F);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
