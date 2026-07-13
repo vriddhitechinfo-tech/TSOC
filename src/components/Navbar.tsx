@@ -30,7 +30,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-[#FF9F76]/20 bg-[#050A14]/90 backdrop-blur-md">
+    <header className="sticky top-0 z-40 w-full border-b border-[#FF9F76]/20 bg-[#140A06]/90 backdrop-blur-md">
       <div className="mx-auto max-w-[96rem] px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between gap-3">
           {/* Logo */}
@@ -56,7 +56,7 @@ export default function Navbar() {
                   className={`px-2 py-2 rounded-md text-[0.8rem] font-semibold transition-all duration-150 whitespace-nowrap underline-offset-4 decoration-2 ${
                     isActive(link.href)
                       ? "text-[#FF9F76] underline decoration-[#FF9F76]"
-                      : "text-[#EDE9E0]/60 hover:text-white hover:bg-[#1C2A47]/60"
+                      : "text-[#EDE9E0]/60 hover:text-white hover:bg-[#2A160E]/60"
                   }`}
                 >
                   {link.name}
@@ -69,7 +69,7 @@ export default function Navbar() {
           <div className="hidden xl:flex items-center shrink-0">
             <button
               onClick={() => openModal("strategy")}
-              className="inline-flex items-center justify-center rounded-lg bg-[#FF9F76] hover:bg-[#F4845F] text-[#050A14] px-4 py-2.5 text-[0.8rem] font-extrabold shadow-md hover:shadow-[#FF9F76]/25 transition-all cursor-pointer uppercase tracking-wider whitespace-nowrap"
+              className="inline-flex items-center justify-center rounded-lg bg-[#FF9F76] hover:bg-[#F4845F] text-[#140A06] px-4 py-2.5 text-[0.8rem] font-extrabold shadow-md hover:shadow-[#FF9F76]/25 transition-all cursor-pointer uppercase tracking-wider whitespace-nowrap"
             >
               Book Strategy Call
             </button>
@@ -79,7 +79,7 @@ export default function Navbar() {
           <div className="flex xl:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="inline-flex items-center justify-center rounded-md p-2 text-[#EDE9E0]/60 hover:text-white hover:bg-[#1C2A47]/60 focus:outline-none"
+              className="inline-flex items-center justify-center rounded-md p-2 text-[#EDE9E0]/60 hover:text-white hover:bg-[#2A160E]/60 focus:outline-none"
             >
               <span className="sr-only">Open main menu</span>
               {isMobileMenuOpen ? (
@@ -95,7 +95,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="xl:hidden bg-[#050A14] border-b border-[#FF9F76]/20">
+        <div className="xl:hidden bg-[#140A06] border-b border-[#FF9F76]/20">
           <div className="space-y-1 px-3 pt-2 pb-4">
             {navLinks.map((link) => (
               <Link
@@ -105,7 +105,7 @@ export default function Navbar() {
                 className={`block px-4 py-3 rounded-lg text-base font-semibold tracking-wide underline-offset-4 decoration-2 ${
                   isActive(link.href)
                     ? "text-[#FF9F76] underline decoration-[#FF9F76]"
-                    : "text-[#EDE9E0]/60 hover:text-white hover:bg-[#1C2A47]/60"
+                    : "text-[#EDE9E0]/60 hover:text-white hover:bg-[#2A160E]/60"
                 }`}
               >
                 {link.name}
@@ -117,7 +117,7 @@ export default function Navbar() {
                   setIsMobileMenuOpen(false);
                   openModal("strategy");
                 }}
-                className="w-full text-center bg-[#FF9F76] hover:bg-[#F4845F] text-[#050A14] font-extrabold py-3 px-4 rounded-lg text-sm transition-all cursor-pointer uppercase tracking-wider"
+                className="w-full text-center bg-[#FF9F76] hover:bg-[#F4845F] text-[#140A06] font-extrabold py-3 px-4 rounded-lg text-sm transition-all cursor-pointer uppercase tracking-wider"
               >
                 Book Strategy Call
               </button>

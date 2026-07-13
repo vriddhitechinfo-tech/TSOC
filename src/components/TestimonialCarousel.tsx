@@ -107,7 +107,7 @@ export default function TestimonialCarousel() {
         {doubledTestimonials.map((item, idx) => (
           <div
             key={`${item.name}-${idx}`}
-            className="w-[320px] sm:w-[380px] h-[260px] bg-[#1C2A47]/40 border border-[#FF9F76]/15 hover:border-[#FF9F76]/35 rounded-2xl p-5 relative backdrop-blur-md shadow-xl flex flex-col justify-between transition-all duration-300 shrink-0 hover:shadow-[#FF9F76]/10 hover:shadow-lg"
+            className="w-[320px] sm:w-[380px] h-[260px] bg-[#2A160E]/40 border border-[#FF9F76]/15 hover:border-[#FF9F76]/35 rounded-2xl p-5 relative backdrop-blur-md shadow-xl flex flex-col justify-between transition-all duration-300 shrink-0 hover:shadow-[#FF9F76]/10 hover:shadow-lg"
           >
             {/* Background quote glow decoration */}
             <Quote className="absolute right-4 top-4 w-16 h-16 text-[#FF9F76]/5 -z-10 pointer-events-none" />

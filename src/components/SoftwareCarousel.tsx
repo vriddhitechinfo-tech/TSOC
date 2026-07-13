@@ -21,29 +21,29 @@ export default function SoftwareCarousel() {
       title: "Consolidated Office Metrics",
       description: "Monitor real-time filing stats, preparer volumes, IRS acceptance rates, and bank product statuses in a central dashboard.",
       mockupContent: (
-        <div className="w-full h-full bg-[#0d1526] text-white p-4 font-mono text-xs flex flex-col justify-between">
+        <div className="w-full h-full bg-[#1C0F0A] text-white p-4 font-mono text-xs flex flex-col justify-between">
           <div className="flex items-center justify-between border-b border-[#FF9F76]/15 pb-2 mb-3">
             <span className="font-bold text-[#FF9F76]">THE SECTOR OF COLLECTIVES CORE • OFFICE CONSOLE</span>
             <span className="bg-[#FF9F76] text-[#FF9F76] px-1.5 py-0.5 rounded text-xs font-bold border border-[#FF9F76]/35">ACTIVE SEASON</span>
           </div>
 
           <div className="grid grid-cols-3 gap-2">
-            <div className="bg-[#0d1526] border border-[#FF9F76]/15 p-2 rounded">
+            <div className="bg-[#1C0F0A] border border-[#FF9F76]/15 p-2 rounded">
               <span className="text-[#EDE9E0]/50 block uppercase text-[7px]">Total Prepared</span>
               <span className="text-base font-black text-white font-sans">412</span>
             </div>
-            <div className="bg-[#0d1526] border border-[#FF9F76]/15 p-2 rounded">
+            <div className="bg-[#1C0F0A] border border-[#FF9F76]/15 p-2 rounded">
               <span className="text-[#EDE9E0]/50 block uppercase text-[7px]">IRS Accepted</span>
               <span className="text-base font-black text-[#FF9F76] font-sans">99.2%</span>
             </div>
-            <div className="bg-[#0d1526] border border-[#FF9F76]/15 p-2 rounded">
+            <div className="bg-[#1C0F0A] border border-[#FF9F76]/15 p-2 rounded">
               <span className="text-[#EDE9E0]/50 block uppercase text-[7px]">Bank Payouts</span>
               <span className="text-base font-black text-[#FF9F76] font-sans">$148K</span>
             </div>
           </div>
 
           {/* Active Queue Table */}
-          <div className="mt-3 flex-1 bg-[#0d1526] border border-[#FF9F76]/15 rounded p-2 overflow-hidden">
+          <div className="mt-3 flex-1 bg-[#1C0F0A] border border-[#FF9F76]/15 rounded p-2 overflow-hidden">
             <div className="flex justify-between border-b border-[#FF9F76]/15 pb-1 mb-1 text-[7px] text-[#EDE9E0]/50 uppercase font-black">
               <span>Client Name</span>
               <span>Form</span>
@@ -79,7 +79,7 @@ export default function SoftwareCarousel() {
       title: "Interactive Form Preparation",
       description: "Quickly enter W-2s, Schedules, and business expenses. The software runs background compliance checks, flagging errors in real-time.",
       mockupContent: (
-        <div className="w-full h-full bg-[#0d1526] text-white p-4 font-mono text-xs flex flex-col justify-between">
+        <div className="w-full h-full bg-[#1C0F0A] text-white p-4 font-mono text-xs flex flex-col justify-between">
           <div className="flex items-center justify-between border-b border-[#FF9F76]/15 pb-2 mb-2">
             <div className="flex items-center space-x-1">
               <FileText className="w-3.5 h-3.5 text-[#FF9F76]" />
@@ -89,7 +89,7 @@ export default function SoftwareCarousel() {
           </div>
 
           <div className="grid grid-cols-2 gap-4 flex-1 pt-1">
-            <div className="space-y-2 bg-[#0d1526] p-2.5 rounded border border-[#FF9F76]/10">
+            <div className="space-y-2 bg-[#1C0F0A] p-2.5 rounded border border-[#FF9F76]/10">
               <span className="text-[#EDE9E0]/50 uppercase text-[7px] font-bold block">Taxpayer Intake Data</span>
               <div className="space-y-1">
                 <div>Wages (W2 Box 1): <span className="text-white">$54,200</span></div>
@@ -125,7 +125,7 @@ export default function SoftwareCarousel() {
       title: "Real-time IRS Acknowledgment",
       description: "Direct server connections with the IRS E-file gateway. Get immediate status notifications (Transmitted, Rejected, or Accepted) within minutes.",
       mockupContent: (
-        <div className="w-full h-full bg-[#0d1526] text-white p-4 font-mono text-xs flex flex-col justify-between">
+        <div className="w-full h-full bg-[#1C0F0A] text-white p-4 font-mono text-xs flex flex-col justify-between">
           <div className="flex items-center justify-between border-b border-[#FF9F76]/15 pb-2">
             <span className="font-bold">IRS GATEWAY TRANSMISSION STAGE</span>
             <span className="text-[#EDE9E0]/50">EFIN: 564201</span>
@@ -148,7 +148,7 @@ export default function SoftwareCarousel() {
             </div>
           </div>
 
-          <div className="bg-[#0d1526] border border-[#FF9F76]/15 rounded p-2.5 space-y-1">
+          <div className="bg-[#1C0F0A] border border-[#FF9F76]/15 rounded p-2.5 space-y-1">
             <div className="text-[#EDE9E0]/50 uppercase text-[7px] font-bold">IRS ACK (Submission ID: 1040-564201-2026)</div>
             <div className="text-[#EDE9E0]/70">Form: 1040 U.S. Individual Income Tax Return</div>
             <div className="text-[#FF9F76] font-bold">Status: ACCEPTED (Acknowledge Code: 00)</div>
@@ -162,7 +162,7 @@ export default function SoftwareCarousel() {
       title: "Direct Refund Fee Deduction",
       description: "Securely enroll clients in bank products. Deduct preparation fees directly from the client's refund and issue advance payouts to build trust.",
       mockupContent: (
-        <div className="w-full h-full bg-[#0d1526] text-white p-4 font-mono text-xs flex flex-col justify-between">
+        <div className="w-full h-full bg-[#1C0F0A] text-white p-4 font-mono text-xs flex flex-col justify-between">
           <div className="flex items-center justify-between border-b border-[#FF9F76]/15 pb-2 mb-2">
             <div className="flex items-center space-x-1">
               <Landmark className="w-3.5 h-3.5 text-[#FF9F76]" />
@@ -172,7 +172,7 @@ export default function SoftwareCarousel() {
           </div>
 
           <div className="space-y-2.5 flex-1 pt-1">
-            <div className="flex justify-between bg-[#0d1526] p-2 rounded border border-[#FF9F76]/10 items-center">
+            <div className="flex justify-between bg-[#1C0F0A] p-2 rounded border border-[#FF9F76]/10 items-center">
               <div>
                 <span className="block text-white font-bold">TPG Refund Advance Program</span>
                 <span className="text-[#EDE9E0]/50 text-[7px]">Pre-season loan approval limit: $6,000</span>
@@ -180,7 +180,7 @@ export default function SoftwareCarousel() {
               <span className="text-[#FF9F76] font-bold">ENABLED</span>
             </div>
 
-            <div className="bg-[#0d1526] p-2.5 rounded border border-[#FF9F76]/10 space-y-1.5">
+            <div className="bg-[#1C0F0A] p-2.5 rounded border border-[#FF9F76]/10 space-y-1.5">
               <span className="text-[#EDE9E0]/50 uppercase text-[7px] font-bold block">Fee Split Ledger</span>
               <div className="flex justify-between">
                 <span>Gross IRS Refund:</span>
@@ -273,7 +273,7 @@ export default function SoftwareCarousel() {
             <div
               key={screen.id}
               ref={(el) => { cardRefs.current[i] = el; }}
-              className="snap-center shrink-0 w-[88%] sm:w-[78%] lg:w-[70%] grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#0d1526]/40 border border-[#FF9F76]/30 rounded-2xl p-6 md:p-8 backdrop-blur-md"
+              className="snap-center shrink-0 w-[88%] sm:w-[78%] lg:w-[70%] grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#1C0F0A]/40 border border-[#FF9F76]/30 rounded-2xl p-6 md:p-8 backdrop-blur-md"
             >
               <div className="lg:col-span-4 space-y-4 text-center lg:text-left">
                 <span className="inline-flex items-center justify-center h-7 w-7 rounded bg-[#FF9F76]/10 border border-[#FF9F76]/20 text-[#FF9F76] font-black text-xs">
@@ -288,8 +288,8 @@ export default function SoftwareCarousel() {
               </div>
 
               {/* Browser Mockup */}
-              <div className="lg:col-span-8 w-full border border-[#FF9F76]/20 rounded-xl overflow-hidden bg-[#0d1526] shadow-xl">
-                <div className="bg-[#0d1526] px-4 py-2.5 border-b border-[#FF9F76]/35 flex items-center space-x-1.5">
+              <div className="lg:col-span-8 w-full border border-[#FF9F76]/20 rounded-xl overflow-hidden bg-[#1C0F0A] shadow-xl">
+                <div className="bg-[#1C0F0A] px-4 py-2.5 border-b border-[#FF9F76]/35 flex items-center space-x-1.5">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#FF9F76]/40 inline-block" />
                   <span className="w-2.5 h-2.5 rounded-full bg-[#FF9F76]/65 inline-block" />
                   <span className="w-2.5 h-2.5 rounded-full bg-[#FF9F76]/90 inline-block" />
@@ -310,7 +310,7 @@ export default function SoftwareCarousel() {
           onClick={goPrev}
           disabled={activeIndex === 0}
           aria-label="Previous screen"
-          className="hidden sm:flex absolute left-1 top-1/2 -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full bg-[#0d1526] border border-[#FF9F76]/30 text-[#FF9F76] hover:bg-[#FF9F76]/10 hover:border-[#FF9F76]/60 transition-all disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer z-10"
+          className="hidden sm:flex absolute left-1 top-1/2 -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full bg-[#1C0F0A] border border-[#FF9F76]/30 text-[#FF9F76] hover:bg-[#FF9F76]/10 hover:border-[#FF9F76]/60 transition-all disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer z-10"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
@@ -318,7 +318,7 @@ export default function SoftwareCarousel() {
           onClick={goNext}
           disabled={activeIndex === screens.length - 1}
           aria-label="Next screen"
-          className="hidden sm:flex absolute right-1 top-1/2 -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full bg-[#0d1526] border border-[#FF9F76]/30 text-[#FF9F76] hover:bg-[#FF9F76]/10 hover:border-[#FF9F76]/60 transition-all disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer z-10"
+          className="hidden sm:flex absolute right-1 top-1/2 -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full bg-[#1C0F0A] border border-[#FF9F76]/30 text-[#FF9F76] hover:bg-[#FF9F76]/10 hover:border-[#FF9F76]/60 transition-all disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer z-10"
         >
           <ChevronRight className="w-5 h-5" />
         </button>

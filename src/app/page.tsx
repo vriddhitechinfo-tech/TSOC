@@ -62,8 +62,8 @@ export default function Home() {
         { value: "50K+", label: "Returns Filed" },
         { value: "24/7", label: "Support" },
       ],
-      bgFrom: "#050A14",
-      bgTo: "#0d1526",
+      bgFrom: "#140A06",
+      bgTo: "#1C0F0A",
       accentColor: "#FF9F76",
       cta1: "View Software Plans",
       cta2: "See The Software In Action",
@@ -79,8 +79,8 @@ export default function Home() {
         { value: "100%", label: "Fee Retention" },
         { value: "4-8 Weeks", label: "EFIN Setup" },
       ],
-      bgFrom: "#060c1a",
-      bgTo: "#0d1526",
+      bgFrom: "#160B07",
+      bgTo: "#1C0F0A",
       accentColor: "#F4845F",
       cta1: "Schedule ERO Consultation",
       cta2: "Start Your Application",
@@ -96,8 +96,8 @@ export default function Home() {
         { value: "Recurring", label: "Revenue Streams" },
         { value: "White-label", label: "Ready" },
       ],
-      bgFrom: "#050A14",
-      bgTo: "#0a1020",
+      bgFrom: "#140A06",
+      bgTo: "#180D08",
       accentColor: "#FF9F76",
       cta1: "Apply for Mentorship",
       cta2: "See Growth Blueprint",
@@ -113,8 +113,8 @@ export default function Home() {
         { value: "365", label: "Days Of Support" },
         { value: "Live", label: "Expert Access" },
       ],
-      bgFrom: "#060d1a",
-      bgTo: "#0d1526",
+      bgFrom: "#160B07",
+      bgTo: "#1C0F0A",
       accentColor: "#F4845F",
       cta1: "Join The Open Office",
       cta2: "Try Free Week",
@@ -493,7 +493,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="relative overflow-hidden bg-[#050A14] min-h-screen">
+    <div className="relative overflow-hidden bg-[#140A06] min-h-screen">
       <style>{`
         @keyframes float {
           0%, 100% { transform: translateY(0px) translateX(0px); }
@@ -688,7 +688,7 @@ export default function Home() {
       {/* 2. Interactive Business Stage Quiz Router */}
       <section
         ref={quizRef}
-        className="py-12 bg-[#1C2A47]/20 border-y border-[#FF9F76]/10"
+        className="py-12 bg-[#2A160E]/20 border-y border-[#FF9F76]/10"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-4">
           <h2 className="text-lg font-bold text-white uppercase tracking-wider">
@@ -707,7 +707,7 @@ export default function Home() {
       {/* 3. Animated Stat Counters Banner */}
       <section
         ref={statsContainerRef}
-        className="py-16 bg-[#1C2A47]/30 relative border-y border-[#FF9F76]/10"
+        className="py-16 bg-[#2A160E]/30 relative border-y border-[#FF9F76]/10"
       >
         {/* Gold glow line */}
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#FF9F76]/40 to-transparent" />
@@ -765,7 +765,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="gsap-about-el space-y-6">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#FF9F76] bg-[#1C2A47]/50 border border-[#FF9F76]/20 px-3 py-1 rounded inline-block">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#FF9F76] bg-[#2A160E]/50 border border-[#FF9F76]/20 px-3 py-1 rounded inline-block">
                 More Than Tax Software
               </span>
               <h2 className="font-display text-2xl sm:text-4xl font-semibold text-white tracking-normal leading-tight uppercase">
@@ -799,7 +799,7 @@ export default function Home() {
                 height={560}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050A14]/90 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#140A06]/90 via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-5 left-5 right-5">
                 <div className="text-xl sm:text-2xl font-display font-semibold tracking-wider text-white select-none">
                   <span className="font-display italic font-semibold text-2xl sm:text-3xl text-[#FF9F76]">Connect</span>
@@ -823,7 +823,7 @@ export default function Home() {
       {/* Pinned Card Stack Ecosystem Section */}
       <section
         ref={ecosystemSectionRef}
-        className="relative py-20 bg-[#050A14] overflow-hidden flex flex-col justify-center min-h-screen"
+        className="relative py-20 bg-[#140A06] overflow-hidden flex flex-col justify-center min-h-screen"
       >
         {/* Decorative gold gradient top */}
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#FF9F76]/30 to-transparent" />
@@ -832,7 +832,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full space-y-12 relative z-10">
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#FF9F76] bg-[#1C2A47]/50 border border-[#FF9F76]/20 px-3 py-1 rounded inline-block">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#FF9F76] bg-[#2A160E]/50 border border-[#FF9F76]/20 px-3 py-1 rounded inline-block">
               Our Core
             </span>
             <h2 className="font-display text-2xl sm:text-4xl font-semibold text-white tracking-normal uppercase">
@@ -852,7 +852,7 @@ export default function Home() {
             {ecosystemPillars.map((pillar, idx) => (
               <div
                 key={pillar.title}
-                className="gsap-ecosystem-card opacity-0 lg:absolute lg:inset-0 glass-card p-6 md:p-8 flex flex-col justify-between border border-[#FF9F76]/10 bg-[#1C2A47]/40 backdrop-blur shadow-xl relative select-none w-full h-full"
+                className="gsap-ecosystem-card opacity-0 lg:absolute lg:inset-0 glass-card p-6 md:p-8 flex flex-col justify-between border border-[#FF9F76]/10 bg-[#2A160E]/40 backdrop-blur shadow-xl relative select-none w-full h-full"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
@@ -884,7 +884,7 @@ export default function Home() {
       <section ref={servicesRef} className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#FF9F76] bg-[#1C2A47]/50 border border-[#FF9F76]/20 px-3 py-1 rounded inline-block">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#FF9F76] bg-[#2A160E]/50 border border-[#FF9F76]/20 px-3 py-1 rounded inline-block">
               Business Support Pathways
             </span>
             <h2 className="font-display text-2xl sm:text-4xl font-semibold text-white tracking-normal uppercase">
@@ -951,7 +951,7 @@ export default function Home() {
                     {service.bestFor.map((bf) => (
                       <span
                         key={bf}
-                        className="bg-[#1C2A47]/60 border border-[#FF9F76]/15 text-xs font-semibold text-[#EDE9E0]/60 px-2 py-0.5 rounded"
+                        className="bg-[#2A160E]/60 border border-[#FF9F76]/15 text-xs font-semibold text-[#EDE9E0]/60 px-2 py-0.5 rounded"
                       >
                         {bf}
                       </span>
@@ -962,7 +962,7 @@ export default function Home() {
                 <div className="pt-8">
                   <button
                     onClick={service.action}
-                    className="w-full text-center bg-[#FF9F76] hover:bg-[#F4845F] text-[#050A14] font-extrabold py-2.5 px-4 rounded-lg text-xs transition-all cursor-pointer uppercase tracking-wider shadow-lg shadow-[#FF9F76]/10"
+                    className="w-full text-center bg-[#FF9F76] hover:bg-[#F4845F] text-[#140A06] font-extrabold py-2.5 px-4 rounded-lg text-xs transition-all cursor-pointer uppercase tracking-wider shadow-lg shadow-[#FF9F76]/10"
                   >
                     {service.ctaText}
                   </button>
@@ -976,11 +976,11 @@ export default function Home() {
       {/* 7. Membership Comparison Table */}
       <section
         ref={pricingRef}
-        className="py-20 bg-[#1C2A47]/15"
+        className="py-20 bg-[#2A160E]/15"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-3 gsap-pricing-el">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#FF9F76] bg-[#1C2A47]/50 border border-[#FF9F76]/20 px-3 py-1 rounded inline-block">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#FF9F76] bg-[#2A160E]/50 border border-[#FF9F76]/20 px-3 py-1 rounded inline-block">
               Pricing Matrices
             </span>
             <h2 className="font-display text-2xl sm:text-4xl font-semibold text-white tracking-normal uppercase">
@@ -993,10 +993,10 @@ export default function Home() {
           </div>
 
           {/* Comparison Table Container */}
-          <div className="gsap-pricing-el overflow-x-auto border border-[#FF9F76]/15 rounded-xl bg-[#1C2A47]/20 backdrop-blur-md">
+          <div className="gsap-pricing-el overflow-x-auto border border-[#FF9F76]/15 rounded-xl bg-[#2A160E]/20 backdrop-blur-md">
             <table className="w-full min-w-[700px] border-collapse text-left text-xs text-[#EDE9E0]/70">
               {/* Sticky Table Header */}
-              <thead className="bg-[#050A14] sticky top-16 z-20">
+              <thead className="bg-[#140A06] sticky top-16 z-20">
                 <tr>
                   <th className="p-4 font-bold text-[#EDE9E0]/50 uppercase tracking-wider w-[40%]">
                     Capabilities & Benefits
@@ -1015,9 +1015,9 @@ export default function Home() {
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#1C2A47]/60">
+              <tbody className="divide-y divide-[#2A160E]/60">
                 {/* Feature Rows */}
-                <tr className="hover:bg-[#1C2A47]/20 transition-colors">
+                <tr className="hover:bg-[#2A160E]/20 transition-colors">
                   <td className="p-4 font-semibold text-white">
                     Professional Tax Software Access
                   </td>
@@ -1031,7 +1031,7 @@ export default function Home() {
                     YES (Enterprise)
                   </td>
                 </tr>
-                <tr className="hover:bg-[#1C2A47]/20 transition-colors">
+                <tr className="hover:bg-[#2A160E]/20 transition-colors">
                   <td className="p-4 font-semibold text-white">
                     Weekly Open Office Live Hours
                   </td>
@@ -1045,7 +1045,7 @@ export default function Home() {
                     YES
                   </td>
                 </tr>
-                <tr className="hover:bg-[#1C2A47]/20 transition-colors">
+                <tr className="hover:bg-[#2A160E]/20 transition-colors">
                   <td className="p-4 font-semibold text-white">
                     Software Walkthrough Guides
                   </td>
@@ -1057,7 +1057,7 @@ export default function Home() {
                     Advanced
                   </td>
                 </tr>
-                <tr className="hover:bg-[#1C2A47]/20 transition-colors">
+                <tr className="hover:bg-[#2A160E]/20 transition-colors">
                   <td className="p-4 font-semibold text-white">
                     ERO Support & Training
                   </td>
@@ -1071,7 +1071,7 @@ export default function Home() {
                     <Check className="w-4 h-4 mx-auto" />
                   </td>
                 </tr>
-                <tr className="hover:bg-[#1C2A47]/20 transition-colors">
+                <tr className="hover:bg-[#2A160E]/20 transition-colors">
                   <td className="p-4 font-semibold text-white">
                     Add-on Services Guides
                   </td>
@@ -1085,7 +1085,7 @@ export default function Home() {
                     <Check className="w-4 h-4 mx-auto" />
                   </td>
                 </tr>
-                <tr className="hover:bg-[#1C2A47]/20 transition-colors">
+                <tr className="hover:bg-[#2A160E]/20 transition-colors">
                   <td className="p-4 font-semibold text-white">
                     CRM Templates & Automations
                   </td>
@@ -1099,7 +1099,7 @@ export default function Home() {
                     <Check className="w-4 h-4 mx-auto" />
                   </td>
                 </tr>
-                <tr className="hover:bg-[#1C2A47]/20 transition-colors">
+                <tr className="hover:bg-[#2A160E]/20 transition-colors">
                   <td className="p-4 font-semibold text-white">
                     Live Attorney Consultations
                   </td>
@@ -1113,7 +1113,7 @@ export default function Home() {
                     <Check className="w-4 h-4 mx-auto" />
                   </td>
                 </tr>
-                <tr className="hover:bg-[#1C2A47]/20 transition-colors">
+                <tr className="hover:bg-[#2A160E]/20 transition-colors">
                   <td className="p-4 font-semibold text-white">
                     Service Bureau Audits & Setup
                   </td>
@@ -1127,7 +1127,7 @@ export default function Home() {
                     <Check className="w-4 h-4 mx-auto" />
                   </td>
                 </tr>
-                <tr className="hover:bg-[#1C2A47]/20 transition-colors">
+                <tr className="hover:bg-[#2A160E]/20 transition-colors">
                   <td className="p-4 font-semibold text-white">
                     White-label Branding
                   </td>
@@ -1141,7 +1141,7 @@ export default function Home() {
                     <Check className="w-4 h-4 mx-auto" />
                   </td>
                 </tr>
-                <tr className="hover:bg-[#1C2A47]/20 transition-colors">
+                <tr className="hover:bg-[#2A160E]/20 transition-colors">
                   <td className="p-4 font-semibold text-white">
                     1-on-1 Advisor Strategy Calls
                   </td>
@@ -1156,14 +1156,14 @@ export default function Home() {
                   </td>
                 </tr>
                 {/* Button actions row */}
-                <tr className="bg-[#050A14]/60">
+                <tr className="bg-[#140A06]/60">
                   <td className="p-4 font-bold text-[#EDE9E0]/50">
                     Get Started Today
                   </td>
                   <td className="p-4 text-center">
                     <button
                       onClick={() => openModal("strategy")}
-                      className="px-4 py-2 rounded-lg bg-[#1C2A47] hover:bg-[#243352] text-[#EDE9E0]/70 hover:text-white font-bold border border-[#FF9F76]/20 tracking-wider uppercase text-[9px] cursor-pointer w-full transition-all"
+                      className="px-4 py-2 rounded-lg bg-[#2A160E] hover:bg-[#3D2216] text-[#EDE9E0]/70 hover:text-white font-bold border border-[#FF9F76]/20 tracking-wider uppercase text-[9px] cursor-pointer w-full transition-all"
                     >
                       Choose Starter
                     </button>
@@ -1171,7 +1171,7 @@ export default function Home() {
                   <td className="p-4 text-center bg-[#FF9F76]/5 border-x border-[#FF9F76]/20">
                     <button
                       onClick={() => openModal("strategy")}
-                      className="px-4 py-2 rounded-lg bg-gradient-to-r from-[#FF9F76] to-[#F4845F] hover:from-[#F4845F] hover:to-[#E67049] text-[#050A14] font-extrabold tracking-wider uppercase text-[9px] cursor-pointer w-full shadow-lg shadow-[#FF9F76]/20"
+                      className="px-4 py-2 rounded-lg bg-gradient-to-r from-[#FF9F76] to-[#F4845F] hover:from-[#F4845F] hover:to-[#E67049] text-[#140A06] font-extrabold tracking-wider uppercase text-[9px] cursor-pointer w-full shadow-lg shadow-[#FF9F76]/20"
                     >
                       Choose Professional
                     </button>
@@ -1179,7 +1179,7 @@ export default function Home() {
                   <td className="p-4 text-center">
                     <button
                       onClick={() => openModal("strategy")}
-                      className="px-4 py-2 rounded-lg bg-[#1C2A47] hover:bg-[#243352] text-[#EDE9E0]/70 hover:text-white font-bold border border-[#FF9F76]/20 tracking-wider uppercase text-[9px] cursor-pointer w-full transition-all"
+                      className="px-4 py-2 rounded-lg bg-[#2A160E] hover:bg-[#3D2216] text-[#EDE9E0]/70 hover:text-white font-bold border border-[#FF9F76]/20 tracking-wider uppercase text-[9px] cursor-pointer w-full transition-all"
                     >
                       Choose Enterprise
                     </button>
@@ -1195,7 +1195,7 @@ export default function Home() {
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#FF9F76] bg-[#1C2A47]/50 border border-[#FF9F76]/20 px-3 py-1 rounded inline-block">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#FF9F76] bg-[#2A160E]/50 border border-[#FF9F76]/20 px-3 py-1 rounded inline-block">
               Client Stories
             </span>
             <h2 className="font-display text-2xl sm:text-4xl font-semibold text-white tracking-normal uppercase">

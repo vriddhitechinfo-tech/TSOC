@@ -121,7 +121,7 @@ export default function ExitIntentCTA() {
 
   return (
     <div className="fixed bottom-0 inset-x-0 z-40 p-4 md:p-6 animate-slide-up pointer-events-none">
-      <div className="mx-auto max-w-4xl bg-gradient-to-r from-[#0d1526] to-[#050A14] border border-[#FF9F76]/25 hover:border-[#FF9F76]/45 rounded-xl shadow-2xl shadow-[#FF9F76]/5 p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pointer-events-auto relative overflow-hidden">
+      <div className="mx-auto max-w-4xl bg-gradient-to-r from-[#1C0F0A] to-[#140A06] border border-[#FF9F76]/25 hover:border-[#FF9F76]/45 rounded-xl shadow-2xl shadow-[#FF9F76]/5 p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pointer-events-auto relative overflow-hidden">
         {/* Subtle decorative glow */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_left,rgba(255,159,118,0.05)_0%,transparent_60%)] pointer-events-none" />
 
@@ -138,7 +138,7 @@ export default function ExitIntentCTA() {
         <div className="flex items-center space-x-3 z-10">
           <button
             onClick={cta.action}
-            className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-[#FF9F76] hover:bg-[#F4845F] text-[#050A14] px-5 py-2.5 text-xs font-extrabold uppercase tracking-wider transition-all shadow-md cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-[#FF9F76] hover:bg-[#F4845F] text-[#140A06] px-5 py-2.5 text-xs font-extrabold uppercase tracking-wider transition-all shadow-md cursor-pointer"
           >
             {cta.actionText}
             <ArrowRight className="w-3 h-3 ml-2" />
@@ -146,7 +146,7 @@ export default function ExitIntentCTA() {
           
           <button
             onClick={handleDismiss}
-            className="p-2 text-[#EDE9E0]/40 hover:text-white hover:bg-[#1C2A47]/40 rounded-lg transition-colors cursor-pointer"
+            className="p-2 text-[#EDE9E0]/40 hover:text-white hover:bg-[#2A160E]/40 rounded-lg transition-colors cursor-pointer"
             aria-label="Dismiss message"
           >
             <X className="w-4 h-4" />

@@ -21,7 +21,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#050A14] text-[#EDE9E0]/50 py-12 mt-auto border-t border-[#FF9F76]/15">
+    <footer className="bg-[#140A06] text-[#EDE9E0]/50 py-12 mt-auto border-t border-[#FF9F76]/15">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-12">
           {/* Logo & Motto */}
@@ -206,11 +206,11 @@ export default function Footer() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="bg-[#1C2A47]/40 border border-[#FF9F76]/20 rounded-lg px-3 py-2 text-xs text-white placeholder-[#EDE9E0]/30 outline-none focus:border-[#FF9F76] w-full transition-colors"
+                className="bg-[#2A160E]/40 border border-[#FF9F76]/20 rounded-lg px-3 py-2 text-xs text-white placeholder-[#EDE9E0]/30 outline-none focus:border-[#FF9F76] w-full transition-colors"
               />
               <button
                 type="submit"
-                className="bg-[#FF9F76] hover:bg-[#F4845F] text-[#050A14] font-bold text-xs py-2 px-4 rounded-lg transition-all whitespace-nowrap cursor-pointer flex items-center gap-1.5 uppercase tracking-wider"
+                className="bg-[#FF9F76] hover:bg-[#F4845F] text-[#140A06] font-bold text-xs py-2 px-4 rounded-lg transition-all whitespace-nowrap cursor-pointer flex items-center gap-1.5 uppercase tracking-wider"
               >
                 <Mail className="w-3.5 h-3.5" />
                 {subscribed ? "Subscribed!" : "Sign Up"}

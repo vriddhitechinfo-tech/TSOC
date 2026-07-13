@@ -132,8 +132,8 @@ export default function StageQuiz() {
   const progressPercent = (step / questions.length) * 100;
 
   return (
-    <div className="w-full max-w-2xl mx-auto bg-[#1C2A47]/40 border border-[#FF9F76]/20 rounded-xl p-6 md:p-8 relative overflow-hidden backdrop-blur-md shadow-lg">
-      <div className="absolute inset-x-0 top-0 h-1 bg-[#1C2A47]/60">
+    <div className="w-full max-w-2xl mx-auto bg-[#2A160E]/40 border border-[#FF9F76]/20 rounded-xl p-6 md:p-8 relative overflow-hidden backdrop-blur-md shadow-lg">
+      <div className="absolute inset-x-0 top-0 h-1 bg-[#2A160E]/60">
         <div
           className="h-full bg-gradient-to-r from-[#FF9F76] to-[#F4845F] transition-all duration-300"
           style={{ width: `${progressPercent}%` }}
@@ -158,7 +158,7 @@ export default function StageQuiz() {
               <button
                 key={opt.value}
                 onClick={() => handleOptionSelect(opt)}
-                className="w-full text-left p-4 rounded-lg bg-[#1C2A47]/30 border border-[#FF9F76]/15 hover:border-[#FF9F76]/40 text-xs sm:text-sm text-[#EDE9E0]/70 hover:text-white transition-all duration-200 cursor-pointer flex items-center justify-between group focus:outline-none focus:ring-1 focus:ring-[#FF9F76]/50"
+                className="w-full text-left p-4 rounded-lg bg-[#2A160E]/30 border border-[#FF9F76]/15 hover:border-[#FF9F76]/40 text-xs sm:text-sm text-[#EDE9E0]/70 hover:text-white transition-all duration-200 cursor-pointer flex items-center justify-between group focus:outline-none focus:ring-1 focus:ring-[#FF9F76]/50"
               >
                 <span>{opt.label}</span>
                 <span className="h-5 w-5 rounded bg-[#FF9F76]/10 border border-[#FF9F76]/30 flex items-center justify-center text-[#FF9F76] opacity-0 group-hover:opacity-100 transition-opacity">
@@ -189,14 +189,14 @@ export default function StageQuiz() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-6">
             <Link
               href={getRecommendation().link}
-              className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-[#FF9F76] hover:bg-[#F4845F] text-[#050A14] px-6 py-3 text-xs font-extrabold shadow-md uppercase tracking-wider transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-[#FF9F76] hover:bg-[#F4845F] text-[#140A06] px-6 py-3 text-xs font-extrabold shadow-md uppercase tracking-wider transition-all"
             >
               {getRecommendation().cta}
               <ArrowRight className="w-3.5 h-3.5 ml-2" />
             </Link>
             <button
               onClick={resetQuiz}
-              className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-[#1C2A47] border border-[#FF9F76]/20 px-6 py-3 text-xs font-bold text-[#EDE9E0]/60 hover:text-white uppercase tracking-wider transition-all cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-[#2A160E] border border-[#FF9F76]/20 px-6 py-3 text-xs font-bold text-[#EDE9E0]/60 hover:text-white uppercase tracking-wider transition-all cursor-pointer"
             >
               <RefreshCw className="w-3 h-3 mr-2" />
               Retake Quiz
