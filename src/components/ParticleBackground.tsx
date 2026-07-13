@@ -5,7 +5,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
 const PARTICLE_COUNT = 420;
-const BRAND_PEACH = "#FF9F76";
+const BRAND_PEACH = "#FFB26A";
 // Camera sits at z=6 looking toward -z; keep every particle safely in front
 // of it (z well below 6) so perspective size-attenuation never blows up.
 const FIELD_X = 9;

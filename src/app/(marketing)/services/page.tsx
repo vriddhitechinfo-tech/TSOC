@@ -81,12 +81,12 @@ export default function ServicesPage() {
   return (
     <div ref={pageRef} className="relative overflow-hidden bg-[#140A06] min-h-screen py-16 sm:py-10">
       {/* Background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,159,118,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,178,106,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="gsap-reveal text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span className="inline-flex items-center rounded-full bg-[#FF9F76]/10 border border-[#FF9F76]/25 px-3 py-1 text-xs font-semibold text-[#FF9F76]">
+          <span className="inline-flex items-center rounded-full bg-[#FFB26A]/10 border border-[#FFB26A]/25 px-3 py-1 text-xs font-semibold text-[#FFB26A]">
             How We Support Tax Professionals
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
@@ -108,10 +108,10 @@ export default function ServicesPage() {
             >
               <div className="space-y-3 flex-1">
                 <div className="flex items-center space-x-3">
-                  <span className="text-xs font-bold text-[#FF9F76] font-mono">
+                  <span className="text-xs font-bold text-[#FFB26A] font-mono">
                     {srv.num}
                   </span>
-                  <span className="text-xs font-bold text-[#EDE9E0]/60 uppercase tracking-widest bg-[#2A160E] border border-[#FF9F76]/30 px-2.5 py-0.5 rounded">
+                  <span className="text-xs font-bold text-[#EDE9E0]/60 uppercase tracking-widest bg-[#2A160E] border border-[#FFB26A]/30 px-2.5 py-0.5 rounded">
                     {srv.tag}
                   </span>
                 </div>
@@ -124,7 +124,7 @@ export default function ServicesPage() {
               <div className="shrink-0">
                 <Link
                   href={srv.href}
-                  className="inline-flex items-center gap-1.5 bg-[#2A160E] hover:bg-[#FF9F76] border border-[#FF9F76]/30 text-[#FF9F76] hover:text-[#140A06] px-5 py-2.5 rounded-lg text-xs font-extrabold transition-all uppercase tracking-wider"
+                  className="inline-flex items-center gap-1.5 bg-[#2A160E] hover:bg-[#FFB26A] border border-[#FFB26A]/30 text-[#FFB26A] hover:text-[#140A06] px-5 py-2.5 rounded-lg text-xs font-extrabold transition-all uppercase tracking-wider"
                 >
                   View Details
                   <ArrowRight className="w-3.5 h-3.5" />

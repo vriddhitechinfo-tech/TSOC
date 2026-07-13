@@ -8,7 +8,7 @@
     --card-foreground: 40 20% 91%;
     --popover: 18 38% 12%;
     --popover-foreground: 40 20% 91%;
-    --primary: 18 100% 73%;
+    --primary: 29 100% 71%;
     --primary-foreground: 18 43% 5%;
     --secondary: 18 40% 8%;
     --secondary-foreground: 40 20% 91%;
@@ -60,22 +60,22 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(42, 22, 14, 0.55);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 159, 118, 0.15);
+  border: 1px solid rgba(255, 178, 106, 0.15);
   border-radius: 0.75rem;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glass-card-hover:hover {
-  border-color: rgba(255, 159, 118, 0.35);
+  border-color: rgba(255, 178, 106, 0.35);
   background: rgba(42, 22, 14, 0.75);
-  box-shadow: 0 10px 40px -15px rgba(255, 159, 118, 0.25);
+  box-shadow: 0 10px 40px -15px rgba(255, 178, 106, 0.25);
   transform: translateY(-2px);
 }
 
 .glass-card-hover-emerald:hover {
-  border-color: rgba(255, 159, 118, 0.35);
+  border-color: rgba(255, 178, 106, 0.35);
   background: rgba(42, 22, 14, 0.75);
-  box-shadow: 0 10px 40px -15px rgba(255, 159, 118, 0.25);
+  box-shadow: 0 10px 40px -15px rgba(255, 178, 106, 0.25);
   transform: translateY(-2px);
 }
 
@@ -86,7 +86,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .gold-shimmer-text {
-  background: linear-gradient(90deg, #FF9F76, #F4845F, #FF9F76, #F4845F);
+  background: linear-gradient(90deg, #FFB26A, #F4845F, #FFB26A, #F4845F);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;

@@ -26,7 +26,7 @@ export default function FaqAccordion({
   return (
     <div className="w-full max-w-4xl mx-auto py-12 px-4 animate-fade-in">
       {title && (
-        <h2 className="text-xl sm:text-2xl font-bold text-center text-white mb-8 tracking-tight uppercase tracking-wider text-[#FF9F76]">
+        <h2 className="text-xl sm:text-2xl font-bold text-center text-white mb-8 tracking-tight uppercase tracking-wider text-[#FFB26A]">
           {title}
         </h2>
       )}
@@ -36,11 +36,11 @@ export default function FaqAccordion({
           return (
             <div
               key={index}
-              className="border border-[#FF9F76]/15 bg-[#2A160E]/25 hover:bg-[#2A160E]/50 rounded-xl transition-all duration-300 overflow-hidden"
+              className="border border-[#FFB26A]/15 bg-[#2A160E]/25 hover:bg-[#2A160E]/50 rounded-xl transition-all duration-300 overflow-hidden"
             >
               <button
                 onClick={() => toggleIndex(index)}
-                className="w-full flex items-center justify-between p-5 text-left text-white hover:text-[#FF9F76] focus:outline-none focus:ring-1 focus:ring-[#FF9F76]/50 rounded-xl transition-colors duration-200 cursor-pointer"
+                className="w-full flex items-center justify-between p-5 text-left text-white hover:text-[#FFB26A] focus:outline-none focus:ring-1 focus:ring-[#FFB26A]/50 rounded-xl transition-colors duration-200 cursor-pointer"
                 aria-expanded={isOpen}
                 aria-controls={`faq-answer-${index}`}
                 id={`faq-btn-${index}`}
@@ -50,7 +50,7 @@ export default function FaqAccordion({
                 </span>
                 <ChevronDown
                   className={`w-4 h-4 text-[#EDE9E0]/40 shrink-0 transition-transform duration-300 ${
-                    isOpen ? "transform rotate-180 text-[#FF9F76]" : ""
+                    isOpen ? "transform rotate-180 text-[#FFB26A]" : ""
                   }`}
                 />
               </button>
