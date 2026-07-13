@@ -385,15 +385,15 @@ export default function Home() {
       actionText: "Join Open Office",
     },
     {
-      title: "Ancillary Revenue",
-      tag: "Diversification",
-      desc: "Implement structured bookkeeping, credit coaching, and business registration setups to unlock additional year-round income pipelines.",
+      title: "Add-on Services",
+      tag: "Add-on Services",
+      desc: "Offer more to your clients year-round. Add bookkeeping, credit coaching, and business registration to grow income beyond tax season.",
       actionText: "View Expansion Guide",
     },
     {
       title: "Automation & CRM Setup",
       tag: "Operations",
-      desc: "Cut admin workload in half. Build automated customer intake systems, calendar auto-scheduling, and customized text/email marketing pipelines.",
+      desc: "Save time on admin work. Build a simple client intake system, automate scheduling, and set up email & text follow-ups for your business.",
       actionText: "See Automation Pathways",
     },
   ];
@@ -471,24 +471,24 @@ export default function Home() {
 
   const homepageFaqs = [
     {
-      question: "What exactly is The Sector of Collectives?",
+      question: "What is The Sector of Collectives?",
       answer:
-        "The Sector of Collectives is a comprehensive support ecosystem for tax professionals. We provide professional cloud-based tax software, ERO setup enablement, Service Bureau growth mentorship, daily live coworking hours, and direct access to legal and business advisors.",
+        "TSOC is a community built for tax professionals. We offer professional tax software, EFIN (Electronic Filing Identification Number) setup support, Service Bureau mentorship, and daily live coworking sessions — everything you need to grow a tax business.",
     },
     {
-      question: "Do I need my own EFIN to buy your tax software?",
+      question: "Do I need an EFIN to get started?",
       answer:
-        "No, if you don't have an EFIN, you can start using our software immediately while participating in our ERO Enablement program, which guides you step-by-step to obtain your independent credentials from the IRS.",
+        "No. You can start using our software right away without an EFIN. If you're working toward getting one, our ERO Enablement program walks you through every step of the IRS application process.",
     },
     {
-      question: "How does the Service Bureau model differ from standard ERO?",
+      question: "What's the difference between a Service Bureau and a standard ERO?",
       answer:
-        "A standard ERO prepares tax returns for individual clients. A Service Bureau licenses tax software to other tax preparers, acts as their support desk, and earns residual revenue splits on every return processed through their sub-offices.",
+        "An ERO files returns for clients directly. A Service Bureau licenses tax software to other preparers, supports their offices, and earns residual revenue on every return they process. It's a way to scale beyond just filing your own returns.",
     },
     {
-      question: "Are there contract commitments for the memberships?",
+      question: "Are there long-term contracts?",
       answer:
-        "Our programs are structured on simple, transparent annual agreements. There are no hidden franchise royalties or surprise split models. You choose the level of software and mentorship support you need.",
+        "No surprise fees or hidden splits. Our programs run on simple annual agreements. You pick the level of support that fits your business and budget.",
     },
   ];
 
@@ -833,7 +833,7 @@ export default function Home() {
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <span className="text-xs font-bold uppercase tracking-widest text-[#FFD94A] bg-[#1C2A47]/50 border border-[#FFD94A]/20 px-3 py-1 rounded inline-block">
-              Our Core Architecture
+              Our Core
             </span>
             <h2 className="font-display text-2xl sm:text-4xl font-semibold text-white tracking-normal uppercase">
               The Collective Growth Ecosystem
@@ -937,7 +937,7 @@ export default function Home() {
                           key={inc}
                           className="flex items-start space-x-2 text-xs text-[#EDE9E0]/60"
                         >
-                          <Check className="w-3.5 h-3.5 text-[#FFD94A] shrink-0 mt-0.5" />
+                          <Check className="w-3.5 h-3.5 text-green-400 shrink-0 mt-0.5" />
                           <span>{inc}</span>
                         </li>
                       ))}
@@ -999,19 +999,19 @@ export default function Home() {
               <thead className="bg-[#050A14] sticky top-16 z-20">
                 <tr>
                   <th className="p-4 font-bold text-[#EDE9E0]/50 uppercase tracking-wider w-[40%]">
-                    Capabilities &amp; Benefits
+                    Capabilities & Benefits
                   </th>
                   <th className="p-4 text-center font-bold text-[#EDE9E0]/70 uppercase tracking-wider w-[20%]">
-                    Community Access
+                    Starter
                   </th>
                   <th className="p-4 text-center font-bold text-[#FFD94A] uppercase tracking-wider w-[20%] bg-[#FFD94A]/8 border-x border-[#FFD94A]/25">
-                    Growth Access
+                    Professional
                     <span className="block text-xs font-black text-[#FFAA2A] mt-0.5 uppercase tracking-normal font-sans">
                       Most Popular
                     </span>
                   </th>
                   <th className="p-4 text-center font-bold text-[#EDE9E0]/70 uppercase tracking-wider w-[20%]">
-                    Expansion Access
+                    Enterprise
                   </th>
                 </tr>
               </thead>
@@ -1059,129 +1059,129 @@ export default function Home() {
                 </tr>
                 <tr className="hover:bg-[#1C2A47]/20 transition-colors">
                   <td className="p-4 font-semibold text-white">
-                    IRS ERO Enablement Setup
+                    ERO Support & Training
                   </td>
-                  <td className="p-4 text-center text-[#EDE9E0]/25 font-mono">
-                    NO
+                  <td className="p-4 text-center">
+                    <button onClick={() => openModal("strategy")} className="text-[10px] text-[#EDE9E0]/50 hover:text-[#FFD94A] transition-colors font-semibold underline underline-offset-2 cursor-pointer">Contact Us</button>
                   </td>
-                  <td className="p-4 text-center text-[#FFD94A] font-bold font-mono bg-[#FFD94A]/5 border-x border-[#FFD94A]/20">
-                    YES
+                  <td className="p-4 text-center text-green-400 font-bold bg-[#FFD94A]/5 border-x border-[#FFD94A]/20">
+                    <Check className="w-4 h-4 mx-auto" />
                   </td>
-                  <td className="p-4 text-center text-[#FFD94A] font-bold font-mono">
-                    YES
-                  </td>
-                </tr>
-                <tr className="hover:bg-[#1C2A47]/20 transition-colors">
-                  <td className="p-4 font-semibold text-white">
-                    Ancillary Revenue Systems Guides
-                  </td>
-                  <td className="p-4 text-center text-[#EDE9E0]/25 font-mono">
-                    NO
-                  </td>
-                  <td className="p-4 text-center text-[#FFD94A] font-bold font-mono bg-[#FFD94A]/5 border-x border-[#FFD94A]/20">
-                    YES
-                  </td>
-                  <td className="p-4 text-center text-[#FFD94A] font-bold font-mono">
-                    YES
+                  <td className="p-4 text-center text-green-400 font-bold">
+                    <Check className="w-4 h-4 mx-auto" />
                   </td>
                 </tr>
                 <tr className="hover:bg-[#1C2A47]/20 transition-colors">
                   <td className="p-4 font-semibold text-white">
-                    CRM Templates &amp; Automations
+                    Add-on Services Guides
                   </td>
-                  <td className="p-4 text-center text-[#EDE9E0]/25 font-mono">
-                    NO
+                  <td className="p-4 text-center">
+                    <button onClick={() => openModal("strategy")} className="text-[10px] text-[#EDE9E0]/50 hover:text-[#FFD94A] transition-colors font-semibold underline underline-offset-2 cursor-pointer">Contact Us</button>
                   </td>
-                  <td className="p-4 text-center text-[#FFD94A] font-bold font-mono bg-[#FFD94A]/5 border-x border-[#FFD94A]/20">
-                    YES
+                  <td className="p-4 text-center text-green-400 font-bold bg-[#FFD94A]/5 border-x border-[#FFD94A]/20">
+                    <Check className="w-4 h-4 mx-auto" />
                   </td>
-                  <td className="p-4 text-center text-[#FFD94A] font-bold font-mono">
-                    YES
-                  </td>
-                </tr>
-                <tr className="hover:bg-[#1C2A47]/20 transition-colors">
-                  <td className="p-4 font-semibold text-white">
-                    Live Attorney consultations
-                  </td>
-                  <td className="p-4 text-center text-[#EDE9E0]/25 font-mono">
-                    NO
-                  </td>
-                  <td className="p-4 text-center text-[#FFD94A] font-bold font-mono bg-[#FFD94A]/5 border-x border-[#FFD94A]/20">
-                    YES
-                  </td>
-                  <td className="p-4 text-center text-[#FFD94A] font-bold font-mono">
-                    YES
+                  <td className="p-4 text-center text-green-400 font-bold">
+                    <Check className="w-4 h-4 mx-auto" />
                   </td>
                 </tr>
                 <tr className="hover:bg-[#1C2A47]/20 transition-colors">
                   <td className="p-4 font-semibold text-white">
-                    Service Bureau Audits &amp; Setup
+                    CRM Templates & Automations
                   </td>
-                  <td className="p-4 text-center text-[#EDE9E0]/25 font-mono">
-                    NO
+                  <td className="p-4 text-center">
+                    <button onClick={() => openModal("strategy")} className="text-[10px] text-[#EDE9E0]/50 hover:text-[#FFD94A] transition-colors font-semibold underline underline-offset-2 cursor-pointer">Contact Us</button>
                   </td>
-                  <td className="p-4 text-center text-[#EDE9E0]/25 font-mono bg-[#FFD94A]/5 border-x border-[#FFD94A]/20">
-                    NO
+                  <td className="p-4 text-center text-green-400 font-bold bg-[#FFD94A]/5 border-x border-[#FFD94A]/20">
+                    <Check className="w-4 h-4 mx-auto" />
                   </td>
-                  <td className="p-4 text-center text-[#FFD94A] font-bold font-mono">
-                    YES
-                  </td>
-                </tr>
-                <tr className="hover:bg-[#1C2A47]/20 transition-colors">
-                  <td className="p-4 font-semibold text-white">
-                    White-label branding deployment
-                  </td>
-                  <td className="p-4 text-center text-[#EDE9E0]/25 font-mono">
-                    NO
-                  </td>
-                  <td className="p-4 text-center text-[#EDE9E0]/25 font-mono bg-[#FFD94A]/5 border-x border-[#FFD94A]/20">
-                    NO
-                  </td>
-                  <td className="p-4 text-center text-[#FFD94A] font-bold font-mono">
-                    YES
+                  <td className="p-4 text-center text-green-400 font-bold">
+                    <Check className="w-4 h-4 mx-auto" />
                   </td>
                 </tr>
                 <tr className="hover:bg-[#1C2A47]/20 transition-colors">
                   <td className="p-4 font-semibold text-white">
-                    1-on-1 advisor strategy checks
+                    Live Attorney Consultations
                   </td>
-                  <td className="p-4 text-center text-[#EDE9E0]/25 font-mono">
-                    NO
+                  <td className="p-4 text-center">
+                    <button onClick={() => openModal("strategy")} className="text-[10px] text-[#EDE9E0]/50 hover:text-[#FFD94A] transition-colors font-semibold underline underline-offset-2 cursor-pointer">Contact Us</button>
                   </td>
-                  <td className="p-4 text-center text-[#EDE9E0]/25 font-mono bg-[#FFD94A]/5 border-x border-[#FFD94A]/20">
-                    NO
+                  <td className="p-4 text-center text-green-400 font-bold bg-[#FFD94A]/5 border-x border-[#FFD94A]/20">
+                    <Check className="w-4 h-4 mx-auto" />
                   </td>
-                  <td className="p-4 text-center text-[#FFD94A] font-bold font-mono">
-                    YES
+                  <td className="p-4 text-center text-green-400 font-bold">
+                    <Check className="w-4 h-4 mx-auto" />
+                  </td>
+                </tr>
+                <tr className="hover:bg-[#1C2A47]/20 transition-colors">
+                  <td className="p-4 font-semibold text-white">
+                    Service Bureau Audits & Setup
+                  </td>
+                  <td className="p-4 text-center">
+                    <button onClick={() => openModal("strategy")} className="text-[10px] text-[#EDE9E0]/50 hover:text-[#FFD94A] transition-colors font-semibold underline underline-offset-2 cursor-pointer">Learn More</button>
+                  </td>
+                  <td className="p-4 text-center bg-[#FFD94A]/5 border-x border-[#FFD94A]/20">
+                    <button onClick={() => openModal("strategy")} className="text-[10px] text-[#EDE9E0]/50 hover:text-[#FFD94A] transition-colors font-semibold underline underline-offset-2 cursor-pointer">Learn More</button>
+                  </td>
+                  <td className="p-4 text-center text-green-400 font-bold">
+                    <Check className="w-4 h-4 mx-auto" />
+                  </td>
+                </tr>
+                <tr className="hover:bg-[#1C2A47]/20 transition-colors">
+                  <td className="p-4 font-semibold text-white">
+                    White-label Branding
+                  </td>
+                  <td className="p-4 text-center">
+                    <button onClick={() => openModal("strategy")} className="text-[10px] text-[#EDE9E0]/50 hover:text-[#FFD94A] transition-colors font-semibold underline underline-offset-2 cursor-pointer">Learn More</button>
+                  </td>
+                  <td className="p-4 text-center bg-[#FFD94A]/5 border-x border-[#FFD94A]/20">
+                    <button onClick={() => openModal("strategy")} className="text-[10px] text-[#EDE9E0]/50 hover:text-[#FFD94A] transition-colors font-semibold underline underline-offset-2 cursor-pointer">Learn More</button>
+                  </td>
+                  <td className="p-4 text-center text-green-400 font-bold">
+                    <Check className="w-4 h-4 mx-auto" />
+                  </td>
+                </tr>
+                <tr className="hover:bg-[#1C2A47]/20 transition-colors">
+                  <td className="p-4 font-semibold text-white">
+                    1-on-1 Advisor Strategy Calls
+                  </td>
+                  <td className="p-4 text-center">
+                    <button onClick={() => openModal("strategy")} className="text-[10px] text-[#EDE9E0]/50 hover:text-[#FFD94A] transition-colors font-semibold underline underline-offset-2 cursor-pointer">Learn More</button>
+                  </td>
+                  <td className="p-4 text-center bg-[#FFD94A]/5 border-x border-[#FFD94A]/20">
+                    <button onClick={() => openModal("strategy")} className="text-[10px] text-[#EDE9E0]/50 hover:text-[#FFD94A] transition-colors font-semibold underline underline-offset-2 cursor-pointer">Learn More</button>
+                  </td>
+                  <td className="p-4 text-center text-green-400 font-bold">
+                    <Check className="w-4 h-4 mx-auto" />
                   </td>
                 </tr>
                 {/* Button actions row */}
                 <tr className="bg-[#050A14]/60">
                   <td className="p-4 font-bold text-[#EDE9E0]/50">
-                    Select Access Tier
+                    Get Started Today
                   </td>
                   <td className="p-4 text-center">
                     <button
                       onClick={() => openModal("strategy")}
-                      className="px-4 py-2 rounded-lg bg-[#1C2A47] hover:bg-[#243352] text-[#EDE9E0]/70 hover:text-white font-bold border border-[#FFD94A]/20 tracking-wider uppercase text-xs cursor-pointer w-full transition-all"
+                      className="px-4 py-2 rounded-lg bg-[#1C2A47] hover:bg-[#243352] text-[#EDE9E0]/70 hover:text-white font-bold border border-[#FFD94A]/20 tracking-wider uppercase text-[9px] cursor-pointer w-full transition-all"
                     >
-                      Choose Community
+                      Choose Starter
                     </button>
                   </td>
                   <td className="p-4 text-center bg-[#FFD94A]/5 border-x border-[#FFD94A]/20">
                     <button
                       onClick={() => openModal("strategy")}
-                      className="px-4 py-2 rounded-lg bg-[#FFD94A] hover:bg-[#FFAA2A] text-[#050A14] font-extrabold tracking-wider uppercase text-xs cursor-pointer w-full shadow-lg shadow-[#FFD94A]/20"
+                      className="px-4 py-2 rounded-lg bg-gradient-to-r from-[#FFD94A] to-[#FFAA2A] hover:from-[#FFAA2A] hover:to-[#FF8C00] text-[#050A14] font-extrabold tracking-wider uppercase text-[9px] cursor-pointer w-full shadow-lg shadow-[#FFD94A]/20"
                     >
-                      Choose Growth
+                      Choose Professional
                     </button>
                   </td>
                   <td className="p-4 text-center">
                     <button
                       onClick={() => openModal("strategy")}
-                      className="px-4 py-2 rounded-lg bg-[#1C2A47] hover:bg-[#243352] text-[#EDE9E0]/70 hover:text-white font-bold border border-[#FFD94A]/20 tracking-wider uppercase text-xs cursor-pointer w-full transition-all"
+                      className="px-4 py-2 rounded-lg bg-[#1C2A47] hover:bg-[#243352] text-[#EDE9E0]/70 hover:text-white font-bold border border-[#FFD94A]/20 tracking-wider uppercase text-[9px] cursor-pointer w-full transition-all"
                     >
-                      Choose Expansion
+                      Choose Enterprise
                     </button>
                   </td>
                 </tr>
@@ -1215,7 +1215,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <FaqAccordion
             items={homepageFaqs}
-            title="The Sector of Collectives FAQs"
+            title="FAQs"
           />
         </div>
       </section>

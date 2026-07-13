@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useModal } from "@/context/ModalContext";
-import { Mail } from "lucide-react";
+import { Mail, Phone, MessageSquare, ExternalLink } from "lucide-react";
 import Logo from "@/components/ui/Logo";
 
 export default function Footer() {
@@ -23,7 +23,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#050A14] text-[#EDE9E0]/50 py-12 mt-auto border-t border-[#FFD94A]/10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-12">
           {/* Logo & Motto */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="flex items-center space-x-2">
@@ -33,10 +33,26 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-xs text-[#EDE9E0]/40 max-w-sm leading-relaxed">
-              Helping tax professionals scale profitability, secure independence, and develop year-round systems. We provide more than just professional tax software—we build sustainable businesses.
+              We help tax professionals build independent businesses — with software, EFIN support, community, and year-round guidance.
             </p>
             <div className="text-xs uppercase tracking-widest text-[#FFAA2A]/70 font-bold">
               Motto: <span className="font-display italic font-semibold text-sm normal-case tracking-normal text-[#FFD94A]">Connect</span> • <span className="font-display italic font-semibold text-sm normal-case tracking-normal text-[#FFD94A]">Create</span> • <span className="font-display font-semibold text-sm normal-case tracking-normal text-white">Conquer</span>
+            </div>
+            {/* Contact Options */}
+            <div className="space-y-2 pt-2">
+              <h4 className="text-[10px] font-bold text-white uppercase tracking-wider">Contact Us</h4>
+              <a href="mailto:contact@tsoc.com" className="flex items-center gap-2 text-xs hover:text-[#FFD94A] transition-colors">
+                <Mail className="w-3.5 h-3.5 shrink-0" />
+                contact@tsoc.com
+              </a>
+              <a href="tel:+15550000000" className="flex items-center gap-2 text-xs hover:text-[#FFD94A] transition-colors">
+                <Phone className="w-3.5 h-3.5 shrink-0" />
+                (555) 000-0000
+              </a>
+              <a href="sms:+15550000000" className="flex items-center gap-2 text-xs hover:text-[#FFD94A] transition-colors">
+                <MessageSquare className="w-3.5 h-3.5 shrink-0" />
+                Text Us
+              </a>
             </div>
           </div>
 
@@ -78,7 +94,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/ero-enablement" className="hover:text-[#FFD94A] transition-colors">
-                  IRS ERO Support
+                  ERO Support & Training
                 </Link>
               </li>
               <li>
@@ -105,7 +121,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/open-office" className="hover:text-[#FFD94A] transition-colors">
-                  Tax Industry Networking
+                  Join Open Office Live
                 </Link>
               </li>
               <li>
@@ -115,8 +131,59 @@ export default function Footer() {
               </li>
               <li>
                 <button onClick={() => openModal("strategy")} className="hover:text-[#FFD94A] transition-colors text-left cursor-pointer">
-                  Schedule a Strategy Session
+                  Book a Strategy Call
                 </button>
+              </li>
+            </ul>
+          </div>
+
+          {/* IRS Resources */}
+          <div>
+            <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4">IRS Resources</h4>
+            <ul className="space-y-2.5 text-xs">
+              <li>
+                <a
+                  href="https://www.irs.gov/tax-professionals/become-an-authorized-e-file-provider"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1 hover:text-[#FFD94A] transition-colors"
+                >
+                  IRS EFIN Application
+                  <ExternalLink className="w-2.5 h-2.5 shrink-0" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.irs.gov/tax-professionals"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1 hover:text-[#FFD94A] transition-colors"
+                >
+                  IRS Tax Pro Resources
+                  <ExternalLink className="w-2.5 h-2.5 shrink-0" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.irs.gov/e-file-providers/authorized-irs-e-file-providers-for-individuals"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1 hover:text-[#FFD94A] transition-colors"
+                >
+                  Application Status
+                  <ExternalLink className="w-2.5 h-2.5 shrink-0" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.irs.gov/help/telephone-assistance"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1 hover:text-[#FFD94A] transition-colors"
+                >
+                  IRS Phone Support
+                  <ExternalLink className="w-2.5 h-2.5 shrink-0" />
+                </a>
               </li>
             </ul>
           </div>

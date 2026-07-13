@@ -107,17 +107,17 @@ export default function OpenOfficePage() {
     {
       id: "mon",
       dayName: "Monday",
-      title: "Dominate Your Taxes",
-      desc: "Deep dive into filing compliance, refund calculations, audit mitigation, and complex individual/corporate forms. Bring active filing scenarios for collaborative troubleshooting.",
+      title: "Open Filing Support",
+      desc: "Bring your active filing questions and get live support. We cover return walkthroughs, IRS updates, and complex form guidance in an open, collaborative format.",
       time: "1:00 PM EST",
-      pillar: "IRS Compliance Review",
+      pillar: "Filing Support",
       byDay: "MO",
     },
     {
       id: "tue",
       dayName: "Tuesday",
       title: "Tech Tuesday",
-      desc: "Learn how to sync CRMs, automate client follow-ups, embed calendar scheduling, and leverage AI models to cut admin overhead in half. Perfect for modernizing office operations.",
+      desc: "Learn how to sync CRMs, automate client follow-ups, embed calendar scheduling, and use modern tools to cut admin time. Perfect for modernizing your office operations.",
       time: "2:00 PM EST",
       pillar: "Tax Business Automation",
       byDay: "TU",
@@ -125,17 +125,17 @@ export default function OpenOfficePage() {
     {
       id: "wed",
       dayName: "Wednesday",
-      title: "Build Your Virtual Empire",
-      desc: "Blueprints for remote tax prep. How to manage remote agents, structure software permissions, build compliance checklists, and secure documents digitally under your EFIN.",
+      title: "Feature Trainings",
+      desc: "Deep-dive training on software features, workflows, and platform updates. Walk away knowing how to use every tool to its full potential.",
       time: "1:00 PM EST",
-      pillar: "Service Bureau Scaling",
+      pillar: "Software Training",
       byDay: "WE",
     },
     {
       id: "thu",
       dayName: "Thursday",
-      title: "Tap-In Thursdays",
-      desc: "Live coworking session and coaching check-in. Network with other tax business owners, share success blocks, review business operations, and audit marketing strategy results.",
+      title: "Tap In Thursday",
+      desc: "Live coworking and coaching check-in. Network with other tax business owners, share wins, review business operations, and audit your marketing strategy.",
       time: "3:00 PM EST",
       pillar: "Networking & Coaching",
       byDay: "TH",
@@ -144,7 +144,7 @@ export default function OpenOfficePage() {
       id: "fri",
       dayName: "Friday",
       title: "Ask an Attorney",
-      desc: "Live legal advice Q&A with our allied tax & corporate attorneys. Review business structure setups, contract compliance, physical/digital audit standards, and ERO regulations.",
+      desc: "Live legal Q&A with our allied tax & corporate attorneys. Review business structure setups, contract compliance, and ERO regulations. *(Guidance only, not legal representation.)*",
       time: "12:00 PM EST",
       pillar: "Legal & Entity Structure",
       byDay: "FR",
@@ -164,20 +164,20 @@ export default function OpenOfficePage() {
 
   const openOfficeFaqs = [
     {
-      question: "Who can participate in the Open Office community?",
-      answer: "Open Office is designed for independent tax preparers, bookkeeping partners, EROs, and Service Bureau owners who are members of The Sector of Collectives. It acts as a collaborative daily workspace where you can coworking and consult with experts."
+      question: "Who can join the Open Office?",
+      answer: "The Open Office is open to tax professionals, bookkeepers, accountants, entrepreneurs, and small business owners who are members of TSOC. It's a daily workspace where you can get real answers, learn from experts, and connect with peers."
     },
     {
-      question: "Are the Zoom support blocks recorded?",
-      answer: "Yes, our Monday and Tuesday workshops, along with Friday Attorney Q&As, are recorded and loaded into the member portal. Members can access replays and blueprints at any time."
+      question: "Are sessions recorded?",
+      answer: "Yes! Tuesday (Tech Tuesday), Wednesday (Feature Trainings), Thursday (Tap In Thursday), and Friday (Ask an Attorney) sessions are all recorded and available in the member portal. You can watch replays anytime."
     },
     {
-      question: "What legal questions can I ask corporate attorneys?",
-      answer: "Our allied corporate and tax attorneys answer structural questions regarding business incorporation (LLCs, S-Corps), client contract structures, physical/digital tax office compliance, and IRS e-file agent guidelines. *Disclaimer: Consultations provide guidance and do not form direct legal representation."
+      question: "What can I ask the attorneys?",
+      answer: "Our allied attorneys answer questions about business structure (LLCs, S-Corps), contracts, tax office compliance, and IRS e-file agent guidelines. *Consultations provide guidance and do not form direct legal representation.*"
     },
     {
-      question: "Can I invite junior preparers from my Service Bureau?",
-      answer: "Yes, depending on your membership tier. Expansion Access members can register their staff and sub-office agents into coworking hours and basic software support blocks."
+      question: "Can I invite my team?",
+      answer: "Yes, depending on your membership tier. Enterprise members can register staff and sub-office agents into coworking sessions and software support blocks."
     }
   ];
 
@@ -227,26 +227,26 @@ export default function OpenOfficePage() {
             {/* Left: Content */}
             <div className="space-y-6 flex flex-col justify-center">
               <span className="gsap-reveal inline-flex w-fit items-center rounded-full bg-[#FFD94A]/10 border border-[#FFD94A]/20 px-3 py-1 text-xs font-semibold text-[#FFD94A]">
-                Tax Professional Community
+                For Tax Pros, Bookkeepers, Entrepreneurs & More
               </span>
               <h1 className="gsap-reveal font-display text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-normal leading-tight text-white">
-                Where Access Meets Opportunity. The Open Office.
+                Your Daily Professional Home Base. The Open Office.
               </h1>
               <p className="gsap-reveal text-sm text-[#EDE9E0]/55 leading-relaxed line-clamp-3">
-                A collaborative community built to support tax business owners year-round. Connect with experts, participate in daily coworking blocks, and get answers to your tech, tax, and legal questions.
+                A live community where tax professionals, bookkeepers, entrepreneurs, and accountants get answers, build businesses, and stay connected — every single day.
               </p>
               <div className="gsap-reveal flex flex-col sm:flex-row gap-4 pt-4">
                 <button
                   onClick={() => openModal("openoffice")}
                   className="bg-[#FFD94A] hover:bg-[#FFAA2A] text-[#050A14] font-extrabold px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer shadow-md"
                 >
-                  Join The Open Office
+                  Join Open Office Live
                 </button>
                 <button
                   onClick={() => openModal("openoffice")}
                   className="bg-[#1C2A47] text-[#EDE9E0]/70 hover:text-white border border-[#FFD94A]/20 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer"
                 >
-                  View Live Schedule
+                  Ask Questions Live
                 </button>
               </div>
             </div>
@@ -551,7 +551,7 @@ export default function OpenOfficePage() {
 
         {/* FAQs */}
         <div className="gsap-reveal">
-          <FaqAccordion items={openOfficeFaqs} title="Open Office Community FAQs" />
+          <FaqAccordion items={openOfficeFaqs} title="FAQs" />
         </div>
 
         {/* Community Banner CTA */}

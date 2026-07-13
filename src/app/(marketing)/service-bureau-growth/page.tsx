@@ -167,7 +167,7 @@ export default function ServiceBureauGrowthPage() {
   const sbFaqs = [
     {
       question: "What exactly is a Tax Service Bureau?",
-      answer: "A Service Bureau is a company that packages and sub-licenses professional tax software to other independent preparers. Instead of just filing client returns, you build a network of preparers or sub-offices, support their compliance, and earn a commission split or software fee on every return they file."
+      answer: "A Service Bureau packages and sub-licenses professional tax software to other independent preparers. Instead of just filing client returns, you build a network of preparers or sub-offices, support their compliance, and earn residual revenue on every return they file."
     },
     {
       question: "How much volume do I need to start a Service Bureau?",
@@ -375,99 +375,6 @@ export default function ServiceBureauGrowthPage() {
           </div>
         </div>
 
-        {/* Lead Magnet checklist form */}
-        <div className="gsap-reveal max-w-4xl mx-auto bg-gradient-to-r from-[#1C2A47] to-[#0d1526] border border-[#FFD94A]/25 rounded-2xl p-6 md:p-10 relative overflow-hidden shadow-xl">
-          <div className="absolute top-0 right-0 p-8 opacity-5">
-            <Download className="w-40 h-40 text-[#FFD94A]" />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center z-10 relative">
-            <div className="space-y-4">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#FFD94A] bg-[#FFD94A]/30 border border-[#FFD94A]/40 px-2.5 py-1 rounded inline-block">
-                Lead Magnet
-              </span>
-              <h3 className="text-xl font-bold text-white uppercase tracking-wider">Which Phase Are You In?</h3>
-              <p className="text-xs text-[#EDE9E0]/60 leading-relaxed">
-                Download the complete Service Bureau audit checklist. This questionnaire helps evaluate your tech readiness, document pipeline templates, ERO onboarding systems, and recruitment setups.
-              </p>
-              <ul className="space-y-2 text-xs text-[#EDE9E0]/50">
-                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#FFD94A]" /> EFIN Audit guidelines</li>
-                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#FFD94A]" /> Multi-user software checks</li>
-                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-[#FFD94A]" /> CRM pipeline triggers map</li>
-              </ul>
-            </div>
-
-            {/* Checklist Form */}
-            <div className="bg-[#050A14]/60 border border-[#FFD94A]/30 rounded-xl p-5 md:p-6">
-              {!isFormSubmitted ? (
-                <form onSubmit={handleLeadSubmit} className="space-y-3.5">
-                  <h4 className="text-xs font-bold text-[#EDE9E0]/70 uppercase tracking-wider mb-2 text-center">Get Your Free Copy</h4>
-                  <div>
-                    <label htmlFor="gate-name" className="block text-xs font-bold text-[#EDE9E0]/50 uppercase tracking-wider mb-1">Full Name</label>
-                    <div className="relative">
-                      <User className="absolute left-3 top-2.5 w-3.5 h-3.5 text-[#EDE9E0]/40" />
-                      <input
-                        type="text"
-                        id="gate-name"
-                        required
-                        placeholder="John Doe"
-                        value={leadData.name}
-                        onChange={(e) => setLeadData({ ...leadData, name: e.target.value })}
-                        className="w-full bg-[#1C2A47]/50 border border-[#FFD94A]/30 focus:border-[#FFD94A] rounded-lg pl-9 pr-3 py-2 text-xs text-white placeholder-[#EDE9E0]/30 outline-none transition-all"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label htmlFor="gate-email" className="block text-xs font-bold text-[#EDE9E0]/50 uppercase tracking-wider mb-1">Email Address</label>
-                    <div className="relative">
-                      <Mail className="absolute left-3 top-2.5 w-3.5 h-3.5 text-[#EDE9E0]/40" />
-                      <input
-                        type="email"
-                        id="gate-email"
-                        required
-                        placeholder="john@example.com"
-                        value={leadData.email}
-                        onChange={(e) => setLeadData({ ...leadData, email: e.target.value })}
-                        className="w-full bg-[#1C2A47]/50 border border-[#FFD94A]/30 focus:border-[#FFD94A] rounded-lg pl-9 pr-3 py-2 text-xs text-white placeholder-[#EDE9E0]/30 outline-none transition-all"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label htmlFor="gate-phone" className="block text-xs font-bold text-[#EDE9E0]/50 uppercase tracking-wider mb-1">Phone Number</label>
-                    <div className="relative">
-                      <Phone className="absolute left-3 top-2.5 w-3.5 h-3.5 text-[#EDE9E0]/40" />
-                      <input
-                        type="tel"
-                        id="gate-phone"
-                        required
-                        placeholder="(555) 555-5555"
-                        value={leadData.phone}
-                        onChange={(e) => setLeadData({ ...leadData, phone: e.target.value })}
-                        className="w-full bg-[#1C2A47]/50 border border-[#FFD94A]/30 focus:border-[#FFD94A] rounded-lg pl-9 pr-3 py-2 text-xs text-white placeholder-[#EDE9E0]/30 outline-none transition-all"
-                      />
-                    </div>
-                  </div>
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-[#FFD94A] hover:bg-[#FFAA2A] text-black font-extrabold py-2.5 rounded-lg text-xs uppercase tracking-wider transition-colors cursor-pointer flex items-center justify-center gap-1.5"
-                  >
-                    {isSubmitting ? "Generating..." : "Download Checklist PDF"}
-                    <Download className="w-3.5 h-3.5" />
-                  </button>
-                </form>
-              ) : (
-                <div className="text-center py-6 space-y-3 animate-fade-in">
-                  <CheckCircle className="w-10 h-10 text-[#FFD94A] mx-auto" />
-                  <h4 className="text-xs font-bold text-white uppercase tracking-wider">Checklist Sent Successfully!</h4>
-                  <p className="text-xs text-[#EDE9E0]/60">
-                    Your PDF download has started. If the download didn&apos;t trigger, check your email inbox at <span className="text-[#FFD94A] font-semibold">{leadData.email}</span>.
-                  </p>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
 
         {/* Candidate Fit Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -476,7 +383,7 @@ export default function ServiceBureauGrowthPage() {
               Is This Mentorship Right For You?
             </span>
             <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight uppercase">
-              Ideal Service Bureau Candidates
+              Who We Work With
             </h2>
             <p className="text-xs text-[#EDE9E0]/60 leading-relaxed">
               Transitioning to a Service Bureau requires administrative maturity, solid tax experience, and leadership. We screen applicants to ensure our resources align with offices ready to scale.
@@ -523,7 +430,7 @@ export default function ServiceBureauGrowthPage() {
 
         {/* FAQs */}
         <div className="gsap-reveal">
-          <FaqAccordion items={sbFaqs} title="Service Bureau Growth FAQs" />
+          <FaqAccordion items={sbFaqs} title="FAQs" />
         </div>
       </div>
     </div>

@@ -84,69 +84,69 @@ export default function TaxSoftwarePage() {
 
   const packages = [
     {
-      name: "Individual Preparer",
-      desc: "Perfect for independent preparers getting started with professional filing tools.",
+      name: "Tax Pro",
+      desc: "Perfect for independent tax preparers getting started with professional filing tools.",
       priceText: "Flexible Pricing",
       features: [
         "1040, Schedule C, & All State Forms",
         "Cloud-based software access",
         "E-file capabilities & tracking",
-        "Direct software walkthrough guides",
-        "Email & basic chat support",
-        "Basic training resources",
+        "Software walkthrough guides",
+        "Email & chat support",
+        "Community access",
       ],
       ctaText: "See the Software in Action",
       action: () => openModal("demo"),
     },
     {
-      name: "ERO Growth",
-      desc: "Ideal for established or expanding EROs managing office locations and bank integrations.",
+      name: "ERO Office",
+      desc: "Ideal for established or growing EROs managing office locations and bank integrations.",
       priceText: "Maximizes Margins",
       isPopular: true,
       features: [
-        "All Individual features",
+        "All Tax Pro features",
         "Corporate & Business filings (1120, 1065, etc.)",
         "Bank product enrollment support",
         "Multi-user office licensing",
         "Dedicated tech advisor support",
         "EFIN application review guidance",
       ],
-      ctaText: "Request Free Live Demo",
-      action: () => openModal("demo"),
+      ctaText: "Request a Live Demo",
+      action: () => openModal("strategy"),
     },
     {
       name: "Service Bureau Enterprise",
       desc: "For leaders licensing and supporting other tax professionals under their own brand.",
       priceText: "Custom Licensing",
       features: [
-        "All ERO Growth features",
+        "All ERO Office features",
         "White-label software branding options",
         "Sub-site EFIN management console",
         "Custom fee structure settings",
         "Service Bureau operations mentorship",
         "Priority 24/7 technical hotline",
       ],
-      ctaText: "See Enterprise in Action",
-      action: () => openModal("demo"),
+      ctaText: "Contact Us",
+      action: () => openModal("strategy"),
     },
   ];
 
   const softwareFaqs = [
     {
-      question: "Is the tax software cloud-based?",
-      answer: "Yes, our professional tax software is fully cloud-based. You and your preparers can access files, prepare returns, and track e-file statuses securely from any web browser on desktop, tablet, or mobile devices with no local installations required."
+      question: "Is the software cloud-based?",
+      answer: "Yes. You can access it from any browser — no downloads or installs needed. File returns, track statuses, and manage clients from anywhere."
     },
     {
-      question: "Do you support business and corporate tax filings?",
-      answer: "Yes, our ERO Growth and Service Bureau tiers support comprehensive business filings, including Form 1120 (Corporations), Form 1120-S (S-Corporations), Form 1065 (Partnerships), Form 990 (Non-Profits), and Form 706/709 (Estates/Trusts), alongside all state forms."
+      question: "Do you support business tax filings?",
+      answer: "Yes. Our ERO Office and Service Bureau tiers support corporate and business filings, including Forms 1120, 1120-S, 1065, 990, and more, along with all state forms."
     },
     {
-      question: "How do refund bank products and advances work?",
-      answer: "We are integrated with the industry's leading bank product processors (like TPG, Republic Bank, and Refund Advantage). During filing, you can offer clients options to deduct prep fees directly from their refund, or request refund advances of up to $6,000, which pays out within hours of IRS acknowledgement."
+      question: "How do bank products work?",
+      answer: "We work with leading bank partners (TPG, Republic Bank, Refund Advantage). Clients can have prep fees deducted directly from their refund, or request refund advances paid out within hours of IRS acknowledgement."
     },
     {
-      question: "Can I customize software fees under my own brand?",
-      answer: "Absolutely. Under our Service Bureau Enterprise program, you can white-label the software dashboard under your own company name and logo, set custom service fee defaults, and configure automatic document prep fee splits for your remote agents."
+      question: "Can I white-label the software?",
+      answer: "Yes. Under our Service Bureau Enterprise plan, you can brand the dashboard under your own company name and logo, set custom fee defaults, and manage your remote agents."
     }
   ];
 
@@ -173,7 +173,7 @@ export default function TaxSoftwarePage() {
                 Professional Tax Software for Tax Preparers
               </span>
               <h1 className="gsap-reveal text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-snug text-white">
-                Cloud-Based Tax Software Built for Profitability
+                Professional Tax Software Built for Growth
               </h1>
               <p className="gsap-reveal text-sm text-[#EDE9E0]/55 leading-relaxed line-clamp-3">
                 Access robust, reliable, and compliant tax software. File federal and state returns quickly, offer bank products directly, and grow a tax business with zero limits.
@@ -186,10 +186,10 @@ export default function TaxSoftwarePage() {
                   See the Software in Action
                 </button>
                 <button
-                  onClick={() => openModal("demo")}
+                  onClick={() => openModal("strategy")}
                   className="bg-[#1C2A47] text-[#EDE9E0]/70 hover:text-white border border-[#FFD94A]/20 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer"
                 >
-                  Request Free Live Demo
+                  Request a Live Demo
                 </button>
               </div>
             </div>
@@ -370,7 +370,7 @@ export default function TaxSoftwarePage() {
                   <ul className="space-y-3.5">
                     {pkg.features.map((feat) => (
                       <li key={feat} className="flex items-start space-x-2.5 text-xs text-[#EDE9E0]/60">
-                        <Check className="w-3.5 h-3.5 text-[#FFD94A] shrink-0 mt-0.5" />
+                        <Check className="w-3.5 h-3.5 text-green-400 shrink-0 mt-0.5" />
                         <span>{feat}</span>
                       </li>
                     ))}
@@ -412,19 +412,27 @@ export default function TaxSoftwarePage() {
 
         {/* FAQs */}
         <div className="gsap-reveal">
-          <FaqAccordion items={softwareFaqs} title="Professional Tax Software FAQs" />
+          <FaqAccordion items={softwareFaqs} title="FAQs" />
         </div>
 
         {/* Community Banner */}
-        <TiltCard tilt={3} className="glass-card p-8 md:p-12 relative overflow-hidden flex flex-col md:flex-row md:items-center gap-8">
-          <div className="space-y-3 max-w-3xl">
+        <TiltCard tilt={3} className="glass-card p-8 md:p-12 relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-8">
+          <div className="space-y-3 max-w-2xl">
             <span className="text-xs font-bold uppercase tracking-wider text-[#FFD94A] bg-[#FFD94A]/10 border border-[#FFD94A]/20 px-3 py-1 rounded">
-              Tax Software Community
+              Tax Software + Community
             </span>
-            <h3 className="text-xl font-bold text-white uppercase tracking-wider">Join More Than Just a Software Company</h3>
+            <h3 className="text-xl font-bold text-white uppercase tracking-wider">More Than Software — A Full Support System</h3>
             <p className="text-xs text-[#EDE9E0]/45 leading-relaxed">
-              When you purchase professional tax software through The Sector of Collectives, you gain access to our live coworking community, Tech Tuesday workshops, and year-round business advice resources.
+              Your software purchase includes access to our Open Office community — daily live co-working sessions, Tech Tuesday training, Business Support hours, and year-round education. No extra charge.
             </p>
+            <ul className="grid grid-cols-2 gap-1.5 pt-1">
+              {["Open Office Daily", "Tech Tuesday", "Live Co-working", "Business Support", "Year-round Education", "Attorney Q&As"].map((item) => (
+                <li key={item} className="flex items-center gap-1.5 text-[10px] text-[#EDE9E0]/60">
+                  <Check className="w-3 h-3 text-green-400 shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
           <div className="shrink-0 flex items-center">
             <button
