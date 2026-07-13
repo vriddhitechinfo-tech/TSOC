@@ -21,7 +21,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#050A14] text-[#EDE9E0]/50 py-12 mt-auto border-t border-[#FFD94A]/10">
+    <footer className="bg-[#050A14] text-[#EDE9E0]/50 py-12 mt-auto border-t border-[#FF9F76]/15">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-12">
           {/* Logo & Motto */}
@@ -35,8 +35,24 @@ export default function Footer() {
             <p className="text-xs text-[#EDE9E0]/40 max-w-sm leading-relaxed">
               We help tax professionals build independent businesses — with software, EFIN support, community, and year-round guidance.
             </p>
-            <div className="text-xs uppercase tracking-widest text-[#FFAA2A]/70 font-bold">
-              Motto: <span className="font-display italic font-semibold text-sm normal-case tracking-normal text-[#FFD94A]">Connect</span> • <span className="font-display italic font-semibold text-sm normal-case tracking-normal text-[#FFD94A]">Create</span> • <span className="font-display font-semibold text-sm normal-case tracking-normal text-white">Conquer</span>
+            <div className="text-xs uppercase tracking-widest text-[#F4845F] font-bold">
+              Motto: <span className="font-display italic font-semibold text-sm normal-case tracking-normal text-[#FF9F76]">Connect</span> • <span className="font-display italic font-semibold text-sm normal-case tracking-normal text-[#FF9F76]">Create</span> • <span className="font-display font-semibold text-sm normal-case tracking-normal text-white">Conquer</span>
+            </div>
+            {/* Contact Options */}
+            <div className="space-y-2 pt-2">
+              <h4 className="text-[10px] font-bold text-white uppercase tracking-wider">Contact Us</h4>
+              <a href="mailto:contact@tsoc.com" className="flex items-center gap-2 text-xs hover:text-[#FF9F76] transition-colors">
+                <Mail className="w-3.5 h-3.5 shrink-0" />
+                contact@tsoc.com
+              </a>
+              <a href="tel:+15550000000" className="flex items-center gap-2 text-xs hover:text-[#FF9F76] transition-colors">
+                <Phone className="w-3.5 h-3.5 shrink-0" />
+                (555) 000-0000
+              </a>
+              <a href="sms:+15550000000" className="flex items-center gap-2 text-xs hover:text-[#FF9F76] transition-colors">
+                <MessageSquare className="w-3.5 h-3.5 shrink-0" />
+                Text Us
+              </a>
             </div>
             {/* Contact Options */}
             <div className="space-y-2 pt-2">
@@ -61,22 +77,22 @@ export default function Footer() {
             <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4">Solutions</h4>
             <ul className="space-y-2.5 text-xs">
               <li>
-                <Link href="/tax-software" className="hover:text-[#FFD94A] transition-colors">
+                <Link href="/tax-software" className="hover:text-[#FF9F76] transition-colors">
                   Tax Software for Tax Preparers
                 </Link>
               </li>
               <li>
-                <Link href="/tax-software" className="hover:text-[#FFD94A] transition-colors">
+                <Link href="/tax-software" className="hover:text-[#FF9F76] transition-colors">
                   Professional Tax Software
                 </Link>
               </li>
               <li>
-                <Link href="/technology-support" className="hover:text-[#FFD94A] transition-colors">
+                <Link href="/technology-support" className="hover:text-[#FF9F76] transition-colors">
                   Tax Business Automation
                 </Link>
               </li>
               <li>
-                <Link href="/technology-support" className="hover:text-[#FFD94A] transition-colors">
+                <Link href="/technology-support" className="hover:text-[#FF9F76] transition-colors">
                   CRM for Tax Professionals
                 </Link>
               </li>
@@ -88,22 +104,22 @@ export default function Footer() {
             <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4">Growth Programs</h4>
             <ul className="space-y-2.5 text-xs">
               <li>
-                <Link href="/ero-enablement" className="hover:text-[#FFD94A] transition-colors">
+                <Link href="/ero-enablement" className="hover:text-[#FF9F76] transition-colors">
                   How to Become an ERO
                 </Link>
               </li>
               <li>
-                <Link href="/ero-enablement" className="hover:text-[#FFD94A] transition-colors">
+                <Link href="/ero-enablement" className="hover:text-[#FF9F76] transition-colors">
                   ERO Support & Training
                 </Link>
               </li>
               <li>
-                <Link href="/service-bureau-growth" className="hover:text-[#FFD94A] transition-colors">
+                <Link href="/service-bureau-growth" className="hover:text-[#FF9F76] transition-colors">
                   Start a Service Bureau
                 </Link>
               </li>
               <li>
-                <Link href="/service-bureau-growth" className="hover:text-[#FFD94A] transition-colors">
+                <Link href="/service-bureau-growth" className="hover:text-[#FF9F76] transition-colors">
                   Service Bureau Mentorship
                 </Link>
               </li>
@@ -115,22 +131,22 @@ export default function Footer() {
             <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4">Community</h4>
             <ul className="space-y-2.5 text-xs">
               <li>
-                <Link href="/open-office" className="hover:text-[#FFD94A] transition-colors">
+                <Link href="/open-office" className="hover:text-[#FF9F76] transition-colors">
                   Tax Professional Community
                 </Link>
               </li>
               <li>
-                <Link href="/open-office" className="hover:text-[#FFD94A] transition-colors">
+                <Link href="/open-office" className="hover:text-[#FF9F76] transition-colors">
                   Join Open Office Live
                 </Link>
               </li>
               <li>
-                <button onClick={() => openModal("partner")} className="hover:text-[#FFD94A] transition-colors text-left cursor-pointer">
+                <button onClick={() => openModal("partner")} className="hover:text-[#FF9F76] transition-colors text-left cursor-pointer">
                   Become a Partner
                 </button>
               </li>
               <li>
-                <button onClick={() => openModal("strategy")} className="hover:text-[#FFD94A] transition-colors text-left cursor-pointer">
+                <button onClick={() => openModal("strategy")} className="hover:text-[#FF9F76] transition-colors text-left cursor-pointer">
                   Book a Strategy Call
                 </button>
               </li>
@@ -146,7 +162,7 @@ export default function Footer() {
                   href="https://www.irs.gov/tax-professionals/become-an-authorized-e-file-provider"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1 hover:text-[#FFD94A] transition-colors"
+                  className="flex items-center gap-1 hover:text-[#FF9F76] transition-colors"
                 >
                   IRS EFIN Application
                   <ExternalLink className="w-2.5 h-2.5 shrink-0" />
@@ -157,7 +173,7 @@ export default function Footer() {
                   href="https://www.irs.gov/tax-professionals"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1 hover:text-[#FFD94A] transition-colors"
+                  className="flex items-center gap-1 hover:text-[#FF9F76] transition-colors"
                 >
                   IRS Tax Pro Resources
                   <ExternalLink className="w-2.5 h-2.5 shrink-0" />
@@ -168,7 +184,7 @@ export default function Footer() {
                   href="https://www.irs.gov/e-file-providers/authorized-irs-e-file-providers-for-individuals"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1 hover:text-[#FFD94A] transition-colors"
+                  className="flex items-center gap-1 hover:text-[#FF9F76] transition-colors"
                 >
                   Application Status
                   <ExternalLink className="w-2.5 h-2.5 shrink-0" />
@@ -179,7 +195,7 @@ export default function Footer() {
                   href="https://www.irs.gov/help/telephone-assistance"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1 hover:text-[#FFD94A] transition-colors"
+                  className="flex items-center gap-1 hover:text-[#FF9F76] transition-colors"
                 >
                   IRS Phone Support
                   <ExternalLink className="w-2.5 h-2.5 shrink-0" />
@@ -189,7 +205,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <hr className="border-[#FFD94A]/10 my-8" />
+        <hr className="border-[#FF9F76]/15 my-8" />
 
         {/* Newsletter & Copyright */}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
@@ -205,11 +221,11 @@ export default function Footer() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="bg-[#1C2A47]/40 border border-[#FFD94A]/20 rounded-lg px-3 py-2 text-xs text-white placeholder-[#EDE9E0]/30 outline-none focus:border-[#FFD94A] w-full transition-colors"
+                className="bg-[#1C2A47]/40 border border-[#FF9F76]/20 rounded-lg px-3 py-2 text-xs text-white placeholder-[#EDE9E0]/30 outline-none focus:border-[#FF9F76] w-full transition-colors"
               />
               <button
                 type="submit"
-                className="bg-[#FFD94A] hover:bg-[#FFAA2A] text-[#050A14] font-bold text-xs py-2 px-4 rounded-lg transition-all whitespace-nowrap cursor-pointer flex items-center gap-1.5 uppercase tracking-wider"
+                className="bg-[#FF9F76] hover:bg-[#F4845F] text-[#050A14] font-bold text-xs py-2 px-4 rounded-lg transition-all whitespace-nowrap cursor-pointer flex items-center gap-1.5 uppercase tracking-wider"
               >
                 <Mail className="w-3.5 h-3.5" />
                 {subscribed ? "Subscribed!" : "Sign Up"}

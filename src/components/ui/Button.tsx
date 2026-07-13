@@ -1,32 +1,37 @@
 import React from "react";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "ghost";
-  className?: string;
+  variant?: "primary" | "secondary" | "outline" | "ghost";
+  size?: "sm" | "md" | "lg";
   children: React.ReactNode;
+  className?: string;
 }
 
 export default function Button({
   variant = "primary",
-  className = "",
+  size = "md",
   children,
+  className = "",
   ...props
 }: ButtonProps) {
-  const baseStyle =
-    "inline-flex items-center justify-center rounded-xl text-sm font-semibold transition-all duration-200 cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed";
+  const baseStyles = "inline-flex items-center justify-center font-extrabold rounded-lg transition-all cursor-pointer uppercase tracking-wider disabled:opacity-50 disabled:cursor-not-allowed";
   
   const variants = {
-    primary:
-      "bg-[#FFD94A] hover:bg-[#FFAA2A] text-[#050A14] shadow-md hover:shadow-[#FFD94A]/10",
-    secondary:
-      "bg-[#1C2A47] border border-[#FFD94A]/20 hover:border-[#FFD94A]/40 text-[#EDE9E0]/70 hover:text-white",
-    ghost:
-      "bg-transparent hover:bg-[#1C2A47]/30 text-[#EDE9E0]/50 hover:text-white border border-transparent",
+    primary: "bg-[#FF9F76] hover:bg-[#F4845F] text-[#050A14] shadow-md shadow-[#FF9F76]/20",
+    secondary: "bg-[#1C2A47] hover:bg-[#243352] text-white border border-[#FF9F76]/20",
+    outline: "border border-[#FF9F76] text-[#FF9F76] hover:bg-[#FF9F76] hover:text-[#050A14]",
+    ghost: "text-[#EDE9E0]/70 hover:text-white hover:bg-[#1C2A47]/50",
+  };
+
+  const sizes = {
+    sm: "px-3 py-1.5 text-xs",
+    md: "px-5 py-2.5 text-xs",
+    lg: "px-8 py-3.5 text-sm",
   };
 
   return (
     <button
-      className={`${baseStyle} ${variants[variant]} ${className}`}
+      className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
       {...props}
     >
       {children}

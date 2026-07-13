@@ -273,7 +273,7 @@ export default function EROEnablementPage() {
           </p>
           <button
             onClick={() => openModal("ero")}
-            className="bg-[#FFD94A] hover:bg-[#FFAA2A] text-[#050A14] font-extrabold py-2.5 px-6 rounded-lg text-xs transition-colors shadow-md mt-2 cursor-pointer uppercase tracking-wider"
+            className="bg-gradient-to-r from-[#FF9F76] to-[#F4845F] hover:from-[#F4845F] hover:to-[#E67049] text-[#050A14] font-extrabold py-2.5 px-6 rounded-lg text-xs transition-colors shadow-md mt-2 cursor-pointer uppercase tracking-wider"
           >
             Start ERO Enablement Today
           </button>
