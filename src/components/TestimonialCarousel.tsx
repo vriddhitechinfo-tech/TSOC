@@ -107,21 +107,21 @@ export default function TestimonialCarousel() {
         {doubledTestimonials.map((item, idx) => (
           <div
             key={`${item.name}-${idx}`}
-            className="w-[320px] sm:w-[380px] h-[260px] bg-[#1C2A47]/40 border border-[#FFD94A]/15 hover:border-[#FFD94A]/35 rounded-2xl p-5 relative backdrop-blur-md shadow-xl flex flex-col justify-between transition-all duration-300 shrink-0 hover:shadow-[#FFD94A]/10 hover:shadow-lg"
+            className="w-[320px] sm:w-[380px] h-[260px] bg-[#1C2A47]/40 border border-[#FF9F76]/15 hover:border-[#FF9F76]/35 rounded-2xl p-5 relative backdrop-blur-md shadow-xl flex flex-col justify-between transition-all duration-300 shrink-0 hover:shadow-[#FF9F76]/10 hover:shadow-lg"
           >
             {/* Background quote glow decoration */}
-            <Quote className="absolute right-4 top-4 w-16 h-16 text-[#FFD94A]/5 -z-10 pointer-events-none" />
+            <Quote className="absolute right-4 top-4 w-16 h-16 text-[#FF9F76]/5 -z-10 pointer-events-none" />
 
             <div className="space-y-3">
-              <Quote className="w-5 h-5 text-[#FFD94A]/70 shrink-0" />
+              <Quote className="w-5 h-5 text-[#FF9F76]/70 shrink-0" />
               <p className="text-xs sm:text-[13px] italic text-[#EDE9E0]/80 leading-relaxed font-medium line-clamp-4">
                 &quot;{item.quote}&quot;
               </p>
             </div>
 
             {/* User details */}
-            <div className="border-t border-[#FFD94A]/10 pt-3.5 flex items-center gap-3">
-              <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-[#FFD94A]/25 shrink-0">
+            <div className="border-t border-[#FF9F76]/10 pt-3.5 flex items-center gap-3">
+              <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-[#FF9F76]/25 shrink-0">
                 <Image
                   src={item.avatar}
                   alt={item.name}
@@ -136,7 +136,7 @@ export default function TestimonialCarousel() {
                 <p className="text-xs text-[#EDE9E0]/50 font-semibold uppercase tracking-wider mt-0.5">
                   {item.role}
                 </p>
-                <p className="text-xs text-[#FFD94A] font-semibold mt-0.5">
+                <p className="text-xs text-[#FF9F76] font-semibold mt-0.5">
                   {item.location}
                 </p>
               </div>

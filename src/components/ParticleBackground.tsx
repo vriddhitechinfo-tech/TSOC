@@ -5,7 +5,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
 const PARTICLE_COUNT = 420;
-const GOLD = "#FFD94A";
+const BRAND_PEACH = "#FF9F76";
 // Camera sits at z=6 looking toward -z; keep every particle safely in front
 // of it (z well below 6) so perspective size-attenuation never blows up.
 const FIELD_X = 9;
@@ -13,7 +13,7 @@ const FIELD_Y = 5.5;
 const FIELD_Z_NEAR = 2;
 const FIELD_Z_FAR = -14;
 
-function GoldParticles() {
+function PeachParticles() {
   const groupRef = useRef<THREE.Group>(null);
   const pointsRef = useRef<THREE.Points>(null);
   const geometryRef = useRef<THREE.BufferGeometry>(null);
@@ -78,7 +78,7 @@ function GoldParticles() {
           />
         </bufferGeometry>
         <pointsMaterial
-          color={GOLD}
+          color={BRAND_PEACH}
           size={0.045}
           sizeAttenuation
           transparent
@@ -110,7 +110,7 @@ export default function ParticleBackground() {
         dpr={[1, 1.5]}
         style={{ pointerEvents: "none" }}
       >
-        <GoldParticles />
+        <PeachParticles />
       </Canvas>
     </div>
   );
