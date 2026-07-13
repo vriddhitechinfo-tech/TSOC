@@ -29,7 +29,7 @@ export default function CursorGlow() {
 
     const render = () => {
       frame = null;
-      el.style.background = `radial-gradient(600px circle at ${x}px ${y}px, rgba(255,159,118,0.14), rgba(255,159,118,0.04) 35%, transparent 65%)`;
+      el.style.background = `radial-gradient(600px circle at ${x}px ${y}px, rgba(255,178,106,0.14), rgba(255,178,106,0.04) 35%, transparent 65%)`;
     };
 
     const handleMove = (e: MouseEvent) => {

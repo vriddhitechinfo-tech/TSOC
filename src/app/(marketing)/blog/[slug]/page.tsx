@@ -32,7 +32,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   return (
     <article className="relative overflow-hidden bg-[#1C0F0A] min-h-screen py-16 sm:py-10">
       {/* Background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,159,118,0.03)_0%,transparent_60%)] pointer-events-none -z-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,178,106,0.03)_0%,transparent_60%)] pointer-events-none -z-10" />
 
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         {/* Navigation Breadcrumb */}
@@ -48,7 +48,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
         {/* Article Header */}
         <div className="space-y-4 mb-12 pb-8">
-          <span className="inline-flex items-center rounded-lg bg-[#FF9F76]/10 border border-[#FF9F76]/20 px-3.5 py-1 text-xs font-semibold text-[#FF9F76]">
+          <span className="inline-flex items-center rounded-lg bg-[#FFB26A]/10 border border-[#FFB26A]/20 px-3.5 py-1 text-xs font-semibold text-[#FFB26A]">
             Sector Blog &amp; Resources
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight font-sans">
@@ -73,7 +73,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             }
             if (paragraph.startsWith("*") || paragraph.startsWith("-")) {
               return (
-                <ul key={index} className="list-disc pl-6 space-y-2 text-[#FF9F76]">
+                <ul key={index} className="list-disc pl-6 space-y-2 text-[#FFB26A]">
                   {paragraph.split("\n").map((li, liIdx) => (
                     <li key={liIdx} className="text-[#EDE9E0]/70">
                       {li.replace(/^[*\-]\s+/, "").trim()}
@@ -84,7 +84,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             }
             if (/^\d+\./.test(paragraph)) {
               return (
-                <ol key={index} className="list-decimal pl-6 space-y-2 text-[#FF9F76]">
+                <ol key={index} className="list-decimal pl-6 space-y-2 text-[#FFB26A]">
                   {paragraph.split("\n").map((li, liIdx) => (
                     <li key={liIdx} className="text-[#EDE9E0]/70">
                       {li.replace(/^\d+\.\s+/, "").trim()}
@@ -99,7 +99,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
         {/* CTA section inside blog */}
         <TiltCard tilt={4} className="glass-card glass-card-hover p-6 md:p-8 mt-16 text-center space-y-4">
-          <BookOpen className="w-8 h-8 text-[#FF9F76] mx-auto" />
+          <BookOpen className="w-8 h-8 text-[#FFB26A] mx-auto" />
           <h4 className="text-sm font-bold text-white uppercase tracking-wider">Scale Your Tax Business with The Sector of Collectives</h4>
           <p className="text-xs text-[#EDE9E0]/55 max-w-md mx-auto leading-relaxed">
             Gain access to cloud-based professional tax software, ERO Application compliance checks, and a collaborative peer network.

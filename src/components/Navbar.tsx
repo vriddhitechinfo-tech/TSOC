@@ -30,17 +30,17 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-[#FF9F76]/20 bg-[#140A06]/90 backdrop-blur-md">
+    <header className="sticky top-0 z-40 w-full border-b border-[#FFB26A]/20 bg-[#140A06]/90 backdrop-blur-md">
       <div className="mx-auto max-w-[96rem] px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between gap-3">
           {/* Logo */}
           <div className="flex items-center shrink-0">
             <Link href="/" className="flex items-center space-x-2.5 group">
               <Logo size={32} />
-              <span className="hidden 2xl:block font-display font-bold text-base tracking-wide text-white uppercase group-hover:text-[#FF9F76] transition-colors whitespace-nowrap">
+              <span className="hidden 2xl:block font-display font-bold text-base tracking-wide text-white uppercase group-hover:text-[#FFB26A] transition-colors whitespace-nowrap">
                 The Sector of Collectives
               </span>
-              <span className="2xl:hidden font-display font-bold text-base tracking-wide text-white uppercase group-hover:text-[#FF9F76] transition-colors whitespace-nowrap">
+              <span className="2xl:hidden font-display font-bold text-base tracking-wide text-white uppercase group-hover:text-[#FFB26A] transition-colors whitespace-nowrap">
                 The Sector
               </span>
             </Link>
@@ -55,7 +55,7 @@ export default function Navbar() {
                   href={link.href}
                   className={`px-2 py-2 rounded-md text-[0.8rem] font-semibold transition-all duration-150 whitespace-nowrap underline-offset-4 decoration-2 ${
                     isActive(link.href)
-                      ? "text-[#FF9F76] underline decoration-[#FF9F76]"
+                      ? "text-[#FFB26A] underline decoration-[#FFB26A]"
                       : "text-[#EDE9E0]/60 hover:text-white hover:bg-[#2A160E]/60"
                   }`}
                 >
@@ -69,7 +69,7 @@ export default function Navbar() {
           <div className="hidden xl:flex items-center shrink-0">
             <button
               onClick={() => openModal("strategy")}
-              className="inline-flex items-center justify-center rounded-lg bg-[#FF9F76] hover:bg-[#F4845F] text-[#140A06] px-4 py-2.5 text-[0.8rem] font-extrabold shadow-md hover:shadow-[#FF9F76]/25 transition-all cursor-pointer uppercase tracking-wider whitespace-nowrap"
+              className="inline-flex items-center justify-center rounded-lg bg-[#FFB26A] hover:bg-[#F4845F] text-[#140A06] px-4 py-2.5 text-[0.8rem] font-extrabold shadow-md hover:shadow-[#FFB26A]/25 transition-all cursor-pointer uppercase tracking-wider whitespace-nowrap"
             >
               Book Strategy Call
             </button>
@@ -95,7 +95,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="xl:hidden bg-[#140A06] border-b border-[#FF9F76]/20">
+        <div className="xl:hidden bg-[#140A06] border-b border-[#FFB26A]/20">
           <div className="space-y-1 px-3 pt-2 pb-4">
             {navLinks.map((link) => (
               <Link
@@ -104,7 +104,7 @@ export default function Navbar() {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={`block px-4 py-3 rounded-lg text-base font-semibold tracking-wide underline-offset-4 decoration-2 ${
                   isActive(link.href)
-                    ? "text-[#FF9F76] underline decoration-[#FF9F76]"
+                    ? "text-[#FFB26A] underline decoration-[#FFB26A]"
                     : "text-[#EDE9E0]/60 hover:text-white hover:bg-[#2A160E]/60"
                 }`}
               >
@@ -117,7 +117,7 @@ export default function Navbar() {
                   setIsMobileMenuOpen(false);
                   openModal("strategy");
                 }}
-                className="w-full text-center bg-[#FF9F76] hover:bg-[#F4845F] text-[#140A06] font-extrabold py-3 px-4 rounded-lg text-sm transition-all cursor-pointer uppercase tracking-wider"
+                className="w-full text-center bg-[#FFB26A] hover:bg-[#F4845F] text-[#140A06] font-extrabold py-3 px-4 rounded-lg text-sm transition-all cursor-pointer uppercase tracking-wider"
               >
                 Book Strategy Call
               </button>
