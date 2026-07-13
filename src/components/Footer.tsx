@@ -54,22 +54,7 @@ export default function Footer() {
                 Text Us
               </a>
             </div>
-            {/* Contact Options */}
-            <div className="space-y-2 pt-2">
-              <h4 className="text-[10px] font-bold text-white uppercase tracking-wider">Contact Us</h4>
-              <a href="mailto:contact@tsoc.com" className="flex items-center gap-2 text-xs hover:text-[#FFD94A] transition-colors">
-                <Mail className="w-3.5 h-3.5 shrink-0" />
-                contact@tsoc.com
-              </a>
-              <a href="tel:+15550000000" className="flex items-center gap-2 text-xs hover:text-[#FFD94A] transition-colors">
-                <Phone className="w-3.5 h-3.5 shrink-0" />
-                (555) 000-0000
-              </a>
-              <a href="sms:+15550000000" className="flex items-center gap-2 text-xs hover:text-[#FFD94A] transition-colors">
-                <MessageSquare className="w-3.5 h-3.5 shrink-0" />
-                Text Us
-              </a>
-            </div>
+
           </div>
 
           {/* Software & Tech */}

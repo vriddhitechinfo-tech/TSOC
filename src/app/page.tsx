@@ -500,8 +500,8 @@ export default function Home() {
           50% { transform: translateY(-20px) translateX(10px); }
         }
       `}</style>
-      {/* Midnight & Gold background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,217,74,0.04)_0%,transparent_50%)] pointer-events-none -z-10" />
+      {/* Soft background glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,159,118,0.04)_0%,transparent_50%)] pointer-events-none -z-10" />
 
       {/* 1. Hero Carousel Section - InWork Style */}
       <section
