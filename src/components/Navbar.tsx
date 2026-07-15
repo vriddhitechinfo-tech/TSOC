@@ -40,8 +40,11 @@ export default function Navbar() {
               <span className="hidden 2xl:block font-display font-bold text-base tracking-wide text-white uppercase group-hover:text-[#FFB26A] transition-colors whitespace-nowrap">
                 The Sector of Collectives
               </span>
-              <span className="2xl:hidden font-display font-bold text-base tracking-wide text-white uppercase group-hover:text-[#FFB26A] transition-colors whitespace-nowrap">
+              <span className="hidden sm:block 2xl:hidden font-display font-bold text-base tracking-wide text-white uppercase group-hover:text-[#FFB26A] transition-colors whitespace-nowrap">
                 The Sector
+              </span>
+              <span className="sm:hidden font-display font-bold text-base tracking-wide text-white uppercase group-hover:text-[#FFB26A] transition-colors whitespace-nowrap">
+                TSOC
               </span>
             </Link>
           </div>
