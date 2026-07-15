@@ -1,8 +1,22 @@
 "use client";
 
 import React from "react";
-import { FileText, Landmark, ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useSoftwareCarousel } from "@/hooks/useSoftwareCarousel";
+
+function DashboardScreenshot({ alt }: { alt: string }) {
+  return (
+    <div className="relative w-full h-full">
+      <Image
+        src="/tax_software_dashboard.png"
+        alt={alt}
+        fill
+        className="object-cover object-top"
+      />
+    </div>
+  );
+}
 
 interface SoftwareScreen {
   id: string;
@@ -19,139 +33,16 @@ export default function SoftwareCarousel() {
       description:
         "Monitor real-time filing stats, preparer volumes, IRS acceptance rates, and bank product statuses in a central dashboard.",
       mockupContent: (
-        <div className="w-full h-full bg-[#1C0F0A] text-white p-4 font-mono text-xs flex flex-col justify-between">
-          <div className="flex items-center justify-between border-b border-[#FFB26A]/15 pb-2 mb-3">
-            <span className="font-bold text-[#FFB26A]">
-              THE SECTOR OF COLLECTIVES CORE • OFFICE CONSOLE
-            </span>
-            <span className="bg-[#FFB26A] text-[#FFB26A] px-1.5 py-0.5 rounded text-xs font-bold border border-[#FFB26A]/35">
-              ACTIVE SEASON
-            </span>
-          </div>
-
-          <div className="grid grid-cols-3 gap-2">
-            <div className="bg-[#1C0F0A] border border-[#FFB26A]/15 p-2 rounded">
-              <span className="text-[#EDE9E0]/50 block uppercase text-[7px]">
-                Total Prepared
-              </span>
-              <span className="text-base font-black text-white font-sans">
-                412
-              </span>
-            </div>
-            <div className="bg-[#1C0F0A] border border-[#FFB26A]/15 p-2 rounded">
-              <span className="text-[#EDE9E0]/50 block uppercase text-[7px]">
-                IRS Accepted
-              </span>
-              <span className="text-base font-black text-[#FFB26A] font-sans">
-                99.2%
-              </span>
-            </div>
-            <div className="bg-[#1C0F0A] border border-[#FFB26A]/15 p-2 rounded">
-              <span className="text-[#EDE9E0]/50 block uppercase text-[7px]">
-                Bank Payouts
-              </span>
-              <span className="text-base font-black text-[#FFB26A] font-sans">
-                $148K
-              </span>
-            </div>
-          </div>
-
-          {/* Active Queue Table */}
-          <div className="mt-3 flex-1 bg-[#1C0F0A] border border-[#FFB26A]/15 rounded p-2 overflow-hidden">
-            <div className="flex justify-between border-b border-[#FFB26A]/15 pb-1 mb-1 text-[7px] text-[#EDE9E0]/50 uppercase font-black">
-              <span>Client Name</span>
-              <span>Form</span>
-              <span>IRS Status</span>
-              <span>Bank Product</span>
-            </div>
-            <div className="space-y-1.5">
-              <div className="flex justify-between text-[#EDE9E0]/70">
-                <span>Johnson, Alicia</span>
-                <span>1040, Sch C</span>
-                <span className="text-[#FFB26A] font-bold">ACCEPTED</span>
-                <span className="text-[#FFB26A]">TPG ADVANCE</span>
-              </div>
-              <div className="flex justify-between text-[#EDE9E0]/70">
-                <span>Rodriguez, Miguel</span>
-                <span>1040</span>
-                <span className="text-[#FFB26A] font-bold">ACCEPTED</span>
-                <span>DIRECT DEPOSIT</span>
-              </div>
-              <div className="flex justify-between text-[#EDE9E0]/70">
-                <span>Smith, Tyrone</span>
-                <span>1065 Business</span>
-                <span className="text-[#FFB26A] font-bold">TRANSMITTED</span>
-                <span>HOLD</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <DashboardScreenshot alt="TSOC tax software dashboard showing office filing metrics and IRS acceptance rates" />
       ),
     },
     {
       id: "forms",
-      title: "Interactive Form Preparation",
+      title: "Form Uploads",
       description:
         "Quickly enter W-2s, Schedules, and business expenses. The software runs background compliance checks, flagging errors in real-time.",
       mockupContent: (
-        <div className="w-full h-full bg-[#1C0F0A] text-white p-4 font-mono text-xs flex flex-col justify-between">
-          <div className="flex items-center justify-between border-b border-[#FFB26A]/15 pb-2 mb-2">
-            <div className="flex items-center space-x-1">
-              <FileText className="w-3.5 h-3.5 text-[#FFB26A]" />
-              <span className="font-bold">Form 1040 (Filer: ALICIA JOHNSON)</span>
-            </div>
-            <span className="text-[#FFB26A] font-sans font-black">
-              Refund: $6,412
-            </span>
-          </div>
-
-          <div className="grid grid-cols-2 gap-4 flex-1 pt-1">
-            <div className="space-y-2 bg-[#1C0F0A] p-2.5 rounded border border-[#FFB26A]/10">
-              <span className="text-[#EDE9E0]/50 uppercase text-[7px] font-bold block">
-                Taxpayer Intake Data
-              </span>
-              <div className="space-y-1">
-                <div>
-                  Wages (W2 Box 1): <span className="text-white">$54,200</span>
-                </div>
-                <div>
-                  Federal WH (W2 Box 2):{" "}
-                  <span className="text-white">$4,850</span>
-                </div>
-                <div>
-                  Schedule C Net Profit:{" "}
-                  <span className="text-white">$12,410</span>
-                </div>
-                <div>
-                  Dependents:{" "}
-                  <span className="text-[#FFB26A]">2 Qual. Children</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-2 bg-[#FFB26A]/10 p-2.5 rounded border border-[#FFB26A]/25">
-              <span className="text-[#FFB26A] uppercase text-[7px] font-bold block">
-                Real-time Diagnostics
-              </span>
-              <div className="space-y-1.5 text-[#EDE9E0]/70">
-                <div className="flex items-center space-x-1.5">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#FFB26A] shrink-0" />
-                  <span>W-2 EIN Verified</span>
-                </div>
-                <div className="flex items-center space-x-1.5">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#FFB26A] shrink-0" />
-                  <span>EIC Eligibility Met</span>
-                </div>
-                <div className="flex items-center space-x-1.5">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#FFB26A] shrink-0 animate-pulse" />
-                  <span className="text-white font-bold">
-                    Add Schedule C Expense Detail
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <DashboardScreenshot alt="TSOC tax software form entry screen with real-time compliance diagnostics" />
       ),
     },
     {
@@ -160,101 +51,16 @@ export default function SoftwareCarousel() {
       description:
         "Direct server connections with the IRS E-file gateway. Get immediate status notifications (Transmitted, Rejected, or Accepted) within minutes.",
       mockupContent: (
-        <div className="w-full h-full bg-[#1C0F0A] text-white p-4 font-mono text-xs flex flex-col justify-between">
-          <div className="flex items-center justify-between border-b border-[#FFB26A]/15 pb-2">
-            <span className="font-bold">IRS GATEWAY TRANSMISSION STAGE</span>
-            <span className="text-[#EDE9E0]/50">EFIN: 564201</span>
-          </div>
-
-          <div className="flex items-center justify-around py-4">
-            <div className="flex flex-col items-center space-y-1">
-              <div className="h-6 w-6 rounded-full bg-[#FFB26A] border border-[#FFB26A] flex items-center justify-center text-[#FFB26A] font-bold">
-                ✓
-              </div>
-              <span className="text-[7px] text-[#EDE9E0]/60">Transmitted</span>
-            </div>
-            <div className="h-0.5 w-10 bg-[#FFB26A]" />
-            <div className="flex flex-col items-center space-y-1">
-              <div className="h-6 w-6 rounded-full bg-[#FFB26A] border border-[#FFB26A] flex items-center justify-center text-[#FFB26A] font-bold">
-                ✓
-              </div>
-              <span className="text-[7px] text-[#EDE9E0]/60">IRS Gateway</span>
-            </div>
-            <div className="h-0.5 w-10 bg-[#FFB26A]" />
-            <div className="flex flex-col items-center space-y-1">
-              <div className="h-6 w-6 rounded-full bg-[#FFB26A] border border-[#FFB26A] flex items-center justify-center text-[#FFB26A] font-bold">
-                ✓
-              </div>
-              <span className="text-[7px] text-[#EDE9E0]/60">Accepted</span>
-            </div>
-          </div>
-
-          <div className="bg-[#1C0F0A] border border-[#FFB26A]/15 rounded p-2.5 space-y-1">
-            <div className="text-[#EDE9E0]/50 uppercase text-[7px] font-bold">
-              IRS ACK (Submission ID: 1040-564201-2026)
-            </div>
-            <div className="text-[#EDE9E0]/70">
-              Form: 1040 U.S. Individual Income Tax Return
-            </div>
-            <div className="text-[#FFB26A] font-bold">
-              Status: ACCEPTED (Acknowledge Code: 00)
-            </div>
-            <div className="text-[#EDE9E0]/50">
-              Processed at: 2026-07-07 17:41:00 EST
-            </div>
-          </div>
-        </div>
+        <DashboardScreenshot alt="TSOC tax software IRS e-file gateway transmission and acceptance tracking" />
       ),
     },
     {
       id: "bank",
-      title: "Direct Refund Fee Deduction",
+      title: "Bank Product Integration",
       description:
         "Securely enroll clients in bank products. Deduct preparation fees directly from the client's refund and issue advance payouts to build trust.",
       mockupContent: (
-        <div className="w-full h-full bg-[#1C0F0A] text-white p-4 font-mono text-xs flex flex-col justify-between">
-          <div className="flex items-center justify-between border-b border-[#FFB26A]/15 pb-2 mb-2">
-            <div className="flex items-center space-x-1">
-              <Landmark className="w-3.5 h-3.5 text-[#FFB26A]" />
-              <span className="font-bold">BANK PRODUCT DISBURSEMENT</span>
-            </div>
-            <span className="text-[#FFB26A] font-bold uppercase text-[7px]">
-              Direct Connect API
-            </span>
-          </div>
-
-          <div className="space-y-2.5 flex-1 pt-1">
-            <div className="flex justify-between bg-[#1C0F0A] p-2 rounded border border-[#FFB26A]/10 items-center">
-              <div>
-                <span className="block text-white font-bold">
-                  TPG Refund Advance Program
-                </span>
-                <span className="text-[#EDE9E0]/50 text-[7px]">
-                  Pre-season loan approval limit: $6,000
-                </span>
-              </div>
-              <span className="text-[#FFB26A] font-bold">ENABLED</span>
-            </div>
-
-            <div className="bg-[#1C0F0A] p-2.5 rounded border border-[#FFB26A]/10 space-y-1.5">
-              <span className="text-[#EDE9E0]/50 uppercase text-[7px] font-bold block">
-                Fee Split Ledger
-              </span>
-              <div className="flex justify-between">
-                <span>Gross IRS Refund:</span>
-                <span className="text-white">$5,800.00</span>
-              </div>
-              <div className="flex justify-between border-b border-[#FFB26A]/15 pb-1">
-                <span>Tax Preparation Fee:</span>
-                <span className="text-[#FFB26A] font-bold">-$450.00</span>
-              </div>
-              <div className="flex justify-between pt-0.5 text-white font-bold">
-                <span>Net Client Payout:</span>
-                <span className="text-[#FFB26A]">$5,350.00</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <DashboardScreenshot alt="TSOC tax software bank product enrollment and fee disbursement screen" />
       ),
     },
   ];

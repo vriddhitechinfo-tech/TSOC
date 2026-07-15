@@ -11,7 +11,7 @@ export interface QuizQuestion {
 export const defaultQuestions: QuizQuestion[] = [
   {
     id: "efin",
-    text: "Do you currently have an active EFIN (Electronic Filing Identification Number)?",
+    text: "Do you currently have an active EFIN?",
     options: [
       { label: "Yes, I have an active EFIN", value: "yes", weight: "ero" },
       { label: "No, I am preparing under someone else's EFIN", value: "no", weight: "sub" },

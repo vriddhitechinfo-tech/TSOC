@@ -1,7 +1,9 @@
 "use client";
 
 import React from "react";
-import { Star, ShieldCheck, Landmark } from "lucide-react";
+import Link from "next/link";
+import { Star, ShieldCheck, Landmark, ArrowRight } from "lucide-react";
+import { openOfficeExperts } from "@/data/openOfficeExperts";
 
 export default function TrustSection() {
   return (
@@ -41,16 +43,16 @@ export default function TrustSection() {
           </div>
 
           {/* Partner Banks */}
-          <div className="flex flex-col items-center md:items-start space-y-2 md:pl-8">
+          <div className="flex flex-col items-center md:items-start space-y-3 md:pl-8">
             <div className="flex items-center space-x-2 text-[#EDE9E0]/50">
               <Landmark className="w-5 h-5 text-[#FFB26A]" />
               <span className="text-white font-extrabold text-xs uppercase tracking-wider">Integrated Bank Products</span>
             </div>
-            <div className="flex flex-wrap justify-center md:justify-start gap-3 mt-1">
+            <div className="flex flex-wrap justify-center md:justify-start gap-2.5 mt-1">
               {["TPG", "Republic Bank", "Refund Advantage", "Santa Barbara"].map((bank) => (
                 <span
                   key={bank}
-                  className="bg-[#2A160E]/60 border border-[#FFB26A]/15 text-xs font-bold text-[#EDE9E0]/60 px-2 py-0.5 rounded tracking-wide uppercase"
+                  className="bg-[#2A160E]/70 border border-[#FFB26A]/25 text-xs font-black text-[#EDE9E0]/85 px-3 py-1.5 rounded-md tracking-wide uppercase shadow-sm shadow-black/20"
                 >
                   {bank}
                 </span>
@@ -62,17 +64,27 @@ export default function TrustSection() {
           </div>
         </div>
 
-        {/* Client Logos / Trust banner */}
-        <div className="mt-10 pt-8 border-t border-[#FFB26A]/10 flex flex-wrap items-center justify-center md:justify-between gap-6 opacity-60">
-          <span className="text-xs text-[#EDE9E0]/40 font-semibold uppercase tracking-widest">
-            TRUSTED BY EROS ACROSS THE NATION:
+        {/* Open Office Guest Experts */}
+        <div className="mt-10 pt-8 border-t border-[#FFB26A]/10 flex flex-wrap items-center justify-center md:justify-between gap-6">
+          <span className="text-xs text-[#EDE9E0]/40 font-semibold uppercase tracking-widest shrink-0">
+            Guest Experts Inside The Open Office:
           </span>
-          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
-            {["Apex Tax", "Gold Star Prep", "Legacy Services", "National Tax Bureau", "Prime Financials"].map((logo) => (
-              <span key={logo} className="text-xs font-black tracking-wider text-[#EDE9E0]/50 select-none uppercase">
-                {logo}
+          <div className="flex flex-wrap items-center justify-center gap-2.5">
+            {openOfficeExperts.slice(0, 6).map((expert) => (
+              <span
+                key={expert.name}
+                className="text-xs font-bold tracking-wide text-[#EDE9E0]/60 bg-[#2A160E]/50 border border-[#FFB26A]/10 px-3 py-1.5 rounded-md"
+              >
+                {expert.name}
               </span>
             ))}
+            <Link
+              href="/open-office#experts"
+              className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wide text-[#FFB26A]/80 hover:text-[#FFB26A] px-2"
+            >
+              See all
+              <ArrowRight className="w-3 h-3" />
+            </Link>
           </div>
         </div>
       </div>

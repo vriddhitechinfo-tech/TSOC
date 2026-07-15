@@ -98,7 +98,7 @@ export default function PricingSection() {
               </tr>
               <tr className="hover:bg-[#2A160E]/20 transition-colors">
                 <td className="p-4 font-semibold text-white">
-                  Weekly Open Office Live Hours
+                  Daily Open Office Access
                 </td>
                 <td className="p-4 text-center text-[#FFB26A] font-bold font-mono">
                   YES

@@ -14,7 +14,8 @@ import {
   Check,
   Clock,
   CalendarDays,
-  Plus
+  Plus,
+  ExternalLink,
 } from "lucide-react";
 import Image from "next/image";
 import gsap from "gsap";
@@ -23,6 +24,8 @@ import FaqAccordion from "@/components/ui/FaqAccordion";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import TiltCard from "@/components/motion/TiltCard";
 import VideoMeshBackground from "@/components/VideoMeshBackground";
+import { openOfficeExperts } from "@/data/openOfficeExperts";
+import { OPEN_OFFICE_ZOOM_LINK } from "@/lib/constants";
 
 export default function OpenOfficePage() {
   const { openModal } = useModal();
@@ -107,11 +110,12 @@ export default function OpenOfficePage() {
     {
       id: "mon",
       dayName: "Monday",
-      title: "Open Filing Support",
-      desc: "Bring your active filing questions and get live support. We cover return walkthroughs, IRS updates, and complex form guidance in an open, collaborative format.",
+      title: "Open Office Hours",
+      desc: "Drop in for open coworking and general support. Bring filing questions, business questions, or just work alongside the community.",
       time: "1:00 PM EST",
-      pillar: "Filing Support",
+      pillar: "General Support",
       byDay: "MO",
+      link: OPEN_OFFICE_ZOOM_LINK,
     },
     {
       id: "tue",
@@ -121,15 +125,17 @@ export default function OpenOfficePage() {
       time: "2:00 PM EST",
       pillar: "Tax Business Automation",
       byDay: "TU",
+      link: OPEN_OFFICE_ZOOM_LINK,
     },
     {
       id: "wed",
       dayName: "Wednesday",
-      title: "Feature Trainings",
+      title: "Midnight Madness",
       desc: "Deep-dive training on software features, workflows, and platform updates. Walk away knowing how to use every tool to its full potential.",
       time: "1:00 PM EST",
       pillar: "Software Training",
       byDay: "WE",
+      link: OPEN_OFFICE_ZOOM_LINK,
     },
     {
       id: "thu",
@@ -139,6 +145,7 @@ export default function OpenOfficePage() {
       time: "3:00 PM EST",
       pillar: "Networking & Coaching",
       byDay: "TH",
+      link: OPEN_OFFICE_ZOOM_LINK,
     },
     {
       id: "fri",
@@ -148,6 +155,7 @@ export default function OpenOfficePage() {
       time: "12:00 PM EST",
       pillar: "Legal & Entity Structure",
       byDay: "FR",
+      link: OPEN_OFFICE_ZOOM_LINK,
     },
   ];
 
@@ -169,7 +177,7 @@ export default function OpenOfficePage() {
     },
     {
       question: "Are sessions recorded?",
-      answer: "Yes! Tuesday (Tech Tuesday), Wednesday (Feature Trainings), Thursday (Tap In Thursday), and Friday (Ask an Attorney) sessions are all recorded and available in the member portal. You can watch replays anytime."
+      answer: "Yes! Tuesday (Tech Tuesday), Wednesday (Midnight Madness), Thursday (Tap In Thursday), and Friday (Ask an Attorney) sessions are all recorded and available in the member portal. You can watch replays anytime."
     },
     {
       question: "What can I ask the attorneys?",
@@ -192,7 +200,7 @@ export default function OpenOfficePage() {
       "BEGIN:VEVENT",
       `SUMMARY:The Sector of Collectives: ${item.title} (${item.dayName})`,
       `DESCRIPTION:Join our weekly live block. Topic: ${item.desc}`,
-      `LOCATION:Zoom Link Provided in Portal`,
+      `LOCATION:${item.link ?? "Zoom Link Provided in Portal"}`,
       `RRULE:FREQ=WEEKLY;BYDAY=${item.byDay}`,
       "END:VEVENT",
       "END:VCALENDAR"
@@ -487,18 +495,30 @@ export default function OpenOfficePage() {
 
               {/* CTA buttons */}
               <div className="p-5 pt-0 flex flex-col gap-2 border-t border-[#FFB26A]/20">
+                {activeDaySchedule.link ? (
+                  <a
+                    href={activeDaySchedule.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full bg-[#FFB26A] hover:bg-[#F4845F] text-[#140A06] font-extrabold py-2.5 px-4 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider flex items-center justify-center gap-1.5"
+                  >
+                    Join {activeDaySchedule.title}
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                ) : (
+                  <button
+                    onClick={() => openModal("openoffice")}
+                    className="w-full bg-[#FFB26A] hover:bg-[#F4845F] text-[#140A06] font-extrabold py-2.5 px-4 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider"
+                  >
+                    Access Stream Details
+                  </button>
+                )}
                 <button
                   onClick={() => downloadIcs(activeDaySchedule)}
-                  className="w-full bg-[#FFB26A] hover:bg-[#F4845F] text-[#140A06] font-extrabold py-2.5 px-4 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider flex items-center justify-center gap-1.5"
+                  className="w-full bg-[#140A06] border border-[#FFB26A]/30 text-[#EDE9E0]/70 hover:text-white font-bold py-2 px-4 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider flex items-center justify-center gap-1.5"
                 >
                   <Plus className="w-3.5 h-3.5" />
                   Add to Calendar (.ics)
-                </button>
-                <button
-                  onClick={() => openModal("openoffice")}
-                  className="w-full bg-[#140A06] border border-[#FFB26A]/30 text-[#EDE9E0]/70 hover:text-white font-bold py-2 px-4 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider"
-                >
-                  Access Stream Details
                 </button>
               </div>
             </div>
@@ -533,6 +553,47 @@ export default function OpenOfficePage() {
           </div>
         </div>
 
+        {/* Featured Experts */}
+        <div id="experts" className="gsap-reveal scroll-mt-24">
+          <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#FFB26A] bg-[#FFB26A]/10 border border-[#FFB26A]/20 px-3 py-1 rounded inline-block">
+              Guest Faculty
+            </span>
+            <h2 className="font-display text-2xl sm:text-3xl font-semibold text-white tracking-normal uppercase">
+              Meet Our Featured Experts
+            </h2>
+            <p className="text-xs text-[#EDE9E0]/35">
+              Specialists who lead sessions and offer their services directly to Open Office members.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {openOfficeExperts.map((expert, i) => (
+              <TiltCard
+                key={expert.name}
+                delay={(i % 6) * 0.06}
+                className="glass-card glass-card-hover p-5 flex flex-col gap-3"
+              >
+                <div>
+                  <h3 className="text-sm font-bold text-white uppercase tracking-wider">{expert.name}</h3>
+                  <p className="text-xs text-[#EDE9E0]/50 mt-1">{expert.offering}</p>
+                </div>
+                {expert.link && (
+                  <a
+                    href={expert.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-auto inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#FFB26A]/80 hover:text-[#FFB26A]"
+                  >
+                    Visit
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                )}
+              </TiltCard>
+            ))}
+          </div>
+        </div>
+
         {/* Testimonials Section */}
         <div className="gsap-reveal space-y-8">
           <div className="text-center max-w-3xl mx-auto space-y-3">
@@ -543,7 +604,7 @@ export default function OpenOfficePage() {
               Tax Professionals Thriving Together
             </h2>
             <p className="text-xs text-[#EDE9E0]/35">
-              Hear from members who've transformed their businesses through community support, expert guidance, and collaborative problem-solving.
+              Hear from members who&apos;ve transformed their businesses through community support, expert guidance, and collaborative problem-solving.
             </p>
           </div>
           <TestimonialCarousel />

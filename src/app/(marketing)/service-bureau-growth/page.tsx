@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { useModal } from "@/context/ModalContext";
-import { Check, ArrowRight, Activity, Download, Mail, User, Phone, CheckCircle, Star } from "lucide-react";
+import { Check, ArrowRight, Activity } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import FaqAccordion from "@/components/ui/FaqAccordion";
@@ -20,11 +20,6 @@ export default function ServiceBureauGrowthPage() {
   const officesValRef = useRef<HTMLSpanElement>(null);
   const revenueValRef = useRef<HTMLSpanElement>(null);
   const preparersValRef = useRef<HTMLSpanElement>(null);
-
-  // Lead magnet state
-  const [leadData, setLeadData] = useState({ name: "", email: "", phone: "" });
-  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Track active scroll phase
   const [activeScrollPhase, setActiveScrollPhase] = useState(0);
@@ -182,23 +177,6 @@ export default function ServiceBureauGrowthPage() {
       answer: "Mentorship is a year-round relationship. We provide standard structural auditing during Q2 and Q3, setup systems and recruitment pipelines in Q4, and offer active operational support and audit mitigation checks during the Q1 tax filing season."
     }
   ];
-
-  const handleLeadSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsFormSubmitted(true);
-      
-      // Trigger dynamic file download of a mock PDF
-      const link = document.createElement("a");
-      link.href = "data:text/plain;charset=utf-8," + encodeURIComponent("The Sector of Collectives - Service Bureau Phase Audit Checklist");
-      link.download = "tsoc-service-bureau-checklist.pdf";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }, 1200);
-  };
 
   const scrollToPhaseBlock = (index: number) => {
     const targetBlock = document.getElementById(`phase-block-${index}`);
