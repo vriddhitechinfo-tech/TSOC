@@ -111,7 +111,7 @@ export const ecosystemPillars: EcosystemPillar[] = [
   {
     title: "Add-on Services",
     tag: "Add-on Services",
-    desc: "Offer more to your clients year-round. Add bookkeeping, credit coaching, and business registration to grow income beyond tax season.",
+    desc: "Offer more to your clients year-round. Add bookkeeping, credit coaching, business registration, and referral partners to grow income beyond tax season.",
     actionText: "View Expansion Guide",
   },
   {
@@ -207,7 +207,7 @@ export const homepageFaqs = [
   {
     question: "What is The Sector of Collectives?",
     answer:
-      "TSOC is a community built for tax professionals. We offer professional tax software, EFIN (Electronic Filing Identification Number) setup support, Service Bureau mentorship, and daily live coworking sessions — everything you need to grow a tax business.",
+      "TSOC is a community built for tax professionals. We offer professional tax software, EFIN setup support, Service Bureau mentorship, and daily live coworking sessions — everything you need to grow a tax business.",
   },
   {
     question: "Do I need an EFIN to get started?",

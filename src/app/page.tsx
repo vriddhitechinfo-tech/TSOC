@@ -3,6 +3,7 @@ import HeroSection from "@/components/home/HeroSection";
 import QuizSection from "@/components/home/QuizSection";
 import StatsTickerSection from "@/components/home/StatsTickerSection";
 import AboutSection from "@/components/home/AboutSection";
+import OpenOfficeSpotlight from "@/components/home/OpenOfficeSpotlight";
 import TrustSection from "@/components/TrustSection";
 import EcosystemSection from "@/components/home/EcosystemSection";
 import ServicesSection from "@/components/home/ServicesSection";
@@ -25,22 +26,25 @@ export default function Home() {
       {/* 4. About Section */}
       <AboutSection />
 
-      {/* 5. Trust Signals */}
+      {/* 5. Open Office Spotlight — our biggest differentiator */}
+      <OpenOfficeSpotlight />
+
+      {/* 6. Trust Signals */}
       <TrustSection />
 
-      {/* 6. Pinned Card Stack Ecosystem Section */}
+      {/* 7. Pinned Card Stack Ecosystem Section */}
       <EcosystemSection />
 
-      {/* 7. Services Grid */}
+      {/* 8. Services Grid */}
       <ServicesSection />
 
-      {/* 8. Membership Comparison Table */}
+      {/* 9. Membership Comparison Table */}
       <PricingSection />
 
-      {/* 9. Testimonials Section */}
+      {/* 10. Testimonials Section */}
       <TestimonialsSection />
 
-      {/* 10. FAQs Section */}
+      {/* 11. FAQs Section */}
       <FaqSection />
     </div>
   );

@@ -96,7 +96,7 @@ export default function TaxSoftwarePage() {
         "Community access",
       ],
       ctaText: "See the Software in Action",
-      action: () => openModal("demo"),
+      action: () => document.getElementById("watch-demo")?.scrollIntoView({ behavior: "smooth" }),
     },
     {
       name: "ERO Office",
@@ -112,7 +112,7 @@ export default function TaxSoftwarePage() {
         "EFIN application review guidance",
       ],
       ctaText: "Request a Live Demo",
-      action: () => openModal("strategy"),
+      action: () => openModal("demo"),
     },
     {
       name: "Service Bureau Enterprise",
@@ -180,13 +180,13 @@ export default function TaxSoftwarePage() {
               </p>
               <div className="gsap-reveal flex flex-col sm:flex-row gap-4 pt-4">
                 <button
-                  onClick={() => openModal("demo")}
+                  onClick={() => document.getElementById("watch-demo")?.scrollIntoView({ behavior: "smooth" })}
                   className="bg-[#FFB26A] hover:bg-[#F4845F] text-[#140A06] font-extrabold px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer shadow-md"
                 >
                   See the Software in Action
                 </button>
                 <button
-                  onClick={() => openModal("strategy")}
+                  onClick={() => openModal("demo")}
                   className="bg-[#2A160E] text-[#EDE9E0]/70 hover:text-white border border-[#FFB26A]/20 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer"
                 >
                   Request a Live Demo
@@ -194,17 +194,21 @@ export default function TaxSoftwarePage() {
               </div>
             </div>
 
-            {/* Right: Dashboard Image with Floating Animation */}
+            {/* Right: Dashboard Screenshot with Floating Animation */}
             <div className="relative h-full rounded-2xl overflow-hidden border border-[#FFB26A]/20 shadow-2xl shadow-black/60" style={{animation: 'float 6s ease-in-out infinite'}}>
               <div className="absolute top-0 left-0 right-0 h-8 bg-[#1C0F0A] border-b border-[#FFB26A]/15 flex items-center px-4 gap-1.5 z-10">
                 <span className="h-2.5 w-2.5 rounded-full bg-[#FFB26A]/40" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#FFB26A]/20" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#FFB26A]/20" />
-                <span className="text-[10px] font-mono text-[#EDE9E0]/30 ml-2">tsoc-software-dashboard.v16</span>
+                <span className="text-[10px] font-mono text-[#EDE9E0]/30 ml-2">tsoc-software-dashboard</span>
               </div>
-              <div className="pt-8 h-full">
-                <SoftwareCarousel />
-              </div>
+              <Image
+                src="/tax_software_dashboard.png"
+                alt="TSOC tax software dashboard showing filing status and client return metrics"
+                fill
+                className="object-cover object-top pt-8"
+                priority
+              />
             </div>
           </div>
         </div>
@@ -273,7 +277,7 @@ export default function TaxSoftwarePage() {
         </div>
 
         {/* Software Video Library — full playlist walkthrough */}
-        <div className="gsap-reveal space-y-6">
+        <div id="watch-demo" className="gsap-reveal space-y-6 scroll-mt-24">
           <div className="text-center max-w-xl mx-auto">
             <h2 className="text-xl font-extrabold text-white uppercase tracking-wider">Watch the Software in Action</h2>
             <p className="text-xs text-[#EDE9E0]/35 mt-1">Full video walkthroughs covering every workspace, integration, and filing workflow — browse the playlist below.</p>
@@ -293,34 +297,25 @@ export default function TaxSoftwarePage() {
 
         {/* Feature Highlights Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <TiltCard className="glass-card glass-card-hover p-6 space-y-4">
+          <TiltCard className="glass-card glass-card-hover p-6 flex flex-col items-center text-center gap-3">
             <div className="h-9 w-9 rounded-md bg-[#1C0F0A] border border-[#FFB26A]/15 flex items-center justify-center text-[#FFB26A]">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <h3 className="text-base font-bold text-white uppercase tracking-wider">Full IRS Compliance &amp; Review</h3>
-            <p className="text-xs text-[#EDE9E0]/55 leading-relaxed">
-              Never worry about compliance audits. Our software includes auto-diagnostics that scan returns for missing disclosures, invalid entries, and IRS red flags prior to filing.
-            </p>
           </TiltCard>
 
-          <TiltCard delay={0.1} className="glass-card-hover p-6 space-y-4 border border-[#FFB26A]/15 bg-[#2A160E]/20 rounded-xl">
+          <TiltCard delay={0.1} className="glass-card-hover p-6 flex flex-col items-center text-center gap-3 border border-[#FFB26A]/15 bg-[#2A160E]/20 rounded-xl">
             <div className="h-9 w-9 rounded-md bg-[#1C0F0A] border border-[#FFB26A]/15 flex items-center justify-center text-[#FFB26A]">
               <DollarSign className="w-5 h-5" />
             </div>
             <h3 className="text-base font-bold text-white uppercase tracking-wider">Integrated Bank Products</h3>
-            <p className="text-xs text-[#EDE9E0]/55 leading-relaxed">
-              Enroll in top refund bank partners. Offer refund advances to clients and deduct tax preparation fees directly from refunds, making client payments seamless.
-            </p>
           </TiltCard>
 
-          <TiltCard delay={0.2} className="glass-card glass-card-hover p-6 space-y-4">
+          <TiltCard delay={0.2} className="glass-card glass-card-hover p-6 flex flex-col items-center text-center gap-3">
             <div className="h-9 w-9 rounded-md bg-[#1C0F0A] border border-[#FFB26A]/15 flex items-center justify-center text-[#FFB26A]">
               <Users className="w-5 h-5" />
             </div>
             <h3 className="text-base font-bold text-white uppercase tracking-wider">Unlimited Multi-User Console</h3>
-            <p className="text-xs text-[#EDE9E0]/55 leading-relaxed">
-              Add junior preparers or establish remote offices easily. Our multi-site console keeps files isolated, tracking individual filing volumes and performance metrics.
-            </p>
           </TiltCard>
         </div>
 
