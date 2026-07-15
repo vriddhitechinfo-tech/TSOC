@@ -14,6 +14,12 @@ export default function EROEnablementPage() {
   const { openModal } = useModal();
   const pageRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
+  const statsContainerRef = useRef<HTMLDivElement>(null);
+
+  // Stats refs for counting animation
+  const erosValRef = useRef<HTMLSpanElement>(null);
+  const retentionValRef = useRef<HTMLSpanElement>(null);
+  const setupValRef = useRef<HTMLSpanElement>(null);
 
   // Roadmap progress line draws itself as the timeline scrolls through view
   const { scrollYProgress } = useScroll({
@@ -28,6 +34,33 @@ export default function EROEnablementPage() {
     }
 
     const ctx = gsap.context(() => {
+      // Stats Counter Animation
+      if (statsContainerRef.current) {
+        const statsData = { eros: 0, retention: 0 };
+        gsap.to(statsData, {
+          eros: 500,
+          retention: 100,
+          duration: 1.6,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: statsContainerRef.current,
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+          onUpdate: () => {
+            if (erosValRef.current) {
+              erosValRef.current.innerText = `${Math.floor(statsData.eros)}+`;
+            }
+            if (retentionValRef.current) {
+              retentionValRef.current.innerText = `${Math.floor(statsData.retention)}%`;
+            }
+          },
+        });
+        if (setupValRef.current) {
+          setupValRef.current.innerText = "4-8 Weeks";
+        }
+      }
+
       // General reveals
       if (pageRef.current) {
         const reveals = pageRef.current.querySelectorAll(".gsap-reveal");
@@ -127,6 +160,57 @@ export default function EROEnablementPage() {
             >
               Book an ERO Consultation
             </button>
+          </div>
+        </div>
+
+        {/* Animated Stats Section */}
+        <div
+          ref={statsContainerRef}
+          className="bg-gradient-to-b from-[#2A160E]/60 to-[#1C0F0A] border border-[#FFB26A]/15 rounded-2xl py-12 px-6 md:px-8 relative overflow-hidden"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div className="space-y-2">
+              <span
+                ref={erosValRef}
+                className="text-4xl md:text-5xl font-black text-[#FFB26A] font-mono block"
+              >
+                0+
+              </span>
+              <span className="text-xs text-white font-bold uppercase tracking-wider block">
+                EROs Enabled
+              </span>
+              <p className="text-xs text-[#EDE9E0]/35">
+                Tax professionals we&apos;ve guided to their own EFIN
+              </p>
+            </div>
+            <div className="space-y-2">
+              <span
+                ref={retentionValRef}
+                className="text-4xl md:text-5xl font-black text-[#FFB26A] font-mono block"
+              >
+                0%
+              </span>
+              <span className="text-xs text-white font-bold uppercase tracking-wider block">
+                Fee Retention
+              </span>
+              <p className="text-xs text-[#EDE9E0]/35">
+                Keep every dollar — no split with a franchise or umbrella ERO
+              </p>
+            </div>
+            <div className="space-y-2">
+              <span
+                ref={setupValRef}
+                className="text-4xl md:text-5xl font-black text-[#FFB26A] font-mono block"
+              >
+                4-8 Weeks
+              </span>
+              <span className="text-xs text-white font-bold uppercase tracking-wider block">
+                Average EFIN Setup
+              </span>
+              <p className="text-xs text-[#EDE9E0]/35">
+                From application to your first return as an independent ERO
+              </p>
+            </div>
           </div>
         </div>
 
