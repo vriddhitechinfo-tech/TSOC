@@ -19,7 +19,7 @@ export default function SoftwareCarousel() {
       description:
         "Monitor real-time filing stats, preparer volumes, IRS acceptance rates, and bank product statuses in a central dashboard.",
       mockupContent: (
-        <div className="w-full h-full bg-[#1C0F0A] text-white p-4 font-mono text-xs flex flex-col justify-between">
+        <div className="w-full h-full bg-[#0F0D0C] text-white p-4 font-mono text-xs flex flex-col justify-between">
           <div className="flex items-center justify-between border-b border-[#FFB26A]/15 pb-2 mb-3">
             <span className="font-bold text-[#FFB26A]">
               THE SECTOR OF COLLECTIVES CORE • OFFICE CONSOLE
@@ -30,7 +30,7 @@ export default function SoftwareCarousel() {
           </div>
 
           <div className="grid grid-cols-3 gap-2">
-            <div className="bg-[#1C0F0A] border border-[#FFB26A]/15 p-2 rounded">
+            <div className="bg-[#0F0D0C] border border-[#FFB26A]/15 p-2 rounded">
               <span className="text-[#EDE9E0]/50 block uppercase text-[7px]">
                 Total Prepared
               </span>
@@ -38,7 +38,7 @@ export default function SoftwareCarousel() {
                 412
               </span>
             </div>
-            <div className="bg-[#1C0F0A] border border-[#FFB26A]/15 p-2 rounded">
+            <div className="bg-[#0F0D0C] border border-[#FFB26A]/15 p-2 rounded">
               <span className="text-[#EDE9E0]/50 block uppercase text-[7px]">
                 IRS Accepted
               </span>
@@ -46,7 +46,7 @@ export default function SoftwareCarousel() {
                 99.2%
               </span>
             </div>
-            <div className="bg-[#1C0F0A] border border-[#FFB26A]/15 p-2 rounded">
+            <div className="bg-[#0F0D0C] border border-[#FFB26A]/15 p-2 rounded">
               <span className="text-[#EDE9E0]/50 block uppercase text-[7px]">
                 Bank Payouts
               </span>
@@ -57,7 +57,7 @@ export default function SoftwareCarousel() {
           </div>
 
           {/* Active Queue Table */}
-          <div className="mt-3 flex-1 bg-[#1C0F0A] border border-[#FFB26A]/15 rounded p-2 overflow-hidden">
+          <div className="mt-3 flex-1 bg-[#0F0D0C] border border-[#FFB26A]/15 rounded p-2 overflow-hidden">
             <div className="flex justify-between border-b border-[#FFB26A]/15 pb-1 mb-1 text-[7px] text-[#EDE9E0]/50 uppercase font-black">
               <span>Client Name</span>
               <span>Form</span>
@@ -94,7 +94,7 @@ export default function SoftwareCarousel() {
       description:
         "Quickly enter W-2s, Schedules, and business expenses. The software runs background compliance checks, flagging errors in real-time.",
       mockupContent: (
-        <div className="w-full h-full bg-[#1C0F0A] text-white p-4 font-mono text-xs flex flex-col justify-between">
+        <div className="w-full h-full bg-[#0F0D0C] text-white p-4 font-mono text-xs flex flex-col justify-between">
           <div className="flex items-center justify-between border-b border-[#FFB26A]/15 pb-2 mb-2">
             <div className="flex items-center space-x-1">
               <FileText className="w-3.5 h-3.5 text-[#FFB26A]" />
@@ -106,7 +106,7 @@ export default function SoftwareCarousel() {
           </div>
 
           <div className="grid grid-cols-2 gap-4 flex-1 pt-1">
-            <div className="space-y-2 bg-[#1C0F0A] p-2.5 rounded border border-[#FFB26A]/10">
+            <div className="space-y-2 bg-[#0F0D0C] p-2.5 rounded border border-[#FFB26A]/10">
               <span className="text-[#EDE9E0]/50 uppercase text-[7px] font-bold block">
                 Taxpayer Intake Data
               </span>
@@ -160,7 +160,7 @@ export default function SoftwareCarousel() {
       description:
         "Direct server connections with the IRS E-file gateway. Get immediate status notifications (Transmitted, Rejected, or Accepted) within minutes.",
       mockupContent: (
-        <div className="w-full h-full bg-[#1C0F0A] text-white p-4 font-mono text-xs flex flex-col justify-between">
+        <div className="w-full h-full bg-[#0F0D0C] text-white p-4 font-mono text-xs flex flex-col justify-between">
           <div className="flex items-center justify-between border-b border-[#FFB26A]/15 pb-2">
             <span className="font-bold">IRS GATEWAY TRANSMISSION STAGE</span>
             <span className="text-[#EDE9E0]/50">EFIN: 564201</span>
@@ -189,7 +189,7 @@ export default function SoftwareCarousel() {
             </div>
           </div>
 
-          <div className="bg-[#1C0F0A] border border-[#FFB26A]/15 rounded p-2.5 space-y-1">
+          <div className="bg-[#0F0D0C] border border-[#FFB26A]/15 rounded p-2.5 space-y-1">
             <div className="text-[#EDE9E0]/50 uppercase text-[7px] font-bold">
               IRS ACK (Submission ID: 1040-564201-2026)
             </div>
@@ -212,7 +212,7 @@ export default function SoftwareCarousel() {
       description:
         "Securely enroll clients in bank products. Deduct preparation fees directly from the client's refund and issue advance payouts to build trust.",
       mockupContent: (
-        <div className="w-full h-full bg-[#1C0F0A] text-white p-4 font-mono text-xs flex flex-col justify-between">
+        <div className="w-full h-full bg-[#0F0D0C] text-white p-4 font-mono text-xs flex flex-col justify-between">
           <div className="flex items-center justify-between border-b border-[#FFB26A]/15 pb-2 mb-2">
             <div className="flex items-center space-x-1">
               <Landmark className="w-3.5 h-3.5 text-[#FFB26A]" />
@@ -224,7 +224,7 @@ export default function SoftwareCarousel() {
           </div>
 
           <div className="space-y-2.5 flex-1 pt-1">
-            <div className="flex justify-between bg-[#1C0F0A] p-2 rounded border border-[#FFB26A]/10 items-center">
+            <div className="flex justify-between bg-[#0F0D0C] p-2 rounded border border-[#FFB26A]/10 items-center">
               <div>
                 <span className="block text-white font-bold">
                   TPG Refund Advance Program
@@ -236,7 +236,7 @@ export default function SoftwareCarousel() {
               <span className="text-[#FFB26A] font-bold">ENABLED</span>
             </div>
 
-            <div className="bg-[#1C0F0A] p-2.5 rounded border border-[#FFB26A]/10 space-y-1.5">
+            <div className="bg-[#0F0D0C] p-2.5 rounded border border-[#FFB26A]/10 space-y-1.5">
               <span className="text-[#EDE9E0]/50 uppercase text-[7px] font-bold block">
                 Fee Split Ledger
               </span>
@@ -293,7 +293,7 @@ export default function SoftwareCarousel() {
               ref={(el) => {
                 cardRefs.current[i] = el;
               }}
-              className="snap-center shrink-0 w-[88%] sm:w-[78%] lg:w-[70%] grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#1C0F0A]/40 border border-[#FFB26A]/30 rounded-2xl p-6 md:p-8 backdrop-blur-md"
+              className="snap-center shrink-0 w-[88%] sm:w-[78%] lg:w-[70%] grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#0F0D0C]/40 border border-[#FFB26A]/30 rounded-2xl p-6 md:p-8 backdrop-blur-md"
             >
               <div className="lg:col-span-4 space-y-4 text-center lg:text-left">
                 <span className="inline-flex items-center justify-center h-7 w-7 rounded bg-[#FFB26A]/10 border border-[#FFB26A]/20 text-[#FFB26A] font-black text-xs">
@@ -308,8 +308,8 @@ export default function SoftwareCarousel() {
               </div>
 
               {/* Browser Mockup */}
-              <div className="lg:col-span-8 w-full border border-[#FFB26A]/20 rounded-xl overflow-hidden bg-[#1C0F0A] shadow-xl">
-                <div className="bg-[#1C0F0A] px-4 py-2.5 border-b border-[#FFB26A]/35 flex items-center space-x-1.5">
+              <div className="lg:col-span-8 w-full border border-[#FFB26A]/20 rounded-xl overflow-hidden bg-[#0F0D0C] shadow-xl">
+                <div className="bg-[#0F0D0C] px-4 py-2.5 border-b border-[#FFB26A]/35 flex items-center space-x-1.5">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#FFB26A]/40 inline-block" />
                   <span className="w-2.5 h-2.5 rounded-full bg-[#FFB26A]/65 inline-block" />
                   <span className="w-2.5 h-2.5 rounded-full bg-[#FFB26A]/90 inline-block" />
@@ -330,7 +330,7 @@ export default function SoftwareCarousel() {
           onClick={goPrev}
           disabled={activeIndex === 0}
           aria-label="Previous screen"
-          className="hidden sm:flex absolute left-1 top-1/2 -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full bg-[#1C0F0A] border border-[#FFB26A]/30 text-[#FFB26A] hover:bg-[#FFB26A]/10 hover:border-[#FFB26A]/60 transition-all disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer z-10"
+          className="hidden sm:flex absolute left-1 top-1/2 -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full bg-[#0F0D0C] border border-[#FFB26A]/30 text-[#FFB26A] hover:bg-[#FFB26A]/10 hover:border-[#FFB26A]/60 transition-all disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer z-10"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
@@ -338,7 +338,7 @@ export default function SoftwareCarousel() {
           onClick={goNext}
           disabled={activeIndex === screens.length - 1}
           aria-label="Next screen"
-          className="hidden sm:flex absolute right-1 top-1/2 -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full bg-[#1C0F0A] border border-[#FFB26A]/30 text-[#FFB26A] hover:bg-[#FFB26A]/10 hover:border-[#FFB26A]/60 transition-all disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer z-10"
+          className="hidden sm:flex absolute right-1 top-1/2 -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full bg-[#0F0D0C] border border-[#FFB26A]/30 text-[#FFB26A] hover:bg-[#FFB26A]/10 hover:border-[#FFB26A]/60 transition-all disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer z-10"
         >
           <ChevronRight className="w-5 h-5" />
         </button>

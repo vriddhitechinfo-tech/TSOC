@@ -45,7 +45,7 @@ export default function AboutSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="gsap-about-el space-y-6">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#FFB26A] bg-[#2A160E]/50 border border-[#FFB26A]/20 px-3 py-1 rounded inline-block">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#FFB26A] bg-[#161412]/50 border border-[#FFB26A]/20 px-3 py-1 rounded inline-block">
               More Than Tax Software
             </span>
             <h2 className="font-display text-2xl sm:text-4xl font-semibold text-white tracking-normal leading-tight uppercase">
@@ -82,7 +82,7 @@ export default function AboutSection() {
               height={560}
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#140A06]/90 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0908]/90 via-transparent to-transparent pointer-events-none" />
             <div className="absolute bottom-5 left-5 right-5">
               <div className="text-xl sm:text-2xl font-display font-semibold tracking-wider text-white select-none">
                 <span className="font-display italic font-semibold text-2xl sm:text-3xl text-[#FFB26A]">

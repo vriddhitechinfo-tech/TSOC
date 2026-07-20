@@ -42,10 +42,10 @@ export default function PricingSection() {
   }, []);
 
   return (
-    <section ref={pricingRef} className="py-20 bg-[#2A160E]/15">
+    <section ref={pricingRef} className="py-20 bg-[#161412]/15">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-3 gsap-pricing-el">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#FFB26A] bg-[#2A160E]/50 border border-[#FFB26A]/20 px-3 py-1 rounded inline-block">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#FFB26A] bg-[#161412]/50 border border-[#FFB26A]/20 px-3 py-1 rounded inline-block">
             Pricing Matrices
           </span>
           <h2 className="font-display text-2xl sm:text-4xl font-semibold text-white tracking-normal uppercase">
@@ -58,10 +58,10 @@ export default function PricingSection() {
         </div>
 
         {/* Comparison Table Container */}
-        <div className="gsap-pricing-el overflow-x-auto border border-[#FFB26A]/15 rounded-xl bg-[#2A160E]/20 backdrop-blur-md">
+        <div className="gsap-pricing-el overflow-x-auto border border-[#FFB26A]/15 rounded-xl bg-[#161412]/20 backdrop-blur-md">
           <table className="w-full min-w-[700px] border-collapse text-left text-xs text-[#EDE9E0]/70">
             {/* Sticky Table Header */}
-            <thead className="bg-[#140A06] sticky top-16 z-20">
+            <thead className="bg-[#0A0908] sticky top-16 z-20">
               <tr>
                 <th className="p-4 font-bold text-[#EDE9E0]/50 uppercase tracking-wider w-[40%]">
                   Capabilities & Benefits
@@ -80,9 +80,9 @@ export default function PricingSection() {
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#2A160E]/60">
+            <tbody className="divide-y divide-[#161412]/60">
               {/* Feature Rows */}
-              <tr className="hover:bg-[#2A160E]/20 transition-colors">
+              <tr className="hover:bg-[#161412]/20 transition-colors">
                 <td className="p-4 font-semibold text-white">
                   Professional Tax Software Access
                 </td>
@@ -96,7 +96,7 @@ export default function PricingSection() {
                   YES (Enterprise)
                 </td>
               </tr>
-              <tr className="hover:bg-[#2A160E]/20 transition-colors">
+              <tr className="hover:bg-[#161412]/20 transition-colors">
                 <td className="p-4 font-semibold text-white">
                   Weekly Open Office Live Hours
                 </td>
@@ -110,7 +110,7 @@ export default function PricingSection() {
                   YES
                 </td>
               </tr>
-              <tr className="hover:bg-[#2A160E]/20 transition-colors">
+              <tr className="hover:bg-[#161412]/20 transition-colors">
                 <td className="p-4 font-semibold text-white">
                   Software Walkthrough Guides
                 </td>
@@ -122,7 +122,7 @@ export default function PricingSection() {
                   Advanced
                 </td>
               </tr>
-              <tr className="hover:bg-[#2A160E]/20 transition-colors">
+              <tr className="hover:bg-[#161412]/20 transition-colors">
                 <td className="p-4 font-semibold text-white">
                   ERO Support & Training
                 </td>
@@ -141,7 +141,7 @@ export default function PricingSection() {
                   <Check className="w-4 h-4 mx-auto" />
                 </td>
               </tr>
-              <tr className="hover:bg-[#2A160E]/20 transition-colors">
+              <tr className="hover:bg-[#161412]/20 transition-colors">
                 <td className="p-4 font-semibold text-white">
                   Add-on Services Guides
                 </td>
@@ -160,7 +160,7 @@ export default function PricingSection() {
                   <Check className="w-4 h-4 mx-auto" />
                 </td>
               </tr>
-              <tr className="hover:bg-[#2A160E]/20 transition-colors">
+              <tr className="hover:bg-[#161412]/20 transition-colors">
                 <td className="p-4 font-semibold text-white">
                   CRM Templates & Automations
                 </td>
@@ -179,7 +179,7 @@ export default function PricingSection() {
                   <Check className="w-4 h-4 mx-auto" />
                 </td>
               </tr>
-              <tr className="hover:bg-[#2A160E]/20 transition-colors">
+              <tr className="hover:bg-[#161412]/20 transition-colors">
                 <td className="p-4 font-semibold text-white">
                   Live Attorney Consultations
                 </td>
@@ -198,7 +198,7 @@ export default function PricingSection() {
                   <Check className="w-4 h-4 mx-auto" />
                 </td>
               </tr>
-              <tr className="hover:bg-[#2A160E]/20 transition-colors">
+              <tr className="hover:bg-[#161412]/20 transition-colors">
                 <td className="p-4 font-semibold text-white">
                   Service Bureau Audits & Setup
                 </td>
@@ -222,7 +222,7 @@ export default function PricingSection() {
                   <Check className="w-4 h-4 mx-auto" />
                 </td>
               </tr>
-              <tr className="hover:bg-[#2A160E]/20 transition-colors">
+              <tr className="hover:bg-[#161412]/20 transition-colors">
                 <td className="p-4 font-semibold text-white">
                   White-label Branding
                 </td>
@@ -246,7 +246,7 @@ export default function PricingSection() {
                   <Check className="w-4 h-4 mx-auto" />
                 </td>
               </tr>
-              <tr className="hover:bg-[#2A160E]/20 transition-colors">
+              <tr className="hover:bg-[#161412]/20 transition-colors">
                 <td className="p-4 font-semibold text-white">
                   1-on-1 Advisor Strategy Calls
                 </td>
@@ -271,14 +271,14 @@ export default function PricingSection() {
                 </td>
               </tr>
               {/* Button actions row */}
-              <tr className="bg-[#140A06]/60">
+              <tr className="bg-[#0A0908]/60">
                 <td className="p-4 font-bold text-[#EDE9E0]/50">
                   Get Started Today
                 </td>
                 <td className="p-4 text-center">
                   <button
                     onClick={() => openModal("strategy")}
-                    className="px-4 py-2 rounded-lg bg-[#2A160E] hover:bg-[#3D2216] text-[#EDE9E0]/70 hover:text-white font-bold border border-[#FFB26A]/20 tracking-wider uppercase text-[9px] cursor-pointer w-full transition-all"
+                    className="px-4 py-2 rounded-lg bg-[#161412] hover:bg-[#24201C] text-[#EDE9E0]/70 hover:text-white font-bold border border-[#FFB26A]/20 tracking-wider uppercase text-[9px] cursor-pointer w-full transition-all"
                   >
                     Choose Starter
                   </button>
@@ -286,7 +286,7 @@ export default function PricingSection() {
                 <td className="p-4 text-center bg-[#FFB26A]/5 border-x border-[#FFB26A]/20">
                   <button
                     onClick={() => openModal("strategy")}
-                    className="px-4 py-2 rounded-lg bg-gradient-to-r from-[#FFB26A] to-[#F4845F] hover:from-[#F4845F] hover:to-[#E67049] text-[#140A06] font-extrabold tracking-wider uppercase text-[9px] cursor-pointer w-full shadow-lg shadow-[#FFB26A]/20"
+                    className="px-4 py-2 rounded-lg bg-gradient-to-r from-[#FFB26A] to-[#F4845F] hover:from-[#F4845F] hover:to-[#E67049] text-[#0A0908] font-extrabold tracking-wider uppercase text-[9px] cursor-pointer w-full shadow-lg shadow-[#FFB26A]/20"
                   >
                     Choose Professional
                   </button>
@@ -294,7 +294,7 @@ export default function PricingSection() {
                 <td className="p-4 text-center">
                   <button
                     onClick={() => openModal("strategy")}
-                    className="px-4 py-2 rounded-lg bg-[#2A160E] hover:bg-[#3D2216] text-[#EDE9E0]/70 hover:text-white font-bold border border-[#FFB26A]/20 tracking-wider uppercase text-[9px] cursor-pointer w-full transition-all"
+                    className="px-4 py-2 rounded-lg bg-[#161412] hover:bg-[#24201C] text-[#EDE9E0]/70 hover:text-white font-bold border border-[#FFB26A]/20 tracking-wider uppercase text-[9px] cursor-pointer w-full transition-all"
                   >
                     Choose Enterprise
                   </button>

@@ -96,7 +96,7 @@ export default function HeroSection() {
                   className="inline-flex items-center justify-center rounded-lg px-6 py-3.5 text-xs font-extrabold shadow-lg cursor-pointer uppercase tracking-wider transition-all duration-200"
                   style={{
                     backgroundColor: activeSlide.accentColor,
-                    color: "#140A06",
+                    color: "#0A0908",
                   }}
                 >
                   {activeSlide.cta1}
@@ -105,7 +105,7 @@ export default function HeroSection() {
 
                 <button
                   onClick={() => openModal("demo")}
-                  className="inline-flex items-center justify-center rounded-lg border border-[#FFB26A]/20 bg-[#2A160E]/50 px-6 py-3.5 text-xs font-bold text-white hover:bg-[#2A160E] transition-all cursor-pointer uppercase tracking-wider"
+                  className="inline-flex items-center justify-center rounded-lg border border-[#FFB26A]/20 bg-[#161412]/50 px-6 py-3.5 text-xs font-bold text-white hover:bg-[#161412] transition-all cursor-pointer uppercase tracking-wider"
                 >
                   {activeSlide.cta2}
                 </button>
@@ -142,10 +142,10 @@ export default function HeroSection() {
                   className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#140A06] via-transparent to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0908] via-transparent to-transparent opacity-80" />
 
                 {/* Overlaid Badge */}
-                <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-[#2A160E]/80 backdrop-blur-md border border-[#FFB26A]/20">
+                <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-[#161412]/80 backdrop-blur-md border border-[#FFB26A]/20">
                   <div className="text-xs font-bold text-white uppercase tracking-wider">
                     {activeSlide.tag}
                   </div>

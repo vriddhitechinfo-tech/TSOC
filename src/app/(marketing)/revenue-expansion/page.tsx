@@ -125,7 +125,7 @@ export default function RevenueExpansionPage() {
   ];
 
   return (
-    <div ref={pageRef} className="relative overflow-hidden bg-[#140A06] min-h-screen py-16 sm:py-10 animate-fade-in">
+    <div ref={pageRef} className="relative overflow-hidden bg-[#0A0908] min-h-screen py-16 sm:py-10 animate-fade-in">
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,178,106,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
 
@@ -162,7 +162,7 @@ export default function RevenueExpansionPage() {
                     <span className="text-[#FFB26A]">
                       <Icon className="w-5 h-5" />
                     </span>
-                    <span className="text-xs font-bold text-[#EDE9E0]/40 uppercase tracking-wider bg-[#2A160E]/60 border border-[#FFB26A]/15 px-2 py-0.5 rounded">
+                    <span className="text-xs font-bold text-[#EDE9E0]/40 uppercase tracking-wider bg-[#161412]/60 border border-[#FFB26A]/15 px-2 py-0.5 rounded">
                       {op.tag}
                     </span>
                   </div>

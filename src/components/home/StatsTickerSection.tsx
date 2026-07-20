@@ -10,7 +10,7 @@ export default function StatsTickerSection() {
   return (
     <section
       ref={containerRef}
-      className="py-16 bg-[#2A160E]/30 relative border-y border-[#FFB26A]/10"
+      className="py-16 bg-[#161412]/30 relative border-y border-[#FFB26A]/10"
     >
       {/* Gold glow line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#FFB26A]/40 to-transparent" />

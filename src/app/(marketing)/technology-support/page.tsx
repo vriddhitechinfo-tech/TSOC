@@ -330,7 +330,7 @@ export default function TechnologySupportPage() {
   ];
 
   return (
-    <div ref={pageRef} className="relative overflow-hidden bg-[#140A06] min-h-screen">
+    <div ref={pageRef} className="relative overflow-hidden bg-[#0A0908] min-h-screen">
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,178,106,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
 
@@ -352,7 +352,7 @@ export default function TechnologySupportPage() {
                 CRM &amp; Automation Support
               </span>
               <h1 className="gsap-reveal text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-snug text-white">
-                Automate Your Operations. Double Your Intake.
+                Automate Your Operations.
               </h1>
               <p className="gsap-reveal text-sm text-[#EDE9E0]/55 leading-relaxed line-clamp-3">
                 Stop chasing documents, manually texting clients, and managing files on sheets. We set up custom CRMs, document workflows, and client messaging pipelines specifically for tax professionals.
@@ -366,7 +366,7 @@ export default function TechnologySupportPage() {
                 </button>
                 <button
                   onClick={() => openModal("technology")}
-                  className="bg-[#2A160E] text-[#EDE9E0]/70 hover:text-white border border-[#FFB26A]/20 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer"
+                  className="bg-[#161412] text-[#EDE9E0]/70 hover:text-white border border-[#FFB26A]/20 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer"
                 >
                   Request Technology Audit
                 </button>
@@ -375,7 +375,7 @@ export default function TechnologySupportPage() {
 
             {/* Right: CRM Dashboard Image with Floating Animation */}
             <div className="relative h-full rounded-2xl overflow-hidden border border-[#FFB26A]/20 shadow-2xl shadow-black/60" style={{animation: 'float 6s ease-in-out infinite'}}>
-              <div className="absolute top-0 left-0 right-0 h-8 bg-[#1C0F0A] border-b border-[#FFB26A]/15 flex items-center px-4 gap-1.5 z-10">
+              <div className="absolute top-0 left-0 right-0 h-8 bg-[#0F0D0C] border-b border-[#FFB26A]/15 flex items-center px-4 gap-1.5 z-10">
                 <span className="h-2.5 w-2.5 rounded-full bg-[#FFB26A]/40" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#FFB26A]/65" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#FFB26A]/90" />
@@ -389,7 +389,7 @@ export default function TechnologySupportPage() {
                 className="w-full h-full object-cover mt-8"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#140A06]/60 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0908]/60 via-transparent to-transparent pointer-events-none" />
             </div>
           </div>
         </div>
@@ -400,7 +400,7 @@ export default function TechnologySupportPage() {
         {/* Animated Stats Section */}
         <div
           ref={statsContainerRef}
-          className="bg-gradient-to-b from-[#2A160E]/60 to-[#1C0F0A] border border-[#FFB26A]/15 rounded-2xl py-12 px-6 md:px-8 relative overflow-hidden"
+          className="bg-gradient-to-b from-[#161412]/60 to-[#0F0D0C] border border-[#FFB26A]/15 rounded-2xl py-12 px-6 md:px-8 relative overflow-hidden"
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="space-y-2">
@@ -476,7 +476,7 @@ export default function TechnologySupportPage() {
                     className="pipeline-row relative lg:grid lg:grid-cols-2 lg:items-center"
                   >
                     {/* Numbered node on the spine */}
-                    <div className="pipeline-node absolute left-5 lg:left-1/2 top-6 lg:top-1/2 -translate-x-1/2 lg:-translate-y-1/2 z-10 h-9 w-9 rounded-full bg-[#1C0F0A] border-2 border-white/25 flex items-center justify-center text-sm font-bold text-white">
+                    <div className="pipeline-node absolute left-5 lg:left-1/2 top-6 lg:top-1/2 -translate-x-1/2 lg:-translate-y-1/2 z-10 h-9 w-9 rounded-full bg-[#0F0D0C] border-2 border-white/25 flex items-center justify-center text-sm font-bold text-white">
                       {step.num}
                     </div>
 
@@ -491,7 +491,7 @@ export default function TechnologySupportPage() {
                     <div
                       className={`pipeline-card glass-card glass-card-hover overflow-hidden border-l-4 ${accent.border} pl-14 lg:pl-0 lg:max-w-md ${
                         isRight ? "lg:col-start-2 lg:ml-14" : "lg:col-start-1 lg:mr-14 lg:justify-self-end"
-                      } ${step.highlight ? "bg-gradient-to-br from-[#2A160E]/80 to-[#1C0F0A] ring-1 ring-[#FFB26A]/20" : ""}`}
+                      } ${step.highlight ? "bg-gradient-to-br from-[#161412]/80 to-[#0F0D0C] ring-1 ring-[#FFB26A]/20" : ""}`}
                     >
                       <div className="p-6 space-y-4">
                         <div className="flex items-center justify-between gap-3">
@@ -565,7 +565,7 @@ export default function TechnologySupportPage() {
               {automationSteps.map((s, idx) => (
                 <div key={s.num} className="blueprint-card">
                   {/* Card */}
-                  <div className="rounded-2xl overflow-hidden border border-[#FFB26A]/30 bg-[#2A160E]/80 backdrop-blur shadow-2xl shadow-black/60">
+                  <div className="rounded-2xl overflow-hidden border border-[#FFB26A]/30 bg-[#161412]/80 backdrop-blur shadow-2xl shadow-black/60">
                     {/* Amber accent stripe */}
                     <div className="h-0.5 bg-gradient-to-r from-[#FFB26A] via-[#F4845F] to-transparent" />
                     {/* Header row */}
@@ -615,7 +615,7 @@ export default function TechnologySupportPage() {
 
         {/* FAQs */}
         <div className="gsap-reveal">
-          <FaqAccordion items={techFaqs} title="CRM &amp; Automation FAQs" />
+          <FaqAccordion items={techFaqs} title="FAQs" />
         </div>
 
         {/* Community Banner CTA */}

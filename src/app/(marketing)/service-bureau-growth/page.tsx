@@ -208,7 +208,7 @@ export default function ServiceBureauGrowthPage() {
   };
 
   return (
-    <div ref={pageRef} className="relative overflow-hidden bg-[#140A06] min-h-screen py-16 sm:py-10 animate-fade-in">
+    <div ref={pageRef} className="relative overflow-hidden bg-[#0A0908] min-h-screen py-16 sm:py-10 animate-fade-in">
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,178,106,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
 
@@ -237,7 +237,7 @@ export default function ServiceBureauGrowthPage() {
         {/* Animated Stats Section */}
         <div
           ref={statsContainerRef}
-          className="bg-gradient-to-b from-[#1C0F0A]/80 to-[#1C0F0A] border border-[#FFB26A]/30 rounded-2xl py-12 px-6 md:px-8 relative overflow-hidden"
+          className="bg-gradient-to-b from-[#0F0D0C]/80 to-[#0F0D0C] border border-[#FFB26A]/30 rounded-2xl py-12 px-6 md:px-8 relative overflow-hidden"
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="space-y-2">
@@ -311,7 +311,7 @@ export default function ServiceBureauGrowthPage() {
           <div ref={containerRef} className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative pb-16">
             {/* Left Column - Pinned Menu (Desktop only) */}
             <div className="hidden lg:block lg:col-span-4 sticky top-24 self-start space-y-3" ref={leftMenuRef}>
-              <div className="bg-[#2A160E]/80 border border-[#FFB26A]/30 rounded-xl p-4 space-y-2">
+              <div className="bg-[#161412]/80 border border-[#FFB26A]/30 rounded-xl p-4 space-y-2">
                 <span className="text-xs font-bold text-[#EDE9E0]/50 uppercase tracking-widest block mb-2">Phase Navigator</span>
                 {phases.map((p, idx) => (
                   <button
@@ -325,7 +325,7 @@ export default function ServiceBureauGrowthPage() {
                   >
                     <div className="flex items-center space-x-3">
                       <span className={`h-6 w-6 rounded flex items-center justify-center text-xs font-bold border ${
-                        activeScrollPhase === idx ? "bg-[#2A160E] border-[#FFB26A]/40 text-[#FFB26A]" : "bg-[#140A06] border-[#FFB26A]/30 text-[#EDE9E0]/40"
+                        activeScrollPhase === idx ? "bg-[#161412] border-[#FFB26A]/40 text-[#FFB26A]" : "bg-[#0A0908] border-[#FFB26A]/30 text-[#EDE9E0]/40"
                       }`}>
                         {idx + 1}
                       </span>

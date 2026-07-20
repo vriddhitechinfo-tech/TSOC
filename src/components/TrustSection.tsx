@@ -5,7 +5,7 @@ import { Star, ShieldCheck, Landmark } from "lucide-react";
 
 export default function TrustSection() {
   return (
-    <div className="w-full bg-[#2A160E]/20 border-y border-[#FFB26A]/10 py-12">
+    <div className="w-full bg-[#161412]/20 border-y border-[#FFB26A]/10 py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left">
           {/* Trust Ratings */}
@@ -50,7 +50,7 @@ export default function TrustSection() {
               {["TPG", "Republic Bank", "Refund Advantage", "Santa Barbara"].map((bank) => (
                 <span
                   key={bank}
-                  className="bg-[#2A160E]/60 border border-[#FFB26A]/15 text-xs font-bold text-[#EDE9E0]/60 px-2 py-0.5 rounded tracking-wide uppercase"
+                  className="bg-[#161412]/60 border border-[#FFB26A]/15 text-xs font-bold text-[#EDE9E0]/60 px-2 py-0.5 rounded tracking-wide uppercase"
                 >
                   {bank}
                 </span>

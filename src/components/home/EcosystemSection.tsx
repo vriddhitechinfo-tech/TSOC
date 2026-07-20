@@ -12,7 +12,7 @@ export default function EcosystemSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 bg-[#140A06] overflow-hidden flex flex-col justify-center min-h-screen"
+      className="relative py-20 bg-[#0A0908] overflow-hidden flex flex-col justify-center min-h-screen"
     >
       {/* Decorative gold gradient top */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#FFB26A]/30 to-transparent" />
@@ -21,7 +21,7 @@ export default function EcosystemSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full space-y-12 relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#FFB26A] bg-[#2A160E]/50 border border-[#FFB26A]/20 px-3 py-1 rounded inline-block">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#FFB26A] bg-[#161412]/50 border border-[#FFB26A]/20 px-3 py-1 rounded inline-block">
             Our Core
           </span>
           <h2 className="font-display text-2xl sm:text-4xl font-semibold text-white tracking-normal uppercase">
@@ -41,7 +41,7 @@ export default function EcosystemSection() {
           {ecosystemPillars.map((pillar, idx) => (
             <div
               key={pillar.title}
-              className="gsap-ecosystem-card opacity-0 lg:absolute lg:inset-0 glass-card p-6 md:p-8 flex flex-col justify-between border border-[#FFB26A]/10 bg-[#2A160E]/40 backdrop-blur shadow-xl relative select-none w-full h-full"
+              className="gsap-ecosystem-card opacity-0 lg:absolute lg:inset-0 glass-card p-6 md:p-8 flex flex-col justify-between border border-[#FFB26A]/10 bg-[#161412]/40 backdrop-blur shadow-xl relative select-none w-full h-full"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">

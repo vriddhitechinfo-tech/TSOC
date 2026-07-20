@@ -79,7 +79,7 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div ref={pageRef} className="relative overflow-hidden bg-[#140A06] min-h-screen py-16 sm:py-10">
+    <div ref={pageRef} className="relative overflow-hidden bg-[#0A0908] min-h-screen py-16 sm:py-10">
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,178,106,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
 
@@ -111,7 +111,7 @@ export default function ServicesPage() {
                   <span className="text-xs font-bold text-[#FFB26A] font-mono">
                     {srv.num}
                   </span>
-                  <span className="text-xs font-bold text-[#EDE9E0]/60 uppercase tracking-widest bg-[#2A160E] border border-[#FFB26A]/30 px-2.5 py-0.5 rounded">
+                  <span className="text-xs font-bold text-[#EDE9E0]/60 uppercase tracking-widest bg-[#161412] border border-[#FFB26A]/30 px-2.5 py-0.5 rounded">
                     {srv.tag}
                   </span>
                 </div>
@@ -124,7 +124,7 @@ export default function ServicesPage() {
               <div className="shrink-0">
                 <Link
                   href={srv.href}
-                  className="inline-flex items-center gap-1.5 bg-[#2A160E] hover:bg-[#FFB26A] border border-[#FFB26A]/30 text-[#FFB26A] hover:text-[#140A06] px-5 py-2.5 rounded-lg text-xs font-extrabold transition-all uppercase tracking-wider"
+                  className="inline-flex items-center gap-1.5 bg-[#161412] hover:bg-[#FFB26A] border border-[#FFB26A]/30 text-[#FFB26A] hover:text-[#0A0908] px-5 py-2.5 rounded-lg text-xs font-extrabold transition-all uppercase tracking-wider"
                 >
                   View Details
                   <ArrowRight className="w-3.5 h-3.5" />

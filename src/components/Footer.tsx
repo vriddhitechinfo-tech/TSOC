@@ -21,7 +21,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#140A06] text-[#EDE9E0]/50 py-12 mt-auto border-t border-[#FFB26A]/15">
+    <footer className="bg-[#0A0908] text-[#EDE9E0]/50 py-12 mt-auto border-t border-[#FFB26A]/15">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-12">
           {/* Logo & Motto */}
@@ -206,7 +206,7 @@ export default function Footer() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="bg-[#2A160E]/40 border border-[#FFB26A]/20 rounded-lg px-3 py-2 text-xs text-white placeholder-[#EDE9E0]/30 outline-none focus:border-[#FFB26A] w-full transition-colors"
+                className="bg-[#161412]/40 border border-[#FFB26A]/20 rounded-lg px-3 py-2 text-xs text-white placeholder-[#EDE9E0]/30 outline-none focus:border-[#FFB26A] w-full transition-colors"
               />
               <button
                 type="submit"

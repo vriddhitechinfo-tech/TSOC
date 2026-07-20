@@ -208,7 +208,7 @@ export default function OpenOfficePage() {
   };
 
   return (
-    <div ref={pageRef} className="relative overflow-hidden bg-[#140A06] min-h-screen">
+    <div ref={pageRef} className="relative overflow-hidden bg-[#0A0908] min-h-screen">
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,178,106,0.10)_0%,transparent_60%)] pointer-events-none -z-10" />
 
@@ -244,7 +244,7 @@ export default function OpenOfficePage() {
                 </button>
                 <button
                   onClick={() => openModal("openoffice")}
-                  className="bg-[#2A160E] text-[#EDE9E0]/70 hover:text-white border border-[#FFB26A]/20 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer"
+                  className="bg-[#161412] text-[#EDE9E0]/70 hover:text-white border border-[#FFB26A]/20 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer"
                 >
                   Ask Questions Live
                 </button>
@@ -253,7 +253,7 @@ export default function OpenOfficePage() {
 
             {/* Right: Coworking Image with Floating Animation */}
             <div className="relative h-full rounded-2xl overflow-hidden border border-[#FFB26A]/15 shadow-2xl shadow-black/60" style={{animation: 'float 6s ease-in-out infinite'}}>
-              <div className="absolute top-0 left-0 right-0 h-8 bg-[#1C0F0A] border-b border-[#FFB26A]/10 flex items-center px-4 gap-1.5 z-10">
+              <div className="absolute top-0 left-0 right-0 h-8 bg-[#0F0D0C] border-b border-[#FFB26A]/10 flex items-center px-4 gap-1.5 z-10">
                 <span className="h-2.5 w-2.5 rounded-full bg-[#FFB26A]/40" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#FFB26A]/65" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#FFB26A]/90" />
@@ -267,9 +267,9 @@ export default function OpenOfficePage() {
                 className="w-full h-full object-cover mt-8"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#140A06]/60 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-4 left-4 flex items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 bg-[#140A06]/80 backdrop-blur border border-[#FFB26A]/20 px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider text-[#FFB26A]">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0908]/60 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                <span className="inline-flex items-center gap-1.5 bg-[#0A0908]/80 backdrop-blur border border-[#FFB26A]/20 px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider text-[#FFB26A]">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#FFB26A] animate-pulse" />
                   Daily Coworking Sessions · Mon–Fri
                 </span>
@@ -310,7 +310,7 @@ export default function OpenOfficePage() {
         {/* Animated Stats Section */}
         <div
           ref={statsContainerRef}
-          className="bg-gradient-to-b from-[#2A160E]/80 to-[#140A06] border border-[#FFB26A]/15 rounded-2xl py-12 px-6 md:px-8 relative overflow-hidden"
+          className="bg-gradient-to-b from-[#161412]/80 to-[#0A0908] border border-[#FFB26A]/15 rounded-2xl py-12 px-6 md:px-8 relative overflow-hidden"
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="space-y-2">
@@ -370,9 +370,9 @@ export default function OpenOfficePage() {
             {/* Left: Calendar Grid (Mon–Fri) */}
             <div className="lg:col-span-2">
               {/* Calendar chrome header */}
-              <div className="bg-[#2A160E] border border-[#FFB26A]/30 rounded-2xl overflow-hidden shadow-2xl shadow-black/50">
-                {/* Month bar */}
-                <div className="flex items-center justify-between px-5 py-3.5 border-b border-[#FFB26A]/20 bg-[#1C0F0A]">
+              <div className="bg-[#161412] border border-[#FFB26A]/30 rounded-2xl overflow-hidden shadow-2xl shadow-black/50">
+                {/* Window header bar */}
+                <div className="flex items-center justify-between px-5 py-3.5 border-b border-[#FFB26A]/20 bg-[#0F0D0C]">
                   <div className="flex items-center gap-2">
                     <CalendarDays className="w-4 h-4 text-[#FFB26A]" />
                     <span className="text-xs font-bold text-white uppercase tracking-widest">Open Office · Weekly</span>
@@ -447,9 +447,9 @@ export default function OpenOfficePage() {
             </div>
 
             {/* Right: Detail + Perks Panel */}
-            <div className="bg-[#2A160E] border border-[#FFB26A]/30 rounded-2xl overflow-hidden shadow-2xl shadow-black/50 flex flex-col">
-              {/* Panel header */}
-              <div className="px-5 py-3.5 border-b border-[#FFB26A]/20 bg-[#1C0F0A] flex items-center gap-2">
+            <div className="bg-[#161412] border border-[#FFB26A]/30 rounded-2xl overflow-hidden shadow-2xl shadow-black/50 flex flex-col">
+              {/* Window header bar */}
+              <div className="px-5 py-3.5 border-b border-[#FFB26A]/20 bg-[#0F0D0C] flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#FFB26A] animate-pulse" />
                 <span className="text-xs font-bold uppercase tracking-widest text-[#EDE9E0]/60">Session Details</span>
               </div>
@@ -496,7 +496,7 @@ export default function OpenOfficePage() {
                 </button>
                 <button
                   onClick={() => openModal("openoffice")}
-                  className="w-full bg-[#140A06] border border-[#FFB26A]/30 text-[#EDE9E0]/70 hover:text-white font-bold py-2 px-4 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider"
+                  className="w-full bg-[#0A0908] border border-[#FFB26A]/30 text-[#EDE9E0]/70 hover:text-white font-bold py-2 px-4 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider"
                 >
                   Access Stream Details
                 </button>

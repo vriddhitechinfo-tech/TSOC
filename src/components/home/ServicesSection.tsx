@@ -14,7 +14,7 @@ export default function ServicesSection() {
     <section className="py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#FFB26A] bg-[#2A160E]/50 border border-[#FFB26A]/20 px-3 py-1 rounded inline-block">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#FFB26A] bg-[#161412]/50 border border-[#FFB26A]/20 px-3 py-1 rounded inline-block">
             Business Support Pathways
           </span>
           <h2 className="font-display text-2xl sm:text-4xl font-semibold text-white tracking-normal uppercase">
@@ -81,7 +81,7 @@ export default function ServicesSection() {
                   {service.bestFor.map((bf) => (
                     <span
                       key={bf}
-                      className="bg-[#2A160E]/60 border border-[#FFB26A]/15 text-xs font-semibold text-[#EDE9E0]/60 px-2 py-0.5 rounded"
+                      className="bg-[#161412]/60 border border-[#FFB26A]/15 text-xs font-semibold text-[#EDE9E0]/60 px-2 py-0.5 rounded"
                     >
                       {bf}
                     </span>
@@ -92,7 +92,7 @@ export default function ServicesSection() {
               <div className="pt-8">
                 <button
                   onClick={() => openModal(service.modalType)}
-                  className="w-full text-center bg-[#FFB26A] hover:bg-[#F4845F] text-[#140A06] font-extrabold py-2.5 px-4 rounded-lg text-xs transition-all cursor-pointer uppercase tracking-wider shadow-lg shadow-[#FFB26A]/10"
+                  className="w-full text-center bg-[#FFB26A] hover:bg-[#F4845F] text-[#0A0908] font-extrabold py-2.5 px-4 rounded-lg text-xs transition-all cursor-pointer uppercase tracking-wider shadow-lg shadow-[#FFB26A]/10"
                 >
                   {service.ctaText}
                 </button>

@@ -40,7 +40,7 @@ export default function QuizSection() {
   return (
     <section
       ref={quizRef}
-      className="py-12 bg-[#2A160E]/20 border-y border-[#FFB26A]/10"
+      className="py-12 bg-[#161412]/20 border-y border-[#FFB26A]/10"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-4">
         <h2 className="text-lg font-bold text-white uppercase tracking-wider">

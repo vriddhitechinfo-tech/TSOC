@@ -121,7 +121,7 @@ export default function ExitIntentCTA() {
 
   return (
     <div className="fixed bottom-0 inset-x-0 z-40 p-4 md:p-6 animate-slide-up pointer-events-none">
-      <div className="mx-auto max-w-4xl bg-gradient-to-r from-[#1C0F0A] to-[#140A06] border border-[#FFB26A]/25 hover:border-[#FFB26A]/45 rounded-xl shadow-2xl shadow-[#FFB26A]/5 p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pointer-events-auto relative overflow-hidden">
+      <div className="mx-auto max-w-4xl bg-gradient-to-r from-[#0F0D0C] to-[#0A0908] border border-[#FFB26A]/25 hover:border-[#FFB26A]/45 rounded-xl shadow-2xl shadow-[#FFB26A]/5 p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pointer-events-auto relative overflow-hidden">
         {/* Subtle decorative glow */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_left,rgba(255,178,106,0.05)_0%,transparent_60%)] pointer-events-none" />
 
