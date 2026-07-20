@@ -99,7 +99,7 @@ export const ecosystemPillars: EcosystemPillar[] = [
   {
     title: "Service Bureau Scaling",
     tag: "Mentorship",
-    desc: "Transition to a distribution model: sub-license software, build onboarding processes, and generate residual revenue splits on sub-office return volume.",
+    desc: "Transition to a distribution model: sub-license software, build onboarding processes, and generate residual revenue on sub-office return volume.",
     actionText: "Explore Mentorship",
   },
   {
@@ -115,9 +115,9 @@ export const ecosystemPillars: EcosystemPillar[] = [
     actionText: "View Expansion Guide",
   },
   {
-    title: "Automation & CRM Setup",
+    title: "CRM Implementation",
     tag: "Operations",
-    desc: "Save time on admin work. Build a simple client intake system, automate scheduling, and set up email & text follow-ups for your business.",
+    desc: "Save time on admin work. Build a client intake system, automate scheduling, and set up email & text follow-ups for your business.",
     actionText: "See Automation Pathways",
   },
 ];
@@ -205,7 +205,7 @@ export const servicePathways: ServicePathway[] = [
 
 export const homepageFaqs = [
   {
-    question: "What is The Sector of Collectives?",
+    question: "What is TSOC?",
     answer:
       "TSOC is a community built for tax professionals. We offer professional tax software, EFIN (Electronic Filing Identification Number) setup support, Service Bureau mentorship, and daily live coworking sessions — everything you need to grow a tax business.",
   },

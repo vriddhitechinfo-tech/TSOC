@@ -107,9 +107,9 @@ export default function OpenOfficePage() {
     {
       id: "mon",
       dayName: "Monday",
-      title: "Open Filing Support",
+      title: "Open Office Hours",
       desc: "Bring your active filing questions and get live support. We cover return walkthroughs, IRS updates, and complex form guidance in an open, collaborative format.",
-      time: "1:00 PM EST",
+      time: "9:30 AM EST",
       pillar: "Filing Support",
       byDay: "MO",
     },
@@ -126,8 +126,8 @@ export default function OpenOfficePage() {
       id: "wed",
       dayName: "Wednesday",
       title: "Feature Trainings",
-      desc: "Deep-dive training on software features, workflows, and platform updates. Walk away knowing how to use every tool to its full potential.",
-      time: "1:00 PM EST",
+      desc: "Deep-dive training on software features, workflows, and platform updates. Walk away knowing how to use every tool to its full potential. Session recorded for members.",
+      time: "10:00 PM EST",
       pillar: "Software Training",
       byDay: "WE",
     },
@@ -144,7 +144,7 @@ export default function OpenOfficePage() {
       id: "fri",
       dayName: "Friday",
       title: "Ask an Attorney",
-      desc: "Live legal Q&A with our allied tax & corporate attorneys. Review business structure setups, contract compliance, and ERO regulations. *(Guidance only, not legal representation.)*",
+      desc: "Live legal Q&A with our allied tax & corporate attorneys. Review business structure setups, contract compliance, and ERO regulations. *(Held on the 2nd Friday of each month. Guidance only, not legal representation.)*",
       time: "12:00 PM EST",
       pillar: "Legal & Entity Structure",
       byDay: "FR",
@@ -169,7 +169,7 @@ export default function OpenOfficePage() {
     },
     {
       question: "Are sessions recorded?",
-      answer: "Yes! Tuesday (Tech Tuesday), Wednesday (Feature Trainings), Thursday (Tap In Thursday), and Friday (Ask an Attorney) sessions are all recorded and available in the member portal. You can watch replays anytime."
+      answer: "Yes! Tuesday (Tech Tuesday), Wednesday (Feature Trainings), Thursday (Tap In Thursday), and Friday (Ask an Attorney) sessions are recorded and available in the member portal. You can watch replays anytime."
     },
     {
       question: "What can I ask the attorneys?",

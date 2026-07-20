@@ -91,7 +91,7 @@ export default function EROEnablementPage() {
     },
     {
       question: "How long does the IRS EFIN approval take?",
-      answer: "Typically 4 to 8 weeks. We recommend starting by October so you're approved and ready well before tax season."
+      answer: "Typically 4 to 8 weeks. We recommend starting before October so you're approved and ready well before tax season."
     },
     {
       question: "What does it cost to become an ERO?",
