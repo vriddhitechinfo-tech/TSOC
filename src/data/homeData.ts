@@ -111,14 +111,14 @@ export const ecosystemPillars: EcosystemPillar[] = [
   {
     title: "Add-on Services",
     tag: "Add-on Services",
-    desc: "Grow income beyond tax season. Add bookkeeping, credit coaching, and business registration to your service menu.",
-    actionText: "View Expansion Guide",
+    desc: "Offer more to your clients year-round. Add Bookkeeping, Credit Coaching, Business Registration, and Referral Partnerships to grow income beyond tax season.",
+    actionText: "View Add-on Services",
   },
   {
     title: "CRM Implementation",
     tag: "Operations",
-    desc: "Automate your office. Build a client intake system, set up scheduling, and add email & text follow-ups.",
-    actionText: "See Automation Pathways",
+    desc: "Automate your office. Set up Client Intake, Calendar Scheduling, and Email Follow-ups so your team spends less time on admin.",
+    actionText: "Set Up Your Workflow",
   },
 ];
 

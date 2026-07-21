@@ -227,24 +227,30 @@ export default function OpenOfficePage() {
             {/* Left: Content */}
             <div className="space-y-6 flex flex-col justify-center">
               <span className="gsap-reveal inline-flex w-fit items-center rounded-full bg-[#FFB26A]/10 border border-[#FFB26A]/20 px-3 py-1 text-xs font-semibold text-[#FFB26A]">
-                For Tax Pros, Bookkeepers, Entrepreneurs & More
+                Available Daily · For Entrepreneurs, Small Business Owners, Bookkeepers, Tax Pros &amp; Accountants
               </span>
               <h1 className="gsap-reveal font-display text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-normal leading-tight text-white">
-                Your Daily Professional Home Base. The Open Office.
+                Your Daily Home Base. The Open Office.
               </h1>
               <p className="gsap-reveal text-sm text-[#EDE9E0]/55 leading-relaxed line-clamp-3">
-                Live sessions every weekday. Get real answers, build your business, and stay connected with a community that actually shows up for you.
+                The central heart of our ecosystem. Live coworking sessions every weekday — get real answers, join Zoom streams, and connect with peers and attorneys daily.
               </p>
-              <div className="gsap-reveal flex flex-col sm:flex-row gap-4 pt-4">
+              <div className="gsap-reveal flex flex-wrap gap-3 pt-4">
                 <button
                   onClick={() => openModal("openoffice")}
-                  className="bg-[#FFB26A] hover:bg-[#F4845F] text-[#140A06] font-extrabold px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer shadow-md"
+                  className="bg-[#FFB26A] hover:bg-[#F4845F] text-[#140A06] font-extrabold px-5 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer shadow-md"
                 >
                   Join Open Office Live
                 </button>
                 <button
                   onClick={() => openModal("openoffice")}
-                  className="bg-[#161412] text-[#EDE9E0]/70 hover:text-white border border-[#FFB26A]/20 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer"
+                  className="bg-[#161412] text-[#FFB26A] hover:text-white border border-[#FFB26A]/30 px-5 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer"
+                >
+                  Join Zoom Stream
+                </button>
+                <button
+                  onClick={() => openModal("openoffice")}
+                  className="bg-[#161412] text-[#EDE9E0]/70 hover:text-white border border-[#FFB26A]/20 px-5 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer"
                 >
                   Ask Questions Live
                 </button>

@@ -21,11 +21,6 @@ export default function ServiceBureauGrowthPage() {
   const revenueValRef = useRef<HTMLSpanElement>(null);
   const preparersValRef = useRef<HTMLSpanElement>(null);
 
-  // Lead magnet state
-  const [leadData, setLeadData] = useState({ name: "", email: "", phone: "" });
-  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
   // Track active scroll phase
   const [activeScrollPhase, setActiveScrollPhase] = useState(0);
 
@@ -166,20 +161,20 @@ export default function ServiceBureauGrowthPage() {
 
   const sbFaqs = [
     {
-      question: "What exactly is a Tax Service Bureau?",
-      answer: "A Service Bureau packages and sub-licenses professional tax software to other independent preparers. Instead of just filing client returns, you build a network of preparers or sub-offices, support their compliance, and earn residual revenue on every return they file."
+      question: "What is a Tax Service Bureau?",
+      answer: "A Service Bureau packages and sub-licenses professional tax software to other independent preparers. Instead of just filing returns, you build a network of preparers, support their offices, and earn residual revenue on every return filed."
     },
     {
-      question: "How much volume do I need to start a Service Bureau?",
-      answer: "We recommend that offices prepare at least 150-200 returns annually under their own EFIN before launching a Service Bureau. This ensures your office has the operational experience, software understanding, and support infrastructure needed to support other preparers."
+      question: "How much filing volume do I need to start?",
+      answer: "We recommend preparing at least 150 returns annually under your own EFIN before launching a Service Bureau, ensuring you have the operational base to support sub-offices."
     },
     {
       question: "What software branding options do you offer?",
-      answer: "Under our Expansion Access program, you can custom-brand the cloud tax software interface. Your preparers will log into a portal branded with your logo, company name, custom default fees, and support links."
+      answer: "Under our Enterprise plan, you can custom-brand the cloud tax software interface with your logo, company name, custom fee defaults, and support links."
     },
     {
-      question: "How long does the mentorship support last?",
-      answer: "Mentorship is a year-round relationship. We provide standard structural auditing during Q2 and Q3, setup systems and recruitment pipelines in Q4, and offer active operational support and audit mitigation checks during the Q1 tax filing season."
+      question: "How long does mentorship support last?",
+      answer: "Mentorship is year-round. We guide systems audit in Q2-Q3, recruitment in Q4, and active operational support during tax filing season."
     }
   ];
 

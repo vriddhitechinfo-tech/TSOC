@@ -59,47 +59,47 @@ export default function EROEnablementPage() {
   const roadmapSteps = [
     {
       num: "01",
-      title: "Business Structure & Setup",
-      desc: "Incorporate your business correctly. We recommend LLC or S-Corp setups and help you align with IRS physical and digital security compliance standards.",
+      title: "Business Structure",
+      desc: "Incorporate your business correctly (LLC or S-Corp) and set up baseline entity compliance.",
     },
     {
       num: "02",
-      title: "Compliance Review",
-      desc: "We audit your office setup — document storage, password policies, encrypted communications — to make sure you meet IRS Publication 4557 standards before applying.",
+      title: "Compliance",
+      desc: "Audit your security standards, document storage, and encrypted communications to meet IRS Publication 4557 standards.",
     },
     {
       num: "03",
-      title: "EFIN Application & IRS e-Services",
-      desc: "Set up your IRS e-Services account and submit your EFIN application. We guide you through every field to avoid delays and errors. Includes ID.me verification and fingerprinting support.",
+      title: "EFIN Approval",
+      desc: "Submit your IRS e-Services EFIN application with ID.me verification and fingerprinting coordination.",
     },
     {
       num: "04",
       title: "Software Setup",
-      desc: "While your application is processing, we get your tax software configured, users set up, and bank product connections enrolled so you\'re ready to file the moment you\'re approved.",
+      desc: "Configure your professional cloud tax software, user permissions, and bank product enrollment while your application processes.",
     },
     {
       num: "05",
-      title: "Activation & First Return",
-      desc: "Link your approved EFIN to your software. Activate bank products, set user permissions for your team, and file your first return as an independent ERO.",
+      title: "Activation",
+      desc: "Link your approved EFIN to your software account and launch your independent tax office.",
     },
   ];
 
   const eroFaqs = [
     {
-      question: "What is an ERO?",
-      answer: "An ERO (Electronic Return Originator) is an IRS-authorized tax professional who has their own EFIN (Electronic Filing Identification Number). Having an EFIN means you can file taxes directly on behalf of clients under your own business — without splitting fees with anyone else."
+      question: "What is an EFIN?",
+      answer: "An EFIN (Electronic Filing Identification Number) is an IRS-issued number that allows you to file taxes directly on behalf of clients under your own business — keeping 100% of your fees."
     },
     {
-      question: "How long does the IRS EFIN approval take?",
-      answer: "Typically 4 to 8 weeks. We recommend starting before October so you're approved and ready well before tax season."
+      question: "How long does IRS EFIN approval take?",
+      answer: "Typically 4 to 8 weeks. We recommend applying before October so you are approved and ready well before tax season."
     },
     {
       question: "What does it cost to become an ERO?",
-      answer: "The IRS doesn't charge a fee to apply for an EFIN. You'll need to pay for fingerprinting and background processing through an authorized provider, which typically costs $50 to $100 depending on your state."
+      answer: "The IRS does not charge a fee for an EFIN. Fingerprinting and background processing through an authorized provider typically costs $50 to $100."
     },
     {
       question: "Do I need a physical storefront?",
-      answer: "No. You can run your ERO business from home or virtually. You just need to meet IRS security requirements (Publication 4557) — secure document storage, password policies, and encrypted communication. We give you the full blueprint."
+      answer: "No. You can operate from home or virtually. You just need to meet standard IRS security guidelines for document storage and encryption."
     }
   ];
 

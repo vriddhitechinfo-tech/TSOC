@@ -11,11 +11,11 @@ export interface QuizQuestion {
 export const defaultQuestions: QuizQuestion[] = [
   {
     id: "efin",
-    text: "Do you currently have an active EFIN (Electronic Filing Identification Number)?",
+    text: "Do you have an EFIN?",
     options: [
-      { label: "Yes, I have an active EFIN", value: "yes", weight: "ero" },
-      { label: "No, I am preparing under someone else's EFIN", value: "no", weight: "sub" },
-      { label: "I am brand new to tax preparation", value: "new", weight: "starter" },
+      { label: "Yes, I have an EFIN", value: "yes", weight: "ero" },
+      { label: "No, preparing under someone else", value: "no", weight: "sub" },
+      { label: "New Tax Preparer", value: "new", weight: "starter" },
     ],
   },
   {

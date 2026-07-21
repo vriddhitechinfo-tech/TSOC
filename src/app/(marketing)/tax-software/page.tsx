@@ -209,7 +209,6 @@ export default function TaxSoftwarePage() {
           </div>
         </div>
       </section>
-
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-24 pb-24">
 
         {/* Animated Stats Section */}
@@ -267,16 +266,16 @@ export default function TaxSoftwarePage() {
         <div className="gsap-reveal space-y-6">
           <div className="text-center max-w-xl mx-auto">
             <h2 className="text-xl font-extrabold text-white uppercase tracking-wider">Product Walkthrough</h2>
-            <p className="text-xs text-[#EDE9E0]/35 mt-1">Review the core workspaces and integrations within the cloud filing platform.</p>
+            <p className="text-xs text-[#EDE9E0]/35 mt-1">Review core workspaces and platform features in real time.</p>
           </div>
           <SoftwareCarousel />
         </div>
 
-        {/* Software Video Library — full playlist walkthrough */}
+        {/* Software Video Library */}
         <div className="gsap-reveal space-y-6">
           <div className="text-center max-w-xl mx-auto">
             <h2 className="text-xl font-extrabold text-white uppercase tracking-wider">Watch the Software in Action</h2>
-            <p className="text-xs text-[#EDE9E0]/35 mt-1">Full video walkthroughs covering every workspace, integration, and filing workflow — browse the playlist below.</p>
+            <p className="text-xs text-[#EDE9E0]/35 mt-1">Full video walkthroughs covering every workspace and filing workflow.</p>
           </div>
           <div className="glass-card p-2 sm:p-3 max-w-4xl mx-auto">
             <div className="relative aspect-video rounded-xl overflow-hidden border border-[#FFB26A]/15">
@@ -291,36 +290,36 @@ export default function TaxSoftwarePage() {
           </div>
         </div>
 
-        {/* Feature Highlights Grid */}
+        {/* Feature Highlights Grid — Icon & Title Only */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <TiltCard delay={0} className="glass-card-hover p-6 space-y-4 border border-[#FFB26A]/15 bg-[#161412]/20 rounded-xl">
-            <div className="h-9 w-9 rounded-md bg-[#0F0D0C] border border-[#FFB26A]/15 flex items-center justify-center text-[#FFB26A]">
-              <ShieldCheck className="w-5 h-5" />
+          <TiltCard delay={0} className="glass-card-hover p-6 border border-[#FFB26A]/15 bg-[#161412]/20 rounded-xl flex items-center space-x-4">
+            <div className="h-10 w-10 shrink-0 rounded-md bg-[#0F0D0C] border border-[#FFB26A]/20 flex items-center justify-center text-[#FFB26A]">
+              <ShieldCheck className="w-5 h-5 text-green-400" />
             </div>
-            <h3 className="text-base font-bold text-white uppercase tracking-wider">Full IRS Compliance &amp; Review</h3>
-            <p className="text-xs text-[#EDE9E0]/55 leading-relaxed">
-              Never worry about compliance audits. Our software includes auto-diagnostics that scan returns for missing disclosures, invalid entries, and IRS red flags prior to filing.
-            </p>
+            <h3 className="text-sm font-bold text-white uppercase tracking-wider">Full IRS Compliance &amp; Review</h3>
           </TiltCard>
 
-          <TiltCard delay={0.1} className="glass-card-hover p-6 space-y-4 border border-[#FFB26A]/15 bg-[#161412]/20 rounded-xl">
-            <div className="h-9 w-9 rounded-md bg-[#0F0D0C] border border-[#FFB26A]/15 flex items-center justify-center text-[#FFB26A]">
-              <DollarSign className="w-5 h-5" />
+          <TiltCard delay={0.1} className="glass-card-hover p-6 border border-[#FFB26A]/15 bg-[#161412]/20 rounded-xl space-y-3">
+            <div className="flex items-center space-x-4">
+              <div className="h-10 w-10 shrink-0 rounded-md bg-[#0F0D0C] border border-[#FFB26A]/20 flex items-center justify-center text-green-400">
+                <DollarSign className="w-5 h-5 text-green-400" />
+              </div>
+              <h3 className="text-sm font-bold text-white uppercase tracking-wider">Bank Product Integration</h3>
             </div>
-            <h3 className="text-base font-bold text-white uppercase tracking-wider">Bank Product Integration</h3>
-            <p className="text-xs text-[#EDE9E0]/55 leading-relaxed">
-              Enroll in top refund bank partners. Offer refund advances to clients and deduct tax preparation fees directly from refunds, making client payments seamless.
-            </p>
+            <div className="flex flex-wrap gap-1.5 pt-1">
+              {["TPG", "Republic Bank", "Refund Advantage"].map((bank) => (
+                <span key={bank} className="bg-[#161412]/80 border border-[#FFB26A]/20 text-[10px] font-extrabold text-[#FFB26A] px-2 py-0.5 rounded tracking-wider uppercase">
+                  {bank}
+                </span>
+              ))}
+            </div>
           </TiltCard>
 
-          <TiltCard delay={0.2} className="glass-card-hover p-6 space-y-4 border border-[#FFB26A]/15 bg-[#161412]/20 rounded-xl">
-            <div className="h-9 w-9 rounded-md bg-[#0F0D0C] border border-[#FFB26A]/15 flex items-center justify-center text-[#FFB26A]">
-              <Users className="w-5 h-5" />
+          <TiltCard delay={0.2} className="glass-card-hover p-6 border border-[#FFB26A]/15 bg-[#161412]/20 rounded-xl flex items-center space-x-4">
+            <div className="h-10 w-10 shrink-0 rounded-md bg-[#0F0D0C] border border-[#FFB26A]/20 flex items-center justify-center text-green-400">
+              <Users className="w-5 h-5 text-green-400" />
             </div>
-            <h3 className="text-base font-bold text-white uppercase tracking-wider">Unlimited Multi-User Console</h3>
-            <p className="text-xs text-[#EDE9E0]/55 leading-relaxed">
-              Add junior preparers or establish remote offices easily. Our multi-site console keeps files isolated, tracking individual filing volumes and performance metrics.
-            </p>
+            <h3 className="text-sm font-bold text-white uppercase tracking-wider">Form Uploads</h3>
           </TiltCard>
         </div>
 
@@ -329,12 +328,59 @@ export default function TaxSoftwarePage() {
           <div className="gsap-reveal text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-2xl font-bold text-white uppercase tracking-wider">Choose Your Software Setup</h2>
             <p className="text-xs text-[#EDE9E0]/35 mt-2">
-              Whether you are an independent preparer or scaling a multi-site enterprise, we have a custom software package for you.
+              Plans designed for independent Tax Pros and growing firms.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
-            {packages.map((pkg, idx) => (
+            {[
+              {
+                name: "Tax Pro",
+                desc: "Perfect for independent tax preparers getting started with professional filing tools.",
+                priceText: "Flexible Pricing",
+                features: [
+                  "1040, Schedule C, & All State Forms",
+                  "Cloud-based software access",
+                  "E-file capabilities & tracking",
+                  "Foundational Onboarding & Walkthroughs",
+                  "Email & chat support",
+                  "Community access",
+                ],
+                ctaText: "See Software in Action",
+                action: () => openModal("demo"),
+              },
+              {
+                name: "Professional ERO",
+                desc: "Ideal for established EROs managing office locations and bank integrations.",
+                priceText: "Maximizes Margins",
+                isPopular: true,
+                features: [
+                  "All Tax Pro features",
+                  "Corporate & Business filings (1120, 1065, etc.)",
+                  "Bank product integration support",
+                  "Multi-user office licensing",
+                  "Dedicated tech advisor support",
+                  "EFIN application review guidance",
+                ],
+                ctaText: "Request Live Demo",
+                action: () => openModal("strategy"),
+              },
+              {
+                name: "Service Bureau Enterprise",
+                desc: "For leaders licensing and supporting other Tax Pros under their own brand.",
+                priceText: "Custom Licensing",
+                features: [
+                  "All Professional ERO features",
+                  "White-label software branding options",
+                  "Sub-site EFIN management console",
+                  "Custom fee structure settings",
+                  "Service Bureau operations mentorship",
+                  "Priority 24/7 technical hotline",
+                ],
+                ctaText: "Contact Us",
+                action: () => openModal("strategy"),
+              },
+            ].map((pkg, idx) => (
               <TiltCard
                 key={pkg.name}
                 tilt={5}
@@ -345,7 +391,7 @@ export default function TaxSoftwarePage() {
               >
                 {pkg.isPopular && (
                   <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#FFB26A] to-[#F4845F] text-[#0A0908] font-extrabold text-xs tracking-widest px-3 py-1 rounded uppercase">
-                    E-file Standard
+                    Most Popular
                   </span>
                 )}
                 
@@ -376,7 +422,7 @@ export default function TaxSoftwarePage() {
                     onClick={pkg.action}
                     className={`w-full py-2.5 px-4 rounded-lg text-xs font-extrabold transition-all cursor-pointer uppercase tracking-wider ${
                       pkg.isPopular 
-                        ? "bg-[#FFB26A] hover:bg-[#F4845F] text-[#0A0908] shadow-lg"
+                        ? "bg-[#FFB26A] hover:bg-[#F4845F] text-[#140A06] shadow-lg"
                         : "bg-[#161412] hover:bg-[#24201C] border border-[#FFB26A]/20 text-[#FFB26A]"
                     }`}
                   >
@@ -395,10 +441,10 @@ export default function TaxSoftwarePage() {
               User Success Stories
             </span>
             <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight uppercase">
-              Tax Professionals Trusting Our Platform
+              Tax Pros Trusting Our Platform
             </h2>
             <p className="text-xs text-[#EDE9E0]/35">
-              Real stories from preparers and EROs who rely on our software to file with confidence and scale their businesses.
+              Real stories from Tax Pros who rely on our software to file with confidence and scale their businesses.
             </p>
           </div>
           <TestimonialCarousel />
@@ -409,20 +455,20 @@ export default function TaxSoftwarePage() {
           <FaqAccordion items={softwareFaqs} title="FAQs" />
         </div>
 
-        {/* Community Banner */}
+        {/* Community Banner — Software Includes Ecosystem */}
         <TiltCard tilt={3} className="glass-card p-8 md:p-12 relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-8">
           <div className="space-y-3 max-w-2xl">
             <span className="text-xs font-bold uppercase tracking-wider text-[#FFB26A] bg-[#FFB26A]/10 border border-[#FFB26A]/20 px-3 py-1 rounded">
-              Tax Software + Community
+              Tax Software + Community Access
             </span>
-            <h3 className="text-xl font-bold text-white uppercase tracking-wider">More Than Software — A Full Support System</h3>
+            <h3 className="text-xl font-bold text-white uppercase tracking-wider">More Than Software — You&apos;re Joining an Ecosystem</h3>
             <p className="text-xs text-[#EDE9E0]/45 leading-relaxed">
-              Your software purchase includes access to our Open Office community — daily live co-working sessions, Tech Tuesday training, Business Support hours, and year-round education. No extra charge.
+              When you get our software, you gain full access to The Open Office — daily live co-working sessions, Tech Tuesday training, Business Support, and year-round education.
             </p>
-            <ul className="grid grid-cols-2 gap-1.5 pt-1">
-              {["Open Office Daily", "Tech Tuesday", "Live Co-working", "Business Support", "Year-round Education", "Attorney Q&As"].map((item) => (
-                <li key={item} className="flex items-center gap-1.5 text-[10px] text-[#EDE9E0]/60">
-                  <Check className="w-3 h-3 text-green-400 shrink-0" />
+            <ul className="grid grid-cols-2 sm:grid-cols-3 gap-2 pt-2">
+              {["The Open Office Access", "Live Coworking", "Tech Tuesday Workshops", "Business Support", "Year-Round Education", "Attorney Q&As"].map((item) => (
+                <li key={item} className="flex items-center gap-1.5 text-xs text-[#EDE9E0]/70 font-semibold">
+                  <Check className="w-3.5 h-3.5 text-green-400 shrink-0" />
                   {item}
                 </li>
               ))}

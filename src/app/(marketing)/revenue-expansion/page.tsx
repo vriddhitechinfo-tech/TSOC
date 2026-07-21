@@ -139,7 +139,7 @@ export default function RevenueExpansionPage() {
             Stop Relying on Tax Season. Build Year-Round Revenue.
           </h1>
           <p className="text-sm text-[#EDE9E0]/55 leading-relaxed">
-            Don&apos;t let your income dry up after April 15th. We support our community in structuring, packaging, and launching high-demand ancillary business services to build consistent year-round profits.
+            Don&apos;t let your income dry up after April 15th. We help our community structure and launch add-on services — like bookkeeping, credit coaching, and business registration — to build steady year-round income.
           </p>
           <div className="pt-4">
             <button
@@ -207,14 +207,14 @@ export default function RevenueExpansionPage() {
 
         {/* FAQs */}
         <div className="gsap-reveal">
-          <FaqAccordion items={faqs} title="Revenue Expansion Frequently Asked Questions" />
+          <FaqAccordion items={faqs} title="FAQs" />
         </div>
 
         {/* Call to Action */}
         <div className="gsap-reveal text-center max-w-xl mx-auto mt-16 space-y-4">
           <h3 className="text-lg font-bold text-white uppercase tracking-wider">Start Building Year-Round Wealth</h3>
           <p className="text-xs text-[#EDE9E0]/35 leading-relaxed">
-            Apply to connect with our mentorship team. Let&apos;s map out which ancillary services match your client base and structure the templates to launch them immediately.
+            Apply to connect with our mentorship team. We&apos;ll map out which add-on services fit your client base and get you set up to launch them right away.
           </p>
           <button
             onClick={() => openModal("strategy")}

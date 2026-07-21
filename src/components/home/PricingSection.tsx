@@ -113,7 +113,7 @@ export default function PricingSection() {
                 <td className="p-4 font-semibold text-white">
                   Software Walkthrough Guides
                 </td>
-                <td className="p-4 text-center text-[#EDE9E0]/50">Basic</td>
+                <td className="p-4 text-center text-[#EDE9E0]/50">Foundational</td>
                 <td className="p-4 text-center text-white font-semibold bg-[#FFB26A]/5 border-x border-[#FFB26A]/20">
                   Advanced
                 </td>
