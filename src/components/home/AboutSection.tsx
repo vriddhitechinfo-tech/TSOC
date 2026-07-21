@@ -49,24 +49,21 @@ export default function AboutSection() {
               More Than Tax Software
             </span>
             <h2 className="font-display text-2xl sm:text-4xl font-semibold text-white tracking-normal leading-tight uppercase">
-              At The Sector of Collectives, we believe tax professionals
-              deserve more than tools.
+              Built for Tax Professionals. Focused on Your Growth.
             </h2>
             <p className="text-xs md:text-sm text-[#EDE9E0]/60 leading-relaxed">
-              Our collaborative community combines professional cloud-based tax
-              software, ERO Application setup, scaling strategies, and live
-              access to experts who understand what it takes to succeed. Whether
-              you&apos;re filing your first return or scaling a multi-location
-              brand, we&apos;re committed to your independence.
+              We combine professional tax software, ERO setup, scaling
+              strategies, and live expert access — all in one community.
+              Whether you&apos;re filing your first return or running a
+              multi-location firm, we support your independence.
             </p>
             <div className="pt-4 space-y-3">
               <h3 className="text-xs font-bold text-white uppercase tracking-wider">
                 Our Mission
               </h3>
               <p className="text-[#EDE9E0]/50 text-xs leading-relaxed">
-                To create a collaborative community where tax professionals have
-                access to the tools, education, relationships, and opportunities
-                needed to grow sustainable businesses.
+                A community where tax professionals access tools, education,
+                and opportunities to build sustainable businesses.
               </p>
             </div>
           </div>

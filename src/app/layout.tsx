@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Archivo, DM_Sans } from "next/font/google";
+import { Poppins, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { ModalProvider } from "@/context/ModalContext";
 import Navbar from "@/components/Navbar";
@@ -9,11 +9,12 @@ import ExitIntentCTA from "@/components/ExitIntentCTA";
 import ParticleBackground from "@/components/ParticleBackground";
 import CursorGlow from "@/components/CursorGlow";
 
-// Display Sans — bold, wide sans-serif for hero titles and large headings
-const archivo = Archivo({
+// Display Font — Poppins: bold, geometric, modern for hero titles and headings
+const poppins = Poppins({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -50,7 +51,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${archivo.variable} ${dmSans.variable} h-full antialiased dark`}
+      className={`${poppins.variable} ${dmSans.variable} h-full antialiased dark`}
       suppressHydrationWarning
     >
       <body

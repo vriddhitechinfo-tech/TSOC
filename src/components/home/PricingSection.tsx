@@ -49,11 +49,10 @@ export default function PricingSection() {
             Pricing Matrices
           </span>
           <h2 className="font-display text-2xl sm:text-4xl font-semibold text-white tracking-normal uppercase">
-            Compare Membership Options
+            Simple, Transparent Plans
           </h2>
           <p className="text-xs text-[#EDE9E0]/50">
-            Clear structures. Side-by-side access capabilities designed for
-            independent tax offices.
+            Pick the plan that matches your business — no hidden fees, no surprises.
           </p>
         </div>
 

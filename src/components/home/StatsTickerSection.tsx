@@ -27,7 +27,7 @@ export default function StatsTickerSection() {
               Years Supporting Tax Pros
             </span>
             <p className="text-xs text-[#EDE9E0]/40">
-              Established training, setups, and support structures since 2014
+              Supporting tax professionals with training, setups, and systems since 2014
             </p>
           </div>
           <div className="space-y-1 py-6 md:py-0">
@@ -41,7 +41,7 @@ export default function StatsTickerSection() {
               Independent EROs Supported
             </span>
             <p className="text-xs text-[#EDE9E0]/40">
-              Firms transitioned from splits to keeping 100% of their fees
+              Firms that transitioned to keeping 100% of their fees
             </p>
           </div>
           <div className="space-y-1">
@@ -55,7 +55,7 @@ export default function StatsTickerSection() {
               Active Community Members
             </span>
             <p className="text-xs text-[#EDE9E0]/40">
-              Coworking, legal consultations, and business workshops year-round
+              Attorney Q&As, bookkeeping, wellness, and coworking — all year
             </p>
           </div>
         </div>

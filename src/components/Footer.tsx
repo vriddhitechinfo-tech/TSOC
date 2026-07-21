@@ -197,7 +197,7 @@ export default function Footer() {
           <div className="w-full lg:w-auto">
             <h4 className="text-xs font-bold text-white mb-2">Subscribe to our Growth Newsletter</h4>
             <p className="text-xs text-[#EDE9E0]/40 mb-4 max-w-md">
-              Receive actionable tips on tax software setup, client automations, and IRS compliance review guidelines.
+              Tax tips, software updates, and growth strategies — delivered to your inbox.
             </p>
             <form onSubmit={handleSubscribe} className="flex gap-2 max-w-sm">
               <input

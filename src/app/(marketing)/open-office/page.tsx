@@ -152,14 +152,14 @@ export default function OpenOfficePage() {
   ];
 
   const communityBenefits = [
-    { name: "Live Office Hours", desc: "Access daily Zoom coworking and direct advisor help blocks.", icon: Users },
-    { name: "Tax Support Hotline", desc: "Get real-time filing diagnostics and complex return reviews.", icon: Phone },
-    { name: "Technology Training", desc: "Step-by-step walkthroughs of modern CRM & intake setups.", icon: Settings },
-    { name: "Attorney Q&A Sessions", desc: "Direct access to legal counsel for your compliance questions.", icon: Scale },
-    { name: "Bookkeeping Guidance", desc: "Align with partners to offer year-round bookkeeping services.", icon: BookOpen },
-    { name: "Wellness Resources", desc: "Manage tax-season stress with curated mental health support.", icon: Heart },
-    { name: "Business Growth Workshops", desc: "Monthly sessions on client acquisition and brand building.", icon: TrendingUp },
-    { name: "Networking Opportunities", desc: "Join mixers to connect with EROs and allied professionals.", icon: Globe },
+    { name: "Live Office Hours", desc: "Join daily Zoom coworking sessions with direct advisor support.", icon: Users },
+    { name: "Tax Support Hotline", desc: "Get real-time help with complex returns and filing diagnostics.", icon: Phone },
+    { name: "Technology Training", desc: "Step-by-step CRM and intake setup walkthroughs each Tuesday.", icon: Settings },
+    { name: "Attorney Q&A Sessions", desc: "Ask compliance and legal structure questions directly.", icon: Scale },
+    { name: "Bookkeeping Guidance", desc: "Learn how to offer year-round bookkeeping services.", icon: BookOpen },
+    { name: "Wellness Resources", desc: "Manage tax-season stress with curated support.", icon: Heart },
+    { name: "Business Growth Workshops", desc: "Monthly sessions on client acquisition and brand growth.", icon: TrendingUp },
+    { name: "Networking Opportunities", desc: "Connect with EROs and allied professionals at member events.", icon: Globe },
   ];
 
   const openOfficeFaqs = [
@@ -233,7 +233,7 @@ export default function OpenOfficePage() {
                 Your Daily Professional Home Base. The Open Office.
               </h1>
               <p className="gsap-reveal text-sm text-[#EDE9E0]/55 leading-relaxed line-clamp-3">
-                A live community where tax professionals, bookkeepers, entrepreneurs, and accountants get answers, build businesses, and stay connected — every single day.
+                Live sessions every weekday. Get real answers, build your business, and stay connected with a community that actually shows up for you.
               </p>
               <div className="gsap-reveal flex flex-col sm:flex-row gap-4 pt-4">
                 <button

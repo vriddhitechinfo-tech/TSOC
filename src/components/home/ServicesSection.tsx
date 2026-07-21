@@ -18,11 +18,10 @@ export default function ServicesSection() {
             Business Support Pathways
           </span>
           <h2 className="font-display text-2xl sm:text-4xl font-semibold text-white tracking-normal uppercase">
-            Tailored Pathways for Every Stage of Your Business
+            Choose Your Path
           </h2>
           <p className="text-xs text-[#EDE9E0]/50">
-            Select the support stream matching your experience level and
-            organizational volume.
+            Find the support level that fits where you are right now.
           </p>
         </div>
 

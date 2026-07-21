@@ -39,16 +39,16 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Display Sans: Archivo on all headings — bold, wide, sans-serif throughout */
+/* Display Font: Poppins on all headings — bold, geometric, modern */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display), "Archivo", ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-display), "Poppins", ui-sans-serif, system-ui, sans-serif;
   line-height: 1.15;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
 /* Tailwind utility classes for the font system */
 .font-display {
-  font-family: var(--font-display), "Archivo", ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-display), "Poppins", ui-sans-serif, system-ui, sans-serif;
 }
 
 .font-body {

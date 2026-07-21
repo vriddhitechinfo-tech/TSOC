@@ -7,7 +7,7 @@ export const heroSlides: HeroSlide[] = [
     title: "Launch Your Tax Business",
     titleHighlight: "Business",
     description:
-      "Get everything you need to start filing returns independently with professional cloud software, e-filing, and dedicated support.",
+      "Start filing returns independently with professional cloud software, e-filing access, and dedicated support.",
     stats: [
       { value: "500+", label: "Active Preparers" },
       { value: "50K+", label: "Returns Filed" },
@@ -25,7 +25,7 @@ export const heroSlides: HeroSlide[] = [
     title: "Stop Splitting Fees. Become an Independent ERO.",
     titleHighlight: "Independent ERO",
     description:
-      "Step-by-step guidance through EFIN application, IRS setup, and compliance review to keep 100% of your fees.",
+      "We guide you through your EFIN application, IRS setup, and compliance review so you keep 100% of your fees.",
     stats: [
       { value: "500+", label: "EROs Enabled" },
       { value: "100%", label: "Fee Retention" },
@@ -43,7 +43,7 @@ export const heroSlides: HeroSlide[] = [
     title: "Build a Scaling Tax Business With Sub-Offices.",
     titleHighlight: "Scaling Tax Business",
     description:
-      "Transition to a distribution model: sub-license software, build onboarding, and generate recurring revenue on every return processed.",
+      "Sub-license software, build onboarding systems, and earn recurring revenue on every return your network processes.",
     stats: [
       { value: "150+", label: "Sub-offices Managed" },
       { value: "Recurring", label: "Revenue Streams" },
@@ -61,7 +61,7 @@ export const heroSlides: HeroSlide[] = [
     title: "Join Our Daily Community.",
     titleHighlight: "Daily Community",
     description:
-      "Daily coworking blocks, live tax attorney Q&As, bookkeeping guidance, and year-round support for tax professionals.",
+      "Daily coworking, live tax attorney Q&As, bookkeeping guidance, and year-round support — all in one place.",
     stats: [
       { value: "2000+", label: "Community Members" },
       { value: "365", label: "Days Of Support" },
@@ -87,37 +87,37 @@ export const ecosystemPillars: EcosystemPillar[] = [
   {
     title: "Professional Tax Software",
     tag: "Software",
-    desc: "Get unlimited cloud e-filing for individual and business returns. Supported by direct desktop access and active database recovery features.",
+    desc: "Unlimited cloud e-filing for individual and business returns. Includes direct desktop access and database recovery.",
     actionText: "Learn About Software",
   },
   {
     title: "ERO Enablement",
     tag: "Credentialing",
-    desc: "Step-by-step guidance to apply for your independent EFIN with the IRS, including ID.me registration, fingerprint coordination, and security reviews.",
+    desc: "Step-by-step support to get your EFIN with the IRS — including ID.me registration, fingerprinting, and security reviews.",
     actionText: "Learn About ERO Setup",
   },
   {
     title: "Service Bureau Scaling",
     tag: "Mentorship",
-    desc: "Transition to a distribution model: sub-license software, build onboarding processes, and generate residual revenue on sub-office return volume.",
+    desc: "Sub-license software, build onboarding systems, and earn residual income on every return your sub-offices process.",
     actionText: "Explore Mentorship",
   },
   {
     title: "Daily Open Office",
     tag: "Support Desk",
-    desc: "Never file alone. Daily coworking blocks, Zoom sharing diagnostics, live attorney Q&As, and community brainstorming support you year-round.",
+    desc: "Never file alone. Daily coworking, Zoom diagnostics, live attorney Q&As, and community support — year-round.",
     actionText: "Join Open Office",
   },
   {
     title: "Add-on Services",
     tag: "Add-on Services",
-    desc: "Offer more to your clients year-round. Add bookkeeping, credit coaching, and business registration to grow income beyond tax season.",
+    desc: "Grow income beyond tax season. Add bookkeeping, credit coaching, and business registration to your service menu.",
     actionText: "View Expansion Guide",
   },
   {
     title: "CRM Implementation",
     tag: "Operations",
-    desc: "Save time on admin work. Build a client intake system, automate scheduling, and set up email & text follow-ups for your business.",
+    desc: "Automate your office. Build a client intake system, set up scheduling, and add email & text follow-ups.",
     actionText: "See Automation Pathways",
   },
 ];
@@ -135,7 +135,7 @@ export interface ServicePathway {
 export const servicePathways: ServicePathway[] = [
   {
     title: "Tax Software Access",
-    desc: "Launch your tax business with professional tax software designed for growth.",
+    desc: "Get started with professional tax software built for independent preparers.",
     bestFor: ["New Preparers", "Independent Pros", "Growing Firms"],
     includes: [
       "Professional tax software access",
@@ -150,7 +150,7 @@ export const servicePathways: ServicePathway[] = [
   },
   {
     title: "ERO Enablement Program",
-    desc: "Stop splitting fees and start taking greater control of your business by becoming an ERO.",
+    desc: "Stop splitting fees. Become an ERO and take full control of your business.",
     bestFor: [
       "Experienced Preparers",
       "Firm Leaders",
@@ -169,7 +169,7 @@ export const servicePathways: ServicePathway[] = [
   },
   {
     title: "Service Bureau Growth Program",
-    desc: "Build a tax business that supports, structures, and licenses other tax professionals.",
+    desc: "Build a tax business that supports and licenses other tax professionals.",
     bestFor: [
       "Established EROs",
       "Multi-preparer offices",
@@ -188,7 +188,7 @@ export const servicePathways: ServicePathway[] = [
   },
   {
     title: "Open Office Community",
-    desc: "Where access meets opportunity. Live coworking and expert support throughout the year.",
+    desc: "Live coworking and expert support, every week, all year long.",
     bestFor: ["All Tax Preparers", "Accounting Owners", "Bookkeepers"],
     includes: [
       "Live weekly office hours",
@@ -207,21 +207,21 @@ export const homepageFaqs = [
   {
     question: "What is TSOC?",
     answer:
-      "TSOC is a community built for tax professionals. We offer professional tax software, EFIN (Electronic Filing Identification Number) setup support, Service Bureau mentorship, and daily live coworking sessions — everything you need to grow a tax business.",
+      "TSOC (The Sector of Collectives) is a community built for tax professionals. We provide professional tax software, EFIN setup support, Service Bureau mentorship, and daily live coworking — everything you need to grow a successful tax business.",
   },
   {
     question: "Do I need an EFIN to get started?",
     answer:
-      "No. You can start using our software right away without an EFIN. If you're working toward getting one, our ERO Enablement program walks you through every step of the IRS application process.",
+      "No. You can start using our software right away without an EFIN. If you want to get one, our ERO Enablement program walks you through every step of the IRS application process.",
   },
   {
     question: "What's the difference between a Service Bureau and a standard ERO?",
     answer:
-      "An ERO files returns for clients directly. A Service Bureau licenses tax software to other preparers, supports their offices, and earns residual revenue on every return they process. It's a way to scale beyond just filing your own returns.",
+      "An ERO files returns for clients directly. A Service Bureau licenses software to other preparers, supports their offices, and earns residual income on every return they process — it's how you scale beyond just your own filings.",
   },
   {
     question: "Are there long-term contracts?",
     answer:
-      "No surprise fees or hidden splits. Our programs run on simple annual agreements. You pick the level of support that fits your business and budget.",
+      "No surprise fees or hidden splits. Our programs run on simple annual agreements. Pick the support level that fits your business and budget.",
   },
 ];

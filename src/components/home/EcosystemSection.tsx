@@ -28,8 +28,8 @@ export default function EcosystemSection() {
             The Collective Growth Ecosystem
           </h2>
           <p className="text-xs text-[#EDE9E0]/50">
-            Scroll down to peel back the layers of tools, training, and systems
-            that scale your business.
+            Everything you need to grow — software, credentialing, community,
+            and scaling systems.
           </p>
         </div>
 
