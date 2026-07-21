@@ -3,11 +3,11 @@ import { ModalType } from "@/context/ModalContext";
 
 export const heroSlides: HeroSlide[] = [
   {
-    tag: "Tax Software Access",
-    title: "Launch Your Tax Business",
-    titleHighlight: "Business",
+    tag: "Professional Tax Software",
+    title: "File More. Keep More.",
+    titleHighlight: "Keep More",
     description:
-      "Start filing returns independently with professional cloud software, e-filing access, and dedicated support.",
+      "Professional cloud tax software, e-filing access, and a community that helps you grow — all in one place.",
     stats: [
       { value: "500+", label: "Active Preparers" },
       { value: "50K+", label: "Returns Filed" },
@@ -17,15 +17,15 @@ export const heroSlides: HeroSlide[] = [
     bgTo: "#0F0D0C",
     accentColor: "#FFB26A",
     cta1: "View Software Plans",
-    cta2: "See The Software In Action",
+    cta2: "See It In Action",
     image: "/hero_tax_professional.png",
   },
   {
     tag: "ERO Enablement",
-    title: "Stop Splitting Fees. Become an Independent ERO.",
-    titleHighlight: "Independent ERO",
+    title: "Stop Splitting. Start Keeping.",
+    titleHighlight: "Start Keeping",
     description:
-      "We guide you through your EFIN application, IRS setup, and compliance review so you keep 100% of your fees.",
+      "Become an independent ERO. We guide your EFIN application, IRS setup, and compliance — so you keep 100% of your fees.",
     stats: [
       { value: "500+", label: "EROs Enabled" },
       { value: "100%", label: "Fee Retention" },
@@ -34,16 +34,16 @@ export const heroSlides: HeroSlide[] = [
     bgFrom: "#0B0A09",
     bgTo: "#0F0D0C",
     accentColor: "#F4845F",
-    cta1: "Schedule ERO Consultation",
+    cta1: "Schedule Consultation",
     cta2: "Start Your Application",
     image: "/about_community.png",
   },
   {
     tag: "Service Bureau Growth",
-    title: "Build a Scaling Tax Business With Sub-Offices.",
-    titleHighlight: "Scaling Tax Business",
+    title: "Turn Your EFIN Into an Empire.",
+    titleHighlight: "Empire",
     description:
-      "Sub-license software, build onboarding systems, and earn recurring revenue on every return your network processes.",
+      "Sub-license software, onboard other pros, and earn recurring revenue on every return your network processes.",
     stats: [
       { value: "150+", label: "Sub-offices Managed" },
       { value: "Recurring", label: "Revenue Streams" },
@@ -58,10 +58,10 @@ export const heroSlides: HeroSlide[] = [
   },
   {
     tag: "Open Office Community",
-    title: "Join Our Daily Community.",
-    titleHighlight: "Daily Community",
+    title: "Never File Alone Again.",
+    titleHighlight: "Alone",
     description:
-      "Daily coworking, live tax attorney Q&As, bookkeeping guidance, and year-round support — all in one place.",
+      "Daily live coworking, attorney Q&As, and year-round expert support — for every stage of your tax career.",
     stats: [
       { value: "2000+", label: "Community Members" },
       { value: "365", label: "Days Of Support" },
@@ -71,7 +71,7 @@ export const heroSlides: HeroSlide[] = [
     bgTo: "#0F0D0C",
     accentColor: "#F4845F",
     cta1: "Join The Open Office",
-    cta2: "Try Free Week",
+    cta2: "Try a Free Week",
     image: "/crm_workflow_dashboard.png",
   },
 ];
