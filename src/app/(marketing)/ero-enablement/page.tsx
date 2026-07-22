@@ -228,8 +228,8 @@ export default function EROEnablementPage() {
           <span className="inline-flex items-center rounded-full bg-[#FFB26A]/10 border border-[#FFB26A]/25 px-3 py-1 text-xs font-semibold text-[#FFB26A]">
             ERO Support &amp; Training
           </span>
-          <h1 className="font-display text-3xl sm:text-4xl font-black tracking-tight text-white leading-tight">
-            Stop Splitting Fees. Become an Independent ERO.
+          <h1 className="font-display text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-white leading-tight">
+            Become an Independent ERO &amp; Keep 100% Fees
           </h1>
           <p className="text-sm text-[#EDE9E0]/60 leading-relaxed">
             Preparing taxes under another ERO or franchise can cost you 30% to 50% of your total revenue. Our ERO Enablement program guides you through the process of getting your EFIN and setting up your own company.

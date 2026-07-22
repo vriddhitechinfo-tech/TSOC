@@ -216,8 +216,8 @@ export default function ServiceBureauGrowthPage() {
           <span className="inline-flex items-center rounded-full bg-[#FFB26A]/10 border border-[#FFB26A]/25 px-3 py-1 text-xs font-semibold text-[#FFB26A]">
             Service Bureau Mentorship &amp; Scale
           </span>
-          <h1 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] font-black tracking-tight text-white leading-tight lg:whitespace-nowrap">
-            Start a Tax Service Bureau. Scale Beyond Preparing.
+          <h1 className="font-display text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-black tracking-tight text-white leading-tight">
+            Build &amp; Scale Your Tax Service Bureau
           </h1>
           <p className="text-sm text-[#EDE9E0]/60 leading-relaxed max-w-3xl mx-auto">
             Ready to expand beyond individual client filings? The Service Bureau model lets you license professional tax software, train other preparers, and build scaling recurring revenue streams.

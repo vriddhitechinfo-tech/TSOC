@@ -80,7 +80,7 @@ export default function HeroSection() {
               </span>
 
               {/* Headline — bolder, larger, tighter */}
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-[3.75rem] font-black text-white uppercase leading-[1.05] tracking-tight">
+              <h1 className="font-display text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-black text-white uppercase leading-[1.1] tracking-tight">
                 {activeSlide.title.includes(activeSlide.titleHighlight) ? (
                   <>
                     {activeSlide.title.split(activeSlide.titleHighlight)[0]}

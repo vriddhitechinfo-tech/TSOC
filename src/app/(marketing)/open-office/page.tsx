@@ -259,10 +259,10 @@ export default function OpenOfficePage() {
             {/* Left: Content */}
             <div className="space-y-6 flex flex-col justify-center">
               <span className="gsap-reveal inline-flex w-fit items-center rounded-full bg-[#FFB26A]/10 border border-[#FFB26A]/20 px-3 py-1 text-xs font-semibold text-[#FFB26A]">
-                Available Daily · For Entrepreneurs, Small Business Owners, Bookkeepers, Tax Pros &amp; Accountants
+                Daily Live Support &amp; Coworking Ecosystem
               </span>
-              <h1 className="gsap-reveal font-display text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-normal leading-tight text-white">
-                Your Daily Home Base. The Open Office.
+              <h1 className="gsap-reveal font-display text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-semibold tracking-normal leading-tight text-white">
+                The Open Office: Your Daily Home Base
               </h1>
               <p className="gsap-reveal text-sm text-[#EDE9E0]/55 leading-relaxed line-clamp-3">
                 The central heart of our ecosystem. Live coworking sessions every weekday — get real answers, join Zoom streams, and connect with peers and attorneys daily.
