@@ -132,12 +132,12 @@ export default function EROEnablementPage() {
     {
       num: "04",
       title: "Software Setup",
-      desc: "Configure your professional cloud tax software, user permissions, and bank product enrollment while your application processes.",
+      desc: "While your application is processing, we get your tax software configured, users set up, and bank product connections enrolled so you're ready to file the moment you're approved.",
     },
     {
       num: "05",
-      title: "Activation",
-      desc: "Link your approved EFIN to your software account and launch your independent tax office.",
+      title: "Office Setup",
+      desc: "System implementation of CRM, software, and seasonal growth strategy for your independent tax office.",
     },
   ];
 
@@ -201,11 +201,11 @@ export default function EROEnablementPage() {
   const eroFaqs = [
     {
       question: "What is an EFIN?",
-      answer: "An EFIN (Electronic Filing Identification Number) is an IRS-issued number that allows you to file taxes directly on behalf of clients under your own business — keeping 100% of your fees."
+      answer: "An EFIN (Electronic Identification Number) is an IRS-issued number that allows you to file taxes directly on behalf of clients under your own business — keeping 100% of your fees."
     },
     {
       question: "How long does IRS EFIN approval take?",
-      answer: "Typically 4 to 8 weeks. We recommend applying before October so you are approved and ready well before tax season."
+      answer: "Typically 4 to 8 weeks. We recommend applying before October so you're approved and ready well before tax season."
     },
     {
       question: "What does it cost to become an ERO?",
@@ -213,7 +213,7 @@ export default function EROEnablementPage() {
     },
     {
       question: "Do I need a physical storefront?",
-      answer: "No. You can operate from home or virtually. You just need to meet standard IRS security guidelines for document storage and encryption."
+      answer: "No. You can run your tax business from home or virtually. You just need to meet IRS security requirements (Publication 4557) — secure document storage, password policies, and encrypted communication. We give you the full blueprint."
     }
   ];
 
@@ -229,10 +229,10 @@ export default function EROEnablementPage() {
             ERO Support &amp; Training
           </span>
           <h1 className="font-display text-3xl sm:text-4xl font-black tracking-tight text-white leading-tight">
-            Keep 100% of Your Fees. Become an Independent ERO.
+            Stop Splitting Fees. Become an Independent ERO.
           </h1>
           <p className="text-sm text-[#EDE9E0]/60 leading-relaxed">
-            Preparing taxes under another ERO or franchise can cost you 30% to 50% of your total revenue. Our ERO Enablement program guides you through getting your EFIN and setting up your own company.
+            Preparing taxes under another ERO or franchise can cost you 30% to 50% of your total revenue. Our ERO Enablement program guides you through the process of getting your EFIN and setting up your own company.
           </p>
           <div className="pt-4">
             <button
@@ -450,7 +450,7 @@ export default function EROEnablementPage() {
 
         {/* Call to Action consultation details */}
         <div className="gsap-reveal text-center max-w-xl mx-auto space-y-4">
-          <h3 className="font-display text-lg font-black text-white uppercase tracking-wider">Ready to secure your independence?</h3>
+          <h3 className="font-display text-lg font-black text-white uppercase tracking-wider">Ready to stop splitting fees?</h3>
           <p className="text-xs text-[#EDE9E0]/50 leading-relaxed">
             Schedule an ERO application consultation. We will audit your pre-requisites and structure a timeline to get you approved before next tax season.
           </p>

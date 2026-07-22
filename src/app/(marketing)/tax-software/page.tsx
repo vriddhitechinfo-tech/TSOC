@@ -151,7 +151,10 @@ export default function TaxSoftwarePage() {
   ];
 
   return (
-    <div ref={pageRef} className="relative overflow-hidden bg-[#0A0908] min-h-screen">
+    <div
+      ref={pageRef}
+      className="relative overflow-hidden bg-[#0A0908] min-h-screen"
+    >
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,178,106,0.10)_0%,transparent_60%)] pointer-events-none -z-10" />
 
@@ -176,7 +179,9 @@ export default function TaxSoftwarePage() {
                 Professional Tax Software Built for Growth
               </h1>
               <p className="gsap-reveal text-sm text-[#EDE9E0]/55 leading-relaxed line-clamp-3">
-                Access robust, reliable, and compliant tax software. File federal and state returns quickly, offer bank products directly, and grow a tax business with zero limits.
+                Access reliable, and compliant tax software. File federal and
+                state returns quickly, offer bank products directly, and grow a
+                tax business with zero limits.
               </p>
               <div className="gsap-reveal flex flex-col sm:flex-row gap-4 pt-4">
                 <button
@@ -195,12 +200,17 @@ export default function TaxSoftwarePage() {
             </div>
 
             {/* Right: Dashboard Image with Floating Animation */}
-            <div className="relative h-full rounded-2xl overflow-hidden border border-[#FFB26A]/20 shadow-2xl shadow-black/60" style={{animation: 'float 6s ease-in-out infinite'}}>
+            <div
+              className="relative h-full rounded-2xl overflow-hidden border border-[#FFB26A]/20 shadow-2xl shadow-black/60"
+              style={{ animation: "float 6s ease-in-out infinite" }}
+            >
               <div className="absolute top-0 left-0 right-0 h-8 bg-[#0F0D0C] border-b border-[#FFB26A]/15 flex items-center px-4 gap-1.5 z-10">
                 <span className="h-2.5 w-2.5 rounded-full bg-[#FFB26A]/40" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#FFB26A]/20" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#FFB26A]/20" />
-                <span className="text-[10px] font-mono text-[#EDE9E0]/30 ml-2">tsoc-software-dashboard.v16</span>
+                <span className="text-[10px] font-mono text-[#EDE9E0]/30 ml-2">
+                  tsoc-software-dashboard.v16
+                </span>
               </div>
               <div className="pt-8 h-full">
                 <SoftwareCarousel />
@@ -210,7 +220,6 @@ export default function TaxSoftwarePage() {
         </div>
       </section>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-24 pb-24">
-
         {/* Animated Stats Section */}
         <div
           ref={statsContainerRef}
@@ -265,8 +274,12 @@ export default function TaxSoftwarePage() {
         {/* Walkthrough Carousel Section */}
         <div className="gsap-reveal space-y-6">
           <div className="text-center max-w-xl mx-auto">
-            <h2 className="text-xl font-extrabold text-white uppercase tracking-wider">Product Walkthrough</h2>
-            <p className="text-xs text-[#EDE9E0]/35 mt-1">Review core workspaces and platform features in real time.</p>
+            <h2 className="text-xl font-extrabold text-white uppercase tracking-wider">
+              Product Walkthrough
+            </h2>
+            <p className="text-xs text-[#EDE9E0]/35 mt-1">
+              Review core workspaces and platform features in real time.
+            </p>
           </div>
           <SoftwareCarousel />
         </div>
@@ -274,14 +287,19 @@ export default function TaxSoftwarePage() {
         {/* Software Video Library */}
         <div className="gsap-reveal space-y-6">
           <div className="text-center max-w-xl mx-auto">
-            <h2 className="text-xl font-extrabold text-white uppercase tracking-wider">Watch the Software in Action</h2>
-            <p className="text-xs text-[#EDE9E0]/35 mt-1">Full video walkthroughs covering every workspace and filing workflow.</p>
+            <h2 className="text-xl font-extrabold text-white uppercase tracking-wider">
+              Watch the Software in Action
+            </h2>
+            <p className="text-xs text-[#EDE9E0]/35 mt-1">
+              Full video walkthroughs covering every workspace and filing
+              workflow.
+            </p>
           </div>
           <div className="glass-card p-2 sm:p-3 max-w-4xl mx-auto">
             <div className="relative aspect-video rounded-xl overflow-hidden border border-[#FFB26A]/15">
               <iframe
                 className="absolute inset-0 h-full w-full"
-                src="https://www.youtube.com/embed/videoseries?list=PLvdGo5rAYt9iPbTwaMWjXnfGmJfPaAzi6"
+                src="https://www.youtube.com/embed/p75X7wEiFrY"
                 title="The Sector of Collectives — Tax Software Video Library"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
@@ -292,41 +310,61 @@ export default function TaxSoftwarePage() {
 
         {/* Feature Highlights Grid — Icon & Title Only */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <TiltCard delay={0} className="glass-card-hover p-6 border border-[#FFB26A]/15 bg-[#161412]/20 rounded-xl flex items-center space-x-4">
+          <TiltCard
+            delay={0}
+            className="glass-card-hover p-6 border border-[#FFB26A]/15 bg-[#161412]/20 rounded-xl flex items-center space-x-4"
+          >
             <div className="h-10 w-10 shrink-0 rounded-md bg-[#0F0D0C] border border-[#FFB26A]/20 flex items-center justify-center text-[#FFB26A]">
               <ShieldCheck className="w-5 h-5 text-green-400" />
             </div>
-            <h3 className="text-sm font-bold text-white uppercase tracking-wider">Full IRS Compliance &amp; Review</h3>
+            <h3 className="text-sm font-bold text-white uppercase tracking-wider">
+              Full IRS Compliance &amp; Review
+            </h3>
           </TiltCard>
 
-          <TiltCard delay={0.1} className="glass-card-hover p-6 border border-[#FFB26A]/15 bg-[#161412]/20 rounded-xl space-y-3">
+          <TiltCard
+            delay={0.1}
+            className="glass-card-hover p-6 border border-[#FFB26A]/15 bg-[#161412]/20 rounded-xl space-y-3"
+          >
             <div className="flex items-center space-x-4">
               <div className="h-10 w-10 shrink-0 rounded-md bg-[#0F0D0C] border border-[#FFB26A]/20 flex items-center justify-center text-green-400">
                 <DollarSign className="w-5 h-5 text-green-400" />
               </div>
-              <h3 className="text-sm font-bold text-white uppercase tracking-wider">Bank Product Integration</h3>
+              <h3 className="text-sm font-bold text-white uppercase tracking-wider">
+                Bank Product Integration
+              </h3>
             </div>
             <div className="flex flex-wrap gap-1.5 pt-1">
               {["TPG", "Republic Bank", "Refund Advantage"].map((bank) => (
-                <span key={bank} className="bg-[#161412]/80 border border-[#FFB26A]/20 text-[10px] font-extrabold text-[#FFB26A] px-2 py-0.5 rounded tracking-wider uppercase">
+                <span
+                  key={bank}
+                  className="bg-[#161412]/80 border border-[#FFB26A]/20 text-[10px] font-extrabold text-[#FFB26A] px-2 py-0.5 rounded tracking-wider uppercase"
+                >
                   {bank}
                 </span>
               ))}
             </div>
           </TiltCard>
 
-          <TiltCard delay={0.2} className="glass-card-hover p-6 border border-[#FFB26A]/15 bg-[#161412]/20 rounded-xl flex items-center space-x-4">
+          <TiltCard
+            delay={0.2}
+            className="glass-card-hover p-6 border border-[#FFB26A]/15 bg-[#161412]/20 rounded-xl flex items-center space-x-4"
+          >
             <div className="h-10 w-10 shrink-0 rounded-md bg-[#0F0D0C] border border-[#FFB26A]/20 flex items-center justify-center text-green-400">
               <Users className="w-5 h-5 text-green-400" />
             </div>
-            <h3 className="text-sm font-bold text-white uppercase tracking-wider">Form Uploads</h3>
+            <h3 className="text-sm font-bold text-white uppercase tracking-wider">
+              Form Uploads
+            </h3>
           </TiltCard>
         </div>
 
         {/* Pricing / Packages */}
         <div>
           <div className="gsap-reveal text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-2xl font-bold text-white uppercase tracking-wider">Choose Your Software Setup</h2>
+            <h2 className="text-2xl font-bold text-white uppercase tracking-wider">
+              Choose Your Software Setup
+            </h2>
             <p className="text-xs text-[#EDE9E0]/35 mt-2">
               Plans designed for independent Tax Pros and growing firms.
             </p>
@@ -386,7 +424,9 @@ export default function TaxSoftwarePage() {
                 tilt={5}
                 delay={idx * 0.12}
                 className={`flex flex-col justify-between bg-[#0F0D0C]/40 border border-[#FFB26A]/15 rounded-xl p-8 relative ${
-                  pkg.isPopular ? "border-[#FFB26A]/35 shadow-xl shadow-[#FFB26A]/5 bg-[#161412]/60" : ""
+                  pkg.isPopular
+                    ? "border-[#FFB26A]/35 shadow-xl shadow-[#FFB26A]/5 bg-[#161412]/60"
+                    : ""
                 }`}
               >
                 {pkg.isPopular && (
@@ -394,10 +434,12 @@ export default function TaxSoftwarePage() {
                     Most Popular
                   </span>
                 )}
-                
+
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-base font-bold text-white uppercase tracking-wider">{pkg.name}</h3>
+                    <h3 className="text-base font-bold text-white uppercase tracking-wider">
+                      {pkg.name}
+                    </h3>
                     <p className="text-xs text-[#EDE9E0]/35 mt-2">{pkg.desc}</p>
                   </div>
 
@@ -409,7 +451,10 @@ export default function TaxSoftwarePage() {
 
                   <ul className="space-y-3.5">
                     {pkg.features.map((feat) => (
-                      <li key={feat} className="flex items-start space-x-2.5 text-xs text-[#EDE9E0]/60">
+                      <li
+                        key={feat}
+                        className="flex items-start space-x-2.5 text-xs text-[#EDE9E0]/60"
+                      >
                         <Check className="w-3.5 h-3.5 text-green-400 shrink-0 mt-0.5" />
                         <span>{feat}</span>
                       </li>
@@ -421,7 +466,7 @@ export default function TaxSoftwarePage() {
                   <button
                     onClick={pkg.action}
                     className={`w-full py-2.5 px-4 rounded-lg text-xs font-extrabold transition-all cursor-pointer uppercase tracking-wider ${
-                      pkg.isPopular 
+                      pkg.isPopular
                         ? "bg-[#FFB26A] hover:bg-[#F4845F] text-[#140A06] shadow-lg"
                         : "bg-[#161412] hover:bg-[#24201C] border border-[#FFB26A]/20 text-[#FFB26A]"
                     }`}
@@ -444,7 +489,8 @@ export default function TaxSoftwarePage() {
               Tax Pros Trusting Our Platform
             </h2>
             <p className="text-xs text-[#EDE9E0]/35">
-              Real stories from Tax Pros who rely on our software to file with confidence and scale their businesses.
+              Real stories from Tax Pros who rely on our software to file with
+              confidence and scale their businesses.
             </p>
           </div>
           <TestimonialCarousel />
@@ -456,18 +502,35 @@ export default function TaxSoftwarePage() {
         </div>
 
         {/* Community Banner — Software Includes Ecosystem */}
-        <TiltCard tilt={3} className="glass-card p-8 md:p-12 relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-8">
+        <TiltCard
+          tilt={3}
+          className="glass-card p-8 md:p-12 relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-8"
+        >
           <div className="space-y-3 max-w-2xl">
             <span className="text-xs font-bold uppercase tracking-wider text-[#FFB26A] bg-[#FFB26A]/10 border border-[#FFB26A]/20 px-3 py-1 rounded">
               Tax Software + Community Access
             </span>
-            <h3 className="text-xl font-bold text-white uppercase tracking-wider">More Than Software — You&apos;re Joining an Ecosystem</h3>
+            <h3 className="text-xl font-bold text-white uppercase tracking-wider">
+              More Than Software — You&apos;re Joining an Ecosystem
+            </h3>
             <p className="text-xs text-[#EDE9E0]/45 leading-relaxed">
-              When you get our software, you gain full access to The Open Office — daily live co-working sessions, Tech Tuesday training, Business Support, and year-round education.
+              When you get our software, you gain full access to The Open Office
+              — daily live co-working sessions, Tech Tuesday training, Business
+              Support, and year-round education.
             </p>
             <ul className="grid grid-cols-2 sm:grid-cols-3 gap-2 pt-2">
-              {["The Open Office Access", "Live Coworking", "Tech Tuesday Workshops", "Business Support", "Year-Round Education", "Attorney Q&As"].map((item) => (
-                <li key={item} className="flex items-center gap-1.5 text-xs text-[#EDE9E0]/70 font-semibold">
+              {[
+                "The Open Office Access",
+                "Live Coworking",
+                "Tech Tuesday Workshops",
+                "Business Support",
+                "Year-Round Education",
+                "Attorney Q&As",
+              ].map((item) => (
+                <li
+                  key={item}
+                  className="flex items-center gap-1.5 text-xs text-[#EDE9E0]/70 font-semibold"
+                >
                   <Check className="w-3.5 h-3.5 text-green-400 shrink-0" />
                   {item}
                 </li>

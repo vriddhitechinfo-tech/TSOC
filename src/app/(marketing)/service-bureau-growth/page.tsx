@@ -164,19 +164,19 @@ export default function ServiceBureauGrowthPage() {
 
   const sbFaqs = [
     {
-      question: "What is a Tax Service Bureau?",
+      question: "What exactly is a Tax Service Bureau?",
       answer: "A Service Bureau packages and sub-licenses professional tax software to other independent preparers. Instead of just filing returns, you build a network of preparers, support their offices, and earn residual revenue on every return filed."
     },
     {
-      question: "How much filing volume do I need to start?",
+      question: "How much volume do I need to start a Service Bureau?",
       answer: "We recommend preparing at least 150 returns annually under your own EFIN before launching a Service Bureau, ensuring you have the operational base to support sub-offices."
     },
     {
       question: "What software branding options do you offer?",
-      answer: "Under our Enterprise plan, you can custom-brand the cloud tax software interface with your logo, company name, custom fee defaults, and support links."
+      answer: "Under our Expansion Access program, you can custom-brand the cloud tax software interface. Your preparers will log into a portal branded with your logo, company name, custom default fees, and support links."
     },
     {
-      question: "How long does mentorship support last?",
+      question: "How long does the mentorship support last?",
       answer: "Mentorship is year-round. We guide systems audit in Q2-Q3, recruitment in Q4, and active operational support during tax filing season."
     }
   ];
@@ -212,22 +212,22 @@ export default function ServiceBureauGrowthPage() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-24">
         {/* Header Section */}
-        <div className="gsap-reveal text-center max-w-3xl mx-auto space-y-4">
+        <div className="gsap-reveal text-center max-w-5xl mx-auto space-y-4">
           <span className="inline-flex items-center rounded-full bg-[#FFB26A]/10 border border-[#FFB26A]/25 px-3 py-1 text-xs font-semibold text-[#FFB26A]">
-            Service Bureau Mentorship &amp; Growth
+            Service Bureau Mentorship &amp; Scale
           </span>
-          <h1 className="font-display text-3xl sm:text-4xl font-black tracking-tight text-white leading-tight">
-            Build a Business That Scales Beyond You.
+          <h1 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] font-black tracking-tight text-white leading-tight lg:whitespace-nowrap">
+            Start a Tax Service Bureau. Scale Beyond Preparing.
           </h1>
-          <p className="text-sm text-[#EDE9E0]/60 leading-relaxed">
-            The Service Bureau model lets you license software to other preparers, support their offices, and earn recurring income on every return they file.
+          <p className="text-sm text-[#EDE9E0]/60 leading-relaxed max-w-3xl mx-auto">
+            Ready to expand beyond individual client filings? The Service Bureau model lets you license professional tax software, train other preparers, and build scaling recurring revenue streams.
           </p>
           <div className="pt-4 flex flex-col sm:flex-row gap-3 justify-center items-center">
             <button
               onClick={() => openModal("bureau")}
               className="inline-flex items-center justify-center rounded-lg bg-[#FFB26A] hover:bg-[#F4845F] text-[#080808] font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
             >
-              Apply for Mentorship
+              Apply for Service Bureau Mentorship
             </button>
             <p className="text-[11px] text-[#EDE9E0]/40">
               Have questions?{" "}
@@ -455,13 +455,13 @@ export default function ServiceBureauGrowthPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="gsap-reveal space-y-6">
             <span className="text-xs font-bold uppercase tracking-wider text-[#EDE9E0]/50 block">
-              Is This Right For You?
+              IS THIS MENTORSHIP RIGHT FOR YOU?
             </span>
-            <h2 className="font-display text-xl sm:text-2xl font-black text-white tracking-tight">
-              Who We Work With
+            <h2 className="font-display text-xl sm:text-2xl font-black text-white tracking-tight uppercase">
+              WHO WE WORK WITH
             </h2>
             <p className="text-xs text-[#EDE9E0]/60 leading-relaxed">
-              We work best with tax pros who have real experience and are ready to grow. We review every application to make sure we&apos;re the right fit for each other.
+              Transitioning to a Service Bureau requires administrative maturity, solid tax experience, and leadership. We screen applicants to ensure our resources align with offices ready to scale.
             </p>
             <ul className="space-y-3.5 text-xs text-[#EDE9E0]/60">
               <li className="flex items-start space-x-2.5">
