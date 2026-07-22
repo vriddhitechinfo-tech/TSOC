@@ -14,12 +14,9 @@ export default function EROEnablementPage() {
   const { openModal } = useModal();
   const pageRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
-  const statsContainerRef = useRef<HTMLDivElement>(null);
 
-  // Stats refs for counting animation
-  const erosValRef = useRef<HTMLSpanElement>(null);
-  const retentionValRef = useRef<HTMLSpanElement>(null);
-  const setupValRef = useRef<HTMLSpanElement>(null);
+  const pipelineRef = useRef<HTMLDivElement>(null);
+  const pipelineLineRef = useRef<HTMLDivElement>(null);
 
   // Roadmap progress line draws itself as the timeline scrolls through view
   const { scrollYProgress } = useScroll({
@@ -33,111 +30,195 @@ export default function EROEnablementPage() {
       gsap.registerPlugin(ScrollTrigger);
     }
 
-    const ctx = gsap.context(() => {
-      // Stats Counter Animation
-      if (statsContainerRef.current) {
-        const statsData = { eros: 0, retention: 0 };
-        gsap.to(statsData, {
-          eros: 500,
-          retention: 100,
-          duration: 1.6,
+    if (pageRef.current) {
+      const reveals = pageRef.current.querySelectorAll(".gsap-reveal");
+      gsap.fromTo(
+        reveals,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
           ease: "power2.out",
+          stagger: 0.15,
           scrollTrigger: {
-            trigger: statsContainerRef.current,
+            trigger: pageRef.current,
             start: "top 85%",
             toggleActions: "play none none none",
           },
-          onUpdate: () => {
-            if (erosValRef.current) {
-              erosValRef.current.innerText = `${Math.floor(statsData.eros)}+`;
-            }
-            if (retentionValRef.current) {
-              retentionValRef.current.innerText = `${Math.floor(statsData.retention)}%`;
-            }
-          },
-        });
-        if (setupValRef.current) {
-          setupValRef.current.innerText = "4-8 Weeks";
         }
-      }
-
-      // General reveals
-      if (pageRef.current) {
-        const reveals = pageRef.current.querySelectorAll(".gsap-reveal");
-        gsap.fromTo(
-          reveals,
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            ease: "power2.out",
-            stagger: 0.15,
-            scrollTrigger: {
-              trigger: pageRef.current,
-              start: "top 85%",
-              toggleActions: "play none none none",
-            },
-          }
-        );
-      }
-
-    });
+      );
+    }
 
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, []);
 
+  // Operational pipeline: reversible scroll reveal per row
+  useEffect(() => {
+    if (!pipelineRef.current) return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      if (pipelineLineRef.current) {
+        gsap.fromTo(
+          pipelineLineRef.current,
+          { scaleY: 0 },
+          {
+            scaleY: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: pipelineRef.current,
+              start: "top 70%",
+              end: "bottom 75%",
+              scrub: 0.6,
+            },
+          }
+        );
+      }
+
+      const rows = pipelineRef.current!.querySelectorAll(".pipeline-row");
+      rows.forEach((row) => {
+        const node = row.querySelector(".pipeline-node");
+        const connector = row.querySelector(".pipeline-connector");
+        const card = row.querySelector(".pipeline-card");
+        const fromX = row.getAttribute("data-side") === "right" ? 44 : -44;
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: row,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+        });
+
+        if (node) {
+          tl.fromTo(node, { scale: 0 }, { scale: 1, duration: 0.4, ease: "back.out(2.5)" });
+        }
+        if (connector) {
+          tl.fromTo(connector, { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power2.out" }, "<0.1");
+        }
+        if (card) {
+          tl.fromTo(
+            card,
+            { opacity: 0, x: fromX, y: 16 },
+            { opacity: 1, x: 0, y: 0, duration: 0.5, ease: "power3.out" },
+            "<"
+          );
+        }
+      });
+    }, pipelineRef);
+
+    return () => ctx.revert();
+  }, []);
+
   const roadmapSteps = [
     {
       num: "01",
-      title: "Business Structure & Setup",
-      desc: "Incorporate your business correctly. We recommend LLC or S-Corp setups and help you align with IRS physical and digital security compliance standards.",
+      title: "Business Structure",
+      desc: "Incorporate your business correctly (LLC or S-Corp) and set up baseline entity compliance.",
     },
     {
       num: "02",
-      title: "Compliance Review",
-      desc: "We audit your office setup — document storage, password policies, encrypted communications — to make sure you meet IRS Publication 4557 standards before applying.",
+      title: "Compliance",
+      desc: "Audit your security standards, document storage, and encrypted communications to meet IRS Publication 4557 standards.",
     },
     {
       num: "03",
-      title: "EFIN Application & IRS e-Services",
-      desc: "Set up your IRS e-Services account and submit your EFIN application. We guide you through every field to avoid delays and errors. Includes ID.me verification and fingerprinting support.",
+      title: "EFIN Approval",
+      desc: "Submit your IRS e-Services EFIN application with ID.me verification and fingerprinting coordination.",
     },
     {
       num: "04",
       title: "Software Setup",
-      desc: "While your application is processing, we get your tax software configured, users set up, and bank product connections enrolled so you\'re ready to file the moment you\'re approved.",
+      desc: "While your application is processing, we get your tax software configured, users set up, and bank product connections enrolled so you're ready to file the moment you're approved.",
     },
     {
       num: "05",
-      title: "Activation & First Return",
-      desc: "Link your approved EFIN to your software. Activate bank products, set user permissions for your team, and file your first return as an independent ERO.",
+      title: "Office Setup",
+      desc: "System implementation of CRM, software, and seasonal growth strategy for your independent tax office.",
     },
   ];
 
-  const eroFaqs = [
+  const pipelineSteps = [
     {
-      question: "What is an ERO?",
-      answer: "An ERO (Electronic Return Originator) is an IRS-authorized tax professional who has their own EFIN (Electronic Filing Identification Number). Having an EFIN means you can file taxes directly on behalf of clients under your own business — without splitting fees with anyone else."
+      num: "1",
+      time: "Instant",
+      title: "Client Capture",
+      accent: "gold" as const,
+      points: ["Web forms & Facebook intake", "Instant CRM assignment", "Real-time client dashboard update"],
     },
     {
-      question: "How long does the IRS EFIN approval take?",
-      answer: "Typically 4 to 8 weeks. We recommend starting by October so you're approved and ready well before tax season."
+      num: "2",
+      time: "< 5 sec",
+      title: "Routing & Validation",
+      accent: "blue" as const,
+      points: ["Duplicate detection", "Client workload balancing", "Queue sync"],
+    },
+    {
+      num: "3",
+      time: "< 2 min",
+      title: "Secure SMS Intake Request",
+      accent: "emerald" as const,
+      points: ["Secure portal link", "Encrypted document upload", "Automated reminder sequences"],
+    },
+    {
+      num: "4",
+      time: "Same day",
+      title: "Client Assignment & Review",
+      accent: "gold" as const,
+      points: ["Task queue alert", "Slack / email notification", "Client review checklist"],
+    },
+    {
+      num: "5",
+      time: "Auto-looped",
+      title: "Filing Accepted & Loop",
+      accent: "blue" as const,
+      points: ["Review & e-file confirmation", "Automated year-round follow-up", "Client retention campaign"],
+      highlight: true,
+    },
+  ];
+
+  const PIPELINE_ACCENTS = {
+    gold: {
+      border: "border-l-[#FFB26A]",
+      text: "text-[#FFB26A]",
+      pill: "bg-gradient-to-r from-[#FFB26A] to-[#F4845F] text-[#080808]",
+    },
+    blue: {
+      border: "border-l-[#FFB26A]",
+      text: "text-[#FFB26A]",
+      pill: "bg-gradient-to-r from-[#FFB26A] to-[#FFB26A] text-[#080808]",
+    },
+    emerald: {
+      border: "border-l-[#FFB26A]",
+      text: "text-[#FFB26A]",
+      pill: "bg-gradient-to-r from-[#FFB26A] to-[#FFB26A] text-[#080808]",
+    },
+  };
+
+  const eroFaqs = [
+    {
+      question: "What is an EFIN?",
+      answer: "An EFIN (Electronic Identification Number) is an IRS-issued number that allows you to file taxes directly on behalf of clients under your own business — keeping 100% of your fees."
+    },
+    {
+      question: "How long does IRS EFIN approval take?",
+      answer: "Typically 4 to 8 weeks. We recommend applying before October so you're approved and ready well before tax season."
     },
     {
       question: "What does it cost to become an ERO?",
-      answer: "The IRS doesn't charge a fee to apply for an EFIN. You'll need to pay for fingerprinting and background processing through an authorized provider, which typically costs $50 to $100 depending on your state."
+      answer: "The IRS does not charge a fee for an EFIN. Fingerprinting and background processing through an authorized provider typically costs $50 to $100."
     },
     {
       question: "Do I need a physical storefront?",
-      answer: "No. You can run your ERO business from home or virtually. You just need to meet IRS security requirements (Publication 4557) — secure document storage, password policies, and encrypted communication. We give you the full blueprint."
+      answer: "No. You can run your tax business from home or virtually. You just need to meet IRS security requirements (Publication 4557) — secure document storage, password policies, and encrypted communication. We give you the full blueprint."
     }
   ];
 
   return (
-    <div ref={pageRef} className="relative overflow-hidden bg-[#140A06] min-h-screen py-16 sm:py-10 animate-fade-in">
+    <div ref={pageRef} className="relative overflow-hidden bg-[#080808] min-h-screen py-16 sm:py-10 animate-fade-in">
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,178,106,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
 
@@ -145,87 +226,105 @@ export default function EROEnablementPage() {
         {/* Header Section */}
         <div className="gsap-reveal text-center max-w-3xl mx-auto space-y-4">
           <span className="inline-flex items-center rounded-full bg-[#FFB26A]/10 border border-[#FFB26A]/25 px-3 py-1 text-xs font-semibold text-[#FFB26A]">
-            ERO Support & Training
+            ERO Support &amp; Training
           </span>
-          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
+          <h1 className="font-display text-3xl sm:text-4xl font-black tracking-tight text-white leading-tight">
             Stop Splitting Fees. Become an Independent ERO.
           </h1>
-          <p className="text-sm text-[#EDE9E0]/55 leading-relaxed">
+          <p className="text-sm text-[#EDE9E0]/60 leading-relaxed">
             Preparing taxes under another ERO or franchise can cost you 30% to 50% of your total revenue. Our ERO Enablement program guides you through the process of getting your EFIN and setting up your own company.
           </p>
           <div className="pt-4">
             <button
               onClick={() => openModal("ero")}
-              className="inline-flex items-center justify-center rounded-lg bg-[#FFB26A] hover:bg-[#F4845F] text-[#140A06] font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
+              className="inline-flex items-center justify-center rounded-lg bg-[#FFB26A] hover:bg-[#F4845F] text-[#080808] font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
             >
               Book an ERO Consultation
             </button>
           </div>
         </div>
 
-        {/* Animated Stats Section */}
-        <div
-          ref={statsContainerRef}
-          className="bg-gradient-to-b from-[#2A160E]/60 to-[#1C0F0A] border border-[#FFB26A]/15 rounded-2xl py-12 px-6 md:px-8 relative overflow-hidden"
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div className="space-y-2">
-              <span
-                ref={erosValRef}
-                className="text-4xl md:text-5xl font-black text-[#FFB26A] font-mono block"
-              >
-                0+
-              </span>
-              <span className="text-xs text-white font-bold uppercase tracking-wider block">
-                EROs Enabled
-              </span>
-              <p className="text-xs text-[#EDE9E0]/35">
-                Tax professionals we&apos;ve guided to their own EFIN
-              </p>
-            </div>
-            <div className="space-y-2">
-              <span
-                ref={retentionValRef}
-                className="text-4xl md:text-5xl font-black text-[#FFB26A] font-mono block"
-              >
-                0%
-              </span>
-              <span className="text-xs text-white font-bold uppercase tracking-wider block">
-                Fee Retention
-              </span>
-              <p className="text-xs text-[#EDE9E0]/35">
-                Keep every dollar — no split with a franchise or umbrella ERO
-              </p>
-            </div>
-            <div className="space-y-2">
-              <span
-                ref={setupValRef}
-                className="text-4xl md:text-5xl font-black text-[#FFB26A] font-mono block"
-              >
-                4-8 Weeks
-              </span>
-              <span className="text-xs text-white font-bold uppercase tracking-wider block">
-                Average EFIN Setup
-              </span>
-              <p className="text-xs text-[#EDE9E0]/35">
-                From application to your first return as an independent ERO
-              </p>
-            </div>
-          </div>
-        </div>
-
         {/* Interactive Fee Split Calculator */}
         <div className="gsap-reveal space-y-6">
           <div className="text-center max-w-xl mx-auto">
-            <h2 className="text-xl font-bold text-white uppercase tracking-wider">Fee-Split Calculator</h2>
+            <h2 className="font-display text-xl sm:text-2xl font-black text-white uppercase tracking-wider">Fee-Split Calculator</h2>
             <p className="text-xs text-[#EDE9E0]/50 mt-1">See how much revenue you stand to retain by acquiring your own EFIN credentials.</p>
           </div>
           <FeeCalculator />
         </div>
 
+        {/* Operational Pipeline Diagram */}
+        <div className="space-y-6">
+          <div className="text-center max-w-xl mx-auto">
+            <h2 className="font-display text-xl sm:text-2xl font-black text-white uppercase tracking-wider">Operational Pipeline Diagram</h2>
+            <p className="text-xs text-[#EDE9E0]/50 mt-1">Scroll to reveal each stage of the automated client lifecycle.</p>
+          </div>
+
+          <div ref={pipelineRef} className="relative py-6">
+            {/* Spine track */}
+            <div className="absolute left-5 lg:left-1/2 top-0 bottom-0 w-px lg:-translate-x-1/2 bg-white/10" />
+            {/* Spine progress */}
+            <div
+              ref={pipelineLineRef}
+              className="absolute left-5 lg:left-1/2 top-0 bottom-0 w-[3px] lg:-translate-x-1/2 origin-top rounded-full bg-gradient-to-b from-[#FFB26A] via-[#FFB26A] to-[#FFB26A]"
+              style={{ transform: "scaleY(0)" }}
+            />
+
+            <div className="space-y-14 lg:space-y-20">
+              {pipelineSteps.map((step, i) => {
+                const accent = PIPELINE_ACCENTS[step.accent];
+                const isRight = i % 2 === 1;
+                return (
+                  <div
+                    key={step.num}
+                    data-side={isRight ? "right" : "left"}
+                    className="pipeline-row relative lg:grid lg:grid-cols-2 lg:items-center"
+                  >
+                    {/* Numbered node on the spine */}
+                    <div className="pipeline-node absolute left-5 lg:left-1/2 top-6 lg:top-1/2 -translate-x-1/2 lg:-translate-y-1/2 z-10 h-9 w-9 rounded-full bg-[#080808] border-2 border-white/25 flex items-center justify-center text-sm font-bold text-white">
+                      {step.num}
+                    </div>
+
+                    {/* Connector arm (desktop only) */}
+                    <div
+                      className={`pipeline-connector hidden lg:block absolute top-1/2 h-px bg-white/15 -translate-y-1/2 w-14 ${
+                        isRight ? "left-1/2 origin-left" : "right-1/2 origin-right"
+                      }`}
+                    />
+
+                    {/* Card */}
+                    <div
+                      className={`pipeline-card glass-card glass-card-hover overflow-hidden border-l-4 ${accent.border} pl-14 lg:pl-0 lg:max-w-md ${
+                        isRight ? "lg:col-start-2 lg:ml-14" : "lg:col-start-1 lg:mr-14 lg:justify-self-end"
+                      } ${step.highlight ? "bg-gradient-to-br from-[#161412]/80 to-[#080808] ring-1 ring-[#FFB26A]/20" : ""}`}
+                    >
+                      <div className="p-6 space-y-4">
+                        <div className="flex items-center justify-between gap-3">
+                          <h3 className="text-sm font-bold text-white uppercase tracking-wider">{step.title}</h3>
+                          <span className={`shrink-0 text-xs font-bold px-3 py-1 rounded-full ${accent.pill}`}>
+                            {step.time}
+                          </span>
+                        </div>
+                        <ul className="space-y-2">
+                          {step.points.map((pt) => (
+                            <li key={pt} className="flex items-center gap-2 text-xs text-[#EDE9E0]/60">
+                              <CheckCircle2 className={`w-4 h-4 shrink-0 ${accent.text}`} />
+                              {pt}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
         {/* Benefits Grid */}
         <div>
-          <h2 className="gsap-reveal text-lg font-bold text-center text-white mb-12 uppercase tracking-wider">
+          <h2 className="gsap-reveal font-display text-xl sm:text-2xl font-black text-center text-white mb-12 uppercase tracking-wider">
             Why Transition to Your Own EFIN?
           </h2>
 
@@ -253,7 +352,7 @@ export default function EROEnablementPage() {
               },
             ].map((benefit, i) => (
               <TiltCard key={benefit.title} delay={i * 0.1} className="glass-card glass-card-hover p-6 space-y-4">
-                <div className="h-9 w-9 rounded-md bg-[#2A160E] border border-[#FFB26A]/30 flex items-center justify-center text-[#FFB26A]">
+                <div className="h-9 w-9 rounded-md bg-[#161412] border border-[#FFB26A]/30 flex items-center justify-center text-[#FFB26A]">
                   <benefit.icon className="w-5 h-5" />
                 </div>
                 <h3 className="text-xs font-bold text-white uppercase tracking-wider">{benefit.title}</h3>
@@ -266,7 +365,7 @@ export default function EROEnablementPage() {
         {/* The Roadmap Timeline */}
         <div ref={timelineRef} className="glass-card p-8 md:p-12 mb-24 relative overflow-hidden">
           <div className="max-w-2xl mb-12 space-y-2">
-            <h2 className="text-xl sm:text-2xl font-bold text-white uppercase tracking-wider">How to Become an ERO: Step-by-Step</h2>
+            <h2 className="font-display text-xl sm:text-2xl font-black text-white uppercase tracking-wider">How to Become an ERO: Step-by-Step</h2>
             <p className="text-xs text-[#EDE9E0]/50">
               The IRS process can be confusing, taking anywhere from 4 to 8 weeks. We eliminate the guesswork with direct enablement support.
             </p>
@@ -293,7 +392,7 @@ export default function EROEnablementPage() {
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true, margin: "-60px" }}
                     transition={{ type: "spring", stiffness: 320, damping: 14, delay: 0.1 }}
-                    className="absolute left-5 md:left-1/2 top-7 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 z-10 h-4 w-4 rounded-full bg-[#2A160E] border-2 border-[#F4845F] shadow-[0_0_14px_rgba(244,132,95,0.6)]"
+                    className="absolute left-5 md:left-1/2 top-7 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 z-10 h-4 w-4 rounded-full bg-[#161412] border-2 border-[#F4845F] shadow-[0_0_14px_rgba(244,132,95,0.6)]"
                   />
                   {/* Connector arm (desktop) */}
                   <motion.span
@@ -317,7 +416,7 @@ export default function EROEnablementPage() {
                     }`}
                   >
                     <div className="flex items-center gap-3">
-                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#2A160E] border border-[#FFB26A]/40 text-[#FFB26A] font-extrabold text-sm">
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#161412] border border-[#FFB26A]/40 text-[#FFB26A] font-extrabold text-sm">
                         {step.num}
                       </span>
                       <h3 className="text-xs md:text-sm font-bold text-white uppercase tracking-wider">{step.title}</h3>
@@ -332,7 +431,7 @@ export default function EROEnablementPage() {
                 <TiltCard
                   tilt={6}
                   fromY={20}
-                  className="relative z-10 ml-12 md:ml-0 inline-flex items-center gap-2.5 rounded-full bg-[#2A160E] border border-[#FFB26A]/40 px-5 py-3 shadow-[0_0_25px_rgba(255,178,106,0.2)]"
+                  className="relative z-10 ml-12 md:ml-0 inline-flex items-center gap-2.5 rounded-full bg-[#161412] border border-[#FFB26A]/40 px-5 py-3 shadow-[0_0_25px_rgba(255,178,106,0.2)]"
                 >
                   <CheckCircle2 className="w-4 h-4 text-[#F4845F]" />
                   <span className="text-xs font-bold uppercase tracking-wider text-white">
@@ -351,13 +450,13 @@ export default function EROEnablementPage() {
 
         {/* Call to Action consultation details */}
         <div className="gsap-reveal text-center max-w-xl mx-auto space-y-4">
-          <h3 className="text-lg font-bold text-white uppercase tracking-wider">Ready to secure your independence?</h3>
+          <h3 className="font-display text-lg font-black text-white uppercase tracking-wider">Ready to stop splitting fees?</h3>
           <p className="text-xs text-[#EDE9E0]/50 leading-relaxed">
             Schedule an ERO application consultation. We will audit your pre-requisites and structure a timeline to get you approved before next tax season.
           </p>
           <button
             onClick={() => openModal("ero")}
-            className="bg-gradient-to-r from-[#FFB26A] to-[#F4845F] hover:from-[#F4845F] hover:to-[#E67049] text-[#140A06] font-extrabold py-2.5 px-6 rounded-lg text-xs transition-colors shadow-md mt-2 cursor-pointer uppercase tracking-wider"
+            className="bg-gradient-to-r from-[#FFB26A] to-[#F4845F] hover:from-[#F4845F] hover:to-[#E67049] text-[#080808] font-extrabold py-3 px-8 rounded-lg text-xs transition-colors shadow-md mt-2 cursor-pointer uppercase tracking-wider"
           >
             Start ERO Enablement Today
           </button>

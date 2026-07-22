@@ -3,76 +3,76 @@ import { ModalType } from "@/context/ModalContext";
 
 export const heroSlides: HeroSlide[] = [
   {
-    tag: "Tax Software Access",
-    title: "Launch Your Tax Business",
-    titleHighlight: "Business",
+    tag: "Open Office Community",
+    title: "Never File Alone Again.",
+    titleHighlight: "Never File Alone",
     description:
-      "Get everything you need to start filing returns independently with professional cloud software, e-filing, and dedicated support.",
+      "Daily live coworking, attorney Q&As, and real expert help — every week, all year long. We're here whenever you need us.",
+    stats: [
+      { value: "2000+", label: "Community Members" },
+      { value: "365", label: "Days of Support" },
+      { value: "Live", label: "Expert Access" },
+    ],
+    bgFrom: "#080808",
+    bgTo: "#0F0D0C",
+    accentColor: "#F4845F",
+    cta1: "Join The Open Office",
+    cta2: "Try a Free Week",
+    image: "/crm_workflow_dashboard.png",
+  },
+  {
+    tag: "Professional Tax Software",
+    title: "File More. Keep More.",
+    titleHighlight: "Keep More",
+    description:
+      "Professional cloud tax software built for independent preparers. E-file with confidence and grow your business.",
     stats: [
       { value: "500+", label: "Active Preparers" },
       { value: "50K+", label: "Returns Filed" },
       { value: "24/7", label: "Support" },
     ],
-    bgFrom: "#140A06",
-    bgTo: "#1C0F0A",
+    bgFrom: "#080808",
+    bgTo: "#0F0D0C",
     accentColor: "#FFB26A",
     cta1: "View Software Plans",
-    cta2: "See The Software In Action",
+    cta2: "Get a Free Demo",
     image: "/hero_tax_professional.png",
   },
   {
     tag: "ERO Enablement",
-    title: "Stop Splitting Fees. Become an Independent ERO.",
-    titleHighlight: "Independent ERO",
+    title: "Keep 100% of Your Fees.",
+    titleHighlight: "100% of Your Fees",
     description:
-      "Step-by-step guidance through EFIN application, IRS setup, and compliance review to keep 100% of your fees.",
+      "Become an independent ERO. We guide your EFIN application, IRS setup, and compliance from start to finish.",
     stats: [
       { value: "500+", label: "EROs Enabled" },
       { value: "100%", label: "Fee Retention" },
-      { value: "4-8 Weeks", label: "EFIN Setup" },
+      { value: "4–8 Weeks", label: "EFIN Setup" },
     ],
-    bgFrom: "#160B07",
-    bgTo: "#1C0F0A",
+    bgFrom: "#080808",
+    bgTo: "#0F0D0C",
     accentColor: "#F4845F",
-    cta1: "Schedule ERO Consultation",
+    cta1: "Schedule Consultation",
     cta2: "Start Your Application",
     image: "/about_community.png",
   },
   {
     tag: "Service Bureau Growth",
-    title: "Build a Scaling Tax Business With Sub-Offices.",
-    titleHighlight: "Scaling Tax Business",
+    title: "Turn Your EFIN Into an Empire.",
+    titleHighlight: "Empire",
     description:
-      "Transition to a distribution model: sub-license software, build onboarding, and generate recurring revenue on every return processed.",
+      "License your software to other pros, support their offices, and earn recurring revenue on every return they file.",
     stats: [
       { value: "150+", label: "Sub-offices Managed" },
       { value: "Recurring", label: "Revenue Streams" },
       { value: "White-label", label: "Ready" },
     ],
-    bgFrom: "#140A06",
-    bgTo: "#180D08",
+    bgFrom: "#080808",
+    bgTo: "#0F0D0C",
     accentColor: "#FFB26A",
     cta1: "Apply for Mentorship",
     cta2: "See Growth Blueprint",
     image: "/open_office_coworking.png",
-  },
-  {
-    tag: "Open Office Community",
-    title: "Join Our Daily Community.",
-    titleHighlight: "Daily Community",
-    description:
-      "Daily coworking blocks, live tax attorney Q&As, bookkeeping guidance, and year-round support for tax professionals.",
-    stats: [
-      { value: "2000+", label: "Community Members" },
-      { value: "365", label: "Days Of Support" },
-      { value: "Live", label: "Expert Access" },
-    ],
-    bgFrom: "#160B07",
-    bgTo: "#1C0F0A",
-    accentColor: "#F4845F",
-    cta1: "Join The Open Office",
-    cta2: "Try Free Week",
-    image: "/crm_workflow_dashboard.png",
   },
 ];
 
@@ -85,40 +85,40 @@ export interface EcosystemPillar {
 
 export const ecosystemPillars: EcosystemPillar[] = [
   {
+    title: "Daily Open Office",
+    tag: "Live Support",
+    desc: "Show up and get answers. Daily coworking, Zoom diagnostics, live attorney Q&As, and peer support — every week, all year.",
+    actionText: "Join Open Office",
+  },
+  {
     title: "Professional Tax Software",
     tag: "Software",
-    desc: "Get unlimited cloud e-filing for individual and business returns. Supported by direct desktop access and active database recovery features.",
+    desc: "Unlimited cloud e-filing for individual and business returns. Includes desktop access and database recovery.",
     actionText: "Learn About Software",
   },
   {
     title: "ERO Enablement",
     tag: "Credentialing",
-    desc: "Step-by-step guidance to apply for your independent EFIN with the IRS, including ID.me registration, fingerprint coordination, and security reviews.",
+    desc: "Get your EFIN with step-by-step support — ID.me, fingerprinting, IRS e-Services, and security reviews covered.",
     actionText: "Learn About ERO Setup",
   },
   {
     title: "Service Bureau Scaling",
     tag: "Mentorship",
-    desc: "Transition to a distribution model: sub-license software, build onboarding processes, and generate residual revenue splits on sub-office return volume.",
+    desc: "License your software, build onboarding systems, and earn income on every return your network processes.",
     actionText: "Explore Mentorship",
   },
   {
-    title: "Daily Open Office",
-    tag: "Support Desk",
-    desc: "Never file alone. Daily coworking blocks, Zoom sharing diagnostics, live attorney Q&As, and community brainstorming support you year-round.",
-    actionText: "Join Open Office",
-  },
-  {
     title: "Add-on Services",
-    tag: "Add-on Services",
-    desc: "Offer more to your clients year-round. Add bookkeeping, credit coaching, business registration, and referral partners to grow income beyond tax season.",
-    actionText: "View Expansion Guide",
+    tag: "More Revenue",
+    desc: "Offer bookkeeping, credit coaching, business registration, and referrals. Earn year-round — beyond tax season.",
+    actionText: "View Add-on Services",
   },
   {
-    title: "Automation & CRM Setup",
+    title: "CRM & Automation",
     tag: "Operations",
-    desc: "Save time on admin work. Build a simple client intake system, automate scheduling, and set up email & text follow-ups for your business.",
-    actionText: "See Automation Pathways",
+    desc: "Automate your office. Set up client intake, scheduling, and email follow-ups — so your team spends less time on admin.",
+    actionText: "Set Up Your Workflow",
   },
 ];
 
@@ -134,23 +134,38 @@ export interface ServicePathway {
 
 export const servicePathways: ServicePathway[] = [
   {
+    title: "Open Office Community",
+    desc: "Live coworking and expert support, every week, all year long. Ask questions, solve problems, and grow together.",
+    bestFor: ["All Tax Preparers", "Accounting Owners", "Bookkeepers"],
+    includes: [
+      "Daily live office hours",
+      "Direct software support",
+      "Attorney Q&A sessions",
+      "Bookkeeping guidance",
+      "Wellness & mindset resources",
+    ],
+    ctaText: "Join The Open Office",
+    modalType: "openoffice",
+    link: "/open-office",
+  },
+  {
     title: "Tax Software Access",
-    desc: "Launch your tax business with professional tax software designed for growth.",
+    desc: "Professional tax software built for independent preparers. Start filing right away.",
     bestFor: ["New Preparers", "Independent Pros", "Growing Firms"],
     includes: [
       "Professional tax software access",
-      "Bank product enrollment opportunities",
-      "Training resources & walkthroughs",
+      "Bank product enrollment",
+      "Training guides & walkthroughs",
       "Technical support",
       "Community access",
     ],
-    ctaText: "Purchase Software",
+    ctaText: "Get Software Access",
     modalType: "software",
     link: "/tax-software",
   },
   {
     title: "ERO Enablement Program",
-    desc: "Stop splitting fees and start taking greater control of your business by becoming an ERO.",
+    desc: "Keep 100% of your fees. Become an ERO and take full control of your business.",
     bestFor: [
       "Experienced Preparers",
       "Firm Leaders",
@@ -161,7 +176,7 @@ export const servicePathways: ServicePathway[] = [
       "IRS e-Services setup",
       "ID.me & fingerprinting support",
       "Compliance review",
-      "Software implementation support",
+      "Software implementation",
     ],
     ctaText: "Schedule Consultation",
     modalType: "ero",
@@ -169,7 +184,7 @@ export const servicePathways: ServicePathway[] = [
   },
   {
     title: "Service Bureau Growth Program",
-    desc: "Build a tax business that supports, structures, and licenses other tax professionals.",
+    desc: "Build a tax business that supports and licenses other professionals.",
     bestFor: [
       "Established EROs",
       "Multi-preparer offices",
@@ -186,42 +201,27 @@ export const servicePathways: ServicePathway[] = [
     modalType: "bureau",
     link: "/service-bureau-growth",
   },
-  {
-    title: "Open Office Community",
-    desc: "Where access meets opportunity. Live coworking and expert support throughout the year.",
-    bestFor: ["All Tax Preparers", "Accounting Owners", "Bookkeepers"],
-    includes: [
-      "Live weekly office hours",
-      "Direct software support",
-      "Attorney Q&A sessions",
-      "Bookkeeping guidance",
-      "Wellness & mindset resources",
-    ],
-    ctaText: "Join The Open Office",
-    modalType: "openoffice",
-    link: "/open-office",
-  },
 ];
 
 export const homepageFaqs = [
   {
-    question: "What is The Sector of Collectives?",
+    question: "What is TSOC?",
     answer:
-      "TSOC is a community built for tax professionals. We offer professional tax software, EFIN setup support, Service Bureau mentorship, and daily live coworking sessions — everything you need to grow a tax business.",
+      "TSOC (The Sector of Collectives) is a community built for tax professionals. We offer professional tax software, EFIN setup support, Service Bureau mentorship, and daily live coworking — everything you need to grow a successful tax business.",
   },
   {
     question: "Do I need an EFIN to get started?",
     answer:
-      "No. You can start using our software right away without an EFIN. If you're working toward getting one, our ERO Enablement program walks you through every step of the IRS application process.",
+      "You can start using our software right away without an EFIN. If you'd like to get one, our ERO Enablement program walks you through every step of the IRS application process.",
   },
   {
     question: "What's the difference between a Service Bureau and a standard ERO?",
     answer:
-      "An ERO files returns for clients directly. A Service Bureau licenses tax software to other preparers, supports their offices, and earns residual revenue on every return they process. It's a way to scale beyond just filing your own returns.",
+      "An ERO files returns directly for clients. A Service Bureau licenses software to other preparers, supports their offices, and earns recurring income on every return they process — it's how you scale beyond your own filings.",
   },
   {
     question: "Are there long-term contracts?",
     answer:
-      "No surprise fees or hidden splits. Our programs run on simple annual agreements. You pick the level of support that fits your business and budget.",
+      "Our programs run on simple annual agreements. Pick the support level that fits your business and budget — no surprise fees or hidden splits.",
   },
 ];

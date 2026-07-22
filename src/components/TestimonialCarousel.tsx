@@ -16,7 +16,7 @@ export default function TestimonialCarousel() {
   const testimonials: Testimonial[] = [
     {
       quote:
-        "Access to professional software was great, but the ERO coaching completely changed my trajectory. I went from splitting 30% of my fees to keeping 100% of my revenues and building my own office.",
+        "The ERO coaching changed everything. I went from splitting 30% of my fees to keeping 100% and running my own office.",
       name: "Tasha M.",
       role: "ERO & Firm Owner",
       location: "Atlanta, GA",
@@ -24,7 +24,7 @@ export default function TestimonialCarousel() {
     },
     {
       quote:
-        "Running a Service Bureau felt overwhelming until I went through the Growth Program. Having step-by-step audit forms, compliance blueprints, and tech automations made all the difference.",
+        "The Growth Program made running a Service Bureau feel doable. The audit forms, compliance blueprints, and tech automations were game-changers.",
       name: "David C.",
       role: "Service Bureau Owner",
       location: "Dallas, TX",
@@ -32,45 +32,46 @@ export default function TestimonialCarousel() {
     },
     {
       quote:
-        "The Tech Tuesday CRM setup saved our office over 40 hours of manual work in February alone. Clients loved the automated document uploads, and we doubled our filing throughput.",
+        "Tech Tuesday CRM setup saved our office 40+ hours in February alone. We doubled our filing throughput with automated document uploads.",
       name: "Marcus K.",
       role: "Independent Tax Preparer",
       location: "Houston, TX",
-      avatar: "/avatar_tasha.png",
+      avatar: "https://api.dicebear.com/9.x/initials/svg?seed=Marcus%20K&backgroundColor=1a1a1a&textColor=FFB26A&radius=12&size=80",
     },
     {
       quote:
-        "I've been in the tax industry for 8 years, and The Sector of Collectives is the first community that actually delivers on its promises. Real attorney consultations and actual systems support.",
+        "I've been in taxes 8 years. The Sector of Collectives is the first community that actually delivers — real attorney consultations and real systems support.",
       name: "Alicia R.",
       role: "Multi-Location Firm Owner",
       location: "Chicago, IL",
-      avatar: "/avatar_david.png",
+      avatar: "/avatar_sarah.png",
     },
     {
       quote:
-        "Joining this collective was the best business decision I've made. The daily open office hours are like having an on-demand operations team ready to solve any diagnostic or software issue.",
+        "Joining this collective was the best business decision I've made. The daily open office is like having an on-demand team ready to solve anything.",
       name: "Sarah P.",
       role: "Firm Owner",
       location: "Tampa, FL",
-      avatar: "/avatar_tasha.png",
+      avatar: "https://api.dicebear.com/9.x/initials/svg?seed=Sarah%20P&backgroundColor=1a1a1a&textColor=FFB26A&radius=12&size=80",
     },
     {
       quote:
-        "The compliance blueprints alone saved us from several audit risks. Our sub-offices feel supported, and our software distribution runs completely on auto-pilot now.",
+        "The compliance blueprints alone saved us from audit risks. Our sub-offices feel supported and software distribution runs on auto-pilot.",
       name: "James L.",
       role: "Service Bureau Operator",
       location: "Charlotte, NC",
-      avatar: "/avatar_david.png",
+      avatar: "/avatar_james.png",
     },
     {
       quote:
-        "The community of fellow EROs is worth the entry fee alone. You get to mastermind with tax pros doing 6 and 7 figures, sharing marketing scripts that actually convert clients.",
+        "The ERO mastermind community is worth it alone. You get to network with tax pros doing 6 and 7 figures who actually share what works.",
       name: "Elena R.",
       role: "Tax Consultant",
       location: "Phoenix, AZ",
-      avatar: "/avatar_tasha.png",
+      avatar: "/avatar_elena.png",
     },
   ];
+
 
   // Duplicate the list to create a seamless looping marquee
   const doubledTestimonials = [...testimonials, ...testimonials];
@@ -107,7 +108,7 @@ export default function TestimonialCarousel() {
         {doubledTestimonials.map((item, idx) => (
           <div
             key={`${item.name}-${idx}`}
-            className="w-[320px] sm:w-[380px] h-[260px] bg-[#2A160E]/40 border border-[#FFB26A]/15 hover:border-[#FFB26A]/35 rounded-2xl p-5 relative backdrop-blur-md shadow-xl flex flex-col justify-between transition-all duration-300 shrink-0 hover:shadow-[#FFB26A]/10 hover:shadow-lg"
+            className="w-[320px] sm:w-[380px] h-[260px] bg-[#161412]/40 border border-[#FFB26A]/15 hover:border-[#FFB26A]/35 rounded-2xl p-5 relative backdrop-blur-md shadow-xl flex flex-col justify-between transition-all duration-300 shrink-0 hover:shadow-[#FFB26A]/10 hover:shadow-lg"
           >
             {/* Background quote glow decoration */}
             <Quote className="absolute right-4 top-4 w-16 h-16 text-[#FFB26A]/5 -z-10 pointer-events-none" />

@@ -30,7 +30,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   if (!post) notFound();
 
   return (
-    <article className="relative overflow-hidden bg-[#1C0F0A] min-h-screen py-16 sm:py-10">
+    <article className="relative overflow-hidden bg-[#0F0D0C] min-h-screen py-16 sm:py-10">
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,178,106,0.03)_0%,transparent_60%)] pointer-events-none -z-10" />
 

@@ -41,7 +41,7 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <div ref={pageRef} className="relative overflow-hidden bg-[#140A06] min-h-screen py-16 sm:py-10">
+    <div ref={pageRef} className="relative overflow-hidden bg-[#0A0908] min-h-screen py-16 sm:py-10">
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,178,106,0.03)_0%,transparent_60%)] pointer-events-none -z-10" />
 
@@ -77,7 +77,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <TiltCard tilt={5} className="relative bg-[#2A160E] border border-[#FFB26A]/30 rounded-xl p-8 md:p-12 text-center space-y-6 overflow-hidden">
+          <TiltCard tilt={5} className="relative bg-[#161412] border border-[#FFB26A]/30 rounded-xl p-8 md:p-12 text-center space-y-6 overflow-hidden">
             <FileText className="w-10 h-10 text-[#FFB26A] mx-auto" />
             <h3 className="text-xs font-bold tracking-wider text-[#EDE9E0]/50 uppercase">Our Community Motto</h3>
             <div className="text-2xl sm:text-3xl font-black tracking-wider text-white select-none">
@@ -98,7 +98,7 @@ export default function AboutPage() {
           <h2 className="gsap-reveal text-lg font-bold text-center text-white mb-10 uppercase tracking-wider">Our Core Principles</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <TiltCard className="glass-card glass-card-hover-emerald p-6 space-y-3">
-              <div className="h-9 w-9 rounded-md bg-[#2A160E] border border-[#FFB26A]/30 flex items-center justify-center text-[#FFB26A] mb-2">
+              <div className="h-9 w-9 rounded-md bg-[#161412] border border-[#FFB26A]/30 flex items-center justify-center text-[#FFB26A] mb-2">
                 <TrendingUp className="w-4.5 h-4.5" />
               </div>
               <h3 className="text-sm font-bold text-white uppercase tracking-wider">Revenue Growth</h3>
@@ -107,8 +107,8 @@ export default function AboutPage() {
               </p>
             </TiltCard>
 
-            <TiltCard delay={0.1} className="glass-card glass-card-hover p-6 space-y-3">
-              <div className="h-9 w-9 rounded-md bg-[#2A160E] border border-[#FFB26A]/30 flex items-center justify-center text-[#FFB26A] mb-2">
+            <TiltCard delay={0.1} className="glass-card glass-card-hover-emerald p-6 space-y-3">
+              <div className="h-9 w-9 rounded-md bg-[#161412] border border-[#FFB26A]/30 flex items-center justify-center text-[#FFB26A] mb-2">
                 <ShieldAlert className="w-4.5 h-4.5" />
               </div>
               <h3 className="text-sm font-bold text-white uppercase tracking-wider">Compliance Education</h3>
@@ -118,7 +118,7 @@ export default function AboutPage() {
             </TiltCard>
 
             <TiltCard delay={0.2} className="glass-card glass-card-hover p-6 space-y-3">
-              <div className="h-9 w-9 rounded-md bg-[#2A160E] border border-[#FFB26A]/30 flex items-center justify-center text-[#FFB26A] mb-2">
+              <div className="h-9 w-9 rounded-md bg-[#161412] border border-[#FFB26A]/30 flex items-center justify-center text-[#FFB26A] mb-2">
                 <Cpu className="w-4.5 h-4.5" />
               </div>
               <h3 className="text-sm font-bold text-white uppercase tracking-wider">Technology Integration</h3>

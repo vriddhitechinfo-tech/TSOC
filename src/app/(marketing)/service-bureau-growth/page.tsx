@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { useModal } from "@/context/ModalContext";
-import { Check, ArrowRight, Activity } from "lucide-react";
+import { Check, ArrowRight, Activity, Download, Mail, CheckCircle } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import FaqAccordion from "@/components/ui/FaqAccordion";
@@ -21,8 +21,10 @@ export default function ServiceBureauGrowthPage() {
   const revenueValRef = useRef<HTMLSpanElement>(null);
   const preparersValRef = useRef<HTMLSpanElement>(null);
 
-  // Track active scroll phase
+  // Track active scroll phase & lead form state
   const [activeScrollPhase, setActiveScrollPhase] = useState(0);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -108,6 +110,7 @@ export default function ServiceBureauGrowthPage() {
     });
 
     return () => {
+      ctx.revert();
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, []);
@@ -162,11 +165,11 @@ export default function ServiceBureauGrowthPage() {
   const sbFaqs = [
     {
       question: "What exactly is a Tax Service Bureau?",
-      answer: "A Service Bureau packages and sub-licenses professional tax software to other independent preparers. Instead of just filing client returns, you build a network of preparers or sub-offices, support their compliance, and earn residual revenue on every return they file."
+      answer: "A Service Bureau packages and sub-licenses professional tax software to other independent preparers. Instead of just filing returns, you build a network of preparers, support their offices, and earn residual revenue on every return filed."
     },
     {
       question: "How much volume do I need to start a Service Bureau?",
-      answer: "We recommend that offices prepare at least 150-200 returns annually under their own EFIN before launching a Service Bureau. This ensures your office has the operational experience, software understanding, and support infrastructure needed to support other preparers."
+      answer: "We recommend preparing at least 150 returns annually under your own EFIN before launching a Service Bureau, ensuring you have the operational base to support sub-offices."
     },
     {
       question: "What software branding options do you offer?",
@@ -174,9 +177,26 @@ export default function ServiceBureauGrowthPage() {
     },
     {
       question: "How long does the mentorship support last?",
-      answer: "Mentorship is a year-round relationship. We provide standard structural auditing during Q2 and Q3, setup systems and recruitment pipelines in Q4, and offer active operational support and audit mitigation checks during the Q1 tax filing season."
+      answer: "Mentorship is year-round. We guide systems audit in Q2-Q3, recruitment in Q4, and active operational support during tax filing season."
     }
   ];
+
+  const handleLeadSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsFormSubmitted(true);
+      
+      // Trigger dynamic file download of a mock PDF
+      const link = document.createElement("a");
+      link.href = "data:text/plain;charset=utf-8," + encodeURIComponent("The Sector of Collectives - Service Bureau Phase Audit Checklist");
+      link.download = "tsoc-service-bureau-checklist.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }, 1200);
+  };
 
   const scrollToPhaseBlock = (index: number) => {
     const targetBlock = document.getElementById(`phase-block-${index}`);
@@ -186,36 +206,45 @@ export default function ServiceBureauGrowthPage() {
   };
 
   return (
-    <div ref={pageRef} className="relative overflow-hidden bg-[#140A06] min-h-screen py-16 sm:py-10 animate-fade-in">
+    <div ref={pageRef} className="relative overflow-hidden bg-[#080808] min-h-screen py-16 sm:py-10 animate-fade-in">
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,178,106,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-24">
         {/* Header Section */}
-        <div className="gsap-reveal text-center max-w-3xl mx-auto space-y-4">
+        <div className="gsap-reveal text-center max-w-5xl mx-auto space-y-4">
           <span className="inline-flex items-center rounded-full bg-[#FFB26A]/10 border border-[#FFB26A]/25 px-3 py-1 text-xs font-semibold text-[#FFB26A]">
             Service Bureau Mentorship &amp; Scale
           </span>
-          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
+          <h1 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] font-black tracking-tight text-white leading-tight lg:whitespace-nowrap">
             Start a Tax Service Bureau. Scale Beyond Preparing.
           </h1>
-          <p className="text-sm text-[#EDE9E0]/60 leading-relaxed">
+          <p className="text-sm text-[#EDE9E0]/60 leading-relaxed max-w-3xl mx-auto">
             Ready to expand beyond individual client filings? The Service Bureau model lets you license professional tax software, train other preparers, and build scaling recurring revenue streams.
           </p>
-          <div className="pt-4">
+          <div className="pt-4 flex flex-col sm:flex-row gap-3 justify-center items-center">
             <button
               onClick={() => openModal("bureau")}
-              className="inline-flex items-center justify-center rounded-lg bg-[#FFB26A] hover:bg-[#F4845F] text-[#140A06] font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
+              className="inline-flex items-center justify-center rounded-lg bg-[#FFB26A] hover:bg-[#F4845F] text-[#080808] font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
             >
               Apply for Service Bureau Mentorship
             </button>
+            <p className="text-[11px] text-[#EDE9E0]/40">
+              Have questions?{" "}
+              <button
+                onClick={() => openModal("strategy")}
+                className="text-[#FFB26A] underline underline-offset-2 hover:text-[#F4845F] transition-colors cursor-pointer font-semibold"
+              >
+                Chat with our team →
+              </button>
+            </p>
           </div>
         </div>
 
         {/* Animated Stats Section */}
         <div
           ref={statsContainerRef}
-          className="bg-gradient-to-b from-[#1C0F0A]/80 to-[#1C0F0A] border border-[#FFB26A]/30 rounded-2xl py-12 px-6 md:px-8 relative overflow-hidden"
+          className="bg-gradient-to-b from-[#0F0D0C]/80 to-[#0F0D0C] border border-[#FFB26A]/30 rounded-2xl py-12 px-6 md:px-8 relative overflow-hidden"
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="space-y-2">
@@ -289,7 +318,7 @@ export default function ServiceBureauGrowthPage() {
           <div ref={containerRef} className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative pb-16">
             {/* Left Column - Pinned Menu (Desktop only) */}
             <div className="hidden lg:block lg:col-span-4 sticky top-24 self-start space-y-3" ref={leftMenuRef}>
-              <div className="bg-[#2A160E]/80 border border-[#FFB26A]/30 rounded-xl p-4 space-y-2">
+              <div className="bg-[#161412]/80 border border-[#FFB26A]/30 rounded-xl p-4 space-y-2">
                 <span className="text-xs font-bold text-[#EDE9E0]/50 uppercase tracking-widest block mb-2">Phase Navigator</span>
                 {phases.map((p, idx) => (
                   <button
@@ -303,7 +332,7 @@ export default function ServiceBureauGrowthPage() {
                   >
                     <div className="flex items-center space-x-3">
                       <span className={`h-6 w-6 rounded flex items-center justify-center text-xs font-bold border ${
-                        activeScrollPhase === idx ? "bg-[#2A160E] border-[#FFB26A]/40 text-[#FFB26A]" : "bg-[#140A06] border-[#FFB26A]/30 text-[#EDE9E0]/40"
+                        activeScrollPhase === idx ? "bg-[#161412] border-[#FFB26A]/40 text-[#FFB26A]" : "bg-[#0A0908] border-[#FFB26A]/30 text-[#EDE9E0]/40"
                       }`}>
                         {idx + 1}
                       </span>
@@ -353,15 +382,83 @@ export default function ServiceBureauGrowthPage() {
           </div>
         </div>
 
+        {/* Lead Magnet Download Section */}
+        <div className="gsap-reveal bg-gradient-to-r from-[#141210] to-[#1A1714] border border-[#FFB26A]/30 rounded-2xl p-8 sm:p-10 relative overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-7 space-y-4">
+              <span className="inline-flex items-center space-x-1.5 rounded-full bg-[#FFB26A]/10 border border-[#FFB26A]/25 px-3 py-1 text-xs font-semibold text-[#FFB26A]">
+                <Download className="w-3.5 h-3.5" />
+                <span>Free Resource</span>
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                Download Service Bureau Phase Audit Checklist
+              </h2>
+              <p className="text-xs text-[#EDE9E0]/60 leading-relaxed">
+                Get our comprehensive checklist covering operational audits, software pricing structures, sub-office compliance, and preparer onboarding templates.
+              </p>
+            </div>
+            <div className="lg:col-span-5">
+              {isFormSubmitted ? (
+                <div className="bg-[#FFB26A]/10 border border-[#FFB26A]/40 rounded-xl p-6 text-center space-y-3">
+                  <CheckCircle className="w-10 h-10 text-[#FFB26A] mx-auto" />
+                  <h4 className="text-sm font-bold text-white uppercase tracking-wider">Checklist Download Started!</h4>
+                  <p className="text-xs text-[#EDE9E0]/60">Your audit checklist PDF has been generated. Check your browser downloads.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleLeadSubmit} className="space-y-3">
+                  <div className="relative">
+                    <Mail className="w-4 h-4 text-[#EDE9E0]/40 absolute left-3.5 top-3.5" />
+                    <input
+                      type="email"
+                      required
+                      placeholder="Enter your work email..."
+                      className="w-full bg-[#0A0908] border border-[#FFB26A]/20 rounded-lg pl-10 pr-4 py-3 text-xs text-white placeholder-[#EDE9E0]/40 focus:outline-none focus:border-[#FFB26A] transition-colors"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-[#FFB26A] hover:bg-[#F4845F] text-[#140A06] font-extrabold py-3 px-6 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider flex items-center justify-center space-x-2 disabled:opacity-50"
+                  >
+                    <span>{isSubmitting ? "Generating PDF..." : "Download Free Checklist"}</span>
+                    <Download className="w-3.5 h-3.5" />
+                  </button>
+                </form>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Speak with an Advisor Strip */}
+        <div className="gsap-reveal bg-[#FFB26A]/8 border border-[#FFB26A]/30 rounded-2xl py-8 px-6 md:px-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="space-y-1 text-center sm:text-left">
+            <h3 className="font-display text-base font-black text-white uppercase tracking-wider">Ready to start your Service Bureau?</h3>
+            <p className="text-xs text-[#EDE9E0]/60">Our team will walk you through every step. No pressure — just a conversation.</p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+            <button
+              onClick={() => openModal("bureau")}
+              className="bg-[#FFB26A] hover:bg-[#F4845F] text-[#080808] font-extrabold py-3 px-6 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider whitespace-nowrap"
+            >
+              Apply Now
+            </button>
+            <button
+              onClick={() => openModal("strategy")}
+              className="border border-[#FFB26A]/30 text-[#EDE9E0]/70 hover:text-white hover:border-[#FFB26A]/60 font-semibold py-3 px-6 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider whitespace-nowrap"
+            >
+              Talk to an Advisor
+            </button>
+          </div>
+        </div>
 
         {/* Candidate Fit Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="gsap-reveal space-y-6">
             <span className="text-xs font-bold uppercase tracking-wider text-[#EDE9E0]/50 block">
-              Is This Mentorship Right For You?
+              IS THIS MENTORSHIP RIGHT FOR YOU?
             </span>
-            <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight uppercase">
-              Who We Work With
+            <h2 className="font-display text-xl sm:text-2xl font-black text-white tracking-tight uppercase">
+              WHO WE WORK WITH
             </h2>
             <p className="text-xs text-[#EDE9E0]/60 leading-relaxed">
               Transitioning to a Service Bureau requires administrative maturity, solid tax experience, and leadership. We screen applicants to ensure our resources align with offices ready to scale.
@@ -414,3 +511,4 @@ export default function ServiceBureauGrowthPage() {
     </div>
   );
 }
+

@@ -24,16 +24,16 @@ export default function InteractiveModal() {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
       <div 
-        className="relative w-full max-w-lg bg-[#2A160E] border border-[#FFB26A]/30 overflow-hidden rounded-xl shadow-2xl transition-all duration-300 transform scale-100 max-h-[90vh] flex flex-col"
+        className="relative w-full max-w-lg bg-[#161412] border border-[#FFB26A]/30 overflow-hidden rounded-xl shadow-2xl transition-all duration-300 transform scale-100 max-h-[90vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={closeModal}
-          className="absolute top-4 right-4 text-[#EDE9E0]/40 hover:text-[#FFB26A] transition-colors p-1.5 hover:bg-[#2A160E]/60 rounded-lg"
+          className="absolute top-4 right-4 text-[#EDE9E0]/40 hover:text-[#FFB26A] transition-colors p-1.5 hover:bg-[#161412]/60 rounded-lg"
           aria-label="Close modal"
         >
-          <X className="w-4 h-4" />
+          <X className="w-4 h-4 cursor-pointer" />
         </button>
 
         {/* Content Area */}
@@ -60,7 +60,7 @@ export default function InteractiveModal() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="John Doe"
-                    className="w-full bg-[#2A160E]/40 border border-[#FFB26A]/25 focus:border-[#FFB26A] focus:ring-1 focus:ring-[#FFB26A]/50 rounded-lg px-3.5 py-2.5 text-white placeholder-[#EDE9E0]/30 outline-none transition-all text-xs"
+                    className="w-full bg-[#161412]/40 border border-[#FFB26A]/25 focus:border-[#FFB26A] focus:ring-1 focus:ring-[#FFB26A]/50 rounded-lg px-3.5 py-2.5 text-white placeholder-[#EDE9E0]/30 outline-none transition-all text-xs"
                   />
                 </div>
 
@@ -77,7 +77,7 @@ export default function InteractiveModal() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="john@example.com"
-                      className="w-full bg-[#2A160E]/40 border border-[#FFB26A]/25 focus:border-[#FFB26A] focus:ring-1 focus:ring-[#FFB26A]/50 rounded-lg px-3.5 py-2.5 text-white placeholder-[#EDE9E0]/30 outline-none transition-all text-xs"
+                      className="w-full bg-[#161412]/40 border border-[#FFB26A]/25 focus:border-[#FFB26A] focus:ring-1 focus:ring-[#FFB26A]/50 rounded-lg px-3.5 py-2.5 text-white placeholder-[#EDE9E0]/30 outline-none transition-all text-xs"
                     />
                   </div>
                   <div>
@@ -92,13 +92,13 @@ export default function InteractiveModal() {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="(555) 555-5555"
-                      className="w-full bg-[#2A160E]/40 border border-[#FFB26A]/25 focus:border-[#FFB26A] focus:ring-1 focus:ring-[#FFB26A]/50 rounded-lg px-3.5 py-2.5 text-white placeholder-[#EDE9E0]/30 outline-none transition-all text-xs"
+                      className="w-full bg-[#161412]/40 border border-[#FFB26A]/25 focus:border-[#FFB26A] focus:ring-1 focus:ring-[#FFB26A]/50 rounded-lg px-3.5 py-2.5 text-white placeholder-[#EDE9E0]/30 outline-none transition-all text-xs"
                     />
                   </div>
                 </div>
 
                 {/* Conditional Fields based on Modal Type */}
-                {modalType === "software" && (
+                {(modalType === "software" || modalType === "strategy" || modalType === "demo") && (
                   <div className="space-y-4">
                     <div>
                       <label htmlFor="modal-exp" className="block text-xs font-semibold text-[#EDE9E0]/60 uppercase tracking-wider mb-1.5">
@@ -109,42 +109,41 @@ export default function InteractiveModal() {
                         name="experience"
                         value={formData.experience}
                         onChange={handleChange}
-                        className="w-full bg-[#2A160E]/40 border border-[#FFB26A]/25 focus:border-[#FFB26A] focus:ring-1 focus:ring-[#FFB26A]/50 rounded-lg px-3.5 py-2.5 text-white outline-none transition-all text-xs"
+                        className="w-full bg-[#161412]/40 border border-[#FFB26A]/25 focus:border-[#FFB26A] focus:ring-1 focus:ring-[#FFB26A]/50 rounded-lg px-3.5 py-2.5 text-white outline-none transition-all text-xs"
                       >
                         <option value="new">New Tax Preparer</option>
-                        <option value="intermediate">1-3 Years Experience</option>
-                        <option value="advanced">3+ Years Experience</option>
+                        <option value="experienced">Experienced Preparer</option>
                       </select>
                     </div>
                     <div>
-                      <label htmlFor="modal-ptin-software" className="block text-xs font-semibold text-[#EDE9E0]/60 uppercase tracking-wider mb-1.5">
+                      <label htmlFor="modal-ptin" className="block text-xs font-semibold text-[#EDE9E0]/60 uppercase tracking-wider mb-1.5">
                         Do you have a PTIN?
                       </label>
                       <select
-                        id="modal-ptin-software"
+                        id="modal-ptin"
                         name="ptinStatus"
                         value={formData.ptinStatus}
                         onChange={handleChange}
-                        className="w-full bg-[#2A160E]/40 border border-[#FFB26A]/25 focus:border-[#FFB26A] focus:ring-1 focus:ring-[#FFB26A]/50 rounded-lg px-3.5 py-2.5 text-white outline-none transition-all text-xs"
+                        className="w-full bg-[#161412]/40 border border-[#FFB26A]/25 focus:border-[#FFB26A] focus:ring-1 focus:ring-[#FFB26A]/50 rounded-lg px-3.5 py-2.5 text-white outline-none transition-all text-xs"
                       >
-                        <option value="yes">Yes, I have a PTIN</option>
-                        <option value="no">No, not yet</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
                       </select>
                     </div>
                     {formData.experience !== "new" && (
                       <div>
-                        <label htmlFor="modal-efin-software" className="block text-xs font-semibold text-[#EDE9E0]/60 uppercase tracking-wider mb-1.5">
+                        <label htmlFor="modal-efin" className="block text-xs font-semibold text-[#EDE9E0]/60 uppercase tracking-wider mb-1.5">
                           Do you have an EFIN?
                         </label>
                         <select
-                          id="modal-efin-software"
+                          id="modal-efin"
                           name="efinStatus"
                           value={formData.efinStatus}
                           onChange={handleChange}
-                          className="w-full bg-[#2A160E]/40 border border-[#FFB26A]/25 focus:border-[#FFB26A] focus:ring-1 focus:ring-[#FFB26A]/50 rounded-lg px-3.5 py-2.5 text-white outline-none transition-all text-xs"
+                          className="w-full bg-[#161412]/40 border border-[#FFB26A]/25 focus:border-[#FFB26A] focus:ring-1 focus:ring-[#FFB26A]/50 rounded-lg px-3.5 py-2.5 text-white outline-none transition-all text-xs"
                         >
-                          <option value="yes">Yes, I have an active EFIN</option>
-                          <option value="no">No, not yet</option>
+                          <option value="yes">Yes</option>
+                          <option value="no">No</option>
                         </select>
                       </div>
                     )}
@@ -154,6 +153,21 @@ export default function InteractiveModal() {
                 {modalType === "ero" && (
                   <div className="space-y-4">
                     <div>
+                      <label htmlFor="modal-exp-ero" className="block text-xs font-semibold text-[#EDE9E0]/60 uppercase tracking-wider mb-1.5">
+                        Experience Level
+                      </label>
+                      <select
+                        id="modal-exp-ero"
+                        name="experience"
+                        value={formData.experience}
+                        onChange={handleChange}
+                        className="w-full bg-[#161412]/40 border border-[#FFB26A]/25 focus:border-[#FFB26A] focus:ring-1 focus:ring-[#FFB26A]/50 rounded-lg px-3.5 py-2.5 text-white outline-none transition-all text-xs"
+                      >
+                        <option value="new">New Tax Preparer</option>
+                        <option value="experienced">Experienced Preparer</option>
+                      </select>
+                    </div>
+                    <div>
                       <label htmlFor="modal-ptin-ero" className="block text-xs font-semibold text-[#EDE9E0]/60 uppercase tracking-wider mb-1.5">
                         Do you have a PTIN?
                       </label>
@@ -162,28 +176,29 @@ export default function InteractiveModal() {
                         name="ptinStatus"
                         value={formData.ptinStatus}
                         onChange={handleChange}
-                        className="w-full bg-[#FFB26A]/15 border border-[#FFB26A]/30 focus:border-[#FFB26A] focus:ring-1 focus:ring-[#FFB26A] rounded-lg px-3.5 py-2.5 text-white outline-none transition-all text-xs"
+                        className="w-full bg-[#161412]/40 border border-[#FFB26A]/25 focus:border-[#FFB26A] focus:ring-1 focus:ring-[#FFB26A]/50 rounded-lg px-3.5 py-2.5 text-white outline-none transition-all text-xs"
                       >
-                        <option value="yes">Yes, I have a PTIN</option>
-                        <option value="no">No, not yet</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
                       </select>
                     </div>
-                    <div>
-                      <label htmlFor="modal-efin-ero" className="block text-xs font-semibold text-[#EDE9E0]/60 uppercase tracking-wider mb-1.5">
-                        Do you have an EFIN?
-                      </label>
-                      <select
-                        id="modal-efin-ero"
-                        name="efinStatus"
-                        value={formData.efinStatus}
-                        onChange={handleChange}
-                        className="w-full bg-[#FFB26A]/15 border border-[#FFB26A]/30 focus:border-[#FFB26A] focus:ring-1 focus:ring-[#FFB26A] rounded-lg px-3.5 py-2.5 text-white outline-none transition-all text-xs"
-                      >
-                        <option value="no">No, I need guidance getting one</option>
-                        <option value="yes">Yes, I already have an EFIN</option>
-                        <option value="pending">Applied — waiting for approval</option>
-                      </select>
-                    </div>
+                    {formData.experience !== "new" && (
+                      <div>
+                        <label htmlFor="modal-efin-ero" className="block text-xs font-semibold text-[#EDE9E0]/60 uppercase tracking-wider mb-1.5">
+                          Do you have an EFIN?
+                        </label>
+                        <select
+                          id="modal-efin-ero"
+                          name="efinStatus"
+                          value={formData.efinStatus}
+                          onChange={handleChange}
+                          className="w-full bg-[#161412]/40 border border-[#FFB26A]/25 focus:border-[#FFB26A] focus:ring-1 focus:ring-[#FFB26A]/50 rounded-lg px-3.5 py-2.5 text-white outline-none transition-all text-xs"
+                        >
+                          <option value="yes">Yes</option>
+                          <option value="no">No</option>
+                        </select>
+                      </div>
+                    )}
                   </div>
                 )}
 
@@ -198,7 +213,7 @@ export default function InteractiveModal() {
                         name="efinStatus"
                         value={formData.efinStatus}
                         onChange={handleChange}
-                        className="w-full bg-[#2A160E]/40 border border-[#FFB26A]/25 focus:border-[#FFB26A] focus:ring-1 focus:ring-[#FFB26A]/50 rounded-lg px-3.5 py-2.5 text-white outline-none transition-all text-xs"
+                        className="w-full bg-[#161412]/40 border border-[#FFB26A]/25 focus:border-[#FFB26A] focus:ring-1 focus:ring-[#FFB26A]/50 rounded-lg px-3.5 py-2.5 text-white outline-none transition-all text-xs"
                       >
                         <option value="yes">Yes, active ERO</option>
                         <option value="no">No, preparing under someone</option>
@@ -213,7 +228,7 @@ export default function InteractiveModal() {
                         name="preparerCount"
                         value={formData.preparerCount}
                         onChange={handleChange}
-                        className="w-full bg-[#2A160E]/40 border border-[#FFB26A]/25 focus:border-[#FFB26A] focus:ring-1 focus:ring-[#FFB26A]/50 rounded-lg px-3.5 py-2.5 text-white outline-none transition-all text-xs"
+                        className="w-full bg-[#161412]/40 border border-[#FFB26A]/25 focus:border-[#FFB26A] focus:ring-1 focus:ring-[#FFB26A]/50 rounded-lg px-3.5 py-2.5 text-white outline-none transition-all text-xs"
                       >
                         <option value="1">Just Me (1)</option>
                         <option value="2-5">2 to 5 Preparers</option>
@@ -236,7 +251,7 @@ export default function InteractiveModal() {
                       value={formData.currentSoftware}
                       onChange={handleChange}
                       placeholder="e.g. TaxSlayer, HubSpot, sheets"
-                      className="w-full bg-[#2A160E]/40 border border-[#FFB26A]/25 focus:border-[#FFB26A] focus:ring-1 focus:ring-[#FFB26A]/50 rounded-lg px-3.5 py-2.5 text-white placeholder-[#EDE9E0]/30 outline-none transition-all text-xs"
+                      className="w-full bg-[#161412]/40 border border-[#FFB26A]/25 focus:border-[#FFB26A] focus:ring-1 focus:ring-[#FFB26A]/50 rounded-lg px-3.5 py-2.5 text-white placeholder-[#EDE9E0]/30 outline-none transition-all text-xs"
                     />
                   </div>
                 )}
@@ -252,7 +267,7 @@ export default function InteractiveModal() {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Tell us about your business goals..."
-                    className="w-full bg-[#2A160E]/40 border border-[#FFB26A]/25 focus:border-[#FFB26A] focus:ring-1 focus:ring-[#FFB26A]/50 rounded-lg px-3.5 py-2.5 text-white placeholder-[#EDE9E0]/30 outline-none transition-all text-xs resize-none"
+                    className="w-full bg-[#161412]/40 border border-[#FFB26A]/25 focus:border-[#FFB26A] focus:ring-1 focus:ring-[#FFB26A]/50 rounded-lg px-3.5 py-2.5 text-white placeholder-[#EDE9E0]/30 outline-none transition-all text-xs resize-none"
                   />
                 </div>
 

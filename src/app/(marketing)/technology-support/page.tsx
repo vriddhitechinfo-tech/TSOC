@@ -2,7 +2,15 @@
 
 import React, { useEffect, useRef } from "react";
 import { useModal } from "@/context/ModalContext";
-import { CheckCircle2, Play } from "lucide-react";
+import { 
+  CheckCircle2, 
+  LayoutDashboard, 
+  MessageSquare, 
+  ShieldCheck, 
+  CalendarDays, 
+  Sparkles, 
+  Workflow 
+} from "lucide-react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -13,7 +21,6 @@ import VideoMeshBackground from "@/components/VideoMeshBackground";
 
 export default function TechnologySupportPage() {
   const { openModal } = useModal();
-  const blueprintRef = useRef<HTMLDivElement>(null);
 
   const pageRef = useRef<HTMLDivElement>(null);
   const statsContainerRef = useRef<HTMLDivElement>(null);
@@ -84,6 +91,7 @@ export default function TechnologySupportPage() {
     });
 
     return () => {
+      ctx.revert();
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, []);
@@ -150,123 +158,22 @@ export default function TechnologySupportPage() {
     return () => ctx.revert();
   }, []);
 
-  // ── Blueprint stacked-deck scroll animation ──────────────────────────────
-  useEffect(() => {
-    if (!blueprintRef.current) return;
-    gsap.registerPlugin(ScrollTrigger);
 
-    const wrapper = blueprintRef.current;
-    const sectionEl = wrapper.parentElement as HTMLElement;
-    const cards = Array.from(wrapper.querySelectorAll(".blueprint-card")) as HTMLElement[];
-    const total = cards.length;
-    const GAP = 16;
-    const STACK_DEPTH = 9; // px offset per card in the stack
-
-    // Defer until after browser layout so getBoundingClientRect is accurate
-    const raf = requestAnimationFrame(() => {
-      // Measure each card's natural height
-      const heights = cards.map((c) => c.getBoundingClientRect().height || c.offsetHeight || 140);
-
-      // Compute each card's final Y position in the vertical list
-      let cumY = 0;
-      const finalYs = heights.map((h) => {
-        const y = cumY;
-        cumY += h + GAP;
-        return y;
-      });
-      const totalListHeight = cumY - GAP;
-
-      // Set wrapper height = final layout height so page flow is preserved
-      gsap.set(wrapper, { position: "relative", height: totalListHeight });
-
-      // Stack every card at y=0 with depth offsets (card[0] on top)
-      cards.forEach((card, i) => {
-        gsap.set(card, {
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          y: i * STACK_DEPTH,
-          scale: 1 - i * 0.035,
-          opacity: Math.max(0.25, 1 - i * 0.18),
-          zIndex: total - i,
-          transformOrigin: "top center",
-        });
-      });
-
-      // For each card, create a ScrollTrigger that scrubs it from stack → final position
-      cards.forEach((card, i) => {
-        // Each card starts releasing after the previous one has mostly landed
-        const startOffset = i * 110; // px of scroll per card
-        gsap.to(card, {
-          y: finalYs[i],
-          scale: 1,
-          opacity: 1,
-          zIndex: i + 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: sectionEl,
-            start: `top+=${startOffset} 55%`,
-            end: `top+=${startOffset + 90} 55%`,
-            scrub: 0.6,
-          },
-        });
-      });
-    });
-
-    return () => {
-      cancelAnimationFrame(raf);
-      ScrollTrigger.getAll().forEach((t) => t.kill());
-    };
-  }, []);
-
-  const automationSteps = [
-    {
-      num: "01",
-      title: "Lead Acquisition & Route",
-      tool: "Facebook Leads / Web Forms / CRM Router",
-      desc: "Incoming leads from Facebook ads, search campaigns, or landing pages are instantly captured, validated for email/phone, and routed to your available preparers within seconds.",
-    },
-    {
-      num: "02",
-      title: "Client Intake & Document Request",
-      tool: "Secure Portal / Encrypted Request API",
-      desc: "An automated SMS and email sequences invite the lead to access a secure, customized document upload portal. No manual copy-pasting of W-2s, 1099s, or IDs.",
-    },
-    {
-      num: "03",
-      title: "Auto-Review & Preparer Assign",
-      tool: "Task Management / EFIN Queue",
-      desc: "Once all required items are uploaded, the status changes in the CRM. The task is queued, and the designated preparer is notified via Slack or email to review and prepare.",
-    },
-    {
-      num: "04",
-      title: "Consent, Signature, & Bank Setup",
-      tool: "e-Sign Integration / Bank Enrollment",
-      desc: "The completed return is sent for client review and signature. Fees are configured to pull directly from the refund bank, and signatures are collected digitally.",
-    },
-    {
-      num: "05",
-      title: "E-file Sync & Automated Review",
-      tool: "Automated Feedback Loops",
-      desc: "Once e-filed, client records in the CRM are updated with tracking. An automated follow-up asks for a Google Review and drops the client into a year-round relationship campaign.",
-    },
-  ];
 
   const pipelineSteps = [
     {
       num: "1",
       time: "Instant",
-      title: "Lead Capture & Routing",
+      title: "Client Capture",
       accent: "gold" as const,
-      points: ["Facebook Leads & Web Forms", "Instant CRM assignment", "Real-time lead validation"],
+      points: ["Web forms & Facebook intake", "Instant CRM assignment", "Real-time client dashboard update"],
     },
     {
       num: "2",
       time: "< 5 sec",
-      title: "CRM Routing & Validation",
+      title: "Routing & Validation",
       accent: "blue" as const,
-      points: ["Duplicate & data validation", "Preparer workload balancing", "Automatic queue sync"],
+      points: ["Duplicate detection", "Client workload balancing", "Queue sync"],
     },
     {
       num: "3",
@@ -278,9 +185,9 @@ export default function TechnologySupportPage() {
     {
       num: "4",
       time: "Same day",
-      title: "Filer Assignment & Review",
+      title: "Client Assignment & Review",
       accent: "gold" as const,
-      points: ["Task queue alert", "Slack / email notification", "Preparer review checklist"],
+      points: ["Task queue alert", "Slack / email notification", "Client review checklist"],
     },
     {
       num: "5",
@@ -289,6 +196,51 @@ export default function TechnologySupportPage() {
       accent: "blue" as const,
       points: ["Review & e-file confirmation", "Automated year-round follow-up", "Client retention campaign"],
       highlight: true,
+    },
+  ];
+
+  const featuresList = [
+    {
+      title: "CRM for Tax Professionals",
+      desc: "Track leads, filing stages, and client communication histories in one dashboard. Monitor preparer workloads at a glance.",
+      icon: LayoutDashboard,
+      tag: "Centralized Hub",
+      tools: ["GoHighLevel", "HubSpot", "ActiveCampaign"],
+    },
+    {
+      title: "Automated SMS & Follow-Ups",
+      desc: "Instant text and email campaigns reach leads in seconds, boosting appointment bookings and cutting no-shows by up to 80%.",
+      icon: MessageSquare,
+      tag: "Instant Reach",
+      tools: ["SMS & Email", "Twilio", "Auto-Sequences"],
+    },
+    {
+      title: "Secure Intake Document Requests",
+      desc: "Replace email attachments with a mobile-friendly link for clients to snap pictures and upload documents directly to their CRM profiles.",
+      icon: ShieldCheck,
+      tag: "IRS Pub 4557",
+      tools: ["256-Bit SSL", "Mobile Upload", "Cloud Vault"],
+    },
+    {
+      title: "Calendar Scheduling Integration",
+      desc: "Sync Google Calendar or Outlook. Clients select open time slots based on preparer availability, sending auto-reminders to reduce no-shows.",
+      icon: CalendarDays,
+      tag: "Auto Reminders",
+      tools: ["Google Calendar", "Outlook", "Cal.com"],
+    },
+    {
+      title: "AI for Tax Professionals",
+      desc: "Use custom AI templates to draft customer service replies, translate client forms, and summarize complex IRS tax codes.",
+      icon: Sparkles,
+      tag: "AI Templates",
+      tools: ["OpenAI / ChatGPT", "Form Translation", "Code Summaries"],
+    },
+    {
+      title: "Workflow Design Blueprint",
+      desc: "Custom workflows integrate tax preparation software with client-facing platforms, ensuring data updates are synchronized automatically.",
+      icon: Workflow,
+      tag: "Full Automation",
+      tools: ["Tax Software Sync", "Webhooks", "Custom Logic"],
     },
   ];
 
@@ -313,7 +265,7 @@ export default function TechnologySupportPage() {
   const techFaqs = [
     {
       question: "Which CRM software does The Sector of Collectives support?",
-      answer: "We support integrations across popular CRM platforms such as GoHighLevel, ActiveCampaign, HubSpot, and Salesforce. We provide pre-built snapshot templates configured with tax preparer intake pipelines, automated appointment bookings, and SMS follow-ups."
+      answer: "We focus exclusively on GoHighLevel (GHL) to provide fully optimized, pre-built snapshot templates configured with tax preparer intake pipelines, automated appointment bookings, and SMS follow-ups."
     },
     {
       question: "Is client documentation secure during intake uploads?",
@@ -325,12 +277,12 @@ export default function TechnologySupportPage() {
     },
     {
       question: "What technical support do you offer during tax season?",
-      answer: "We offer dedicated Slack support channels and weekly live Tech Tuesday office hours. Under our Expansion Access program, you gain priority access to a 24/7 technical hotline to resolve software connection issues immediately."
+      answer: "We offer dedicated WhatsApp Communication (Monday – Friday during office hours, and Saturday – Sunday by appointment based on membership level) alongside weekly live Tech Tuesday office hours to resolve software connection issues immediately."
     }
   ];
 
   return (
-    <div ref={pageRef} className="relative overflow-hidden bg-[#140A06] min-h-screen">
+    <div ref={pageRef} className="relative overflow-hidden bg-[#0A0908] min-h-screen">
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,178,106,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
 
@@ -352,7 +304,7 @@ export default function TechnologySupportPage() {
                 CRM &amp; Automation Support
               </span>
               <h1 className="gsap-reveal text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-snug text-white">
-                Automate Your Operations. Double Your Intake.
+                Automate Your Operations.
               </h1>
               <p className="gsap-reveal text-sm text-[#EDE9E0]/55 leading-relaxed line-clamp-3">
                 Stop chasing documents, manually texting clients, and managing files on sheets. We set up custom CRMs, document workflows, and client messaging pipelines specifically for tax professionals.
@@ -366,7 +318,7 @@ export default function TechnologySupportPage() {
                 </button>
                 <button
                   onClick={() => openModal("technology")}
-                  className="bg-[#2A160E] text-[#EDE9E0]/70 hover:text-white border border-[#FFB26A]/20 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer"
+                  className="bg-[#161412] text-[#EDE9E0]/70 hover:text-white border border-[#FFB26A]/20 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer"
                 >
                   Request Technology Audit
                 </button>
@@ -375,7 +327,7 @@ export default function TechnologySupportPage() {
 
             {/* Right: CRM Dashboard Image with Floating Animation */}
             <div className="relative h-full rounded-2xl overflow-hidden border border-[#FFB26A]/20 shadow-2xl shadow-black/60" style={{animation: 'float 6s ease-in-out infinite'}}>
-              <div className="absolute top-0 left-0 right-0 h-8 bg-[#1C0F0A] border-b border-[#FFB26A]/15 flex items-center px-4 gap-1.5 z-10">
+              <div className="absolute top-0 left-0 right-0 h-8 bg-[#0F0D0C] border-b border-[#FFB26A]/15 flex items-center px-4 gap-1.5 z-10">
                 <span className="h-2.5 w-2.5 rounded-full bg-[#FFB26A]/40" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#FFB26A]/65" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#FFB26A]/90" />
@@ -389,7 +341,7 @@ export default function TechnologySupportPage() {
                 className="w-full h-full object-cover mt-8"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#140A06]/60 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0908]/60 via-transparent to-transparent pointer-events-none" />
             </div>
           </div>
         </div>
@@ -400,7 +352,7 @@ export default function TechnologySupportPage() {
         {/* Animated Stats Section */}
         <div
           ref={statsContainerRef}
-          className="bg-gradient-to-b from-[#2A160E]/60 to-[#1C0F0A] border border-[#FFB26A]/15 rounded-2xl py-12 px-6 md:px-8 relative overflow-hidden"
+          className="bg-gradient-to-b from-[#161412]/60 to-[#0F0D0C] border border-[#FFB26A]/15 rounded-2xl py-12 px-6 md:px-8 relative overflow-hidden"
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="space-y-2">
@@ -476,7 +428,7 @@ export default function TechnologySupportPage() {
                     className="pipeline-row relative lg:grid lg:grid-cols-2 lg:items-center"
                   >
                     {/* Numbered node on the spine */}
-                    <div className="pipeline-node absolute left-5 lg:left-1/2 top-6 lg:top-1/2 -translate-x-1/2 lg:-translate-y-1/2 z-10 h-9 w-9 rounded-full bg-[#1C0F0A] border-2 border-white/25 flex items-center justify-center text-sm font-bold text-white">
+                    <div className="pipeline-node absolute left-5 lg:left-1/2 top-6 lg:top-1/2 -translate-x-1/2 lg:-translate-y-1/2 z-10 h-9 w-9 rounded-full bg-[#0F0D0C] border-2 border-white/25 flex items-center justify-center text-sm font-bold text-white">
                       {step.num}
                     </div>
 
@@ -491,7 +443,7 @@ export default function TechnologySupportPage() {
                     <div
                       className={`pipeline-card glass-card glass-card-hover overflow-hidden border-l-4 ${accent.border} pl-14 lg:pl-0 lg:max-w-md ${
                         isRight ? "lg:col-start-2 lg:ml-14" : "lg:col-start-1 lg:mr-14 lg:justify-self-end"
-                      } ${step.highlight ? "bg-gradient-to-br from-[#2A160E]/80 to-[#1C0F0A] ring-1 ring-[#FFB26A]/20" : ""}`}
+                      } ${step.highlight ? "bg-gradient-to-br from-[#161412]/80 to-[#0F0D0C] ring-1 ring-[#FFB26A]/20" : ""}`}
                     >
                       <div className="p-6 space-y-4">
                         <div className="flex items-center justify-between gap-3">
@@ -519,83 +471,51 @@ export default function TechnologySupportPage() {
 
         {/* Feature list */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            {
-              title: "CRM for Tax Professionals",
-              desc: "Consolidate leads, tracking stages, and communication histories into a centralized dashboard. Easily view filing metrics for each preparer on your team.",
-            },
-            {
-              title: "Automated SMS & Follow-Ups",
-              desc: "When a lead submits details, automated text and email campaigns reach out within minutes, improving booking conversion rates by up to 80%.",
-            },
-            {
-              title: "Secure Intake Document Requests",
-              desc: "Replace messy email attachments. Clients receive a secure mobile-friendly link to snap pictures of documents, which upload directly to their CRM profiles.",
-            },
-            {
-              title: "Calendar Scheduling Integration",
-              desc: "Synchronize GCal or Outlook schedules. Clients select open times directly based on preparer availability, sending auto-reminders to reduce no-shows.",
-            },
-            {
-              title: "AI for Tax Professionals",
-              desc: "Use custom AI templates to generate customer service replies, translate client forms, draft email responses, and summarize complex IRS tax codes.",
-            },
-            {
-              title: "Workflow Design Blueprint",
-              desc: "We design custom workflows that integrate tax preparation software with client-facing platforms, ensuring data updates are synchronized.",
-            },
-          ].map((feature, i) => (
-            <TiltCard key={feature.title} delay={(i % 3) * 0.1} className="glass-card glass-card-hover p-6 space-y-3">
-              <h3 className="text-sm font-bold text-white uppercase tracking-wider">{feature.title}</h3>
-              <p className="text-xs text-[#EDE9E0]/35 leading-relaxed">{feature.desc}</p>
-            </TiltCard>
-          ))}
-        </div>
-
-        {/* Blueprint Stepper Details */}
-        <div className="gsap-reveal glass-card p-8 md:p-12 relative overflow-hidden">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <h2 className="text-xl font-bold text-white uppercase tracking-wider">Automated Tax Workflow Blueprint</h2>
-            <p className="text-xs text-[#EDE9E0]/50 mt-1">Scroll to watch each workflow phase deal out from the stack.</p>
-          </div>
-
-          {/* Outer section gives scroll room for the pin; blueprintRef measures/positions cards */}
-          <div className="pb-8">
-            <div ref={blueprintRef}>
-              {automationSteps.map((s, idx) => (
-                <div key={s.num} className="blueprint-card">
-                  {/* Card */}
-                  <div className="rounded-2xl overflow-hidden border border-[#FFB26A]/30 bg-[#2A160E]/80 backdrop-blur shadow-2xl shadow-black/60">
-                    {/* Amber accent stripe */}
-                    <div className="h-0.5 bg-gradient-to-r from-[#FFB26A] via-[#F4845F] to-transparent" />
-                    {/* Header row */}
-                    <div className="flex items-center justify-between gap-4 px-6 py-4 border-b border-[#FFB26A]/20">
-                      <div className="flex items-center gap-3">
-                        <span className="text-xs font-black font-mono text-black bg-[#FFB26A] px-2 py-1 rounded leading-none">
-                          {s.num}
-                        </span>
-                        <h3 className="text-sm font-bold text-white uppercase tracking-wider">{s.title}</h3>
-                      </div>
-                      <span className="shrink-0 text-xs text-[#FFB26A] font-mono bg-[#FFB26A]/20 border border-[#FFB26A]/30 px-2.5 py-1 rounded hidden sm:block">
-                        {s.tool}
-                      </span>
+          {featuresList.map((feature, i) => {
+            const Icon = feature.icon;
+            return (
+              <TiltCard
+                key={feature.title}
+                delay={(i % 3) * 0.1}
+                className="glass-card glass-card-hover p-6 flex flex-col justify-between space-y-4 border border-[#FFB26A]/20"
+              >
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div className="h-10 w-10 rounded-xl bg-[#080808] border border-[#FFB26A]/30 flex items-center justify-center text-[#FFB26A] shadow-md">
+                      <Icon className="w-5 h-5" />
                     </div>
-                    {/* Body */}
-                    <div className="px-6 py-5 flex flex-col gap-3">
-                      <p className="text-xs text-[#EDE9E0]/60 leading-relaxed">{s.desc}</p>
-                      <div className="flex items-center gap-2">
-                        <span className="h-1.5 w-1.5 rounded-full bg-[#FFB26A] shrink-0" />
-                        <span className="text-xs font-mono text-[#EDE9E0]/40 uppercase tracking-wider">
-                          {s.tool}
-                        </span>
-                      </div>
-                    </div>
+                    <span className="text-[10px] font-bold text-[#FFB26A] uppercase tracking-wider bg-[#FFB26A]/10 border border-[#FFB26A]/25 px-2.5 py-0.5 rounded-full">
+                      {feature.tag}
+                    </span>
                   </div>
+
+                  <h3 className="text-xs font-black text-white uppercase tracking-wider">
+                    {feature.title}
+                  </h3>
+
+                  <p className="text-xs text-[#EDE9E0]/60 leading-relaxed">
+                    {feature.desc}
+                  </p>
                 </div>
-              ))}
-            </div>
-          </div>
+
+                {/* Logo / Integration Badges */}
+                <div className="pt-3 border-t border-[#FFB26A]/10 flex flex-wrap gap-1.5 items-center">
+                  {feature.tools.map((tool) => (
+                    <span
+                      key={tool}
+                      className="bg-[#080808] border border-[#FFB26A]/15 text-[10px] font-semibold text-[#EDE9E0]/70 px-2 py-0.5 rounded-md flex items-center gap-1"
+                    >
+                      <span className="h-1 w-1 rounded-full bg-[#FFB26A]" />
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </TiltCard>
+            );
+          })}
         </div>
+
+
 
         {/* Testimonials Section */}
         <div className="gsap-reveal space-y-8">
@@ -607,7 +527,7 @@ export default function TechnologySupportPage() {
               Tax Offices Working Smarter
             </h2>
             <p className="text-xs text-[#EDE9E0]/35">
-              Professionals who've implemented automation and CRM systems, and now spend less time on admin and more time growing their businesses.
+              Professionals who&apos;ve implemented automation and CRM systems, and now spend less time on admin and more time growing their businesses.
             </p>
           </div>
           <TestimonialCarousel />
@@ -615,7 +535,7 @@ export default function TechnologySupportPage() {
 
         {/* FAQs */}
         <div className="gsap-reveal">
-          <FaqAccordion items={techFaqs} title="CRM &amp; Automation FAQs" />
+          <FaqAccordion items={techFaqs} title="FAQs" />
         </div>
 
         {/* Community Banner CTA */}
