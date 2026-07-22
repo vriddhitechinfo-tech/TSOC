@@ -64,17 +64,26 @@ export default function PricingSection() {
                 <th className="p-4 font-bold text-[#EDE9E0]/50 uppercase tracking-wider w-[40%]">
                   What&apos;s Included
                 </th>
-                <th className="p-4 text-center font-bold text-[#EDE9E0]/70 uppercase tracking-wider w-[20%]">
-                  Starter
+                <th className="p-4 text-center font-bold text-[#EDE9E0]/90 uppercase tracking-wider w-[20%]">
+                  Collaborate
+                  <span className="block text-[10px] font-mono text-[#FFB26A] mt-0.5 font-bold">
+                    $97/mo
+                  </span>
                 </th>
                 <th className="p-4 text-center font-bold text-[#FFB26A] uppercase tracking-wider w-[20%] bg-[#FFB26A]/8 border-x border-[#FFB26A]/25">
-                  Professional
-                  <span className="block text-xs font-black text-[#F4845F] mt-0.5 uppercase tracking-normal font-sans">
+                  Accelerate
+                  <span className="block text-[10px] font-mono text-[#FFB26A] font-bold">
+                    $297/mo
+                  </span>
+                  <span className="block text-[9px] font-black text-[#F4845F] mt-0.5 uppercase tracking-normal font-sans">
                     Most Popular
                   </span>
                 </th>
-                <th className="p-4 text-center font-bold text-[#EDE9E0]/70 uppercase tracking-wider w-[20%]">
-                  Enterprise
+                <th className="p-4 text-center font-bold text-[#EDE9E0]/90 uppercase tracking-wider w-[20%]">
+                  Dominate
+                  <span className="block text-[10px] font-mono text-[#FFB26A] mt-0.5 font-bold">
+                    $597/mo
+                  </span>
                 </th>
               </tr>
             </thead>
@@ -163,18 +172,18 @@ export default function PricingSection() {
               <tr className="bg-[#080808]/60">
                 <td className="p-4 font-bold text-[#EDE9E0]/50">Ready to get started?</td>
                 <td className="p-4 text-center">
-                  <button onClick={() => openModal("strategy")} className="px-4 py-2 rounded-lg bg-[#111] hover:bg-[#1a1a1a] text-[#EDE9E0]/70 hover:text-white font-bold border border-[#FFB26A]/20 tracking-wider uppercase text-[9px] cursor-pointer w-full transition-all">
-                    Get Starter
+                  <button onClick={() => openModal("software")} className="px-4 py-2 rounded-lg bg-[#111] hover:bg-[#1a1a1a] text-[#EDE9E0]/70 hover:text-white font-bold border border-[#FFB26A]/20 tracking-wider uppercase text-[9px] cursor-pointer w-full transition-all">
+                    Get Collaborate ($97)
                   </button>
                 </td>
                 <td className="p-4 text-center bg-[#FFB26A]/5 border-x border-[#FFB26A]/20">
-                  <button onClick={() => openModal("strategy")} className="px-4 py-2 rounded-lg bg-gradient-to-r from-[#FFB26A] to-[#F4845F] hover:from-[#F4845F] hover:to-[#E67049] text-[#080808] font-extrabold tracking-wider uppercase text-[9px] cursor-pointer w-full shadow-lg shadow-[#FFB26A]/20">
-                    Get Professional
+                  <button onClick={() => openModal("ero")} className="px-4 py-2 rounded-lg bg-gradient-to-r from-[#FFB26A] to-[#F4845F] hover:from-[#F4845F] hover:to-[#E67049] text-[#080808] font-extrabold tracking-wider uppercase text-[9px] cursor-pointer w-full shadow-lg shadow-[#FFB26A]/20">
+                    Get Accelerate ($297)
                   </button>
                 </td>
                 <td className="p-4 text-center">
-                  <button onClick={() => openModal("strategy")} className="px-4 py-2 rounded-lg bg-[#111] hover:bg-[#1a1a1a] text-[#EDE9E0]/70 hover:text-white font-bold border border-[#FFB26A]/20 tracking-wider uppercase text-[9px] cursor-pointer w-full transition-all">
-                    Get Enterprise
+                  <button onClick={() => openModal("bureau")} className="px-4 py-2 rounded-lg bg-[#111] hover:bg-[#1a1a1a] text-[#EDE9E0]/70 hover:text-white font-bold border border-[#FFB26A]/20 tracking-wider uppercase text-[9px] cursor-pointer w-full transition-all">
+                    Get Dominate ($597)
                   </button>
                 </td>
               </tr>
