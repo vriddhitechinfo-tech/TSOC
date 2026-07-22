@@ -123,7 +123,7 @@ export default function HeroSection() {
                   className="inline-flex items-center justify-center rounded-lg px-6 py-3.5 text-xs font-extrabold shadow-lg cursor-pointer uppercase tracking-wider transition-all duration-200"
                   style={{
                     backgroundColor: activeSlide.accentColor,
-                    color: "#0A0908",
+                    color: "#080808",
                   }}
                 >
                   {activeSlide.cta1}
@@ -132,11 +132,22 @@ export default function HeroSection() {
 
                 <button
                   onClick={() => openModal("demo")}
-                  className="inline-flex items-center justify-center rounded-lg border border-[#FFB26A]/20 bg-[#161412]/50 px-6 py-3.5 text-xs font-bold text-white hover:bg-[#161412] transition-all cursor-pointer uppercase tracking-wider"
+                  className="inline-flex items-center justify-center rounded-lg border border-[#FFB26A]/20 bg-[#161412]/50 px-6 py-3.5 text-xs font-bold text-white hover:bg-[#181818] transition-all cursor-pointer uppercase tracking-wider"
                 >
                   {activeSlide.cta2}
                 </button>
               </div>
+
+              {/* Warm micro-link */}
+              <p className="text-[11px] text-[#EDE9E0]/40">
+                Have questions?{" "}
+                <button
+                  onClick={() => openModal("strategy")}
+                  className="text-[#FFB26A] underline underline-offset-2 hover:text-[#F4845F] transition-colors cursor-pointer font-semibold"
+                >
+                  Chat with our team →
+                </button>
+              </p>
 
               {/* ─── Partner logos strip ─────────────────────────────── */}
               <div className="pt-2 space-y-2">

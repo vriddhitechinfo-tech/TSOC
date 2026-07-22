@@ -36,7 +36,7 @@ export default function TestimonialCarousel() {
       name: "Marcus K.",
       role: "Independent Tax Preparer",
       location: "Houston, TX",
-      avatar: "/hero_tax_professional.png",
+      avatar: "https://api.dicebear.com/9.x/initials/svg?seed=Marcus%20K&backgroundColor=1a1a1a&textColor=FFB26A&radius=12&size=80",
     },
     {
       quote:
@@ -52,7 +52,7 @@ export default function TestimonialCarousel() {
       name: "Sarah P.",
       role: "Firm Owner",
       location: "Tampa, FL",
-      avatar: "/about_community.png",
+      avatar: "https://api.dicebear.com/9.x/initials/svg?seed=Sarah%20P&backgroundColor=1a1a1a&textColor=FFB26A&radius=12&size=80",
     },
     {
       quote:

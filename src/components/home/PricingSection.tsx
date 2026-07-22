@@ -42,28 +42,27 @@ export default function PricingSection() {
   }, []);
 
   return (
-    <section ref={pricingRef} className="py-20 bg-[#161412]/15">
+    <section ref={pricingRef} className="py-20 bg-[#0A0A0A]/40">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-3 gsap-pricing-el">
           <span className="text-xs font-bold uppercase tracking-widest text-[#FFB26A] bg-[#161412]/50 border border-[#FFB26A]/20 px-3 py-1 rounded inline-block">
-            Pricing Matrices
+            Pricing
           </span>
-          <h2 className="font-display text-2xl sm:text-4xl font-semibold text-white tracking-normal uppercase">
+          <h2 className="font-display text-2xl sm:text-4xl font-black text-white tracking-tight">
             Simple, Transparent Plans
           </h2>
           <p className="text-xs text-[#EDE9E0]/50">
-            Pick the plan that matches your business — no hidden fees, no surprises.
+            Pick what fits your business. No hidden fees. No surprises.
           </p>
         </div>
 
-        {/* Comparison Table Container */}
-        <div className="gsap-pricing-el overflow-x-auto border border-[#FFB26A]/15 rounded-xl bg-[#161412]/20 backdrop-blur-md">
+        {/* Comparison Table */}
+        <div className="gsap-pricing-el overflow-x-auto border border-[#FFB26A]/15 rounded-xl bg-[#111]/30 backdrop-blur-md">
           <table className="w-full min-w-[700px] border-collapse text-left text-xs text-[#EDE9E0]/70">
-            {/* Sticky Table Header */}
-            <thead className="bg-[#0A0908] sticky top-16 z-20">
+            <thead className="bg-[#080808] sticky top-16 z-20">
               <tr>
                 <th className="p-4 font-bold text-[#EDE9E0]/50 uppercase tracking-wider w-[40%]">
-                  Capabilities & Benefits
+                  What&apos;s Included
                 </th>
                 <th className="p-4 text-center font-bold text-[#EDE9E0]/70 uppercase tracking-wider w-[20%]">
                   Starter
@@ -79,223 +78,103 @@ export default function PricingSection() {
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#161412]/60">
-              {/* Feature Rows */}
-              <tr className="hover:bg-[#161412]/20 transition-colors">
-                <td className="p-4 font-semibold text-white">
-                  Professional Tax Software Access
-                </td>
-                <td className="p-4 text-center text-[#FFB26A] font-bold font-mono">
-                  YES (Cloud)
-                </td>
-                <td className="p-4 text-center text-[#FFB26A] font-bold font-mono bg-[#FFB26A]/5 border-x border-[#FFB26A]/20">
-                  YES (Cloud)
-                </td>
-                <td className="p-4 text-center text-[#FFB26A] font-bold font-mono">
-                  YES (Enterprise)
-                </td>
+            <tbody className="divide-y divide-[#1a1a1a]/80">
+              <tr className="hover:bg-[#111]/30 transition-colors">
+                <td className="p-4 font-semibold text-white">Professional Tax Software Access</td>
+                <td className="p-4 text-center text-[#FFB26A]"><Check className="w-4 h-4 mx-auto" /></td>
+                <td className="p-4 text-center text-[#FFB26A] bg-[#FFB26A]/5 border-x border-[#FFB26A]/20"><Check className="w-4 h-4 mx-auto" /></td>
+                <td className="p-4 text-center text-[#FFB26A]"><Check className="w-4 h-4 mx-auto" /></td>
               </tr>
-              <tr className="hover:bg-[#161412]/20 transition-colors">
-                <td className="p-4 font-semibold text-white">
-                  Weekly Open Office Live Hours
-                </td>
-                <td className="p-4 text-center text-[#FFB26A] font-bold font-mono">
-                  YES
-                </td>
-                <td className="p-4 text-center text-[#FFB26A] font-bold font-mono bg-[#FFB26A]/5 border-x border-[#FFB26A]/20">
-                  YES
-                </td>
-                <td className="p-4 text-center text-[#FFB26A] font-bold font-mono">
-                  YES
-                </td>
+              <tr className="hover:bg-[#111]/30 transition-colors">
+                <td className="p-4 font-semibold text-white">Open Office Live Hours</td>
+                <td className="p-4 text-center text-[#FFB26A]"><Check className="w-4 h-4 mx-auto" /></td>
+                <td className="p-4 text-center text-[#FFB26A] bg-[#FFB26A]/5 border-x border-[#FFB26A]/20"><Check className="w-4 h-4 mx-auto" /></td>
+                <td className="p-4 text-center text-[#FFB26A]"><Check className="w-4 h-4 mx-auto" /></td>
               </tr>
-              <tr className="hover:bg-[#161412]/20 transition-colors">
-                <td className="p-4 font-semibold text-white">
-                  Software Walkthrough Guides
-                </td>
+              <tr className="hover:bg-[#111]/30 transition-colors">
+                <td className="p-4 font-semibold text-white">Software Walkthrough Guides</td>
                 <td className="p-4 text-center text-[#EDE9E0]/50">Foundational</td>
-                <td className="p-4 text-center text-white font-semibold bg-[#FFB26A]/5 border-x border-[#FFB26A]/20">
-                  Advanced
-                </td>
-                <td className="p-4 text-center text-white font-semibold">
-                  Advanced
-                </td>
+                <td className="p-4 text-center text-white font-semibold bg-[#FFB26A]/5 border-x border-[#FFB26A]/20">Advanced</td>
+                <td className="p-4 text-center text-white font-semibold">Advanced</td>
               </tr>
-              <tr className="hover:bg-[#161412]/20 transition-colors">
-                <td className="p-4 font-semibold text-white">
-                  ERO Support & Training
-                </td>
+              <tr className="hover:bg-[#111]/30 transition-colors">
+                <td className="p-4 font-semibold text-white">ERO Support &amp; Training</td>
                 <td className="p-4 text-center">
-                  <button
-                    onClick={() => openModal("strategy")}
-                    className="text-[10px] text-[#EDE9E0]/50 hover:text-[#FFB26A] transition-colors font-semibold underline underline-offset-2 cursor-pointer"
-                  >
-                    Contact Us
-                  </button>
+                  <button onClick={() => openModal("strategy")} className="text-[10px] text-[#FFB26A]/70 hover:text-[#FFB26A] transition-colors font-semibold underline underline-offset-2 cursor-pointer">Ask Us →</button>
                 </td>
-                <td className="p-4 text-center text-green-400 font-bold bg-[#FFB26A]/5 border-x border-[#FFB26A]/20">
-                  <Check className="w-4 h-4 mx-auto" />
-                </td>
-                <td className="p-4 text-center text-green-400 font-bold">
-                  <Check className="w-4 h-4 mx-auto" />
-                </td>
+                <td className="p-4 text-center text-green-400 font-bold bg-[#FFB26A]/5 border-x border-[#FFB26A]/20"><Check className="w-4 h-4 mx-auto" /></td>
+                <td className="p-4 text-center text-green-400 font-bold"><Check className="w-4 h-4 mx-auto" /></td>
               </tr>
-              <tr className="hover:bg-[#161412]/20 transition-colors">
-                <td className="p-4 font-semibold text-white">
-                  Add-on Services Guides
-                </td>
+              <tr className="hover:bg-[#111]/30 transition-colors">
+                <td className="p-4 font-semibold text-white">Add-on Services Guides</td>
                 <td className="p-4 text-center">
-                  <button
-                    onClick={() => openModal("strategy")}
-                    className="text-[10px] text-[#EDE9E0]/50 hover:text-[#FFB26A] transition-colors font-semibold underline underline-offset-2 cursor-pointer"
-                  >
-                    Contact Us
-                  </button>
+                  <button onClick={() => openModal("strategy")} className="text-[10px] text-[#FFB26A]/70 hover:text-[#FFB26A] transition-colors font-semibold underline underline-offset-2 cursor-pointer">Ask Us →</button>
                 </td>
-                <td className="p-4 text-center text-green-400 font-bold bg-[#FFB26A]/5 border-x border-[#FFB26A]/20">
-                  <Check className="w-4 h-4 mx-auto" />
-                </td>
-                <td className="p-4 text-center text-green-400 font-bold">
-                  <Check className="w-4 h-4 mx-auto" />
-                </td>
+                <td className="p-4 text-center text-green-400 font-bold bg-[#FFB26A]/5 border-x border-[#FFB26A]/20"><Check className="w-4 h-4 mx-auto" /></td>
+                <td className="p-4 text-center text-green-400 font-bold"><Check className="w-4 h-4 mx-auto" /></td>
               </tr>
-              <tr className="hover:bg-[#161412]/20 transition-colors">
-                <td className="p-4 font-semibold text-white">
-                  CRM Templates & Automations
-                </td>
+              <tr className="hover:bg-[#111]/30 transition-colors">
+                <td className="p-4 font-semibold text-white">CRM Templates &amp; Automations</td>
                 <td className="p-4 text-center">
-                  <button
-                    onClick={() => openModal("strategy")}
-                    className="text-[10px] text-[#EDE9E0]/50 hover:text-[#FFB26A] transition-colors font-semibold underline underline-offset-2 cursor-pointer"
-                  >
-                    Contact Us
-                  </button>
+                  <button onClick={() => openModal("strategy")} className="text-[10px] text-[#FFB26A]/70 hover:text-[#FFB26A] transition-colors font-semibold underline underline-offset-2 cursor-pointer">Ask Us →</button>
                 </td>
-                <td className="p-4 text-center text-green-400 font-bold bg-[#FFB26A]/5 border-x border-[#FFB26A]/20">
-                  <Check className="w-4 h-4 mx-auto" />
-                </td>
-                <td className="p-4 text-center text-green-400 font-bold">
-                  <Check className="w-4 h-4 mx-auto" />
-                </td>
+                <td className="p-4 text-center text-green-400 font-bold bg-[#FFB26A]/5 border-x border-[#FFB26A]/20"><Check className="w-4 h-4 mx-auto" /></td>
+                <td className="p-4 text-center text-green-400 font-bold"><Check className="w-4 h-4 mx-auto" /></td>
               </tr>
-              <tr className="hover:bg-[#161412]/20 transition-colors">
-                <td className="p-4 font-semibold text-white">
-                  Live Attorney Consultations
-                </td>
+              <tr className="hover:bg-[#111]/30 transition-colors">
+                <td className="p-4 font-semibold text-white">Live Attorney Consultations</td>
                 <td className="p-4 text-center">
-                  <button
-                    onClick={() => openModal("strategy")}
-                    className="text-[10px] text-[#EDE9E0]/50 hover:text-[#FFB26A] transition-colors font-semibold underline underline-offset-2 cursor-pointer"
-                  >
-                    Contact Us
-                  </button>
+                  <button onClick={() => openModal("strategy")} className="text-[10px] text-[#FFB26A]/70 hover:text-[#FFB26A] transition-colors font-semibold underline underline-offset-2 cursor-pointer">Ask Us →</button>
                 </td>
-                <td className="p-4 text-center text-green-400 font-bold bg-[#FFB26A]/5 border-x border-[#FFB26A]/20">
-                  <Check className="w-4 h-4 mx-auto" />
-                </td>
-                <td className="p-4 text-center text-green-400 font-bold">
-                  <Check className="w-4 h-4 mx-auto" />
-                </td>
+                <td className="p-4 text-center text-green-400 font-bold bg-[#FFB26A]/5 border-x border-[#FFB26A]/20"><Check className="w-4 h-4 mx-auto" /></td>
+                <td className="p-4 text-center text-green-400 font-bold"><Check className="w-4 h-4 mx-auto" /></td>
               </tr>
-              <tr className="hover:bg-[#161412]/20 transition-colors">
-                <td className="p-4 font-semibold text-white">
-                  Service Bureau Audits & Setup
-                </td>
+              <tr className="hover:bg-[#111]/30 transition-colors">
+                <td className="p-4 font-semibold text-white">Service Bureau Audits &amp; Setup</td>
                 <td className="p-4 text-center">
-                  <button
-                    onClick={() => openModal("strategy")}
-                    className="text-[10px] text-[#EDE9E0]/50 hover:text-[#FFB26A] transition-colors font-semibold underline underline-offset-2 cursor-pointer"
-                  >
-                    Learn More
+                  <button onClick={() => openModal("strategy")} className="text-[10px] text-[#FFB26A]/70 hover:text-[#FFB26A] transition-colors font-semibold underline underline-offset-2 cursor-pointer">Ask Us →</button>
+                </td>
+                <td className="p-4 text-center bg-[#FFB26A]/5 border-x border-[#FFB26A]/20">
+                  <button onClick={() => openModal("strategy")} className="text-[10px] text-[#FFB26A]/70 hover:text-[#FFB26A] transition-colors font-semibold underline underline-offset-2 cursor-pointer">Ask Us →</button>
+                </td>
+                <td className="p-4 text-center text-green-400 font-bold"><Check className="w-4 h-4 mx-auto" /></td>
+              </tr>
+              <tr className="hover:bg-[#111]/30 transition-colors">
+                <td className="p-4 font-semibold text-white">White-label Branding</td>
+                <td className="p-4 text-center">
+                  <button onClick={() => openModal("strategy")} className="text-[10px] text-[#FFB26A]/70 hover:text-[#FFB26A] transition-colors font-semibold underline underline-offset-2 cursor-pointer">Ask Us →</button>
+                </td>
+                <td className="p-4 text-center bg-[#FFB26A]/5 border-x border-[#FFB26A]/20">
+                  <button onClick={() => openModal("strategy")} className="text-[10px] text-[#FFB26A]/70 hover:text-[#FFB26A] transition-colors font-semibold underline underline-offset-2 cursor-pointer">Ask Us →</button>
+                </td>
+                <td className="p-4 text-center text-green-400 font-bold"><Check className="w-4 h-4 mx-auto" /></td>
+              </tr>
+              <tr className="hover:bg-[#111]/30 transition-colors">
+                <td className="p-4 font-semibold text-white">1-on-1 Advisor Strategy Calls</td>
+                <td className="p-4 text-center">
+                  <button onClick={() => openModal("strategy")} className="text-[10px] text-[#FFB26A]/70 hover:text-[#FFB26A] transition-colors font-semibold underline underline-offset-2 cursor-pointer">Ask Us →</button>
+                </td>
+                <td className="p-4 text-center bg-[#FFB26A]/5 border-x border-[#FFB26A]/20">
+                  <button onClick={() => openModal("strategy")} className="text-[10px] text-[#FFB26A]/70 hover:text-[#FFB26A] transition-colors font-semibold underline underline-offset-2 cursor-pointer">Ask Us →</button>
+                </td>
+                <td className="p-4 text-center text-green-400 font-bold"><Check className="w-4 h-4 mx-auto" /></td>
+              </tr>
+              {/* CTA row */}
+              <tr className="bg-[#080808]/60">
+                <td className="p-4 font-bold text-[#EDE9E0]/50">Ready to get started?</td>
+                <td className="p-4 text-center">
+                  <button onClick={() => openModal("strategy")} className="px-4 py-2 rounded-lg bg-[#111] hover:bg-[#1a1a1a] text-[#EDE9E0]/70 hover:text-white font-bold border border-[#FFB26A]/20 tracking-wider uppercase text-[9px] cursor-pointer w-full transition-all">
+                    Get Starter
                   </button>
                 </td>
                 <td className="p-4 text-center bg-[#FFB26A]/5 border-x border-[#FFB26A]/20">
-                  <button
-                    onClick={() => openModal("strategy")}
-                    className="text-[10px] text-[#EDE9E0]/50 hover:text-[#FFB26A] transition-colors font-semibold underline underline-offset-2 cursor-pointer"
-                  >
-                    Learn More
-                  </button>
-                </td>
-                <td className="p-4 text-center text-green-400 font-bold">
-                  <Check className="w-4 h-4 mx-auto" />
-                </td>
-              </tr>
-              <tr className="hover:bg-[#161412]/20 transition-colors">
-                <td className="p-4 font-semibold text-white">
-                  White-label Branding
-                </td>
-                <td className="p-4 text-center">
-                  <button
-                    onClick={() => openModal("strategy")}
-                    className="text-[10px] text-[#EDE9E0]/50 hover:text-[#FFB26A] transition-colors font-semibold underline underline-offset-2 cursor-pointer"
-                  >
-                    Learn More
-                  </button>
-                </td>
-                <td className="p-4 text-center bg-[#FFB26A]/5 border-x border-[#FFB26A]/20">
-                  <button
-                    onClick={() => openModal("strategy")}
-                    className="text-[10px] text-[#EDE9E0]/50 hover:text-[#FFB26A] transition-colors font-semibold underline underline-offset-2 cursor-pointer"
-                  >
-                    Learn More
-                  </button>
-                </td>
-                <td className="p-4 text-center text-green-400 font-bold">
-                  <Check className="w-4 h-4 mx-auto" />
-                </td>
-              </tr>
-              <tr className="hover:bg-[#161412]/20 transition-colors">
-                <td className="p-4 font-semibold text-white">
-                  1-on-1 Advisor Strategy Calls
-                </td>
-                <td className="p-4 text-center">
-                  <button
-                    onClick={() => openModal("strategy")}
-                    className="text-[10px] text-[#EDE9E0]/50 hover:text-[#FFB26A] transition-colors font-semibold underline underline-offset-2 cursor-pointer"
-                  >
-                    Learn More
-                  </button>
-                </td>
-                <td className="p-4 text-center bg-[#FFB26A]/5 border-x border-[#FFB26A]/20">
-                  <button
-                    onClick={() => openModal("strategy")}
-                    className="text-[10px] text-[#EDE9E0]/50 hover:text-[#FFB26A] transition-colors font-semibold underline underline-offset-2 cursor-pointer"
-                  >
-                    Learn More
-                  </button>
-                </td>
-                <td className="p-4 text-center text-green-400 font-bold">
-                  <Check className="w-4 h-4 mx-auto" />
-                </td>
-              </tr>
-              {/* Button actions row */}
-              <tr className="bg-[#0A0908]/60">
-                <td className="p-4 font-bold text-[#EDE9E0]/50">
-                  Get Started Today
-                </td>
-                <td className="p-4 text-center">
-                  <button
-                    onClick={() => openModal("strategy")}
-                    className="px-4 py-2 rounded-lg bg-[#161412] hover:bg-[#24201C] text-[#EDE9E0]/70 hover:text-white font-bold border border-[#FFB26A]/20 tracking-wider uppercase text-[9px] cursor-pointer w-full transition-all"
-                  >
-                    Choose Starter
-                  </button>
-                </td>
-                <td className="p-4 text-center bg-[#FFB26A]/5 border-x border-[#FFB26A]/20">
-                  <button
-                    onClick={() => openModal("strategy")}
-                    className="px-4 py-2 rounded-lg bg-gradient-to-r from-[#FFB26A] to-[#F4845F] hover:from-[#F4845F] hover:to-[#E67049] text-[#0A0908] font-extrabold tracking-wider uppercase text-[9px] cursor-pointer w-full shadow-lg shadow-[#FFB26A]/20"
-                  >
-                    Choose Professional
+                  <button onClick={() => openModal("strategy")} className="px-4 py-2 rounded-lg bg-gradient-to-r from-[#FFB26A] to-[#F4845F] hover:from-[#F4845F] hover:to-[#E67049] text-[#080808] font-extrabold tracking-wider uppercase text-[9px] cursor-pointer w-full shadow-lg shadow-[#FFB26A]/20">
+                    Get Professional
                   </button>
                 </td>
                 <td className="p-4 text-center">
-                  <button
-                    onClick={() => openModal("strategy")}
-                    className="px-4 py-2 rounded-lg bg-[#161412] hover:bg-[#24201C] text-[#EDE9E0]/70 hover:text-white font-bold border border-[#FFB26A]/20 tracking-wider uppercase text-[9px] cursor-pointer w-full transition-all"
-                  >
-                    Choose Enterprise
+                  <button onClick={() => openModal("strategy")} className="px-4 py-2 rounded-lg bg-[#111] hover:bg-[#1a1a1a] text-[#EDE9E0]/70 hover:text-white font-bold border border-[#FFB26A]/20 tracking-wider uppercase text-[9px] cursor-pointer w-full transition-all">
+                    Get Enterprise
                   </button>
                 </td>
               </tr>

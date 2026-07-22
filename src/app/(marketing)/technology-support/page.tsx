@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import { useModal } from "@/context/ModalContext";
-import { CheckCircle2, Play } from "lucide-react";
+import { CheckCircle2, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -10,6 +10,7 @@ import FaqAccordion from "@/components/ui/FaqAccordion";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import TiltCard from "@/components/motion/TiltCard";
 import VideoMeshBackground from "@/components/VideoMeshBackground";
+import { GOHIGHLEVEL_AFFILIATE_URL } from "@/lib/constants";
 
 export default function TechnologySupportPage() {
   const { openModal } = useModal();
@@ -84,6 +85,7 @@ export default function TechnologySupportPage() {
     });
 
     return () => {
+      ctx.revert();
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, []);
@@ -552,6 +554,34 @@ export default function TechnologySupportPage() {
           ))}
         </div>
 
+        {/* GoHighLevel Partner Banner & Affiliate Section */}
+        <div className="gsap-reveal bg-gradient-to-r from-[#141210] via-[#1A1714] to-[#141210] border border-[#FFB26A]/35 rounded-2xl p-8 sm:p-10 relative overflow-hidden shadow-2xl">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div className="space-y-3 text-left max-w-2xl">
+              <span className="inline-flex items-center space-x-1.5 rounded-full bg-[#FFB26A]/10 border border-[#FFB26A]/25 px-3 py-1 text-xs font-semibold text-[#FFB26A]">
+                <span>Official CRM Partner</span>
+              </span>
+              <h2 className="font-display text-2xl sm:text-3xl font-black text-white tracking-tight">
+                Powered by GoHighLevel — Tax Pro CRM Snapshot
+              </h2>
+              <p className="text-xs text-[#EDE9E0]/60 leading-relaxed">
+                Sign up for GoHighLevel using our partner link below to get TSOC&apos;s pre-configured tax preparer CRM snapshot — including client intake pipelines, document upload reminders, automated review campaigns, and calendar bookings out of the box.
+              </p>
+            </div>
+            <div className="shrink-0 flex flex-col sm:flex-row gap-3">
+              <a
+                href={GOHIGHLEVEL_AFFILIATE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-[#FFB26A] hover:bg-[#F4845F] text-[#080808] font-extrabold py-3.5 px-6 rounded-lg text-xs transition-all cursor-pointer uppercase tracking-wider whitespace-nowrap shadow-lg shadow-[#FFB26A]/15"
+              >
+                <span>Get GoHighLevel + TSOC Snapshot</span>
+                <ExternalLink className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+        </div>
+
         {/* Blueprint Stepper Details */}
         <div className="gsap-reveal glass-card p-8 md:p-12 relative overflow-hidden">
           <div className="text-center max-w-2xl mx-auto mb-10">
@@ -562,7 +592,7 @@ export default function TechnologySupportPage() {
           {/* Outer section gives scroll room for the pin; blueprintRef measures/positions cards */}
           <div className="pb-8">
             <div ref={blueprintRef}>
-              {automationSteps.map((s, idx) => (
+              {automationSteps.map((s) => (
                 <div key={s.num} className="blueprint-card">
                   {/* Card */}
                   <div className="rounded-2xl overflow-hidden border border-[#FFB26A]/30 bg-[#161412]/80 backdrop-blur shadow-2xl shadow-black/60">
@@ -607,7 +637,7 @@ export default function TechnologySupportPage() {
               Tax Offices Working Smarter
             </h2>
             <p className="text-xs text-[#EDE9E0]/35">
-              Professionals who've implemented automation and CRM systems, and now spend less time on admin and more time growing their businesses.
+              Professionals who&apos;ve implemented automation and CRM systems, and now spend less time on admin and more time growing their businesses.
             </p>
           </div>
           <TestimonialCarousel />

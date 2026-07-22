@@ -5,8 +5,11 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import TiltCard from "@/components/motion/TiltCard";
+import { useModal } from "@/context/ModalContext";
+import { MessageCircle } from "lucide-react";
 
 export default function AboutSection() {
+  const { openModal } = useModal();
   const aboutRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -48,23 +51,28 @@ export default function AboutSection() {
             <span className="text-xs font-bold uppercase tracking-wider text-[#FFB26A] bg-[#161412]/50 border border-[#FFB26A]/20 px-3 py-1 rounded inline-block">
               More Than Tax Software
             </span>
-            <h2 className="font-display text-2xl sm:text-4xl font-semibold text-white tracking-normal leading-tight uppercase">
+            <h2 className="font-display text-2xl sm:text-4xl font-black text-white tracking-tight leading-tight">
               Built for Tax Professionals. Focused on Your Growth.
             </h2>
             <p className="text-xs md:text-sm text-[#EDE9E0]/60 leading-relaxed">
-              We combine professional tax software, ERO setup, scaling
-              strategies, and live expert access — all in one community.
-              Whether you&apos;re filing your first return or running a
-              multi-location firm, we support your independence.
+              We combine tax software, ERO setup, scaling strategies, and live expert access — all in one community. Whether you&apos;re filing your first return or running a multi-location firm, we have your back.
             </p>
             <div className="pt-4 space-y-3">
               <h3 className="text-xs font-bold text-white uppercase tracking-wider">
                 Our Mission
               </h3>
               <p className="text-[#EDE9E0]/50 text-xs leading-relaxed">
-                A community where tax professionals access tools, education,
-                and opportunities to build sustainable businesses.
+                A community where tax professionals access the tools, education, and support they need to build sustainable, independent businesses.
               </p>
+            </div>
+            <div className="pt-2">
+              <button
+                onClick={() => openModal("strategy")}
+                className="inline-flex items-center gap-2 bg-[#FFB26A] hover:bg-[#F4845F] text-[#080808] font-extrabold py-2.5 px-5 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider"
+              >
+                <MessageCircle className="w-3.5 h-3.5" />
+                Talk to Our Team
+              </button>
             </div>
           </div>
 

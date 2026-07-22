@@ -2,24 +2,24 @@
 
 @layer base {
   :root {
-    --background: 20 15% 4%;
+    --background: 0 0% 3%;
     --foreground: 40 20% 91%;
-    --card: 20 12% 8%;
+    --card: 0 0% 6%;
     --card-foreground: 40 20% 91%;
-    --popover: 20 12% 8%;
+    --popover: 0 0% 6%;
     --popover-foreground: 40 20% 91%;
     --primary: 29 100% 71%;
-    --primary-foreground: 20 15% 4%;
-    --secondary: 20 10% 7%;
+    --primary-foreground: 0 0% 3%;
+    --secondary: 0 0% 5%;
     --secondary-foreground: 40 20% 91%;
-    --muted: 20 10% 7%;
-    --muted-foreground: 20 8% 50%;
+    --muted: 0 0% 5%;
+    --muted-foreground: 0 0% 50%;
     --accent: 15 88% 66%;
-    --accent-foreground: 20 15% 4%;
+    --accent-foreground: 0 0% 3%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 40 20% 91%;
-    --border: 20 10% 12%;
-    --input: 20 10% 12%;
+    --border: 0 0% 10%;
+    --input: 0 0% 10%;
     --ring: 18 100% 73%;
     --radius: 0.75rem;
   }
@@ -28,25 +28,24 @@
 /* ─── Typography System ─────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
-  background-color: #0A0908;
+  background-color: #080808;
   color: #EDE9E0;
-  /* Body font: DM Sans (Neue Haas Grotesk / Helvetica Neue alternative) */
   font-family: var(--font-body), ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
-  /* Bumped up from 16px so the whole rem-based type scale reads larger site-wide */
   font-size: 18px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Display Font: Poppins on all headings — bold, geometric, modern */
+/* Display Font: Poppins — bold, geometric, modern */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display), "Poppins", ui-sans-serif, system-ui, sans-serif;
-  line-height: 1.15;
+  font-weight: 800;
+  line-height: 1.12;
   letter-spacing: -0.02em;
 }
 
-/* Tailwind utility classes for the font system */
+/* Tailwind utilities for font system */
 .font-display {
   font-family: var(--font-display), "Poppins", ui-sans-serif, system-ui, sans-serif;
 }
@@ -55,9 +54,45 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-body), ui-sans-serif, "Helvetica Neue", Arial, sans-serif;
 }
 
-/* ─── Near-Black & Peach Glass Card ─────────────────────────────────── */
+/* ─── Section label pill — consistent across all pages ──────────── */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  background: rgba(255, 178, 106, 0.1);
+  border: 1px solid rgba(255, 178, 106, 0.25);
+  padding: 0.25rem 0.75rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #FFB26A;
+}
+
+/* ─── Warm CTA utility ───────────────────────────────────────────── */
+.cta-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  background-color: #FFB26A;
+  color: #080808;
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.75rem;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(255, 178, 106, 0.2);
+}
+.cta-primary:hover {
+  background-color: #F4845F;
+}
+
+/* ─── Near-Black & Peach Glass Card ─────────────────────────────── */
 .glass-card {
-  background: rgba(22, 20, 18, 0.65);
+  background: rgba(18, 18, 18, 0.65);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 178, 106, 0.15);
@@ -67,19 +102,19 @@ h1, h2, h3, h4, h5, h6 {
 
 .glass-card-hover:hover {
   border-color: rgba(255, 178, 106, 0.35);
-  background: rgba(30, 26, 23, 0.85);
+  background: rgba(26, 26, 26, 0.85);
   box-shadow: 0 10px 40px -15px rgba(255, 178, 106, 0.2);
   transform: translateY(-2px);
 }
 
 .glass-card-hover-emerald:hover {
   border-color: rgba(255, 178, 106, 0.35);
-  background: rgba(30, 26, 23, 0.85);
+  background: rgba(26, 26, 26, 0.85);
   box-shadow: 0 10px 40px -15px rgba(255, 178, 106, 0.2);
   transform: translateY(-2px);
 }
 
-/* ─── Peach shimmer animation ──────────────────────────────────────── */
+/* ─── Peach shimmer animation ──────────────────────────────────── */
 @keyframes gold-shimmer {
   0% { background-position: -200% center; }
   100% { background-position: 200% center; }
@@ -94,22 +129,31 @@ h1, h2, h3, h4, h5, h6 {
   animation: gold-shimmer 4s linear infinite;
 }
 
+/* ─── Fade-in page animation ────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease both;
+}
+
 /* ─── Custom Scrollbar ───────────────────────────────────────────── */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0A0908;
+  background: #080808;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #161412;
+  background: #222;
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #24201C;
+  background: #333;
 }
-

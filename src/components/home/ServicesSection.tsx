@@ -17,11 +17,11 @@ export default function ServicesSection() {
           <span className="text-xs font-bold uppercase tracking-widest text-[#FFB26A] bg-[#161412]/50 border border-[#FFB26A]/20 px-3 py-1 rounded inline-block">
             Business Support Pathways
           </span>
-          <h2 className="font-display text-2xl sm:text-4xl font-semibold text-white tracking-normal uppercase">
-            Choose Your Path
+          <h2 className="font-display text-2xl sm:text-4xl font-black text-white tracking-tight">
+            How We Help You Grow
           </h2>
           <p className="text-xs text-[#EDE9E0]/50">
-            Find the support level that fits where you are right now.
+            Find the right support for where you are right now.
           </p>
         </div>
 
@@ -31,7 +31,11 @@ export default function ServicesSection() {
               key={service.title}
               tilt={5}
               delay={(idx % 2) * 0.12}
-              className="flex flex-col justify-between glass-card glass-card-hover p-6 md:p-8"
+              className={`flex flex-col justify-between glass-card glass-card-hover p-6 md:p-8 ${
+                idx === 0
+                  ? "border-[#FFB26A]/40 bg-[#FFB26A]/5"
+                  : ""
+              }`}
             >
               <div className="space-y-6">
                 <div className="flex items-center justify-between">

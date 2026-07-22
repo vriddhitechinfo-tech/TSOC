@@ -33,7 +33,7 @@ export default function InteractiveModal() {
           className="absolute top-4 right-4 text-[#EDE9E0]/40 hover:text-[#FFB26A] transition-colors p-1.5 hover:bg-[#161412]/60 rounded-lg"
           aria-label="Close modal"
         >
-          <X className="w-4 h-4" />
+          <X className="w-4 h-4 cursor-pointer" />
         </button>
 
         {/* Content Area */}
