@@ -19,7 +19,7 @@ export default function NotFound() {
       
       <HelpCircle className="w-12 h-12 text-[#FFB26A] mb-6" />
       
-      <h1 className="text-4xl sm:text-5xl font-black text-white mb-4">
+      <h1 className="text-3xl sm:text-4xl font-black text-white mb-4">
         Lost in The Grid?
       </h1>
       

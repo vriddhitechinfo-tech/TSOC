@@ -51,7 +51,7 @@ export default function AboutPage() {
           <span className="inline-flex items-center rounded-full bg-[#FFB26A]/10 border border-[#FFB26A]/20 px-3 py-1 text-xs font-semibold text-[#FFB26A]">
             More Than Tax Software
           </span>
-          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight">
             Our Story &amp; Mission
           </h1>
           <p className="text-sm text-[#EDE9E0]/60 leading-relaxed">

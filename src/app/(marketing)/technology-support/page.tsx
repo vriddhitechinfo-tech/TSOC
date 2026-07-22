@@ -303,7 +303,7 @@ export default function TechnologySupportPage() {
               <span className="gsap-reveal inline-flex w-fit items-center rounded-full bg-[#FFB26A]/10 border border-[#FFB26A]/20 px-3 py-1 text-xs font-semibold text-[#FFB26A]">
                 CRM &amp; Automation Support
               </span>
-              <h1 className="gsap-reveal text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-snug text-white">
+              <h1 className="gsap-reveal text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-black tracking-tight leading-tight text-white">
                 Automate Your Operations.
               </h1>
               <p className="gsap-reveal text-sm text-[#EDE9E0]/55 leading-relaxed line-clamp-3">
