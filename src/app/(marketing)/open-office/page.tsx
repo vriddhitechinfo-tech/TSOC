@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { useModal } from "@/context/ModalContext";
 import {
   Users,
   Phone,
@@ -25,7 +24,6 @@ import TiltCard from "@/components/motion/TiltCard";
 import VideoMeshBackground from "@/components/VideoMeshBackground";
 
 export default function OpenOfficePage() {
-  const { openModal } = useModal();
   const [activeDay, setActiveDay] = useState("mon");
   const pageRef = useRef<HTMLDivElement>(null);
   const statsContainerRef = useRef<HTMLDivElement>(null);
@@ -110,7 +108,7 @@ export default function OpenOfficePage() {
       title: "Open Office Hours",
       desc: "Bring your active filing questions and get live support. We cover return walkthroughs, IRS updates, and complex form guidance in an open, collaborative format.",
       time: "9:30 AM EST",
-      pillar: "Filing Support",
+      pillar: "General Support",
       byDay: "MO",
     },
     {
@@ -125,9 +123,9 @@ export default function OpenOfficePage() {
     {
       id: "wed",
       dayName: "Wednesday",
-      title: "Feature Trainings",
-      desc: "Deep-dive training on software features, workflows, and platform updates. Walk away knowing how to use every tool to its full potential. Session recorded for members.",
-      time: "10:00 PM EST",
+      title: "Feature Trainings & Midnight Madness",
+      desc: "Deep-dive feature trainings at 10:00 PM EST, followed by Midnight Madness software training at 12:00 AM EST. Sessions recorded for members.",
+      time: "10:00 PM & 12:00 AM EST",
       pillar: "Software Training",
       byDay: "WE",
     },
@@ -146,30 +144,63 @@ export default function OpenOfficePage() {
       title: "Ask an Attorney",
       desc: "Live legal Q&A with our allied tax & corporate attorneys. Review business structure setups, contract compliance, and ERO regulations. *(Held on the 2nd Friday of each month. Guidance only, not legal representation.)*",
       time: "12:00 PM EST",
+      frequency: "2nd Friday of each month",
       pillar: "Legal & Entity Structure",
       byDay: "FR",
     },
   ];
 
   const communityBenefits = [
-    { name: "Live Office Hours", desc: "Join daily Zoom coworking sessions with direct advisor support.", icon: Users },
-    { name: "Tax Support Hotline", desc: "Get real-time help with complex returns and filing diagnostics.", icon: Phone },
-    { name: "Technology Training", desc: "Step-by-step CRM and intake setup walkthroughs each Tuesday.", icon: Settings },
-    { name: "Attorney Q&A Sessions", desc: "Ask compliance and legal structure questions directly.", icon: Scale },
-    { name: "Bookkeeping Guidance", desc: "Learn how to offer year-round bookkeeping services.", icon: BookOpen },
-    { name: "Wellness Resources", desc: "Manage tax-season stress with curated support.", icon: Heart },
-    { name: "Business Growth Workshops", desc: "Monthly sessions on client acquisition and brand growth.", icon: TrendingUp },
-    { name: "Networking Opportunities", desc: "Connect with EROs and allied professionals at member events.", icon: Globe },
+    {
+      name: "Live Office Hours",
+      desc: "Join daily Zoom coworking sessions with direct advisor support.",
+      icon: Users,
+    },
+    {
+      name: "Tax Support Hotline",
+      desc: "Get real-time help with complex returns and filing diagnostics.",
+      icon: Phone,
+    },
+    {
+      name: "CRM Implementation",
+      desc: "Step-by-step CRM and intake setup walkthroughs each Tuesday.",
+      icon: Settings,
+    },
+    {
+      name: "Attorney Q&A Sessions",
+      desc: "Ask compliance and legal structure questions directly.",
+      icon: Scale,
+    },
+    {
+      name: "Bookkeeping Guidance",
+      desc: "Learn how to offer year-round bookkeeping services.",
+      icon: BookOpen,
+    },
+    {
+      name: "Wellness Resources",
+      desc: "Manage tax-season stress with curated support.",
+      icon: Heart,
+    },
+    {
+      name: "Business Growth Workshops",
+      desc: "Monthly sessions on client acquisition and brand growth.",
+      icon: TrendingUp,
+    },
+    {
+      name: "Networking Opportunities",
+      desc: "Connect with EROs and allied professionals at member events.",
+      icon: Globe,
+    },
   ];
 
   const openOfficeFaqs = [
     {
       question: "Who can join the Open Office?",
-      answer: "The Open Office is open to tax professionals, bookkeepers, accountants, entrepreneurs, and small business owners who are members of TSOC. It's a daily workspace where you can get real answers, learn from experts, and connect with peers."
+      answer: "The Open Office is open to tax professionals, bookkeepers, accountants, entrepreneurs, and small business owners. Join live coworking sessions every weekday starting Monday at 9:30 AM EST at https://thesectorsopenoffice.com/."
     },
     {
       question: "Are sessions recorded?",
-      answer: "Yes! Tuesday (Tech Tuesday), Wednesday (Feature Trainings), Thursday (Tap In Thursday), and Friday (Ask an Attorney) sessions are recorded and available in the member portal. You can watch replays anytime."
+      answer: "Yes! Tuesday (Tech Tuesday at 2:00 PM EST), Wednesday (Feature Trainings at 10:00 PM EST & Midnight Madness at 12:00 AM EST), Thursday (Tap In Thursday at 3:00 PM EST), and Friday (Ask an Attorney on the 2nd Friday of each month at 12:00 PM EST) sessions are recorded and accessible anytime at https://thesectorsopenoffice.com/."
     },
     {
       question: "What can I ask the attorneys?",
@@ -177,7 +208,7 @@ export default function OpenOfficePage() {
     },
     {
       question: "Can I invite my team?",
-      answer: "Yes, depending on your membership tier. Enterprise members can register staff and sub-office agents into coworking sessions and software support blocks."
+      answer: "Yes! You can invite your staff, sub-office agents, and team members to join all live coworking sessions, software training blocks, and Q&A streams directly at https://thesectorsopenoffice.com/."
     }
   ];
 
@@ -185,6 +216,7 @@ export default function OpenOfficePage() {
 
   // Dynamic .ics calendar generator
   const downloadIcs = (item: typeof weeklySchedule[0]) => {
+    const rrule = item.id === "fri" ? "FREQ=MONTHLY;BYDAY=2FR" : `FREQ=WEEKLY;BYDAY=${item.byDay}`;
     const icsContent = [
       "BEGIN:VCALENDAR",
       "VERSION:2.0",
@@ -193,7 +225,7 @@ export default function OpenOfficePage() {
       `SUMMARY:The Sector of Collectives: ${item.title} (${item.dayName})`,
       `DESCRIPTION:Join our weekly live block. Topic: ${item.desc}`,
       `LOCATION:Zoom Link Provided in Portal`,
-      `RRULE:FREQ=WEEKLY;BYDAY=${item.byDay}`,
+      `RRULE:${rrule}`,
       "END:VEVENT",
       "END:VCALENDAR"
     ].join("\n");
@@ -236,24 +268,30 @@ export default function OpenOfficePage() {
                 The central heart of our ecosystem. Live coworking sessions every weekday — get real answers, join Zoom streams, and connect with peers and attorneys daily.
               </p>
               <div className="gsap-reveal flex flex-wrap gap-3 pt-4">
-                <button
-                  onClick={() => openModal("openoffice")}
-                  className="bg-[#FFB26A] hover:bg-[#F4845F] text-[#140A06] font-extrabold px-5 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer shadow-md"
+                <a
+                  href="https://thesectorsopenoffice.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#FFB26A] hover:bg-[#F4845F] text-[#140A06] font-extrabold px-5 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer shadow-md inline-block text-center"
                 >
                   Join Open Office Live
-                </button>
-                <button
-                  onClick={() => openModal("openoffice")}
-                  className="bg-[#161412] text-[#FFB26A] hover:text-white border border-[#FFB26A]/30 px-5 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer"
+                </a>
+                <a
+                  href="https://thesectorsopenoffice.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#161412] text-[#FFB26A] hover:text-white border border-[#FFB26A]/30 px-5 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer inline-block text-center"
                 >
                   Join Zoom Stream
-                </button>
-                <button
-                  onClick={() => openModal("openoffice")}
-                  className="bg-[#161412] text-[#EDE9E0]/70 hover:text-white border border-[#FFB26A]/20 px-5 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer"
+                </a>
+                <a
+                  href="https://thesectorsopenoffice.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#161412] text-[#EDE9E0]/70 hover:text-white border border-[#FFB26A]/20 px-5 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer inline-block text-center"
                 >
                   Ask Questions Live
-                </button>
+                </a>
               </div>
             </div>
 
@@ -470,6 +508,11 @@ export default function OpenOfficePage() {
                     <Clock className="w-3 h-3" />
                     {activeDaySchedule.time}
                   </span>
+                  {activeDaySchedule.frequency && (
+                    <span className="text-[10px] text-[#FFB26A] font-mono bg-[#FFB26A]/10 border border-[#FFB26A]/20 px-2 py-0.5 rounded">
+                      {activeDaySchedule.frequency}
+                    </span>
+                  )}
                 </div>
                 <h3 className="text-sm font-bold text-white uppercase tracking-wider leading-snug">{activeDaySchedule.title}</h3>
                 <p className="text-xs text-[#EDE9E0]/60 leading-relaxed">{activeDaySchedule.desc}</p>
@@ -500,12 +543,14 @@ export default function OpenOfficePage() {
                   <Plus className="w-3.5 h-3.5" />
                   Add to Calendar (.ics)
                 </button>
-                <button
-                  onClick={() => openModal("openoffice")}
-                  className="w-full bg-[#0A0908] border border-[#FFB26A]/30 text-[#EDE9E0]/70 hover:text-white font-bold py-2 px-4 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider"
+                <a
+                  href="https://thesectorsopenoffice.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-[#0A0908] border border-[#FFB26A]/30 text-[#EDE9E0]/70 hover:text-white font-bold py-2 px-4 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider text-center inline-block"
                 >
                   Access Stream Details
-                </button>
+                </a>
               </div>
             </div>
 
@@ -572,12 +617,14 @@ export default function OpenOfficePage() {
             </p>
           </div>
           <div className="shrink-0 flex items-center">
-            <button
-              onClick={() => openModal("openoffice")}
-              className="bg-[#FFB26A] hover:bg-[#F4845F] text-[#140A06] font-extrabold py-3.5 px-8 rounded-lg text-xs transition-all shadow-md cursor-pointer uppercase tracking-wider"
+            <a
+              href="https://thesectorsopenoffice.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#FFB26A] hover:bg-[#F4845F] text-[#140A06] font-extrabold py-3.5 px-8 rounded-lg text-xs transition-all shadow-md cursor-pointer uppercase tracking-wider inline-block text-center"
             >
               Get Started Now
-            </button>
+            </a>
           </div>
         </TiltCard>
       </div>

@@ -15,6 +15,9 @@ export default function EROEnablementPage() {
   const pageRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
 
+  const pipelineRef = useRef<HTMLDivElement>(null);
+  const pipelineLineRef = useRef<HTMLDivElement>(null);
+
   // Roadmap progress line draws itself as the timeline scrolls through view
   const { scrollYProgress } = useScroll({
     target: timelineRef,
@@ -27,33 +30,87 @@ export default function EROEnablementPage() {
       gsap.registerPlugin(ScrollTrigger);
     }
 
+    if (pageRef.current) {
+      const reveals = pageRef.current.querySelectorAll(".gsap-reveal");
+      gsap.fromTo(
+        reveals,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          stagger: 0.15,
+          scrollTrigger: {
+            trigger: pageRef.current,
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    }
+
+    return () => {
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
+  }, []);
+
+  // Operational pipeline: reversible scroll reveal per row
+  useEffect(() => {
+    if (!pipelineRef.current) return;
+    gsap.registerPlugin(ScrollTrigger);
+
     const ctx = gsap.context(() => {
-      // General reveals
-      if (pageRef.current) {
-        const reveals = pageRef.current.querySelectorAll(".gsap-reveal");
+      if (pipelineLineRef.current) {
         gsap.fromTo(
-          reveals,
-          { opacity: 0, y: 30 },
+          pipelineLineRef.current,
+          { scaleY: 0 },
           {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            ease: "power2.out",
-            stagger: 0.15,
+            scaleY: 1,
+            ease: "none",
             scrollTrigger: {
-              trigger: pageRef.current,
-              start: "top 85%",
-              toggleActions: "play none none none",
+              trigger: pipelineRef.current,
+              start: "top 70%",
+              end: "bottom 75%",
+              scrub: 0.6,
             },
           }
         );
       }
 
-    });
+      const rows = pipelineRef.current!.querySelectorAll(".pipeline-row");
+      rows.forEach((row) => {
+        const node = row.querySelector(".pipeline-node");
+        const connector = row.querySelector(".pipeline-connector");
+        const card = row.querySelector(".pipeline-card");
+        const fromX = row.getAttribute("data-side") === "right" ? 44 : -44;
 
-    return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
-    };
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: row,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+        });
+
+        if (node) {
+          tl.fromTo(node, { scale: 0 }, { scale: 1, duration: 0.4, ease: "back.out(2.5)" });
+        }
+        if (connector) {
+          tl.fromTo(connector, { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power2.out" }, "<0.1");
+        }
+        if (card) {
+          tl.fromTo(
+            card,
+            { opacity: 0, x: fromX, y: 16 },
+            { opacity: 1, x: 0, y: 0, duration: 0.5, ease: "power3.out" },
+            "<"
+          );
+        }
+      });
+    }, pipelineRef);
+
+    return () => ctx.revert();
   }, []);
 
   const roadmapSteps = [
@@ -84,6 +141,63 @@ export default function EROEnablementPage() {
     },
   ];
 
+  const pipelineSteps = [
+    {
+      num: "1",
+      time: "Instant",
+      title: "Client Capture",
+      accent: "gold" as const,
+      points: ["Web forms & Facebook intake", "Instant CRM assignment", "Real-time client dashboard update"],
+    },
+    {
+      num: "2",
+      time: "< 5 sec",
+      title: "Routing & Validation",
+      accent: "blue" as const,
+      points: ["Duplicate detection", "Client workload balancing", "Queue sync"],
+    },
+    {
+      num: "3",
+      time: "< 2 min",
+      title: "Secure SMS Intake Request",
+      accent: "emerald" as const,
+      points: ["Secure portal link", "Encrypted document upload", "Automated reminder sequences"],
+    },
+    {
+      num: "4",
+      time: "Same day",
+      title: "Client Assignment & Review",
+      accent: "gold" as const,
+      points: ["Task queue alert", "Slack / email notification", "Client review checklist"],
+    },
+    {
+      num: "5",
+      time: "Auto-looped",
+      title: "Filing Accepted & Loop",
+      accent: "blue" as const,
+      points: ["Review & e-file confirmation", "Automated year-round follow-up", "Client retention campaign"],
+      highlight: true,
+    },
+  ];
+
+  const PIPELINE_ACCENTS = {
+    gold: {
+      border: "border-l-[#FFB26A]",
+      text: "text-[#FFB26A]",
+      pill: "bg-gradient-to-r from-[#FFB26A] to-[#F4845F] text-[#080808]",
+    },
+    blue: {
+      border: "border-l-[#FFB26A]",
+      text: "text-[#FFB26A]",
+      pill: "bg-gradient-to-r from-[#FFB26A] to-[#FFB26A] text-[#080808]",
+    },
+    emerald: {
+      border: "border-l-[#FFB26A]",
+      text: "text-[#FFB26A]",
+      pill: "bg-gradient-to-r from-[#FFB26A] to-[#FFB26A] text-[#080808]",
+    },
+  };
+
   const eroFaqs = [
     {
       question: "What is an EFIN?",
@@ -104,7 +218,7 @@ export default function EROEnablementPage() {
   ];
 
   return (
-    <div ref={pageRef} className="relative overflow-hidden bg-[#0A0908] min-h-screen py-16 sm:py-10 animate-fade-in">
+    <div ref={pageRef} className="relative overflow-hidden bg-[#080808] min-h-screen py-16 sm:py-10 animate-fade-in">
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,178,106,0.08)_0%,transparent_60%)] pointer-events-none -z-10" />
 
@@ -112,18 +226,18 @@ export default function EROEnablementPage() {
         {/* Header Section */}
         <div className="gsap-reveal text-center max-w-3xl mx-auto space-y-4">
           <span className="inline-flex items-center rounded-full bg-[#FFB26A]/10 border border-[#FFB26A]/25 px-3 py-1 text-xs font-semibold text-[#FFB26A]">
-            ERO Support & Training
+            ERO Support &amp; Training
           </span>
-          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
-            Stop Splitting Fees. Become an Independent ERO.
+          <h1 className="font-display text-3xl sm:text-4xl font-black tracking-tight text-white leading-tight">
+            Keep 100% of Your Fees. Become an Independent ERO.
           </h1>
-          <p className="text-sm text-[#EDE9E0]/55 leading-relaxed">
-            Preparing taxes under another ERO or franchise can cost you 30% to 50% of your total revenue. Our ERO Enablement program guides you through the process of getting your EFIN and setting up your own company.
+          <p className="text-sm text-[#EDE9E0]/60 leading-relaxed">
+            Preparing taxes under another ERO or franchise can cost you 30% to 50% of your total revenue. Our ERO Enablement program guides you through getting your EFIN and setting up your own company.
           </p>
           <div className="pt-4">
             <button
               onClick={() => openModal("ero")}
-              className="inline-flex items-center justify-center rounded-lg bg-[#FFB26A] hover:bg-[#F4845F] text-[#140A06] font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
+              className="inline-flex items-center justify-center rounded-lg bg-[#FFB26A] hover:bg-[#F4845F] text-[#080808] font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
             >
               Book an ERO Consultation
             </button>
@@ -133,15 +247,84 @@ export default function EROEnablementPage() {
         {/* Interactive Fee Split Calculator */}
         <div className="gsap-reveal space-y-6">
           <div className="text-center max-w-xl mx-auto">
-            <h2 className="text-xl font-bold text-white uppercase tracking-wider">Fee-Split Calculator</h2>
+            <h2 className="font-display text-xl sm:text-2xl font-black text-white uppercase tracking-wider">Fee-Split Calculator</h2>
             <p className="text-xs text-[#EDE9E0]/50 mt-1">See how much revenue you stand to retain by acquiring your own EFIN credentials.</p>
           </div>
           <FeeCalculator />
         </div>
 
+        {/* Operational Pipeline Diagram */}
+        <div className="space-y-6">
+          <div className="text-center max-w-xl mx-auto">
+            <h2 className="font-display text-xl sm:text-2xl font-black text-white uppercase tracking-wider">Operational Pipeline Diagram</h2>
+            <p className="text-xs text-[#EDE9E0]/50 mt-1">Scroll to reveal each stage of the automated client lifecycle.</p>
+          </div>
+
+          <div ref={pipelineRef} className="relative py-6">
+            {/* Spine track */}
+            <div className="absolute left-5 lg:left-1/2 top-0 bottom-0 w-px lg:-translate-x-1/2 bg-white/10" />
+            {/* Spine progress */}
+            <div
+              ref={pipelineLineRef}
+              className="absolute left-5 lg:left-1/2 top-0 bottom-0 w-[3px] lg:-translate-x-1/2 origin-top rounded-full bg-gradient-to-b from-[#FFB26A] via-[#FFB26A] to-[#FFB26A]"
+              style={{ transform: "scaleY(0)" }}
+            />
+
+            <div className="space-y-14 lg:space-y-20">
+              {pipelineSteps.map((step, i) => {
+                const accent = PIPELINE_ACCENTS[step.accent];
+                const isRight = i % 2 === 1;
+                return (
+                  <div
+                    key={step.num}
+                    data-side={isRight ? "right" : "left"}
+                    className="pipeline-row relative lg:grid lg:grid-cols-2 lg:items-center"
+                  >
+                    {/* Numbered node on the spine */}
+                    <div className="pipeline-node absolute left-5 lg:left-1/2 top-6 lg:top-1/2 -translate-x-1/2 lg:-translate-y-1/2 z-10 h-9 w-9 rounded-full bg-[#080808] border-2 border-white/25 flex items-center justify-center text-sm font-bold text-white">
+                      {step.num}
+                    </div>
+
+                    {/* Connector arm (desktop only) */}
+                    <div
+                      className={`pipeline-connector hidden lg:block absolute top-1/2 h-px bg-white/15 -translate-y-1/2 w-14 ${
+                        isRight ? "left-1/2 origin-left" : "right-1/2 origin-right"
+                      }`}
+                    />
+
+                    {/* Card */}
+                    <div
+                      className={`pipeline-card glass-card glass-card-hover overflow-hidden border-l-4 ${accent.border} pl-14 lg:pl-0 lg:max-w-md ${
+                        isRight ? "lg:col-start-2 lg:ml-14" : "lg:col-start-1 lg:mr-14 lg:justify-self-end"
+                      } ${step.highlight ? "bg-gradient-to-br from-[#161412]/80 to-[#080808] ring-1 ring-[#FFB26A]/20" : ""}`}
+                    >
+                      <div className="p-6 space-y-4">
+                        <div className="flex items-center justify-between gap-3">
+                          <h3 className="text-sm font-bold text-white uppercase tracking-wider">{step.title}</h3>
+                          <span className={`shrink-0 text-xs font-bold px-3 py-1 rounded-full ${accent.pill}`}>
+                            {step.time}
+                          </span>
+                        </div>
+                        <ul className="space-y-2">
+                          {step.points.map((pt) => (
+                            <li key={pt} className="flex items-center gap-2 text-xs text-[#EDE9E0]/60">
+                              <CheckCircle2 className={`w-4 h-4 shrink-0 ${accent.text}`} />
+                              {pt}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
         {/* Benefits Grid */}
         <div>
-          <h2 className="gsap-reveal text-lg font-bold text-center text-white mb-12 uppercase tracking-wider">
+          <h2 className="gsap-reveal font-display text-xl sm:text-2xl font-black text-center text-white mb-12 uppercase tracking-wider">
             Why Transition to Your Own EFIN?
           </h2>
 
@@ -182,7 +365,7 @@ export default function EROEnablementPage() {
         {/* The Roadmap Timeline */}
         <div ref={timelineRef} className="glass-card p-8 md:p-12 mb-24 relative overflow-hidden">
           <div className="max-w-2xl mb-12 space-y-2">
-            <h2 className="text-xl sm:text-2xl font-bold text-white uppercase tracking-wider">How to Become an ERO: Step-by-Step</h2>
+            <h2 className="font-display text-xl sm:text-2xl font-black text-white uppercase tracking-wider">How to Become an ERO: Step-by-Step</h2>
             <p className="text-xs text-[#EDE9E0]/50">
               The IRS process can be confusing, taking anywhere from 4 to 8 weeks. We eliminate the guesswork with direct enablement support.
             </p>
@@ -267,13 +450,13 @@ export default function EROEnablementPage() {
 
         {/* Call to Action consultation details */}
         <div className="gsap-reveal text-center max-w-xl mx-auto space-y-4">
-          <h3 className="text-lg font-bold text-white uppercase tracking-wider">Ready to secure your independence?</h3>
+          <h3 className="font-display text-lg font-black text-white uppercase tracking-wider">Ready to secure your independence?</h3>
           <p className="text-xs text-[#EDE9E0]/50 leading-relaxed">
             Schedule an ERO application consultation. We will audit your pre-requisites and structure a timeline to get you approved before next tax season.
           </p>
           <button
             onClick={() => openModal("ero")}
-            className="bg-gradient-to-r from-[#FFB26A] to-[#F4845F] hover:from-[#F4845F] hover:to-[#E67049] text-[#140A06] font-extrabold py-2.5 px-6 rounded-lg text-xs transition-colors shadow-md mt-2 cursor-pointer uppercase tracking-wider"
+            className="bg-gradient-to-r from-[#FFB26A] to-[#F4845F] hover:from-[#F4845F] hover:to-[#E67049] text-[#080808] font-extrabold py-3 px-8 rounded-lg text-xs transition-colors shadow-md mt-2 cursor-pointer uppercase tracking-wider"
           >
             Start ERO Enablement Today
           </button>

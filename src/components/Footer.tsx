@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useModal } from "@/context/ModalContext";
 import { Mail, Phone, MessageSquare, ExternalLink, CalendarDays, Users } from "lucide-react";
 import Logo from "@/components/ui/Logo";
-import { GOHIGHLEVEL_AFFILIATE_URL } from "@/lib/constants";
 
 export default function Footer() {
   const { openModal } = useModal();
@@ -25,7 +24,6 @@ export default function Footer() {
     <footer className="bg-[#080808] text-[#EDE9E0]/50 py-12 mt-auto border-t border-[#FFB26A]/15">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-12">
-
           {/* Logo & Mission */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="flex items-center space-x-2">
@@ -35,24 +33,47 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-xs text-[#EDE9E0]/40 max-w-sm leading-relaxed">
-              We help tax professionals build independent businesses — with software, EFIN support, live community, and year-round guidance.
+              We help tax professionals build independent businesses — with
+              software, EFIN support, live community, and year-round guidance.
             </p>
             <div className="text-xs uppercase tracking-widest text-[#F4845F] font-bold">
-              Motto: <span className="font-display italic font-semibold text-sm normal-case tracking-normal text-[#FFB26A]">Connect</span> • <span className="font-display italic font-semibold text-sm normal-case tracking-normal text-[#FFB26A]">Create</span> • <span className="font-display font-semibold text-sm normal-case tracking-normal text-white">Conquer</span>
+              Motto:{" "}
+              <span className="font-display italic font-semibold text-sm normal-case tracking-normal text-[#FFB26A]">
+                Connect
+              </span>{" "}
+              •{" "}
+              <span className="font-display italic font-semibold text-sm normal-case tracking-normal text-[#FFB26A]">
+                Create
+              </span>{" "}
+              •{" "}
+              <span className="font-display font-semibold text-sm normal-case tracking-normal text-white">
+                Conquer
+              </span>
             </div>
 
             {/* Contact Options */}
             <div className="space-y-2 pt-2">
-              <h4 className="text-[10px] font-bold text-white uppercase tracking-wider">Reach Us</h4>
-              <a href="mailto:contact@tsoc.com" className="flex items-center gap-2 text-xs hover:text-[#FFB26A] transition-colors">
+              <h4 className="text-[10px] font-bold text-white uppercase tracking-wider">
+                Reach Us
+              </h4>
+              <a
+                href="mailto:contact@tsoc.com"
+                className="flex items-center gap-2 text-xs hover:text-[#FFB26A] transition-colors"
+              >
                 <Mail className="w-3.5 h-3.5 shrink-0" />
                 contact@tsoc.com
               </a>
-              <a href="tel:+15550000000" className="flex items-center gap-2 text-xs hover:text-[#FFB26A] transition-colors">
+              <a
+                href="tel:+15550000000"
+                className="flex items-center gap-2 text-xs hover:text-[#FFB26A] transition-colors"
+              >
                 <Phone className="w-3.5 h-3.5 shrink-0" />
                 (555) 000-0000
               </a>
-              <a href="sms:+15550000000" className="flex items-center gap-2 text-xs hover:text-[#FFB26A] transition-colors">
+              <a
+                href="sms:+15550000000"
+                className="flex items-center gap-2 text-xs hover:text-[#FFB26A] transition-colors"
+              >
                 <MessageSquare className="w-3.5 h-3.5 shrink-0" />
                 Send a Text
               </a>
@@ -61,73 +82,96 @@ export default function Footer() {
 
           {/* Solutions */}
           <div>
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4">Solutions</h4>
+            <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4">
+              Solutions
+            </h4>
             <ul className="space-y-2.5 text-xs">
               <li>
-                <Link href="/tax-software" className="hover:text-[#FFB26A] transition-colors">
+                <Link
+                  href="/tax-software"
+                  className="hover:text-[#FFB26A] transition-colors"
+                >
                   Tax Software Access
                 </Link>
               </li>
               <li>
-                <Link href="/tax-software" className="hover:text-[#FFB26A] transition-colors">
+                <Link
+                  href="/tax-software"
+                  className="hover:text-[#FFB26A] transition-colors"
+                >
                   Professional E-Filing
                 </Link>
               </li>
               <li>
-                <Link href="/technology-support" className="hover:text-[#FFB26A] transition-colors">
+                <Link
+                  href="/technology-support"
+                  className="hover:text-[#FFB26A] transition-colors"
+                >
                   Business Automation
                 </Link>
               </li>
               <li>
-                <Link href="/technology-support" className="hover:text-[#FFB26A] transition-colors">
+                <Link
+                  href="/technology-support"
+                  className="hover:text-[#FFB26A] transition-colors"
+                >
                   CRM Setup & Support
                 </Link>
               </li>
               <li>
-                <Link href="/revenue-expansion" className="hover:text-[#FFB26A] transition-colors">
+                <Link
+                  href="/revenue-expansion"
+                  className="hover:text-[#FFB26A] transition-colors"
+                >
                   Revenue Expansion
                 </Link>
-              </li>
-              <li>
-                <a
-                  href={GOHIGHLEVEL_AFFILIATE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1 hover:text-[#FFB26A] transition-colors"
-                >
-                  GoHighLevel CRM Partner
-                  <ExternalLink className="w-2.5 h-2.5 shrink-0 text-[#FFB26A]" />
-                </a>
               </li>
             </ul>
           </div>
 
           {/* Growth Programs */}
           <div>
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4">Growth Programs</h4>
+            <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4">
+              Growth Programs
+            </h4>
             <ul className="space-y-2.5 text-xs">
               <li>
-                <Link href="/ero-enablement" className="hover:text-[#FFB26A] transition-colors">
+                <Link
+                  href="/ero-enablement"
+                  className="hover:text-[#FFB26A] transition-colors"
+                >
                   Become an ERO
                 </Link>
               </li>
               <li>
-                <Link href="/ero-enablement" className="hover:text-[#FFB26A] transition-colors">
+                <Link
+                  href="/ero-enablement"
+                  className="hover:text-[#FFB26A] transition-colors"
+                >
                   EFIN Application Help
                 </Link>
               </li>
               <li>
-                <Link href="/service-bureau-growth" className="hover:text-[#FFB26A] transition-colors">
+                <Link
+                  href="/service-bureau-growth"
+                  className="hover:text-[#FFB26A] transition-colors"
+                >
                   Start a Service Bureau
                 </Link>
               </li>
               <li>
-                <Link href="/service-bureau-growth" className="hover:text-[#FFB26A] transition-colors">
+                <Link
+                  href="/service-bureau-growth"
+                  className="hover:text-[#FFB26A] transition-colors"
+                >
                   Service Bureau Mentorship
                 </Link>
               </li>
               <li>
-                <Link href="/open-office" className="hover:text-[#FFB26A] transition-colors flex items-center gap-1">
+                <Link
+                  href="/open-office"
+                  className="hover:text-[#FFB26A] transition-colors flex items-center gap-1"
+                >
                   <span className="h-1.5 w-1.5 rounded-full bg-[#FFB26A]" />
                   Join Open Office
                 </Link>
@@ -137,7 +181,9 @@ export default function Footer() {
 
           {/* Quick Actions */}
           <div>
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4">Quick Actions</h4>
+            <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4">
+              Quick Actions
+            </h4>
             <ul className="space-y-2.5 text-xs">
               <li>
                 <button
@@ -175,7 +221,10 @@ export default function Footer() {
                 </button>
               </li>
               <li>
-                <Link href="/about" className="hover:text-[#FFB26A] transition-colors">
+                <Link
+                  href="/about"
+                  className="hover:text-[#FFB26A] transition-colors"
+                >
                   About Our Team
                 </Link>
               </li>
@@ -184,11 +233,13 @@ export default function Footer() {
 
           {/* IRS Resources */}
           <div>
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4">IRS Resources</h4>
+            <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4">
+              IRS Resources
+            </h4>
             <ul className="space-y-2.5 text-xs">
               <li>
                 <a
-                  href="https://www.irs.gov/tax-professionals/become-an-authorized-e-file-provider"
+                  href="https://www.irs.gov/tax-professionals/e-file-provider-services"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1 hover:text-[#FFB26A] transition-colors"
@@ -261,9 +312,12 @@ export default function Footer() {
         {/* Newsletter & Copyright */}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
           <div className="w-full lg:w-auto">
-            <h4 className="text-xs font-bold text-white mb-1">Stay in the Loop</h4>
+            <h4 className="text-xs font-bold text-white mb-1">
+              Stay in the Loop
+            </h4>
             <p className="text-xs text-[#EDE9E0]/40 mb-4 max-w-md">
-              Tax tips, software updates, and community insights — sent to your inbox.
+              Tax tips, software updates, and community insights — sent to your
+              inbox.
             </p>
             <form onSubmit={handleSubscribe} className="flex gap-2 max-w-sm">
               <input
@@ -285,8 +339,14 @@ export default function Footer() {
           </div>
 
           <div className="text-xs text-[#EDE9E0]/30 text-center lg:text-right space-y-1">
-            <p>&copy; {new Date().getFullYear()} The Sector of Collectives. All rights reserved.</p>
-            <p>Professional tax software & community built for long-term independence.</p>
+            <p>
+              &copy; {new Date().getFullYear()} The Sector of Collectives. All
+              rights reserved.
+            </p>
+            <p>
+              Professional tax software & community built for long-term
+              independence.
+            </p>
           </div>
         </div>
       </div>
