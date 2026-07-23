@@ -8,6 +8,7 @@ import InteractiveModal from "@/components/InteractiveModal";
 import ExitIntentCTA from "@/components/ExitIntentCTA";
 import ParticleBackground from "@/components/ParticleBackground";
 import CursorGlow from "@/components/CursorGlow";
+import { Analytics } from "@vercel/analytics/next";
 
 // Display Font — Poppins: bold, geometric, modern for hero titles and headings
 const poppins = Poppins({
@@ -59,6 +60,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <ModalProvider>
+          <Analytics/>
           <ParticleBackground />
           <Navbar />
           <main className="flex-1 flex flex-col">
