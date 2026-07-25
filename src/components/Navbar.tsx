@@ -3,13 +3,12 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useModal } from "@/context/ModalContext";
 import { Menu, X, MessageCircle } from "lucide-react";
 import Logo from "@/components/ui/Logo";
+import { TALK_TO_TEAM_CALENDAR_LINK } from "@/lib/constants";
 
 export default function Navbar() {
   const pathname = usePathname();
-  const { openModal } = useModal();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navLinks = [
@@ -70,20 +69,24 @@ export default function Navbar() {
 
           {/* CTA / Action Buttons */}
           <div className="hidden xl:flex items-center gap-2 shrink-0">
-            <button
-              onClick={() => openModal("strategy")}
-              className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-[#FFB26A]/25 bg-transparent hover:bg-[#181818] text-[#EDE9E0]/70 hover:text-white px-3 py-2.5 text-[0.75rem] font-semibold transition-all cursor-pointer"
+            <a
+              href={TALK_TO_TEAM_CALENDAR_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-[#FFB26A]/25 bg-transparent hover:bg-[#181818] text-[#EDE9E0]/70 hover:text-white px-3 py-2.5 text-[0.75rem] font-semibold transition-all"
               aria-label="Contact us"
             >
               <MessageCircle className="w-3.5 h-3.5 text-[#FFB26A]" />
               <span>Talk to Us</span>
-            </button>
-            <button
-              onClick={() => openModal("strategy")}
-              className="inline-flex items-center justify-center rounded-lg bg-[#FFB26A] hover:bg-[#F4845F] text-[#080808] px-4 py-2.5 text-[0.8rem] font-extrabold shadow-md hover:shadow-[#FFB26A]/25 transition-all cursor-pointer uppercase tracking-wider whitespace-nowrap"
+            </a>
+            <a
+              href={TALK_TO_TEAM_CALENDAR_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-lg bg-[#FFB26A] hover:bg-[#F4845F] text-[#080808] px-4 py-2.5 text-[0.8rem] font-extrabold shadow-md hover:shadow-[#FFB26A]/25 transition-all uppercase tracking-wider whitespace-nowrap"
             >
               Book a Free Call
-            </button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -125,25 +128,25 @@ export default function Navbar() {
               </Link>
             ))}
             <div className="pt-4 px-3 flex flex-col gap-2">
-              <button
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  openModal("strategy");
-                }}
-                className="w-full text-center border border-[#FFB26A]/25 text-[#EDE9E0]/70 font-semibold py-3 px-4 rounded-lg text-sm transition-all cursor-pointer flex items-center justify-center gap-2"
+              <a
+                href={TALK_TO_TEAM_CALENDAR_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="w-full text-center border border-[#FFB26A]/25 text-[#EDE9E0]/70 font-semibold py-3 px-4 rounded-lg text-sm transition-all flex items-center justify-center gap-2"
               >
                 <MessageCircle className="w-4 h-4 text-[#FFB26A]" />
                 Talk to Us
-              </button>
-              <button
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  openModal("strategy");
-                }}
-                className="w-full text-center bg-[#FFB26A] hover:bg-[#F4845F] text-[#080808] font-extrabold py-3 px-4 rounded-lg text-sm transition-all cursor-pointer uppercase tracking-wider"
+              </a>
+              <a
+                href={TALK_TO_TEAM_CALENDAR_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="w-full text-center bg-[#FFB26A] hover:bg-[#F4845F] text-[#080808] font-extrabold py-3 px-4 rounded-lg text-sm transition-all uppercase tracking-wider inline-block"
               >
                 Book a Free Call
-              </button>
+              </a>
             </div>
           </div>
         </div>

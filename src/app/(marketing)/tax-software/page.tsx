@@ -11,6 +11,7 @@ import FaqAccordion from "@/components/ui/FaqAccordion";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import TiltCard from "@/components/motion/TiltCard";
 import VideoMeshBackground from "@/components/VideoMeshBackground";
+import { TAX_SOFTWARE_LOGIN_LINK, TALK_TO_TEAM_CALENDAR_LINK, SOFTWARE_RENEWAL_LINK } from "@/lib/constants";
 
 export default function TaxSoftwarePage() {
   const { openModal } = useModal();
@@ -190,12 +191,22 @@ export default function TaxSoftwarePage() {
                 >
                   See the Software in Action
                 </button>
-                <button
-                  onClick={() => openModal("strategy")}
-                  className="bg-[#161412] text-[#EDE9E0]/70 hover:text-white border border-[#FFB26A]/20 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer"
+                <a
+                  href={TALK_TO_TEAM_CALENDAR_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#161412] text-[#EDE9E0]/70 hover:text-white border border-[#FFB26A]/20 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all text-center"
                 >
                   Request a Live Demo
-                </button>
+                </a>
+                <a
+                  href={TAX_SOFTWARE_LOGIN_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#161412] text-[#FFB26A] hover:text-white border border-[#FFB26A]/30 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all text-center"
+                >
+                  Software Login
+                </a>
               </div>
             </div>
 

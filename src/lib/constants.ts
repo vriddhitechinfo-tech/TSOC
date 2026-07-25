@@ -1,8 +1,23 @@
 export const SITE_URL = "https://thesectortax.com"; // Placeholder URL
 export const SITE_NAME = "The Sector of Collectives";
-export const OPEN_OFFICE_ZOOM_LINK = "https://app.zoom.us/wc/86404449181/join";
+export const OPEN_OFFICE_ZOOM_LINK = "https://us06web.zoom.us/j/86404449181";
 export const DEFAULT_TITLE = "The Sector of Collectives | Professional Tax Software & Community";
 export const DEFAULT_DESCRIPTION = "Helping tax professionals launch, grow, and scale profitable tax businesses. Keep more revenue, build better systems, and create year-round income.";
+
+// External links
+export const TAX_SOFTWARE_LOGIN_LINK = "https://thesectorofcollectives.com";
+export const ERO_ENABLEMENT_LINK = "https://thesectorofcollectives.com/home-page-ero";
+export const OPEN_OFFICE_COMMUNITY_LINK = "https://3gpntud5my1ne29yzqjt.app.clientclub.net/communities/groups/thesectorsopenofficecommunity/home?invite=6a5fb4036d84e6df961d8ca0";
+export const TALK_TO_TEAM_CALENDAR_LINK = "https://api.leadconnectorhq.com/widget/booking/FNnajUXQvGzaXwHhYAH5";
+export const OPEN_OFFICE_MAIN_FUNNEL = "https://thesectorsopenoffice.com/the-open-office";
+export const TECH_TUESDAY_LINK = "https://thesectorsopenoffice.com/tech-tuesday";
+export const MIDNIGHT_MADNESS_LINK = "https://midnight.thesectoropenoffice.com/midnight-madness-optin";
+export const TAP_IN_THURSDAY_LINK = "https://tap-inthursday.thesectoropenoffice.com/home-page";
+export const WAITLIST_LINK = "https://thesectorsopenoffice.com/waitlist_openoffice";
+export const FEEDBACK_LINK = "https://thesectorofcollectives.com/feedback";
+export const SOFTWARE_RENEWAL_LINK = "https://thesectorsopenoffice.com/software-renewal";
+export const PHONE_NUMBER = "404-975-2969";
+export const PHONE_LINK = "tel:+14049752969";
 
 export const NAV_LINKS = [
   { name: "Home", href: "/" },

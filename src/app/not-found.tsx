@@ -2,11 +2,10 @@
 
 import React from "react";
 import Link from "next/link";
-import { useModal } from "@/context/ModalContext";
 import { HelpCircle } from "lucide-react";
+import { TALK_TO_TEAM_CALENDAR_LINK } from "@/lib/constants";
 
 export default function NotFound() {
-  const { openModal } = useModal();
 
   return (
     <div className="relative overflow-hidden bg-[#1C0F0A] min-h-[70vh] flex flex-col items-center justify-center py-20 px-4 text-center">
@@ -34,12 +33,14 @@ export default function NotFound() {
         >
           Return to Dashboard
         </Link>
-        <button
-          onClick={() => openModal("strategy")}
+        <a
+          href={TALK_TO_TEAM_CALENDAR_LINK}
+          target="_blank"
+          rel="noopener noreferrer"
           className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-[#1C0F0A] border border-[#FFB26A]/20 hover:border-[#FFB26A] text-[#EDE9E0]/70 hover:text-white font-bold py-3 px-6 text-xs transition-colors cursor-pointer uppercase tracking-wider"
         >
           Book a Strategy Call
-        </button>
+        </a>
       </div>
     </div>
   );

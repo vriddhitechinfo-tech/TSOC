@@ -5,8 +5,7 @@ import Link from "next/link";
 import { Video, MessageCircleQuestion, ArrowRight } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useModal } from "@/context/ModalContext";
-import { OPEN_OFFICE_ZOOM_LINK } from "@/lib/constants";
+import { OPEN_OFFICE_ZOOM_LINK, OPEN_OFFICE_MAIN_FUNNEL, OPEN_OFFICE_COMMUNITY_LINK } from "@/lib/constants";
 
 const DAYS = [
   { short: "Mon", title: "Open Office Hours" },
@@ -17,7 +16,6 @@ const DAYS = [
 ];
 
 export default function OpenOfficeSpotlight() {
-  const { openModal } = useModal();
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -84,12 +82,14 @@ export default function OpenOfficeSpotlight() {
             </div>
 
             <div className="gsap-oo-el flex flex-col sm:flex-row flex-wrap gap-3 pt-4">
-              <button
-                onClick={() => openModal("openoffice")}
+              <a
+                href={OPEN_OFFICE_MAIN_FUNNEL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-[#FFB26A] hover:bg-[#F4845F] text-[#140A06] font-extrabold px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer shadow-md"
               >
                 Join Open Office Live
-              </button>
+              </a>
               <a
                 href={OPEN_OFFICE_ZOOM_LINK}
                 target="_blank"
@@ -99,13 +99,15 @@ export default function OpenOfficeSpotlight() {
                 <Video className="w-3.5 h-3.5" />
                 Join Zoom
               </a>
-              <button
-                onClick={() => openModal("openoffice")}
+              <a
+                href={OPEN_OFFICE_COMMUNITY_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-transparent hover:bg-[#2A160E]/60 text-[#EDE9E0]/70 hover:text-white border border-[#FFB26A]/15 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer"
               >
                 <MessageCircleQuestion className="w-3.5 h-3.5" />
                 Ask Questions Live
-              </button>
+              </a>
             </div>
 
             <Link

@@ -22,6 +22,15 @@ import FaqAccordion from "@/components/ui/FaqAccordion";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import TiltCard from "@/components/motion/TiltCard";
 import VideoMeshBackground from "@/components/VideoMeshBackground";
+import {
+  OPEN_OFFICE_MAIN_FUNNEL,
+  OPEN_OFFICE_ZOOM_LINK,
+  OPEN_OFFICE_COMMUNITY_LINK,
+  TECH_TUESDAY_LINK,
+  MIDNIGHT_MADNESS_LINK,
+  TAP_IN_THURSDAY_LINK,
+  TALK_TO_TEAM_CALENDAR_LINK,
+} from "@/lib/constants";
 
 export default function OpenOfficePage() {
   const [activeDay, setActiveDay] = useState("mon");
@@ -196,11 +205,11 @@ export default function OpenOfficePage() {
   const openOfficeFaqs = [
     {
       question: "Who can join the Open Office?",
-      answer: "The Open Office is open to tax professionals, bookkeepers, accountants, entrepreneurs, and small business owners. Join live coworking sessions every weekday starting Monday at 9:30 AM EST at https://thesectorsopenoffice.com/."
+      answer: "The Open Office is open to tax professionals, bookkeepers, accountants, entrepreneurs, and small business owners. Join live coworking sessions every weekday starting Monday at 9:30 AM EST at https://thesectorsopenoffice.com/the-open-office"
     },
     {
       question: "Are sessions recorded?",
-      answer: "Yes! Tuesday (Tech Tuesday at 2:00 PM EST), Wednesday (Feature Trainings at 10:00 PM EST & Midnight Madness at 12:00 AM EST), Thursday (Tap In Thursday at 3:00 PM EST), and Friday (Ask an Attorney on the 2nd Friday of each month at 12:00 PM EST) sessions are recorded and accessible anytime at https://thesectorsopenoffice.com/."
+      answer: "Yes! Tuesday (Tech Tuesday at 2:00 PM EST), Wednesday (Feature Trainings at 10:00 PM EST & Midnight Madness at 12:00 AM EST), Thursday (Tap In Thursday at 3:00 PM EST), and Friday (Ask an Attorney on the 2nd Friday of each month at 12:00 PM EST) sessions are recorded and accessible anytime at https://thesectorsopenoffice.com/the-open-office"
     },
     {
       question: "What can I ask the attorneys?",
@@ -208,7 +217,7 @@ export default function OpenOfficePage() {
     },
     {
       question: "Can I invite my team?",
-      answer: "Yes! You can invite your staff, sub-office agents, and team members to join all live coworking sessions, software training blocks, and Q&A streams directly at https://thesectorsopenoffice.com/."
+      answer: "Yes! You can invite your staff, sub-office agents, and team members to join all live coworking sessions, software training blocks, and Q&A streams directly at https://thesectorsopenoffice.com/the-open-office"
     }
   ];
 
@@ -269,7 +278,7 @@ export default function OpenOfficePage() {
               </p>
               <div className="gsap-reveal flex flex-wrap gap-3 pt-4">
                 <a
-                  href="https://thesectorsopenoffice.com/"
+                  href={OPEN_OFFICE_MAIN_FUNNEL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-[#FFB26A] hover:bg-[#F4845F] text-[#140A06] font-extrabold px-5 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer shadow-md inline-block text-center"
@@ -277,7 +286,7 @@ export default function OpenOfficePage() {
                   Join Open Office Live
                 </a>
                 <a
-                  href="https://thesectorsopenoffice.com/"
+                  href={OPEN_OFFICE_ZOOM_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-[#161412] text-[#FFB26A] hover:text-white border border-[#FFB26A]/30 px-5 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer inline-block text-center"
@@ -285,7 +294,7 @@ export default function OpenOfficePage() {
                   Join Zoom Stream
                 </a>
                 <a
-                  href="https://thesectorsopenoffice.com/"
+                  href={OPEN_OFFICE_COMMUNITY_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-[#161412] text-[#EDE9E0]/70 hover:text-white border border-[#FFB26A]/20 px-5 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer inline-block text-center"
@@ -544,7 +553,12 @@ export default function OpenOfficePage() {
                   Add to Calendar (.ics)
                 </button>
                 <a
-                  href="https://thesectorsopenoffice.com/"
+                  href={
+                    activeDaySchedule.id === "tue" ? TECH_TUESDAY_LINK
+                    : activeDaySchedule.id === "wed" ? MIDNIGHT_MADNESS_LINK
+                    : activeDaySchedule.id === "thu" ? TAP_IN_THURSDAY_LINK
+                    : OPEN_OFFICE_ZOOM_LINK
+                  }
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full bg-[#0A0908] border border-[#FFB26A]/30 text-[#EDE9E0]/70 hover:text-white font-bold py-2 px-4 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider text-center inline-block"
@@ -618,7 +632,7 @@ export default function OpenOfficePage() {
           </div>
           <div className="shrink-0 flex items-center">
             <a
-              href="https://thesectorsopenoffice.com/"
+              href={OPEN_OFFICE_COMMUNITY_LINK}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#FFB26A] hover:bg-[#F4845F] text-[#140A06] font-extrabold py-3.5 px-8 rounded-lg text-xs transition-all shadow-md cursor-pointer uppercase tracking-wider inline-block text-center"
