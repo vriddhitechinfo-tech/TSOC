@@ -36,7 +36,7 @@ export default function TestimonialCarousel() {
       name: "Marcus K.",
       role: "Independent Tax Preparer",
       location: "Houston, TX",
-      avatar: "https://api.dicebear.com/9.x/initials/svg?seed=Marcus%20K&backgroundColor=1a1a1a&textColor=FFB26A&radius=12&size=80",
+      avatar: "/avatar_james.png",
     },
     {
       quote:
@@ -44,7 +44,7 @@ export default function TestimonialCarousel() {
       name: "Alicia R.",
       role: "Multi-Location Firm Owner",
       location: "Chicago, IL",
-      avatar: "/avatar_sarah.png",
+      avatar: "/avatar_tasha.png",
     },
     {
       quote:
@@ -52,7 +52,7 @@ export default function TestimonialCarousel() {
       name: "Sarah P.",
       role: "Firm Owner",
       location: "Tampa, FL",
-      avatar: "https://api.dicebear.com/9.x/initials/svg?seed=Sarah%20P&backgroundColor=1a1a1a&textColor=FFB26A&radius=12&size=80",
+      avatar: "/avatar_sarah.png",
     },
     {
       quote:
@@ -72,14 +72,15 @@ export default function TestimonialCarousel() {
     },
   ];
 
-
   // Duplicate the list to create a seamless looping marquee
   const doubledTestimonials = [...testimonials, ...testimonials];
 
   return (
     <div className="w-full relative overflow-hidden py-4 select-none">
       {/* CSS keyframe styles for infinite translation */}
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
         @keyframes marquee {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
@@ -92,7 +93,9 @@ export default function TestimonialCarousel() {
         .animate-marquee-infinite:hover {
           animation-play-state: paused;
         }
-      `}} />
+      `,
+        }}
+      />
 
       {/* Marquee Wrapper Row — masked so cards actually dissolve at the edges
           instead of being hard-clipped by the container */}

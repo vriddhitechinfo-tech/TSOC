@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useModal } from "@/context/ModalContext";
 import { Mail, Phone, MessageSquare, ExternalLink, CalendarDays, Users } from "lucide-react";
-import { PHONE_NUMBER, PHONE_LINK, TALK_TO_TEAM_CALENDAR_LINK, SOFTWARE_RENEWAL_LINK, OPEN_OFFICE_COMMUNITY_LINK, ERO_ENABLEMENT_LINK, TAX_SOFTWARE_LOGIN_LINK } from "@/lib/constants";
+import { PHONE_NUMBER, PHONE_LINK, TALK_TO_TEAM_CALENDAR_LINK, SOFTWARE_RENEWAL_LINK, OPEN_OFFICE_COMMUNITY_LINK, ERO_ENABLEMENT_LINK, TAX_SOFTWARE_LOGIN_LINK, SUPPORT_EMAIL, EMAIL_LINK } from "@/lib/constants";
 import Logo from "@/components/ui/Logo";
 
 export default function Footer() {
@@ -58,11 +58,11 @@ export default function Footer() {
                 Reach Us
               </h4>
               <a
-                href="mailto:contact@tsoc.com"
+                href={EMAIL_LINK}
                 className="flex items-center gap-2 text-xs hover:text-[#FFB26A] transition-colors"
               >
                 <Mail className="w-3.5 h-3.5 shrink-0" />
-                contact@tsoc.com
+                {SUPPORT_EMAIL}
               </a>
               <a
                 href={PHONE_LINK}
