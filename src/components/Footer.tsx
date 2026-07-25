@@ -206,15 +206,13 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a
-                  href={TALK_TO_TEAM_CALENDAR_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 hover:text-[#FFB26A] transition-colors"
+                <button
+                  onClick={() => openModal("demo")}
+                  className="flex items-center gap-1.5 hover:text-[#FFB26A] transition-colors cursor-pointer text-left"
                 >
                   <CalendarDays className="w-3 h-3 shrink-0 text-[#FFB26A]" />
                   Request a Demo
-                </a>
+                </button>
               </li>
               <li>
                 <a

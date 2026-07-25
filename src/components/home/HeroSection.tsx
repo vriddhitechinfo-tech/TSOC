@@ -8,6 +8,7 @@ import { useModal } from "@/context/ModalContext";
 import { useHeroSlider } from "@/hooks/useHeroSlider";
 import { heroSlides } from "@/data/homeData";
 import VideoMeshBackground from "@/components/VideoMeshBackground";
+import { OPEN_OFFICE_COMMUNITY_LINK, TAX_SOFTWARE_LOGIN_LINK, OPEN_OFFICE_MAIN_FUNNEL } from "@/lib/constants";
 
 /* ─── Inline partner-logo pill ─────────────────────────────────── */
 function PartnerBadge({
@@ -118,24 +119,78 @@ export default function HeroSection() {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-3 pt-1">
-                <button
-                  onClick={() => openModal("strategy")}
-                  className="inline-flex items-center justify-center rounded-lg px-6 py-3.5 text-xs font-extrabold shadow-lg cursor-pointer uppercase tracking-wider transition-all duration-200"
-                  style={{
-                    backgroundColor: activeSlide.accentColor,
-                    color: "#080808",
-                  }}
-                >
-                  {activeSlide.cta1}
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </button>
+                {currentSlide === 0 ? (
+                  <a
+                    href={OPEN_OFFICE_COMMUNITY_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-lg px-6 py-3.5 text-xs font-extrabold shadow-lg cursor-pointer uppercase tracking-wider transition-all duration-200 text-center"
+                    style={{
+                      backgroundColor: activeSlide.accentColor,
+                      color: "#080808",
+                    }}
+                  >
+                    {activeSlide.cta1}
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </a>
+                ) : currentSlide === 1 ? (
+                  <a
+                    href={TAX_SOFTWARE_LOGIN_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-lg px-6 py-3.5 text-xs font-extrabold shadow-lg cursor-pointer uppercase tracking-wider transition-all duration-200 text-center"
+                    style={{
+                      backgroundColor: activeSlide.accentColor,
+                      color: "#080808",
+                    }}
+                  >
+                    {activeSlide.cta1}
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </a>
+                ) : (
+                  <button
+                    onClick={() => {
+                      if (currentSlide === 2) openModal("ero");
+                      else if (currentSlide === 3) openModal("bureau");
+                      else openModal("strategy");
+                    }}
+                    className="inline-flex items-center justify-center rounded-lg px-6 py-3.5 text-xs font-extrabold shadow-lg cursor-pointer uppercase tracking-wider transition-all duration-200 text-center"
+                    style={{
+                      backgroundColor: activeSlide.accentColor,
+                      color: "#080808",
+                    }}
+                  >
+                    {activeSlide.cta1}
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </button>
+                )}
 
-                <button
-                  onClick={() => openModal("demo")}
-                  className="inline-flex items-center justify-center rounded-lg border border-[#FFB26A]/20 bg-[#161412]/50 px-6 py-3.5 text-xs font-bold text-white hover:bg-[#181818] transition-all cursor-pointer uppercase tracking-wider"
-                >
-                  {activeSlide.cta2}
-                </button>
+                {currentSlide === 0 ? (
+                  <a
+                    href={OPEN_OFFICE_COMMUNITY_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-lg border border-[#FFB26A]/20 bg-[#161412]/50 px-6 py-3.5 text-xs font-bold text-white hover:bg-[#181818] transition-all cursor-pointer uppercase tracking-wider text-center"
+                  >
+                    {activeSlide.cta2}
+                  </a>
+                ) : currentSlide === 3 ? (
+                  <a
+                    href={OPEN_OFFICE_MAIN_FUNNEL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-lg border border-[#FFB26A]/20 bg-[#161412]/50 px-6 py-3.5 text-xs font-bold text-white hover:bg-[#181818] transition-all cursor-pointer uppercase tracking-wider text-center"
+                  >
+                    {activeSlide.cta2}
+                  </a>
+                ) : (
+                  <button
+                    onClick={() => openModal("demo")}
+                    className="inline-flex items-center justify-center rounded-lg border border-[#FFB26A]/20 bg-[#161412]/50 px-6 py-3.5 text-xs font-bold text-white hover:bg-[#181818] transition-all cursor-pointer uppercase tracking-wider text-center"
+                  >
+                    {activeSlide.cta2}
+                  </button>
+                )}
               </div>
 
               {/* Warm micro-link */}

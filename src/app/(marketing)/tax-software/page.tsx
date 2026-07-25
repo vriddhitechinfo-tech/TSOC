@@ -185,20 +185,20 @@ export default function TaxSoftwarePage() {
                 tax business with zero limits.
               </p>
               <div className="gsap-reveal flex flex-col sm:flex-row gap-4 pt-4">
-                <button
-                  onClick={() => openModal("demo")}
-                  className="bg-[#FFB26A] hover:bg-[#F4845F] text-[#140A06] font-extrabold px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer shadow-md"
-                >
-                  See the Software in Action
-                </button>
                 <a
-                  href={TALK_TO_TEAM_CALENDAR_LINK}
+                  href={TAX_SOFTWARE_LOGIN_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#161412] text-[#EDE9E0]/70 hover:text-white border border-[#FFB26A]/20 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all text-center"
+                  className="bg-[#FFB26A] hover:bg-[#F4845F] text-[#140A06] font-extrabold px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer shadow-md text-center flex items-center justify-center"
+                >
+                  See the Software in Action
+                </a>
+                <button
+                  onClick={() => openModal("demo")}
+                  className="bg-[#161412] text-[#EDE9E0]/70 hover:text-white border border-[#FFB26A]/20 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all text-center cursor-pointer flex items-center justify-center"
                 >
                   Request a Live Demo
-                </a>
+                </button>
                 <a
                   href={TAX_SOFTWARE_LOGIN_LINK}
                   target="_blank"

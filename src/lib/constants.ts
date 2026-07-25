@@ -5,7 +5,7 @@ export const DEFAULT_TITLE = "The Sector of Collectives | Professional Tax Softw
 export const DEFAULT_DESCRIPTION = "Helping tax professionals launch, grow, and scale profitable tax businesses. Keep more revenue, build better systems, and create year-round income.";
 
 // External links
-export const TAX_SOFTWARE_LOGIN_LINK = "https://thesectorofcollectives.com";
+export const TAX_SOFTWARE_LOGIN_LINK = "https://www.mytaxoffice.com/main/pro/TheSectorofCollectives_Login.php";
 export const ERO_ENABLEMENT_LINK = "https://thesectorofcollectives.com/home-page-ero";
 export const OPEN_OFFICE_COMMUNITY_LINK = "https://3gpntud5my1ne29yzqjt.app.clientclub.net/communities/groups/thesectorsopenofficecommunity/home?invite=6a5fb4036d84e6df961d8ca0";
 export const TALK_TO_TEAM_CALENDAR_LINK = "https://api.leadconnectorhq.com/widget/booking/FNnajUXQvGzaXwHhYAH5";
