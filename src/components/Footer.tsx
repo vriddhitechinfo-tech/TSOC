@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useModal } from "@/context/ModalContext";
 import { Mail, Phone, MessageSquare, ExternalLink, CalendarDays, Users } from "lucide-react";
+import { PHONE_NUMBER, PHONE_LINK, TALK_TO_TEAM_CALENDAR_LINK, SOFTWARE_RENEWAL_LINK, OPEN_OFFICE_COMMUNITY_LINK, ERO_ENABLEMENT_LINK, TAX_SOFTWARE_LOGIN_LINK } from "@/lib/constants";
 import Logo from "@/components/ui/Logo";
 
 export default function Footer() {
@@ -64,14 +65,14 @@ export default function Footer() {
                 contact@tsoc.com
               </a>
               <a
-                href="tel:+15550000000"
+                href={PHONE_LINK}
                 className="flex items-center gap-2 text-xs hover:text-[#FFB26A] transition-colors"
               >
                 <Phone className="w-3.5 h-3.5 shrink-0" />
-                (555) 000-0000
+                {PHONE_NUMBER}
               </a>
               <a
-                href="sms:+15550000000"
+                href={`sms:+14049752969`}
                 className="flex items-center gap-2 text-xs hover:text-[#FFB26A] transition-colors"
               >
                 <MessageSquare className="w-3.5 h-3.5 shrink-0" />
@@ -87,12 +88,14 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-xs">
               <li>
-                <Link
-                  href="/tax-software"
+                <a
+                  href={TAX_SOFTWARE_LOGIN_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:text-[#FFB26A] transition-colors"
                 >
                   Tax Software Access
-                </Link>
+                </a>
               </li>
               <li>
                 <Link
@@ -136,20 +139,24 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-xs">
               <li>
-                <Link
-                  href="/ero-enablement"
+                <a
+                  href={ERO_ENABLEMENT_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:text-[#FFB26A] transition-colors"
                 >
                   Become an ERO
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  href="/ero-enablement"
+                <a
+                  href={ERO_ENABLEMENT_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:text-[#FFB26A] transition-colors"
                 >
                   EFIN Application Help
-                </Link>
+                </a>
               </li>
               <li>
                 <Link
@@ -168,13 +175,15 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/open-office"
+                <a
+                  href={OPEN_OFFICE_COMMUNITY_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:text-[#FFB26A] transition-colors flex items-center gap-1"
                 >
                   <span className="h-1.5 w-1.5 rounded-full bg-[#FFB26A]" />
                   Join Open Office
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
@@ -186,39 +195,47 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-xs">
               <li>
-                <button
-                  onClick={() => openModal("strategy")}
-                  className="flex items-center gap-1.5 hover:text-[#FFB26A] transition-colors text-left cursor-pointer"
+                <a
+                  href={TALK_TO_TEAM_CALENDAR_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 hover:text-[#FFB26A] transition-colors"
                 >
                   <CalendarDays className="w-3 h-3 shrink-0 text-[#FFB26A]" />
                   Book a Free Call
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => openModal("demo")}
-                  className="flex items-center gap-1.5 hover:text-[#FFB26A] transition-colors text-left cursor-pointer"
+                <a
+                  href={TALK_TO_TEAM_CALENDAR_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 hover:text-[#FFB26A] transition-colors"
                 >
                   <CalendarDays className="w-3 h-3 shrink-0 text-[#FFB26A]" />
                   Request a Demo
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => openModal("openoffice")}
-                  className="flex items-center gap-1.5 hover:text-[#FFB26A] transition-colors text-left cursor-pointer"
+                <a
+                  href={OPEN_OFFICE_COMMUNITY_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 hover:text-[#FFB26A] transition-colors"
                 >
                   <Users className="w-3 h-3 shrink-0 text-[#FFB26A]" />
                   Join Open Office
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => openModal("partner")}
-                  className="hover:text-[#FFB26A] transition-colors text-left cursor-pointer"
+                <a
+                  href={SOFTWARE_RENEWAL_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#FFB26A] transition-colors"
                 >
-                  Become a Partner
-                </button>
+                  Software Renewal
+                </a>
               </li>
               <li>
                 <Link

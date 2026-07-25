@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { useModal } from "@/context/ModalContext";
 import { DollarSign, Award, Sliders, Building, CheckCircle2 } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -9,9 +8,9 @@ import { motion, useScroll, useSpring } from "framer-motion";
 import FeeCalculator from "@/components/FeeCalculator";
 import FaqAccordion from "@/components/ui/FaqAccordion";
 import TiltCard from "@/components/motion/TiltCard";
+import { ERO_ENABLEMENT_LINK } from "@/lib/constants";
 
 export default function EROEnablementPage() {
-  const { openModal } = useModal();
   const pageRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
 
@@ -235,12 +234,14 @@ export default function EROEnablementPage() {
             Preparing taxes under another ERO or franchise can cost you 30% to 50% of your total revenue. Our ERO Enablement program guides you through the process of getting your EFIN and setting up your own company.
           </p>
           <div className="pt-4">
-            <button
-              onClick={() => openModal("ero")}
+            <a
+              href={ERO_ENABLEMENT_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-lg bg-[#FFB26A] hover:bg-[#F4845F] text-[#080808] font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
             >
               Book an ERO Consultation
-            </button>
+            </a>
           </div>
         </div>
 
@@ -454,12 +455,14 @@ export default function EROEnablementPage() {
           <p className="text-xs text-[#EDE9E0]/50 leading-relaxed">
             Schedule an ERO application consultation. We will audit your pre-requisites and structure a timeline to get you approved before next tax season.
           </p>
-          <button
-            onClick={() => openModal("ero")}
-            className="bg-gradient-to-r from-[#FFB26A] to-[#F4845F] hover:from-[#F4845F] hover:to-[#E67049] text-[#080808] font-extrabold py-3 px-8 rounded-lg text-xs transition-colors shadow-md mt-2 cursor-pointer uppercase tracking-wider"
+          <a
+            href={ERO_ENABLEMENT_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-gradient-to-r from-[#FFB26A] to-[#F4845F] hover:from-[#F4845F] hover:to-[#E67049] text-[#080808] font-extrabold py-3 px-8 rounded-lg text-xs transition-colors shadow-md mt-2 cursor-pointer uppercase tracking-wider inline-block"
           >
             Start ERO Enablement Today
-          </button>
+          </a>
         </div>
       </div>
     </div>
