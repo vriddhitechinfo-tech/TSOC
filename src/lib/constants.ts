@@ -18,6 +18,8 @@ export const FEEDBACK_LINK = "https://thesectorofcollectives.com/feedback";
 export const SOFTWARE_RENEWAL_LINK = "https://thesectorsopenoffice.com/software-renewal";
 export const PHONE_NUMBER = "404-975-2969";
 export const PHONE_LINK = "tel:+14049752969";
+export const SUPPORT_EMAIL = "support@thesectorofcollectives.com";
+export const EMAIL_LINK = "mailto:support@thesectorofcollectives.com";
 
 export const NAV_LINKS = [
   { name: "Home", href: "/" },
