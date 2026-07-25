@@ -15,11 +15,11 @@ export default function InteractiveModal() {
       onClick={closeModal}
     >
       <div
-        className="relative w-full max-w-4xl bg-[#161412] border border-[#FFB26A]/30 overflow-hidden rounded-xl shadow-2xl transition-all duration-300 transform scale-100 h-[92vh] max-h-[850px] flex flex-col no-scrollbar"
+        className="relative w-full max-w-4xl bg-[#161412] border border-[#FFB26A]/30 overflow-hidden rounded-xl shadow-2xl transition-all duration-300 transform scale-100 h-[88vh] max-h-[780px] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Top Bar */}
-        <div className="flex items-center justify-between px-5 py-3 border-b border-[#FFB26A]/20 bg-[#0F0D0C] shrink-0 no-scrollbar">
+        <div className="flex items-center justify-between px-5 py-3 border-b border-[#FFB26A]/20 bg-[#0F0D0C] shrink-0">
           <div className="flex items-center gap-2">
             <span className="h-2 w-2 rounded-full bg-[#FFB26A] animate-pulse" />
             <h3 className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider">
@@ -45,18 +45,17 @@ export default function InteractiveModal() {
           </div>
         </div>
 
-        {/* Embedded Calendar Booking Iframe with Hidden Scrollbar */}
-        <div className="flex-1 w-full h-full bg-[#161412] relative overflow-hidden no-scrollbar">
+        {/* Embedded Calendar Booking Iframe Container - Scrollable without visible scrollbar */}
+        <div className="flex-1 w-full h-full bg-[#161412] relative overflow-hidden">
           <iframe
             src={bookingUrl}
             title="Schedule a Call with Eve's Collaborations Team"
-            scrolling="no"
-            className="w-full h-full border-0 no-scrollbar"
+            className="h-full border-0"
             style={{
-              width: "100%",
+              width: "calc(100% + 24px)",
               height: "100%",
               border: "none",
-              overflow: "hidden",
+              marginRight: "-24px",
             }}
           />
         </div>
