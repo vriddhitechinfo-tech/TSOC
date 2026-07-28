@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useModal } from "@/context/ModalContext";
-import { TALK_TO_TEAM_CALENDAR_LINK } from "@/lib/constants";
+import { CONNECT_TO_SECTOR_LINK } from "@/lib/constants";
 
 export function useModalForm() {
   const { isOpen, modalType, closeModal } = useModal();
@@ -22,6 +22,6 @@ export function useModalForm() {
     isOpen,
     modalType,
     closeModal,
-    bookingUrl: TALK_TO_TEAM_CALENDAR_LINK,
+    bookingUrl: CONNECT_TO_SECTOR_LINK,
   };
 }

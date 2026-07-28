@@ -10,21 +10,21 @@ export interface QuizQuestion {
 
 export const defaultQuestions: QuizQuestion[] = [
   {
-    id: "efin",
-    text: "Do you have an EFIN?",
-    options: [
-      { label: "Yes, I have an EFIN", value: "yes", weight: "ero" },
-      { label: "No, preparing under someone else", value: "no", weight: "sub" },
-      { label: "New Tax Preparer", value: "new", weight: "starter" },
-    ],
-  },
-  {
     id: "volume",
     text: "How many tax returns does your office/team file annually?",
     options: [
       { label: "1 to 50 returns", value: "low", weight: "starter" },
       { label: "50 to 250 returns", value: "mid", weight: "ero" },
       { label: "250+ returns or multiple preparers", value: "high", weight: "bureau" },
+    ],
+  },
+  {
+    id: "efin",
+    text: "Do you have an EFIN?",
+    options: [
+      { label: "Yes, I have an EFIN", value: "yes", weight: "ero" },
+      { label: "No, preparing under someone else", value: "no", weight: "sub" },
+      { label: "New Tax Preparer", value: "new", weight: "starter" },
     ],
   },
   {
@@ -53,6 +53,12 @@ export function useStageQuiz(questions: QuizQuestion[] = defaultQuestions) {
     const currentQ = questions[step];
     setAnswers((prev) => ({ ...prev, [currentQ.id]: option.weight }));
     setStep((prev) => prev + 1);
+  };
+
+  const prevStep = () => {
+    if (step > 0) {
+      setStep((prev) => prev - 1);
+    }
   };
 
   const resetQuiz = () => {
@@ -97,6 +103,7 @@ export function useStageQuiz(questions: QuizQuestion[] = defaultQuestions) {
     questions,
     answers,
     handleOptionSelect,
+    prevStep,
     resetQuiz,
     getRecommendation,
   };

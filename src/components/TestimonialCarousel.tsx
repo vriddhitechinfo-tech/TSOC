@@ -36,7 +36,7 @@ export default function TestimonialCarousel() {
       name: "Marcus K.",
       role: "Independent Tax Preparer",
       location: "Houston, TX",
-      avatar: "/avatar_james.png",
+      avatar: "/avatar_marcus.png",
     },
     {
       quote:
@@ -44,7 +44,7 @@ export default function TestimonialCarousel() {
       name: "Alicia R.",
       role: "Multi-Location Firm Owner",
       location: "Chicago, IL",
-      avatar: "/avatar_tasha.png",
+      avatar: "/avatar_alicia.png",
     },
     {
       quote:

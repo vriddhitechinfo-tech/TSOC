@@ -201,6 +201,36 @@ export const servicePathways: ServicePathway[] = [
     modalType: "bureau",
     link: "/service-bureau-growth",
   },
+  {
+    title: "Add-on Services",
+    desc: "Offer bookkeeping, credit coaching, business registration, and referrals. Earn year-round revenue beyond tax season.",
+    bestFor: ["All Tax Offices", "Accounting Firms", "Growth-minded Pros"],
+    includes: [
+      "Bookkeeping & payroll strategies",
+      "Credit repair & financial coaching tools",
+      "Business registration & LLC filing guide",
+      "Banking & financial referral setup",
+      "Year-round client retainer models",
+    ],
+    ctaText: "Explore Add-on Services",
+    modalType: "strategy",
+    link: "/revenue-expansion",
+  },
+  {
+    title: "CRM & Automation",
+    desc: "Automate your office. Set up automated client intake, calendar scheduling, and email follow-ups so your team spends less time on admin.",
+    bestFor: ["Growing Firms", "Multi-preparer Offices", "Service Bureaus"],
+    includes: [
+      "Automated client intake pipelines",
+      "Calendar & appointment scheduling",
+      "Encrypted document collection",
+      "SMS & email client reminders",
+      "Centralized office console integration",
+    ],
+    ctaText: "Set Up Your Workflow",
+    modalType: "technology",
+    link: "/technology-support",
+  },
 ];
 
 export const homepageFaqs = [

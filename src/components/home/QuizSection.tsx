@@ -40,17 +40,20 @@ export default function QuizSection() {
   return (
     <section
       ref={quizRef}
-      className="py-12 bg-[#161412]/20 border-y border-[#FFB26A]/10"
+      className="py-16 sm:py-20 bg-[#0F0D0C]/60 border-y border-[#FFB26A]/10 relative overflow-hidden"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-4">
-        <h2 className="text-lg font-bold text-white uppercase tracking-wider">
+      {/* Background radial glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,178,106,0.03)_0%,transparent_70%)] pointer-events-none -z-10" />
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-3">
+        <h2 className="font-display text-xl sm:text-3xl font-black text-white uppercase tracking-tight">
           What stage is your tax business at?
         </h2>
-        <p className="text-xs text-[#EDE9E0]/50 max-w-md mx-auto">
+        <p className="text-xs sm:text-sm text-[#EDE9E0]/60 max-w-lg mx-auto leading-relaxed">
           Take our 30-second router quiz to pinpoint the exact software setup
           and mentorship support suited for your team.
         </p>
-        <div className="pt-4">
+        <div className="pt-6">
           <StageQuiz />
         </div>
       </div>
