@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, RefreshCw, Check } from "lucide-react";
+import { ArrowRight, ArrowLeft, RefreshCw, Check } from "lucide-react";
 import { useStageQuiz } from "@/hooks/useStageQuiz";
 
 export default function StageQuiz() {
@@ -10,6 +10,7 @@ export default function StageQuiz() {
     step,
     questions,
     handleOptionSelect,
+    prevStep,
     resetQuiz,
     getRecommendation,
   } = useStageQuiz();
@@ -29,9 +30,20 @@ export default function StageQuiz() {
       {step < questions.length ? (
         <div className="space-y-6">
           <div className="flex items-center justify-between border-b border-[#FFB26A]/10 pb-4">
-            <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#FFB26A] bg-[#FFB26A]/10 border border-[#FFB26A]/30 px-3 py-1 rounded-md">
-              Step {step + 1} of {questions.length}
-            </span>
+            <div className="flex items-center gap-3">
+              {step > 0 && (
+                <button
+                  onClick={prevStep}
+                  className="text-xs text-[#FFB26A] hover:text-white transition-colors flex items-center gap-1 font-semibold cursor-pointer"
+                >
+                  <ArrowLeft className="w-3.5 h-3.5" />
+                  Back
+                </button>
+              )}
+              <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#FFB26A] bg-[#FFB26A]/10 border border-[#FFB26A]/30 px-3 py-1 rounded-md">
+                Step {step + 1} of {questions.length}
+              </span>
+            </div>
             <span className="text-xs text-[#EDE9E0]/40 font-semibold uppercase tracking-wider">
               Business Router
             </span>

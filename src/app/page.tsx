@@ -18,17 +18,17 @@ export default function Home() {
       {/* 2. About Section (Who TSOC Is & What We Do) */}
       <AboutSection />
 
-      {/* 3. Interactive Business Stage Quiz Router */}
+      {/* 3. The Collective Growth Ecosystem (6 Program Pathways) */}
+      <ServicesSection />
+
+      {/* 4. Interactive Business Stage Quiz Router */}
       <QuizSection />
 
-      {/* 4. Animated Stat Counters Banner */}
+      {/* 5. Animated Stat Counters Banner */}
       <StatsTickerSection />
 
-      {/* 5. Trust Signals */}
+      {/* 6. Trust Signals */}
       <TrustSection />
-
-      {/* 6. The Collective Growth Ecosystem (6 Program Pathways) */}
-      <ServicesSection />
 
       {/* 8. Membership Comparison Table */}
       <PricingSection />
