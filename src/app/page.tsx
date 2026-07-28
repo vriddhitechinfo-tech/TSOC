@@ -4,7 +4,6 @@ import QuizSection from "@/components/home/QuizSection";
 import StatsTickerSection from "@/components/home/StatsTickerSection";
 import AboutSection from "@/components/home/AboutSection";
 import TrustSection from "@/components/TrustSection";
-import EcosystemSection from "@/components/home/EcosystemSection";
 import ServicesSection from "@/components/home/ServicesSection";
 import PricingSection from "@/components/home/PricingSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
@@ -16,22 +15,19 @@ export default function Home() {
       {/* 1. Hero Carousel */}
       <HeroSection />
 
-      {/* 2. Interactive Business Stage Quiz Router */}
+      {/* 2. About Section (Who TSOC Is & What We Do) */}
+      <AboutSection />
+
+      {/* 3. Interactive Business Stage Quiz Router */}
       <QuizSection />
 
-      {/* 3. Animated Stat Counters Banner */}
+      {/* 4. Animated Stat Counters Banner */}
       <StatsTickerSection />
-
-      {/* 4. About Section */}
-      <AboutSection />
 
       {/* 5. Trust Signals */}
       <TrustSection />
 
-      {/* 6. Pinned Card Stack Ecosystem Section */}
-      <EcosystemSection />
-
-      {/* 7. Services Grid */}
+      {/* 6. The Collective Growth Ecosystem (6 Program Pathways) */}
       <ServicesSection />
 
       {/* 8. Membership Comparison Table */}

@@ -14,18 +14,18 @@ export default function ServicesSection() {
     <section className="py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#FFB26A] bg-[#161412]/50 border border-[#FFB26A]/20 px-3 py-1 rounded inline-block">
-            Business Support Pathways
+          <span className="text-xs font-bold uppercase tracking-widest text-[#FFB26A] bg-[#161412]/80 border border-[#FFB26A]/20 px-3.5 py-1 rounded-full inline-block">
+            OUR CORE
           </span>
-          <h2 className="font-display text-2xl sm:text-4xl font-black text-white tracking-tight">
-            How We Help You Grow
+          <h2 className="font-display text-2xl sm:text-4xl font-black text-white tracking-tight uppercase">
+            THE COLLECTIVE GROWTH ECOSYSTEM
           </h2>
-          <p className="text-xs text-[#EDE9E0]/50">
-            Find the right support for where you are right now.
+          <p className="text-xs sm:text-sm text-[#EDE9E0]/60 max-w-lg mx-auto">
+            Everything you need to grow — software, credentialing, community, and scaling systems.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {servicePathways.map((service, idx) => (
             <TiltCard
               key={service.title}
