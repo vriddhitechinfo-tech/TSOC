@@ -66,7 +66,7 @@ export default function AboutSection() {
             </span>
 
             <h2 className="font-display text-2xl sm:text-4xl font-black text-white tracking-tight leading-tight uppercase">
-              Built for Tax Professionals. <br />
+              Built for Tax Pros. <br />
               <span className="text-[#FFB26A]">Focused on Your Growth.</span>
             </h2>
 

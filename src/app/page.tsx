@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <div className="relative overflow-hidden bg-[#140A06] min-h-screen">
       {/* 1. Hero Carousel */}
-      <HeroSection />
+      {/* <HeroSection /> */}
 
       {/* 2. About Section (Who TSOC Is & What We Do) */}
       <AboutSection />
