@@ -48,7 +48,7 @@ export default function ExitIntentCTA() {
       if (scrollHeight <= 0) return;
 
       const scrollPercent = (window.scrollY / scrollHeight) * 100;
-      if (scrollPercent >= 55) {
+      if (scrollPercent >= 75) {
         triggerCTA();
       }
     };

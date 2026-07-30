@@ -71,10 +71,11 @@ export default function AboutSection() {
             </h2>
 
             <p className="text-xs sm:text-sm text-[#EDE9E0]/70 leading-relaxed max-w-2xl">
+              Tired of predatory splits taking a cut of every return you file? Done paying a middleman to license software you could own outright?{" "}
               <strong className="text-white font-semibold">
-                The Sector of Collectives (TSOC)
+                TSOC (The Sector of Collectives)
               </strong>{" "}
-              is a private nationwide ecosystem and growth hub built by tax professionals, for tax professionals. We exist to liberate independent preparers, EROs, and firm leaders from predatory franchise splits and high-commission middleman models.
+              is the private nationwide ecosystem built for independent preparers, EROs, and firm leaders who are done leaving money on the table — and ready to keep 100% of what they earn.
             </p>
 
             {/* Who We Are & What We Do Grid */}

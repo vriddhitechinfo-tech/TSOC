@@ -16,7 +16,7 @@ export interface HeroSlide {
   image: string;
 }
 
-export function useHeroSlider(slidesCount: number, autoPlayInterval = 4000) {
+export function useHeroSlider(slidesCount: number, autoPlayInterval = 6000) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [autoPlay, setAutoPlay] = useState(true);
   const autoPlayTimerRef = useRef<NodeJS.Timeout | null>(null);
