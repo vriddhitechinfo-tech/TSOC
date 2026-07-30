@@ -55,6 +55,21 @@ export default function ServicesSection() {
                   <h3 className="text-base font-bold text-white uppercase tracking-wider mb-2">
                     {service.title}
                   </h3>
+
+                  <div className="flex flex-wrap gap-1.5 items-center mb-3">
+                    <span className="text-xs font-bold text-[#EDE9E0]/40 uppercase tracking-wider mr-1">
+                      Best For:
+                    </span>
+                    {service.bestFor.map((bf) => (
+                      <span
+                        key={bf}
+                        className="bg-[#FFB26A]/10 border border-[#FFB26A]/25 text-xs font-semibold text-[#FFB26A]/80 px-2 py-0.5 rounded"
+                      >
+                        {bf}
+                      </span>
+                    ))}
+                  </div>
+
                   <p className="text-xs text-[#EDE9E0]/60 leading-relaxed">
                     {service.desc}
                   </p>
@@ -75,20 +90,6 @@ export default function ServicesSection() {
                       </li>
                     ))}
                   </ul>
-                </div>
-
-                <div className="pt-2 flex flex-wrap gap-1.5 items-center">
-                  <span className="text-xs font-bold text-[#EDE9E0]/40 uppercase tracking-wider mr-1.5">
-                    Best For:
-                  </span>
-                  {service.bestFor.map((bf) => (
-                    <span
-                      key={bf}
-                      className="bg-[#161412]/60 border border-[#FFB26A]/15 text-xs font-semibold text-[#EDE9E0]/60 px-2 py-0.5 rounded"
-                    >
-                      {bf}
-                    </span>
-                  ))}
                 </div>
               </div>
 
