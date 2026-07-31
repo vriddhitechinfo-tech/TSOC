@@ -242,7 +242,7 @@ export const homepageFaqs = [
   {
     question: "Do I need an EFIN to get started?",
     answer:
-      "You can start using our software right away without an EFIN. If you'd like to get one, our ERO Enablement program walks you through every step of the IRS application process.",
+      "No, You can start using our software right away without an EFIN. If you'd like to get one, our ERO Enablement program walks you through every step of the IRS application process.",
   },
   {
     question: "What's the difference between a Service Bureau and a standard ERO?",

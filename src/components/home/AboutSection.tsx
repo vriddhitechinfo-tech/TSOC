@@ -41,7 +41,7 @@ export default function AboutSection() {
             start: "top 80%",
             toggleActions: "play none none none",
           },
-        }
+        },
       );
 
       return () => {
@@ -66,16 +66,20 @@ export default function AboutSection() {
             </span>
 
             <h2 className="font-display text-2xl sm:text-4xl font-black text-white tracking-tight leading-tight uppercase">
-              Built for Tax Pros. <br />
+              Built for Tax Pros, EROs, Service Bureaus <br />
               <span className="text-[#FFB26A]">Focused on Your Growth.</span>
             </h2>
 
             <p className="text-xs sm:text-sm text-[#EDE9E0]/70 leading-relaxed max-w-2xl">
-              Tired of predatory splits taking a cut of every return you file? Done paying a middleman to license software you could own outright?{" "}
+              Tired of predatory splits taking a cut of every return you file?
+              Done paying a middleman to license software you could own
+              outright?{" "}
               <strong className="text-white font-semibold">
                 TSOC (The Sector of Collectives)
               </strong>{" "}
-              is the private nationwide ecosystem built for independent preparers, EROs, and firm leaders who are done leaving money on the table — and ready to keep 100% of what they earn.
+              is the private nationwide ecosystem built for independent
+              preparers, EROs, and firm leaders who are done leaving money on
+              the table — and ready to keep 100% of what they earn.
             </p>
 
             {/* Who We Are & What We Do Grid */}
@@ -89,7 +93,9 @@ export default function AboutSection() {
                   </h3>
                 </div>
                 <p className="text-[#EDE9E0]/60 text-xs leading-relaxed">
-                  A collective of 2,000+ independent tax preparers, ERO owners, and Service Bureau leaders united under one standard: 100% fee retention and complete business ownership.
+                  A collective of 2,000+ independent tax preparers, ERO owners,
+                  and Service Bureau leaders united under one standard: 100% fee
+                  retention and complete business ownership.
                 </p>
               </div>
 
@@ -102,7 +108,9 @@ export default function AboutSection() {
                   </h3>
                 </div>
                 <p className="text-[#EDE9E0]/60 text-xs leading-relaxed">
-                  We combine enterprise tax software, step-by-step EFIN credentialing, white-label Service Bureau mentorship, and 365 days of live Open Office support.
+                  We combine enterprise tax software, step-by-step EFIN
+                  credentialing, white-label Service Bureau mentorship, and 365
+                  days of live Open Office support.
                 </p>
               </div>
             </div>
@@ -112,19 +120,27 @@ export default function AboutSection() {
               <div className="flex items-center gap-2 text-xs text-[#EDE9E0]/80">
                 <CheckCircle2 className="w-4 h-4 text-[#FFB26A] shrink-0" />
                 <span>
-                  <strong className="text-white">Enterprise Tax Software:</strong> Desktop &amp; cloud access with zero per-return split fees.
+                  <strong className="text-white">Tax Software:</strong> Desktop
+                  &amp; cloud access with zero per-return split fees.
                 </span>
               </div>
               <div className="flex items-center gap-2 text-xs text-[#EDE9E0]/80">
                 <CheckCircle2 className="w-4 h-4 text-[#FFB26A] shrink-0" />
                 <span>
-                  <strong className="text-white">ERO &amp; EFIN Enablement:</strong> Complete IRS e-Services, ID.me, &amp; compliance support.
+                  <strong className="text-white">
+                    ERO &amp; EFIN Enablement:
+                  </strong>{" "}
+                  Complete IRS e-Services, ID.me, &amp; compliance support.
                 </span>
               </div>
               <div className="flex items-center gap-2 text-xs text-[#EDE9E0]/80">
                 <CheckCircle2 className="w-4 h-4 text-[#FFB26A] shrink-0" />
                 <span>
-                  <strong className="text-white">Daily Live Open Office:</strong> Year-round coworking, attorney Q&amp;As, &amp; revenue strategies.
+                  <strong className="text-white">
+                    Daily Live Open Office:
+                  </strong>{" "}
+                  Year-round coworking, attorney Q&amp;As, &amp; revenue
+                  strategies.
                 </span>
               </div>
             </div>
@@ -187,7 +203,8 @@ export default function AboutSection() {
                   </span>
                 </div>
                 <p className="text-[#EDE9E0]/70 text-xs leading-relaxed">
-                  Connect with peers. Create scalable revenue models. Conquer the tax industry on your own terms.
+                  Connect with peers. Create scalable revenue models. Conquer
+                  the tax industry on your own terms.
                 </p>
               </div>
             </TiltCard>

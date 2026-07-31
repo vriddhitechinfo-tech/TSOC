@@ -6,6 +6,13 @@ import { Check, ArrowRight } from "lucide-react";
 import TiltCard from "@/components/motion/TiltCard";
 import { useModal } from "@/context/ModalContext";
 import { servicePathways } from "@/data/homeData";
+import { OPEN_OFFICE_COMMUNITY_LINK, ERO_ENABLEMENT_LINK, SOFTWARE_RENEWAL_LINK } from "@/lib/constants";
+
+const EXTERNAL_CTA_LINKS: Partial<Record<string, string>> = {
+  openoffice: OPEN_OFFICE_COMMUNITY_LINK,
+  ero: ERO_ENABLEMENT_LINK,
+  software: SOFTWARE_RENEWAL_LINK,
+};
 
 export default function ServicesSection() {
   const { openModal } = useModal();
@@ -21,7 +28,7 @@ export default function ServicesSection() {
             THE COLLECTIVE GROWTH ECOSYSTEM
           </h2>
           <p className="text-xs sm:text-sm text-[#EDE9E0]/60 max-w-lg mx-auto">
-            Everything you need to grow — software, credentialing, community, and scaling systems.
+            Everything you need to grow — software, training, community, and scaling systems.
           </p>
         </div>
 
@@ -94,12 +101,23 @@ export default function ServicesSection() {
               </div>
 
               <div className="pt-8">
-                <button
-                  onClick={() => openModal(service.modalType)}
-                  className="w-full text-center bg-[#FFB26A] hover:bg-[#F4845F] text-[#0A0908] font-extrabold py-2.5 px-4 rounded-lg text-xs transition-all cursor-pointer uppercase tracking-wider shadow-lg shadow-[#FFB26A]/10"
-                >
-                  {service.ctaText}
-                </button>
+                {EXTERNAL_CTA_LINKS[service.modalType] ? (
+                  <a
+                    href={EXTERNAL_CTA_LINKS[service.modalType]}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full text-center bg-[#FFB26A] hover:bg-[#F4845F] text-[#0A0908] font-extrabold py-2.5 px-4 rounded-lg text-xs transition-all cursor-pointer uppercase tracking-wider shadow-lg shadow-[#FFB26A]/10 block"
+                  >
+                    {service.ctaText}
+                  </a>
+                ) : (
+                  <button
+                    onClick={() => openModal(service.modalType)}
+                    className="w-full text-center bg-[#FFB26A] hover:bg-[#F4845F] text-[#0A0908] font-extrabold py-2.5 px-4 rounded-lg text-xs transition-all cursor-pointer uppercase tracking-wider shadow-lg shadow-[#FFB26A]/10"
+                  >
+                    {service.ctaText}
+                  </button>
+                )}
               </div>
             </TiltCard>
           ))}
