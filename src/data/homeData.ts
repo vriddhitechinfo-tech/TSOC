@@ -135,7 +135,7 @@ export interface ServicePathway {
 export const servicePathways: ServicePathway[] = [
   {
     title: "Open Office Community",
-    desc: "Live coworking and expert support, every week, all year long. Ask questions, solve problems, and grow together.",
+    desc: "Virtual Assistant, Social Media Management, Smart Workflows, Video editing and One Stop solution for your business.",
     bestFor: ["All Tax Preparers", "Accounting Owners", "Bookkeepers"],
     includes: [
       "Daily live office hours",
