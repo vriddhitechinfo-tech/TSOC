@@ -144,7 +144,7 @@ export const servicePathways: ServicePathway[] = [
       "Bookkeeping guidance",
       "Wellness & mindset resources",
     ],
-    ctaText: "Join The Open Office",
+    ctaText: "Open Office Community",
     modalType: "openoffice",
     link: "/open-office",
   },
@@ -168,7 +168,6 @@ export const servicePathways: ServicePathway[] = [
     desc: "Keep 100% of your fees. Become an ERO and take full control of your business.",
     bestFor: [
       "Experienced Preparers",
-      "Firm Leaders",
       "Aspiring Entrepreneurs",
     ],
     includes: [

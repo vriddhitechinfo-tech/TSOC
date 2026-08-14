@@ -286,22 +286,22 @@ export default function OpenOfficePage() {
                   Join Open Office Live
                 </a>
                 <a
-                  href={OPEN_OFFICE_ZOOM_LINK}
+                  href={OPEN_OFFICE_COMMUNITY_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-[#161412] text-[#FFB26A] hover:text-white border border-[#FFB26A]/30 px-5 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer inline-block text-center"
                 >
-                  Join Zoom Stream
-                </a>
-                <a
-                  href={OPEN_OFFICE_COMMUNITY_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-[#161412] text-[#EDE9E0]/70 hover:text-white border border-[#FFB26A]/20 px-5 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer inline-block text-center"
-                >
                   Ask Questions Live
                 </a>
               </div>
+              <a
+                href={OPEN_OFFICE_ZOOM_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="gsap-reveal inline-flex items-center gap-1 text-[10px] text-[#EDE9E0]/40 hover:text-[#FFB26A] transition-colors"
+              >
+                Join Zoom Stream
+              </a>
             </div>
 
             {/* Right: Coworking Image with Floating Animation */}

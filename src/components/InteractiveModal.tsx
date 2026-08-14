@@ -5,7 +5,7 @@ import { X, ExternalLink } from "lucide-react";
 import { useModalForm } from "@/hooks/useModalForm";
 
 export default function InteractiveModal() {
-  const { isOpen, closeModal, bookingUrl } = useModalForm();
+  const { isOpen, closeModal, bookingUrl, headerTitle, nextSteps } = useModalForm();
 
   if (!isOpen) return null;
 
@@ -23,7 +23,7 @@ export default function InteractiveModal() {
           <div className="flex items-center gap-2">
             <span className="h-2 w-2 rounded-full bg-[#FFB26A] animate-pulse" />
             <h3 className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider">
-              Talk to Our Team &bull; Schedule Session
+              {headerTitle}
             </h3>
           </div>
           <div className="flex items-center gap-3">
@@ -46,10 +46,10 @@ export default function InteractiveModal() {
         </div>
 
         {/* Embedded Calendar Booking Iframe Container - Scrollable without visible scrollbar */}
-        <div className="flex-1 w-full h-full bg-[#161412] relative overflow-hidden">
+        <div className="flex-1 w-full min-h-0 bg-[#161412] relative overflow-hidden">
           <iframe
             src={bookingUrl}
-            title="Schedule a Call with Eve's Collaborations Team"
+            title={headerTitle}
             className="h-full border-0"
             style={{
               width: "calc(100% + 24px)",
@@ -58,6 +58,27 @@ export default function InteractiveModal() {
               marginRight: "-24px",
             }}
           />
+        </div>
+
+        {/* Always-visible next-step panel, so submitting the form never feels like a dead end */}
+        <div className="shrink-0 border-t border-[#FFB26A]/20 bg-[#0F0D0C] px-5 py-3">
+          <p className="text-xs font-bold text-white uppercase tracking-wider mb-1">
+            {nextSteps.heading}
+          </p>
+          <p className="text-xs text-[#EDE9E0]/60 mb-2">{nextSteps.body}</p>
+          <div className="flex flex-wrap gap-x-4 gap-y-1">
+            {nextSteps.links.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-bold text-[#FFB26A] hover:text-[#F4845F] transition-colors underline underline-offset-2"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </div>

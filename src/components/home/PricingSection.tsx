@@ -4,10 +4,15 @@ import React, { useRef, useEffect } from "react";
 import { Check, Sparkles } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useModal } from "@/context/ModalContext";
+import {
+  TAX_SOFTWARE_FUNNEL_LINK,
+  TAX_PRO_SOLO_FUNNEL_LINK,
+  GROWING_FIRM_FUNNEL_LINK,
+  SERVICE_BUREAU_FUNNEL_LINK,
+  withUtm,
+} from "@/lib/constants";
 
 export default function PricingSection() {
-  const { openModal } = useModal();
   const pricingRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -68,12 +73,14 @@ export default function PricingSection() {
               <strong className="text-white">Pricing Update:</strong> Software plan rates are currently being finalized internally. Inquire today for custom volume quotes and demo access.
             </span>
           </div>
-          <button
-            onClick={() => openModal("software")}
+          <a
+            href={withUtm(TAX_SOFTWARE_FUNNEL_LINK, "pricing-banner")}
+            target="_blank"
+            rel="noopener noreferrer"
             className="shrink-0 text-[11px] font-extrabold uppercase tracking-wider text-[#FFB26A] hover:underline cursor-pointer"
           >
             Inquire for Demo →
-          </button>
+          </a>
         </div>
 
         {/* Software Comparison Table */}
@@ -173,28 +180,35 @@ export default function PricingSection() {
               <tr className="bg-[#080808]/80 border-t border-[#FFB26A]/20">
                 <td className="p-4 sm:p-5 font-bold text-white">Ready to choose your software package?</td>
                 <td className="p-4 sm:p-5 text-center">
-                  <button
-                    onClick={() => openModal("software")}
-                    className="px-4 py-2.5 rounded-lg bg-[#161412] hover:bg-[#201c19] text-white font-extrabold border border-[#FFB26A]/30 tracking-wider uppercase text-[10px] cursor-pointer w-full transition-all hover:border-[#FFB26A]"
+                  <a
+                    href={withUtm(TAX_PRO_SOLO_FUNNEL_LINK, "pricing-tax-pro-solo")}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-4 py-2.5 rounded-lg bg-[#161412] hover:bg-[#201c19] text-white font-extrabold border border-[#FFB26A]/30 tracking-wider uppercase text-[10px] cursor-pointer w-full transition-all hover:border-[#FFB26A]"
                   >
                     Request Demo
-                  </button>
+                  </a>
                 </td>
                 <td className="p-4 sm:p-5 text-center bg-[#FFB26A]/5 border-x border-[#FFB26A]/20">
-                  <button
-                    onClick={() => openModal("software")}
-                    className="px-4 py-2.5 rounded-lg bg-gradient-to-r from-[#FFB26A] to-[#F4845F] hover:from-[#F4845F] hover:to-[#E67049] text-[#080808] font-black tracking-wider uppercase text-[10px] cursor-pointer w-full shadow-lg shadow-[#FFB26A]/20 transition-all"
+                  <a
+                    href={withUtm(GROWING_FIRM_FUNNEL_LINK, "pricing-growing-firm")}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-4 py-2.5 rounded-lg bg-gradient-to-r from-[#FFB26A] to-[#F4845F] hover:from-[#F4845F] hover:to-[#E67049] text-[#080808] font-black tracking-wider uppercase text-[10px] cursor-pointer w-full shadow-lg shadow-[#FFB26A]/20 transition-all"
                   >
                     Inquire for Software
-                  </button>
+                  </a>
                 </td>
                 <td className="p-4 sm:p-5 text-center">
-                  <button
-                    onClick={() => openModal("bureau")}
-                    className="px-4 py-2.5 rounded-lg bg-[#161412] hover:bg-[#201c19] text-white font-extrabold border border-[#FFB26A]/30 tracking-wider uppercase text-[10px] cursor-pointer w-full transition-all hover:border-[#FFB26A]"
+                  {/* External funnel — distinct from the homepage Service Bureau Growth Program card's internal automation-trigger form */}
+                  <a
+                    href={withUtm(SERVICE_BUREAU_FUNNEL_LINK, "pricing-service-bureau")}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-4 py-2.5 rounded-lg bg-[#161412] hover:bg-[#201c19] text-white font-extrabold border border-[#FFB26A]/30 tracking-wider uppercase text-[10px] cursor-pointer w-full transition-all hover:border-[#FFB26A]"
                   >
                     Bureau Consultation
-                  </button>
+                  </a>
                 </td>
               </tr>
             </tbody>

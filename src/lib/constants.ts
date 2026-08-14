@@ -30,10 +30,29 @@ export const WAITLIST_LINK =
 export const FEEDBACK_LINK = "https://thesectorofcollectives.com/feedback";
 export const SOFTWARE_RENEWAL_LINK =
   "https://thesectorsopenoffice.com/software-renewal";
+
+// New funnel pages (live as of 7 Aug 2026)
+export const TAX_SOFTWARE_FUNNEL_LINK =
+  "https://thesectorofcollectives.com/tax-software";
+export const GROWING_FIRM_FUNNEL_LINK =
+  "https://thesectorofcollectives.com/growing-firm-4472";
+export const TAX_PRO_SOLO_FUNNEL_LINK =
+  "https://thesectorofcollectives.com/tax-pro-solo-7433";
+export const SERVICE_BUREAU_FUNNEL_LINK =
+  "https://thesectorofcollectives.com/service-bureau-626523";
+
 export const PHONE_NUMBER = "404-975-2969";
 export const PHONE_LINK = "tel:+14049752969";
 export const SUPPORT_EMAIL = "support@thesectorofcollectives.com";
 export const EMAIL_LINK = "mailto:support@thesectorofcollectives.com";
+
+// Appends UTM params so GHL can attribute a lead to the button/page it came
+// from. Mapping these into actual GHL tags/workflows still needs to be
+// configured on the GHL side — this only guarantees the params are present.
+export function withUtm(url: string, campaign: string): string {
+  const sep = url.includes("?") ? "&" : "?";
+  return `${url}${sep}utm_source=website&utm_medium=cta&utm_campaign=${encodeURIComponent(campaign)}`;
+}
 
 export const NAV_LINKS = [
   { name: "Home", href: "/" },

@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useModal } from "@/context/ModalContext";
-import { CONNECT_TO_SECTOR_LINK } from "@/lib/constants";
+import { MODAL_CONFIG } from "@/lib/modalConfig";
 
 export function useModalForm() {
   const { isOpen, modalType, closeModal } = useModal();
@@ -18,10 +18,14 @@ export function useModalForm() {
     return () => window.removeEventListener("keydown", handleEscape);
   }, [isOpen, closeModal]);
 
+  const config = MODAL_CONFIG[modalType];
+
   return {
     isOpen,
     modalType,
     closeModal,
-    bookingUrl: CONNECT_TO_SECTOR_LINK,
+    bookingUrl: config.bookingUrl,
+    headerTitle: config.headerTitle,
+    nextSteps: config.nextSteps,
   };
 }
