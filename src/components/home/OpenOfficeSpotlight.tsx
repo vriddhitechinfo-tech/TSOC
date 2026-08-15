@@ -91,32 +91,34 @@ export default function OpenOfficeSpotlight() {
                 Join Open Office Live
               </a>
               <a
-                href={OPEN_OFFICE_ZOOM_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-[#2A160E] hover:bg-[#3D2216] text-[#EDE9E0]/80 hover:text-white border border-[#FFB26A]/20 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all"
-              >
-                <Video className="w-3.5 h-3.5" />
-                Join Zoom
-              </a>
-              <a
                 href={OPEN_OFFICE_COMMUNITY_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-transparent hover:bg-[#2A160E]/60 text-[#EDE9E0]/70 hover:text-white border border-[#FFB26A]/15 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 bg-[#2A160E] hover:bg-[#3D2216] text-[#EDE9E0]/80 hover:text-white border border-[#FFB26A]/20 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer"
               >
                 <MessageCircleQuestion className="w-3.5 h-3.5" />
                 Ask Questions Live
               </a>
             </div>
 
-            <Link
-              href="/open-office"
-              className="gsap-oo-el inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#FFB26A]/80 hover:text-[#FFB26A] pt-2"
-            >
-              See the full weekly schedule
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
+            <div className="gsap-oo-el flex flex-wrap items-center gap-x-4 gap-y-1 pt-2">
+              <Link
+                href="/open-office"
+                className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#FFB26A]/80 hover:text-[#FFB26A]"
+              >
+                See the full weekly schedule
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+              <a
+                href={OPEN_OFFICE_ZOOM_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-[10px] text-[#EDE9E0]/40 hover:text-[#FFB26A] transition-colors"
+              >
+                <Video className="w-3 h-3" />
+                Join Zoom
+              </a>
+            </div>
           </div>
 
           {/* Right: Live-feel schedule card */}

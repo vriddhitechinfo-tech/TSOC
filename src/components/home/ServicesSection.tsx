@@ -6,12 +6,13 @@ import { Check, ArrowRight } from "lucide-react";
 import TiltCard from "@/components/motion/TiltCard";
 import { useModal } from "@/context/ModalContext";
 import { servicePathways } from "@/data/homeData";
-import { OPEN_OFFICE_COMMUNITY_LINK, ERO_ENABLEMENT_LINK, SOFTWARE_RENEWAL_LINK } from "@/lib/constants";
+import { OPEN_OFFICE_COMMUNITY_LINK, ERO_ENABLEMENT_LINK, TAX_SOFTWARE_FUNNEL_LINK, SERVICE_BUREAU_FUNNEL_LINK, withUtm } from "@/lib/constants";
 
 const EXTERNAL_CTA_LINKS: Partial<Record<string, string>> = {
-  openoffice: OPEN_OFFICE_COMMUNITY_LINK,
-  ero: ERO_ENABLEMENT_LINK,
-  software: SOFTWARE_RENEWAL_LINK,
+  openoffice: withUtm(OPEN_OFFICE_COMMUNITY_LINK, "open-office-community"),
+  ero: withUtm(ERO_ENABLEMENT_LINK, "ero-enablement"),
+  software: withUtm(TAX_SOFTWARE_FUNNEL_LINK, "tax-software-access"),
+  bureau: withUtm(SERVICE_BUREAU_FUNNEL_LINK, "service-bureau-growth-card"),
 };
 
 export default function ServicesSection() {
