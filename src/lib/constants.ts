@@ -40,6 +40,7 @@ export const TAX_PRO_SOLO_FUNNEL_LINK =
   "https://thesectorofcollectives.com/tax-pro-solo-7433";
 export const SERVICE_BUREAU_FUNNEL_LINK =
   "https://thesectorofcollectives.com/service-bureau-626523";
+  
 
 export const PHONE_NUMBER = "404-975-2969";
 export const PHONE_LINK = "tel:+14049752969";
