@@ -10,7 +10,7 @@ export const DEFAULT_DESCRIPTION =
 export const TAX_SOFTWARE_LOGIN_LINK =
   "https://www.mytaxoffice.com/main/pro/TheSectorofCollectives_Login.php";
 export const ERO_ENABLEMENT_LINK =
-  "https://thesectorofcollectives.com/home-page-ero";
+  "https://thesectorofcollectives.com/opt-in-page";
 export const OPEN_OFFICE_COMMUNITY_LINK =
   "https://3gpntud5my1ne29yzqjt.app.clientclub.net/communities/groups/thesectorsopenofficecommunity/home?invite=6a5fb4036d84e6df961d8ca0";
 export const TALK_TO_TEAM_CALENDAR_LINK =
