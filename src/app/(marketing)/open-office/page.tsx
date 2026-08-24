@@ -30,6 +30,8 @@ import {
   MIDNIGHT_MADNESS_LINK,
   TAP_IN_THURSDAY_LINK,
   TALK_TO_TEAM_CALENDAR_LINK,
+  WAITLIST_LINK,
+  TAX_TOUR_LINK,
 } from "@/lib/constants";
 
 export default function OpenOfficePage() {
@@ -301,6 +303,14 @@ export default function OpenOfficePage() {
                 className="gsap-reveal inline-flex items-center gap-1 text-[10px] text-[#EDE9E0]/40 hover:text-[#FFB26A] transition-colors"
               >
                 Join Zoom Stream
+              </a>
+              <a
+                href={WAITLIST_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="gsap-reveal inline-flex items-center gap-1 text-[10px] text-[#EDE9E0]/40 hover:text-[#FFB26A] transition-colors"
+              >
+                Join Waitlist
               </a>
             </div>
 
@@ -630,7 +640,7 @@ export default function OpenOfficePage() {
               When you join The Sector of Collectives Open Office, you gain access to daily coworking sessions, Tech Tuesday workshops, Attorney Q&As, and year-round business advice resources designed to help your tax business thrive.
             </p>
           </div>
-          <div className="shrink-0 flex items-center">
+          <div className="shrink-0 flex items-center gap-3 flex-wrap">
             <a
               href={OPEN_OFFICE_COMMUNITY_LINK}
               target="_blank"
@@ -638,6 +648,14 @@ export default function OpenOfficePage() {
               className="bg-[#FFB26A] hover:bg-[#F4845F] text-[#140A06] font-extrabold py-3.5 px-8 rounded-lg text-xs transition-all shadow-md cursor-pointer uppercase tracking-wider inline-block text-center"
             >
               Get Started Now
+            </a>
+            <a
+              href={TAX_TOUR_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#0A0908] border border-[#FFB26A]/30 text-[#EDE9E0]/70 hover:text-white font-bold py-3.5 px-8 rounded-lg text-xs transition-all cursor-pointer uppercase tracking-wider inline-block text-center"
+            >
+              Take the Tax Tour
             </a>
           </div>
         </TiltCard>

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useModal } from "@/context/ModalContext";
 import { Mail, Phone, MessageSquare, ExternalLink, CalendarDays, Users } from "lucide-react";
-import { PHONE_NUMBER, PHONE_LINK, TALK_TO_TEAM_CALENDAR_LINK, SOFTWARE_RENEWAL_LINK, OPEN_OFFICE_COMMUNITY_LINK, ERO_ENABLEMENT_LINK, TAX_SOFTWARE_LOGIN_LINK, SUPPORT_EMAIL, EMAIL_LINK } from "@/lib/constants";
+import { PHONE_NUMBER, PHONE_LINK, TALK_TO_TEAM_CALENDAR_LINK, SOFTWARE_RENEWAL_LINK, OPEN_OFFICE_COMMUNITY_LINK, ERO_ENABLEMENT_LINK, TAX_SOFTWARE_LOGIN_LINK, SUPPORT_EMAIL, EMAIL_LINK, FEEDBACK_LINK, WAITLIST_LINK, TAX_TOUR_LINK } from "@/lib/constants";
 import Logo from "@/components/ui/Logo";
 
 export default function Footer() {
@@ -185,6 +185,16 @@ export default function Footer() {
                   Join Open Office
                 </a>
               </li>
+              <li>
+                <a
+                  href={TAX_TOUR_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#FFB26A] transition-colors"
+                >
+                  Tax Tour
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -242,6 +252,26 @@ export default function Footer() {
                 >
                   About Our Team
                 </Link>
+              </li>
+              <li>
+                <a
+                  href={WAITLIST_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#FFB26A] transition-colors"
+                >
+                  Join Waitlist
+                </a>
+              </li>
+              <li>
+                <a
+                  href={FEEDBACK_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#FFB26A] transition-colors"
+                >
+                  Share Feedback
+                </a>
               </li>
             </ul>
           </div>

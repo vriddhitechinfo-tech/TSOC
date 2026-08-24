@@ -22,7 +22,7 @@ export const OPEN_OFFICE_MAIN_FUNNEL =
 export const TECH_TUESDAY_LINK =
   "https://thesectorsopenoffice.com/tech-tuesday";
 export const MIDNIGHT_MADNESS_LINK =
-  "https://midnight.thesectoropenoffice.com/midnight-madness-optin";
+  "https://thesectorsopenoffice.com/midnight-madness";
 export const TAP_IN_THURSDAY_LINK =
   "https://tap-inthursday.thesectoropenoffice.com/home-page";
 export const WAITLIST_LINK =
@@ -40,7 +40,9 @@ export const TAX_PRO_SOLO_FUNNEL_LINK =
   "https://thesectorofcollectives.com/tax-pro-solo-7433";
 export const SERVICE_BUREAU_FUNNEL_LINK =
   "https://thesectorofcollectives.com/service-bureau-626523";
-  
+export const TAX_TOUR_LINK =
+  "https://thesectorofcollectives.com/tax-tour-landing-page";
+
 
 export const PHONE_NUMBER = "404-975-2969";
 export const PHONE_LINK = "tel:+14049752969";
