@@ -13,10 +13,46 @@ export const ERO_ENABLEMENT_LINK =
   "https://thesectorofcollectives.com/opt-in-page";
 export const OPEN_OFFICE_COMMUNITY_LINK =
   "https://3gpntud5my1ne29yzqjt.app.clientclub.net/communities/groups/thesectorsopenofficecommunity/home?invite=6a5fb4036d84e6df961d8ca0";
+// Generic site-wide "book a call" calendar — GHL calendar "The Sector Of
+// Collectives Consultation", set up specifically for this website.
 export const TALK_TO_TEAM_CALENDAR_LINK =
-  "https://api.leadconnectorhq.com/widget/booking/FNnajUXQvGzaXwHhYAH5";
+  "https://api.leadconnectorhq.com/widget/booking/Me9Cy5XCKU9zDqjmdLQB";
 export const CONNECT_TO_SECTOR_LINK =
   "https://api.leadconnectorhq.com/widget/form/yZMFt1mV1a8mbrAbiPnx";
+// Purpose-specific GHL booking calendars (see CTA links sheet). The trailing
+// comment on each is the calendar's name in GoHighLevel.
+export const ERO_ENABLEMENT_CALL_LINK =
+  "https://api.leadconnectorhq.com/widget/booking/2evx30JP0UcGNZxhA1Zx"; // ERO Enablement Call
+export const SERVICE_BUREAU_CALL_LINK =
+  "https://api.leadconnectorhq.com/widget/booking/nKrDAwrGvDCRRjgXC6VJ"; // Service Bureau
+export const PARTNER_CALL_LINK =
+  "https://api.leadconnectorhq.com/widget/booking/FNnajUXQvGzaXwHhYAH5"; // Collaborations & Solutions (MAIN CALENDAR)
+export const OPEN_OFFICE_LEADGEN_CALL_LINK =
+  "https://api.leadconnectorhq.com/widget/booking/DvvWqqJhhUlrJc7kGmnR"; // ATSP Booking Calendar (funnel: The Sector Open Office Lead Gen)
+export const TAX_PRO_SOLO_CALL_LINK =
+  "https://api.leadconnectorhq.com/widget/booking/rjBw0xS1yLG5JTNov2p3"; // Tax Pro Solo
+export const GROWING_FIRM_CALL_LINK =
+  "https://api.leadconnectorhq.com/widget/booking/6BNoHJ76IETLNoxpOtjd"; // ERO Growing Firm
+
+// GHL booking calendars from the CTA links sheet that have no matching CTA on
+// the site yet — kept here so they are one import away when a home appears.
+// (Sheet also lists "Wills By You, LLC" — a separate business, intentionally omitted.)
+export const STRATEGY_SESSION_CALL_LINK =
+  "https://api.leadconnectorhq.com/widget/booking/gvIOLNLdDcTRhPWUdDpP"; // Strategy Session
+export const BOOK_STRATEGY_SESSION_CALL_LINK =
+  "https://api.leadconnectorhq.com/widget/booking/Cgx26ec2xFoxLFKDrSkA"; // Book Your Strategy Session Now!
+export const SECTOR_CONSULTING_CALL_LINK =
+  "https://api.leadconnectorhq.com/widget/booking/YS7x7SbP3o8a5T9DUSOu"; // The Sector Consulting
+export const INSTRUCTOR_INQUIRY_CALL_LINK =
+  "https://api.leadconnectorhq.com/widget/booking/JuTtK126fgVDlPcbT6Dk"; // Instructor Inquiry Calendar
+export const FINAL_REVIEW_9010_CALL_LINK =
+  "https://api.leadconnectorhq.com/widget/booking/3MWDCR5iNZTCwL8yZDQX"; // Final Review Calendar for the 9010
+export const RESELLER_PROSPECT_CALL_LINK =
+  "https://api.leadconnectorhq.com/widget/booking/K0B6s4aeBqUDwdOYVmTa"; // Reseller Prospect Call — DRAFT in GHL, do not surface until published
+export const TAX_SOFTWARE_COMMUNITY_EVENT_LINK =
+  "https://api.leadconnectorhq.com/widget/booking/q75TfObuaDE2wtm72dNo"; // The Sector Tax Software & Community (event)
+export const HOLIDAY_PHOTO_SESSION_CALL_LINK =
+  "https://api.leadconnectorhq.com/widget/booking/pXHm5zdMmPpIKbCXPiij"; // Holiday Photo Session Booking (event)
 export const OPEN_OFFICE_MAIN_FUNNEL =
   "https://thesectorsopenoffice.com/the-open-office";
 export const TECH_TUESDAY_LINK =
@@ -28,8 +64,10 @@ export const TAP_IN_THURSDAY_LINK =
 export const WAITLIST_LINK =
   "https://thesectorsopenoffice.com/waitlist_openoffice";
 export const FEEDBACK_LINK = "https://thesectorofcollectives.com/feedback";
+// GHL calendar "The Strategy Booking for Software Renewal Calendar"
+// (connected funnel: Software Tax Renewal).
 export const SOFTWARE_RENEWAL_LINK =
-  "https://thesectorsopenoffice.com/software-renewal";
+  "https://api.leadconnectorhq.com/widget/booking/S05FVxKp4Rv8E5NotYQn";
 
 // New funnel pages (live as of 7 Aug 2026)
 export const TAX_SOFTWARE_FUNNEL_LINK =

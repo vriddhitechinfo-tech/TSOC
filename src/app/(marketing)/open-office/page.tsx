@@ -29,9 +29,6 @@ import {
   TECH_TUESDAY_LINK,
   MIDNIGHT_MADNESS_LINK,
   TAP_IN_THURSDAY_LINK,
-  TALK_TO_TEAM_CALENDAR_LINK,
-  WAITLIST_LINK,
-  TAX_TOUR_LINK,
 } from "@/lib/constants";
 
 export default function OpenOfficePage() {
@@ -117,7 +114,7 @@ export default function OpenOfficePage() {
       id: "mon",
       dayName: "Monday",
       title: "Open Office Hours",
-      desc: "Bring your active filing questions and get live support. We cover return walkthroughs, IRS updates, and complex form guidance in an open, collaborative format.",
+      desc: "Bring your filing questions and get live support — return walkthroughs, IRS updates, and complex form guidance.",
       time: "9:30 AM EST",
       pillar: "General Support",
       byDay: "MO",
@@ -126,7 +123,7 @@ export default function OpenOfficePage() {
       id: "tue",
       dayName: "Tuesday",
       title: "Tech Tuesday",
-      desc: "Learn how to sync CRMs, automate client follow-ups, embed calendar scheduling, and use modern tools to cut admin time. Perfect for modernizing your office operations.",
+      desc: "Sync CRMs, automate client follow-ups, add calendar scheduling, and cut admin time with modern tools.",
       time: "2:00 PM EST",
       pillar: "Tax Business Automation",
       byDay: "TU",
@@ -144,7 +141,7 @@ export default function OpenOfficePage() {
       id: "thu",
       dayName: "Thursday",
       title: "Tap In Thursday",
-      desc: "Live coworking and coaching check-in. Network with other tax business owners, share wins, review business operations, and audit your marketing strategy.",
+      desc: "Live coworking and coaching. Network with other owners, share wins, and review your operations and marketing.",
       time: "3:00 PM EST",
       pillar: "Networking & Coaching",
       byDay: "TH",
@@ -276,9 +273,9 @@ export default function OpenOfficePage() {
                 The Open Office: Your Daily Home Base
               </h1>
               <p className="gsap-reveal text-sm text-[#EDE9E0]/55 leading-relaxed line-clamp-3">
-                The central heart of our ecosystem. Live coworking sessions every weekday — get real answers, join Zoom streams, and connect with peers and attorneys daily.
+                The heart of our ecosystem. Live coworking every weekday — real answers, Zoom streams, and daily access to peers and attorneys.
               </p>
-              <div className="gsap-reveal flex flex-wrap gap-3 pt-4">
+              <div className="gsap-reveal pt-4">
                 <a
                   href={OPEN_OFFICE_MAIN_FUNNEL}
                   target="_blank"
@@ -287,31 +284,7 @@ export default function OpenOfficePage() {
                 >
                   Join Open Office Live
                 </a>
-                <a
-                  href={OPEN_OFFICE_COMMUNITY_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-[#161412] text-[#FFB26A] hover:text-white border border-[#FFB26A]/30 px-5 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer inline-block text-center"
-                >
-                  Ask Questions Live
-                </a>
               </div>
-              <a
-                href={OPEN_OFFICE_ZOOM_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="gsap-reveal inline-flex items-center gap-1 text-[10px] text-[#EDE9E0]/40 hover:text-[#FFB26A] transition-colors"
-              >
-                Join Zoom Stream
-              </a>
-              <a
-                href={WAITLIST_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="gsap-reveal inline-flex items-center gap-1 text-[10px] text-[#EDE9E0]/40 hover:text-[#FFB26A] transition-colors"
-              >
-                Join Waitlist
-              </a>
             </div>
 
             {/* Right: Coworking Image with Floating Animation */}
@@ -354,7 +327,7 @@ export default function OpenOfficePage() {
               See the Open Office in Action
             </h2>
             <p className="text-xs text-[#EDE9E0]/35">
-              A quick walkthrough of what daily coworking, live expert access, and year-round community support actually looks like.
+              A quick look at daily coworking, live expert access, and year-round community support.
             </p>
           </div>
           <div className="glass-card p-2 sm:p-3 max-w-4xl mx-auto">
@@ -425,7 +398,7 @@ export default function OpenOfficePage() {
         <div className="gsap-reveal glass-card p-8 md:p-12 relative overflow-hidden">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <h2 className="text-xl font-bold text-white uppercase tracking-wider">Weekly Live Schedule</h2>
-            <p className="text-xs text-[#EDE9E0]/50 mt-1">Click any day to view session details, perks, and add it to your calendar.</p>
+            <p className="text-xs text-[#EDE9E0]/50 mt-1">Click any day for session details and perks.</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
@@ -555,13 +528,13 @@ export default function OpenOfficePage() {
 
               {/* CTA buttons */}
               <div className="p-5 pt-0 flex flex-col gap-2 border-t border-[#FFB26A]/20">
-                <button
+                {/* <button
                   onClick={() => downloadIcs(activeDaySchedule)}
                   className="w-full bg-[#FFB26A] hover:bg-[#F4845F] text-[#140A06] font-extrabold py-2.5 px-4 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider flex items-center justify-center gap-1.5"
                 >
                   <Plus className="w-3.5 h-3.5" />
                   Add to Calendar (.ics)
-                </button>
+                </button> */}
                 <a
                   href={
                     activeDaySchedule.id === "tue" ? TECH_TUESDAY_LINK
@@ -586,7 +559,7 @@ export default function OpenOfficePage() {
           <div className="gsap-reveal text-center max-w-2xl mx-auto mb-16">
             <h2 className="font-display text-2xl sm:text-3xl font-semibold text-white tracking-normal uppercase">Open Office Community Benefits</h2>
             <p className="text-xs text-[#EDE9E0]/35 mt-2">
-              Our workspace compiles tools, networks, and events into a single membership designed to support tax business growth.
+              One membership that bundles the tools, network, and events to grow your tax business.
             </p>
           </div>
 
@@ -618,7 +591,7 @@ export default function OpenOfficePage() {
               Tax Professionals Thriving Together
             </h2>
             <p className="text-xs text-[#EDE9E0]/35">
-              Hear from members who've transformed their businesses through community support, expert guidance, and collaborative problem-solving.
+              Members who grew their businesses through community support and expert guidance.
             </p>
           </div>
           <TestimonialCarousel />
@@ -637,7 +610,7 @@ export default function OpenOfficePage() {
             </span>
             <h3 className="font-display text-xl sm:text-2xl font-semibold text-white uppercase tracking-wider">Join More Than Just a Workspace</h3>
             <p className="text-xs text-[#EDE9E0]/45 leading-relaxed">
-              When you join The Sector of Collectives Open Office, you gain access to daily coworking sessions, Tech Tuesday workshops, Attorney Q&As, and year-round business advice resources designed to help your tax business thrive.
+              Join the Open Office for daily coworking, Tech Tuesday workshops, Attorney Q&As, and year-round business guidance.
             </p>
           </div>
           <div className="shrink-0 flex items-center gap-3 flex-wrap">

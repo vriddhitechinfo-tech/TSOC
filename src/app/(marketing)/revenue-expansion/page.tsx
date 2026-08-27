@@ -77,7 +77,7 @@ export default function RevenueExpansionPage() {
     {
       id: 1,
       name: "GoHighLevel CRM Sub-Accounts",
-      desc: "White-label GoHighLevel software to your business clients. Automate client intake, text messaging, and reviews while earning recurring SaaS income.",
+      desc: "White-label GoHighLevel to your business clients. Automate intake, texting, and reviews while earning recurring SaaS income.",
       icon: Sparkles,
       tag: "SaaS & Automation",
       ctaType: "calendar" as const,
@@ -87,7 +87,7 @@ export default function RevenueExpansionPage() {
     {
       id: 2,
       name: "Business Formation Services",
-      desc: "Help clients register LLCs, Corporations, and DBAs. High-demand service for new entrepreneurs, particularly during Q2 and Q3.",
+      desc: "Register LLCs, corporations, and DBAs for clients. High demand from new entrepreneurs, especially Q2 and Q3.",
       icon: Building2,
       tag: "High Yield",
       ctaType: "calendar" as const
@@ -225,24 +225,15 @@ export default function RevenueExpansionPage() {
             Build Year-Round Revenue &amp; Growth
           </h1>
           <p className="text-sm text-[#EDE9E0]/60 leading-relaxed">
-            Keep your income strong all 12 months of the year with our add-on service pathways.
+            Keep your income strong all year with add-on services.
           </p>
-          <div className="pt-2 flex flex-col sm:flex-row gap-3 justify-center items-center">
+          <div className="pt-2">
             <button
               onClick={() => openModal("strategy")}
               className="inline-flex items-center justify-center rounded-lg bg-[#FFB26A] hover:bg-[#F4845F] text-[#080808] font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
             >
               Consult on Revenue Expansion
             </button>
-            <a
-              href="https://www.gohighlevel.com/?fp_ref=tsoc"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs text-[#FFB26A] underline underline-offset-4 hover:text-[#F4845F] transition-colors font-semibold"
-            >
-              <span>Get GoHighLevel 14-Day Free Trial</span>
-              <ExternalLink className="w-3.5 h-3.5" />
-            </a>
           </div>
         </div>
 
@@ -258,7 +249,7 @@ export default function RevenueExpansionPage() {
                 Scale Your Practice &amp; Income with GoHighLevel
               </h2>
               <p className="text-xs sm:text-sm text-[#EDE9E0]/65 leading-relaxed">
-                The leading all-in-one platform for lead capture, automated client SMS/email follow-ups, appointment booking, and white-label CRM sub-accounts. Our community provides pre-configured TSOC snapshots ready to deploy.
+                One platform for lead capture, automated SMS/email follow-ups, booking, and white-label CRM sub-accounts. We provide ready-to-deploy TSOC snapshots.
               </p>
               <div className="flex flex-wrap gap-2 pt-1 text-xs text-[#EDE9E0]/70">
                 <span className="flex items-center gap-1.5 bg-[#080808] border border-[#FFB26A]/20 px-2.5 py-1 rounded">
@@ -285,13 +276,6 @@ export default function RevenueExpansionPage() {
                 <span>Get GoHighLevel 14-Day Free Trial</span>
                 <ExternalLink className="w-4 h-4" />
               </a>
-              <button
-                onClick={() => openModal("technology")}
-                className="w-full border border-[#FFB26A]/30 text-[#EDE9E0]/80 hover:text-white hover:border-[#FFB26A]/60 font-semibold py-3 px-6 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider text-center flex items-center justify-center gap-2"
-              >
-                <span>Request TSOC GoHighLevel Snapshot Setup</span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#FFB26A]" />
-              </button>
               <p className="text-[10px] text-center text-[#EDE9E0]/40">
                 *Affiliate Partner Link — Get exclusive TSOC community snapshots upon sign-up.
               </p>
@@ -305,7 +289,7 @@ export default function RevenueExpansionPage() {
             Year-Round Revenue Pathways
           </h2>
           <p className="text-xs text-[#EDE9E0]/50">
-            Select an add-on service pathway to expand your offerings and serve clients year-round.
+            Pick an add-on service to expand your offerings and serve clients year-round.
           </p>
         </div>
 
@@ -339,26 +323,13 @@ export default function RevenueExpansionPage() {
                 <div className="pt-4 mt-4 border-t border-[#FFB26A]/10 flex flex-col gap-2">
                   {/* CTA Logic: First 4 -> Calendar CTA, 5th -> Coming Soon…, Last 4 -> Tag Form */}
                   {op.ctaType === "calendar" && (
-                    <div className="flex flex-col gap-2">
-                      <button
-                        onClick={() => openModal("strategy")}
-                        className="w-full bg-[#FFB26A] hover:bg-[#F4845F] text-[#080808] font-extrabold py-2.5 px-4 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-md"
-                      >
-                        <CalendarDays className="w-3.5 h-3.5" />
-                        <span>Book Strategy Call</span>
-                      </button>
-                      {op.affiliateUrl && (
-                        <a
-                          href={op.affiliateUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-[11px] text-[#FFB26A] hover:text-[#F4845F] flex items-center justify-center gap-1 font-semibold transition-colors"
-                        >
-                          <span>GoHighLevel Affiliate Trial</span>
-                          <ExternalLink className="w-3 h-3" />
-                        </a>
-                      )}
-                    </div>
+                    <button
+                      onClick={() => openModal("strategy")}
+                      className="w-full bg-[#FFB26A] hover:bg-[#F4845F] text-[#080808] font-extrabold py-2.5 px-4 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-md"
+                    >
+                      <CalendarDays className="w-3.5 h-3.5" />
+                      <span>Book Strategy Call</span>
+                    </button>
                   )}
 
                   {op.ctaType === "coming_soon" && (
@@ -414,24 +385,15 @@ export default function RevenueExpansionPage() {
         <div className="gsap-reveal text-center max-w-xl mx-auto mt-16 space-y-4">
           <h3 className="font-display text-lg font-black text-white uppercase tracking-wider">Start Building Year-Round Income</h3>
           <p className="text-xs text-[#EDE9E0]/50 leading-relaxed">
-            Talk with our mentorship team. We&apos;ll help you pick the best add-on services for your firm and give you step-by-step setup support.
+            Talk with our mentorship team. We&apos;ll help you pick the right add-on services and set them up step by step.
           </p>
-          <div className="pt-2 flex flex-col sm:flex-row gap-3 justify-center">
+          <div className="pt-2">
             <button
               onClick={() => openModal("strategy")}
               className="bg-[#FFB26A] hover:bg-[#F4845F] text-[#080808] font-extrabold py-3.5 px-8 rounded-lg text-xs transition-all shadow-md cursor-pointer uppercase tracking-wider"
             >
               Request Revenue Expansion Roadmap
             </button>
-            <a
-              href="https://www.gohighlevel.com/?fp_ref=tsoc"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border border-[#FFB26A]/30 text-[#EDE9E0]/80 hover:text-white hover:border-[#FFB26A]/60 font-semibold py-3.5 px-6 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider inline-flex items-center justify-center gap-1.5"
-            >
-              <span>Get GoHighLevel Trial</span>
-              <ExternalLink className="w-3.5 h-3.5 text-[#FFB26A]" />
-            </a>
           </div>
         </div>
       </div>

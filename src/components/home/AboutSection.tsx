@@ -2,7 +2,6 @@
 
 import React, { useRef, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import TiltCard from "@/components/motion/TiltCard";
@@ -11,7 +10,6 @@ import {
   MessageCircle,
   Users,
   Layers,
-  ArrowRight,
   ShieldCheck,
   CheckCircle2,
 } from "lucide-react";
@@ -71,15 +69,13 @@ export default function AboutSection() {
             </h2>
 
             <p className="text-xs sm:text-sm text-[#EDE9E0]/70 leading-relaxed max-w-2xl">
-              Tired of predatory splits taking a cut of every return you file?
-              Done paying a middleman to license software you could own
-              outright?{" "}
+              Tired of splits taking a cut of every return? Done paying a
+              middleman for software you could own?{" "}
               <strong className="text-white font-semibold">
                 TSOC (The Sector of Collectives)
               </strong>{" "}
-              is the private nationwide ecosystem built for independent
-              preparers, EROs, and firm leaders who are done leaving money on
-              the table — and ready to keep 100% of what they earn.
+              is a private nationwide ecosystem for independent preparers, EROs,
+              and firm leaders ready to keep 100% of what they earn.
             </p>
 
             {/* Who We Are & What We Do Grid */}
@@ -108,9 +104,9 @@ export default function AboutSection() {
                   </h3>
                 </div>
                 <p className="text-[#EDE9E0]/60 text-xs leading-relaxed">
-                  We combine enterprise tax software, step-by-step EFIN
-                  credentialing, white-label Service Bureau mentorship, and 365
-                  days of live Open Office support.
+                  Enterprise tax software, step-by-step EFIN credentialing,
+                  white-label Service Bureau mentorship, and year-round live
+                  Open Office support.
                 </p>
               </div>
             </div>
@@ -145,8 +141,8 @@ export default function AboutSection() {
               </div>
             </div>
 
-            {/* Action Buttons */}
-            <div className="pt-3 flex flex-wrap items-center gap-4">
+            {/* Action Button */}
+            <div className="pt-3">
               <button
                 onClick={() => openModal("strategy")}
                 className="inline-flex items-center gap-2 bg-[#FFB26A] hover:bg-[#F4845F] text-[#080808] font-extrabold py-3 px-6 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider shadow-lg shadow-[#FFB26A]/10"
@@ -154,14 +150,6 @@ export default function AboutSection() {
                 <MessageCircle className="w-4 h-4" />
                 Talk to Our Team
               </button>
-
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 border border-[#FFB26A]/30 hover:border-[#FFB26A] text-white hover:text-[#FFB26A] font-bold py-3 px-5 rounded-lg text-xs transition-colors uppercase tracking-wider"
-              >
-                Learn Our Full Story
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
             </div>
           </div>
 

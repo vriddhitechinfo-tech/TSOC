@@ -55,7 +55,7 @@ export default function AboutPage() {
             Our Story &amp; Mission
           </h1>
           <p className="text-sm text-[#EDE9E0]/60 leading-relaxed">
-            At The Sector of Collectives, we believe tax professionals deserve more than software. We help tax professionals build businesses, secure independence, and develop year-round systems.
+            Tax professionals deserve more than software. We help you build a business, secure independence, and run year-round systems.
           </p>
         </div>
 
@@ -64,13 +64,13 @@ export default function AboutPage() {
           <div className="gsap-reveal space-y-6 text-xs md:text-sm text-[#EDE9E0]/60 leading-relaxed">
             <h2 className="text-base font-bold text-white uppercase tracking-wider">Our Mission</h2>
             <p>
-              To create a collaborative community where tax professionals have access to the tools, education, relationships, and opportunities needed to grow sustainable businesses.
+              To build a community where tax professionals get the tools, education, and relationships to grow sustainable businesses.
             </p>
             <p>
-              We stand against the high-commission franchise models that exploit independent preparers. We believe ERO status is the ultimate foundation for growth, enabling business owners to retain 100% of their revenues and structure offices on their own terms.
+              We reject the high-commission franchise models that exploit independent preparers. ERO status is the foundation for growth: keep 100% of your revenue and run your office on your own terms.
             </p>
             <p>
-              Whether you are preparing your first return, configuring multi-site consoles, or white-labeling software for your own Service Bureau network, we provide live expert support every step of the way.
+              First return or a multi-site Service Bureau network — you get live expert support at every step.
             </p>
             <div className="pt-4">
               <StrategyCTA />
@@ -88,7 +88,7 @@ export default function AboutPage() {
               <span className="text-white">Conquer</span>
             </div>
             <p className="text-[#EDE9E0]/50 text-xs max-w-sm mx-auto leading-relaxed">
-              We connect tax leaders, help them create automated revenue setups, and guide them as they conquer their local tax markets.
+              We connect tax leaders, help them build automated revenue systems, and back them as they win their local markets.
             </p>
           </TiltCard>
         </div>
@@ -103,7 +103,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-sm font-bold text-white uppercase tracking-wider">Revenue Growth</h3>
               <p className="text-xs text-[#EDE9E0]/45 leading-relaxed">
-                Prioritize cash-flow strategies. We focus on building year-round services like LLC filings, tax planning retainers, and bookkeeping alliances to sustain business outside Q1.
+                Year-round cash flow. LLC filings, tax planning retainers, and bookkeeping partnerships keep revenue coming in outside Q1.
               </p>
             </TiltCard>
 
@@ -113,7 +113,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-sm font-bold text-white uppercase tracking-wider">Compliance Education</h3>
               <p className="text-xs text-[#EDE9E0]/45 leading-relaxed">
-                Operate securely. IRS requirements evolve constantly; we provide digital background reviews, secure ID.me guidelines, and attorney checks to verify EFIN compliance.
+                IRS rules keep changing. We provide background reviews, ID.me guidance, and attorney checks to keep your EFIN compliant.
               </p>
             </TiltCard>
 
@@ -123,7 +123,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-sm font-bold text-white uppercase tracking-wider">Technology Integration</h3>
               <p className="text-xs text-[#EDE9E0]/45 leading-relaxed">
-                Ditch manual worksheets. We design automated pipelines for lead capture, calendar bookings, and encrypted document intakes, allowing you to double your intake.
+                Drop the manual worksheets. Automated pipelines for lead capture, booking, and encrypted document intake let you take on more clients.
               </p>
             </TiltCard>
           </div>

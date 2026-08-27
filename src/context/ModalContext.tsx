@@ -1,43 +1,36 @@
 "use client";
 
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { createContext, useContext, ReactNode } from "react";
+import { MODAL_CONFIG } from "@/lib/modalConfig";
 
-export type ModalType = 
-  | "software" 
-  | "ero" 
-  | "bureau" 
-  | "openoffice" 
-  | "strategy" 
-  | "technology" 
-  | "partner" 
+export type ModalType =
+  | "software"
+  | "ero"
+  | "bureau"
+  | "openoffice"
+  | "strategy"
+  | "technology"
+  | "partner"
   | "demo";
 
 interface ModalContextType {
-  isOpen: boolean;
-  modalType: ModalType;
   openModal: (type: ModalType) => void;
-  closeModal: () => void;
 }
 
 const ModalContext = createContext<ModalContextType | undefined>(undefined);
 
 export function ModalProvider({ children }: { children: ReactNode }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [modalType, setModalType] = useState<ModalType>("strategy");
-
+  // Previously opened an in-page modal with an embedded booking iframe.
+  // Each CTA now opens its booking/intake link directly in a new tab.
   const openModal = (type: ModalType) => {
-    setModalType(type);
-    setIsOpen(true);
-    document.body.style.overflow = "hidden"; // Prevent background scroll
-  };
-
-  const closeModal = () => {
-    setIsOpen(false);
-    document.body.style.overflow = "unset";
+    const url = MODAL_CONFIG[type]?.bookingUrl;
+    if (url) {
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
   };
 
   return (
-    <ModalContext.Provider value={{ isOpen, modalType, openModal, closeModal }}>
+    <ModalContext.Provider value={{ openModal }}>
       {children}
     </ModalContext.Provider>
   );

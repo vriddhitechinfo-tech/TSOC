@@ -125,7 +125,7 @@ export default function ServiceBureauGrowthPage() {
         "Legacy software & technology evaluations",
         "Identification of high-margin growth opportunities",
       ],
-      desc: "Before you add remote agents, we audit your baseline infrastructure to make sure your office is ready to absorb scaling volumes without compliance failure.",
+      desc: "Before you add remote agents, we audit your infrastructure so your office can absorb higher volume without compliance gaps.",
     },
     {
       num: "Phase 2",
@@ -220,24 +220,15 @@ export default function ServiceBureauGrowthPage() {
             Build &amp; Scale Your Tax Service Bureau
           </h1>
           <p className="text-sm text-[#EDE9E0]/60 leading-relaxed max-w-3xl mx-auto">
-            Ready to expand beyond individual client filings? The Service Bureau model lets you license professional tax software, train other preparers, and build scaling recurring revenue streams.
+            Expand beyond individual filings. License professional tax software, train other preparers, and build recurring revenue.
           </p>
-          <div className="pt-4 flex flex-col sm:flex-row gap-3 justify-center items-center">
+          <div className="pt-4">
             <button
               onClick={() => openModal("bureau")}
               className="inline-flex items-center justify-center rounded-lg bg-[#FFB26A] hover:bg-[#F4845F] text-[#080808] font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
             >
               Apply for Service Bureau Mentorship
             </button>
-            <p className="text-[11px] text-[#EDE9E0]/40">
-              Have questions?{" "}
-              <button
-                onClick={() => openModal("strategy")}
-                className="text-[#FFB26A] underline underline-offset-2 hover:text-[#F4845F] transition-colors cursor-pointer font-semibold"
-              >
-                Chat with our team →
-              </button>
-            </p>
           </div>
         </div>
 
@@ -302,7 +293,7 @@ export default function ServiceBureauGrowthPage() {
               Proven Growth Across Our Network
             </h2>
             <p className="text-xs text-[#EDE9E0]/50">
-              Tax professionals who transitioned to Service Bureau models and built sustainable, scaling revenue streams.
+              Tax pros who moved to the Service Bureau model and built lasting recurring revenue.
             </p>
           </div>
           <TestimonialCarousel />
@@ -312,7 +303,7 @@ export default function ServiceBureauGrowthPage() {
         <div className="relative pt-6">
           <div className="gsap-reveal text-center mb-16 max-w-xl mx-auto">
             <h2 className="text-xl font-bold text-white uppercase tracking-wider">Our 4-Phase Growth Blueprint</h2>
-            <p className="text-xs text-[#EDE9E0]/50 mt-1">Scroll down to trace each phase of our mentorship deliverables.</p>
+            <p className="text-xs text-[#EDE9E0]/50 mt-1">Scroll to see each phase and its deliverables.</p>
           </div>
 
           <div ref={containerRef} className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative pb-16">
@@ -394,7 +385,7 @@ export default function ServiceBureauGrowthPage() {
                 Download Service Bureau Phase Audit Checklist
               </h2>
               <p className="text-xs text-[#EDE9E0]/60 leading-relaxed">
-                Get our comprehensive checklist covering operational audits, software pricing structures, sub-office compliance, and preparer onboarding templates.
+                A checklist covering operational audits, software pricing, sub-office compliance, and preparer onboarding.
               </p>
             </div>
             <div className="lg:col-span-5">
@@ -435,18 +426,12 @@ export default function ServiceBureauGrowthPage() {
             <h3 className="font-display text-base font-black text-white uppercase tracking-wider">Ready to start your Service Bureau?</h3>
             <p className="text-xs text-[#EDE9E0]/60">Our team will walk you through every step. No pressure — just a conversation.</p>
           </div>
-          <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+          <div className="shrink-0">
             <button
               onClick={() => openModal("bureau")}
               className="bg-[#FFB26A] hover:bg-[#F4845F] text-[#080808] font-extrabold py-3 px-6 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider whitespace-nowrap"
             >
               Apply Now
-            </button>
-            <button
-              onClick={() => openModal("strategy")}
-              className="border border-[#FFB26A]/30 text-[#EDE9E0]/70 hover:text-white hover:border-[#FFB26A]/60 font-semibold py-3 px-6 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider whitespace-nowrap"
-            >
-              Talk to an Advisor
             </button>
           </div>
         </div>
@@ -461,7 +446,7 @@ export default function ServiceBureauGrowthPage() {
               WHO WE WORK WITH
             </h2>
             <p className="text-xs text-[#EDE9E0]/60 leading-relaxed">
-              Transitioning to a Service Bureau requires administrative maturity, solid tax experience, and leadership. We screen applicants to ensure our resources align with offices ready to scale.
+              A Service Bureau takes admin maturity, solid tax experience, and leadership. We screen applicants so our resources go to offices ready to scale.
             </p>
             <ul className="space-y-3.5 text-xs text-[#EDE9E0]/60">
               <li className="flex items-start space-x-2.5">
@@ -492,7 +477,7 @@ export default function ServiceBureauGrowthPage() {
             <Activity className="w-8 h-8 text-[#FFB26A] mx-auto" />
             <h3 className="text-base font-bold text-white uppercase tracking-wider">Apply for Mentorship</h3>
             <p className="text-xs text-[#EDE9E0]/50 max-w-sm mx-auto leading-relaxed">
-              We accept a limited number of offices into our Service Bureau Growth Program each quarter. Secure an audit to verify if your systems are scaling-ready.
+              We accept a limited number of offices each quarter. Book an audit to check whether your systems are scaling-ready.
             </p>
             <button
               onClick={() => openModal("bureau")}

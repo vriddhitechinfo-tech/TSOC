@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useModal } from "@/context/ModalContext";
 import { Mail, Phone, MessageSquare, ExternalLink, CalendarDays, Users } from "lucide-react";
-import { PHONE_NUMBER, PHONE_LINK, TALK_TO_TEAM_CALENDAR_LINK, SOFTWARE_RENEWAL_LINK, OPEN_OFFICE_COMMUNITY_LINK, ERO_ENABLEMENT_LINK, TAX_SOFTWARE_LOGIN_LINK, SUPPORT_EMAIL, EMAIL_LINK, FEEDBACK_LINK, WAITLIST_LINK, TAX_TOUR_LINK } from "@/lib/constants";
+import { PHONE_NUMBER, PHONE_LINK, TALK_TO_TEAM_CALENDAR_LINK, SOFTWARE_RENEWAL_LINK, OPEN_OFFICE_COMMUNITY_LINK, ERO_ENABLEMENT_LINK, TAX_SOFTWARE_LOGIN_LINK, SUPPORT_EMAIL, EMAIL_LINK, FEEDBACK_LINK, WAITLIST_LINK, TAX_TOUR_LINK, INSTRUCTOR_INQUIRY_CALL_LINK } from "@/lib/constants";
 import Logo from "@/components/ui/Logo";
 
 export default function Footer() {
@@ -37,7 +37,7 @@ export default function Footer() {
               We help tax professionals build independent businesses — with
               software, EFIN support, live community, and year-round guidance.
             </p>
-            <div className="text-xs uppercase tracking-widest text-[#F4845F] font-bold">
+            {/* <div className="text-xs uppercase tracking-widest text-[#F4845F] font-bold">
               Motto:{" "}
               <span className="font-display italic font-semibold text-sm normal-case tracking-normal text-[#FFB26A]">
                 Connect
@@ -50,7 +50,7 @@ export default function Footer() {
               <span className="font-display font-semibold text-sm normal-case tracking-normal text-white">
                 Conquer
               </span>
-            </div>
+            </div> */}
 
             {/* Contact Options */}
             <div className="space-y-2 pt-2">
@@ -149,16 +149,6 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a
-                  href={ERO_ENABLEMENT_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#FFB26A] transition-colors"
-                >
-                  EFIN Application Help
-                </a>
-              </li>
-              <li>
                 <Link
                   href="/service-bureau-growth"
                   className="hover:text-[#FFB26A] transition-colors"
@@ -167,22 +157,31 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/service-bureau-growth"
+                <a
+                  href={TAX_TOUR_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:text-[#FFB26A] transition-colors"
                 >
-                  Service Bureau Mentorship
-                </Link>
+                  Tax Tour
+                </a>
+              </li>
+              <li>
+                <button
+                  onClick={() => openModal("partner")}
+                  className="hover:text-[#FFB26A] transition-colors cursor-pointer text-left"
+                >
+                  Partner With Us
+                </button>
               </li>
               <li>
                 <a
-                  href={OPEN_OFFICE_COMMUNITY_LINK}
+                  href={INSTRUCTOR_INQUIRY_CALL_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#FFB26A] transition-colors flex items-center gap-1"
+                  className="hover:text-[#FFB26A] transition-colors"
                 >
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#FFB26A]" />
-                  Join Open Office
+                  Teach With Us
                 </a>
               </li>
               <li>
@@ -214,15 +213,6 @@ export default function Footer() {
                   <CalendarDays className="w-3 h-3 shrink-0 text-[#FFB26A]" />
                   Book a Free Call
                 </a>
-              </li>
-              <li>
-                <button
-                  onClick={() => openModal("demo")}
-                  className="flex items-center gap-1.5 hover:text-[#FFB26A] transition-colors cursor-pointer text-left"
-                >
-                  <CalendarDays className="w-3 h-3 shrink-0 text-[#FFB26A]" />
-                  Request a Demo
-                </button>
               </li>
               <li>
                 <a

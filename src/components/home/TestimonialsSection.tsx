@@ -15,8 +15,8 @@ export default function TestimonialsSection() {
             Proven Success in the Community
           </h2>
           <p className="text-xs text-[#EDE9E0]/50">
-            Verified success stories from tax professionals who transitioned to
-            independent EROs and Service Bureaus.
+            Real stories from tax pros who became independent EROs and Service
+            Bureaus.
           </p>
         </div>
         <TestimonialCarousel />

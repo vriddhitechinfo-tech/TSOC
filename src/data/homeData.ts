@@ -7,7 +7,7 @@ export const heroSlides: HeroSlide[] = [
     title: "Never File Alone Again.",
     titleHighlight: "Never File Alone",
     description:
-      "Daily live coworking, attorney Q&As, and real expert help — every week, all year long. We're here whenever you need us.",
+      "Daily live coworking, attorney Q&As, and expert help — every week, all year.",
     stats: [
       { value: "2000+", label: "Community Members" },
       { value: "365", label: "Days of Support" },
@@ -135,7 +135,7 @@ export interface ServicePathway {
 export const servicePathways: ServicePathway[] = [
   {
     title: "Open Office Community",
-    desc: "Virtual Assistant, Social Media Management, Smart Workflows, Video editing and One Stop solution for your business.",
+    desc: "Daily live coworking, software support, and attorney Q&As — one place to get unstuck.",
     bestFor: ["All Tax Preparers", "Accounting Owners", "Bookkeepers"],
     includes: [
       "Daily live office hours",
@@ -236,12 +236,12 @@ export const homepageFaqs = [
   {
     question: "What is TSOC?",
     answer:
-      "TSOC (The Sector of Collectives) is a community built for tax professionals. We offer professional tax software, EFIN setup support, Service Bureau mentorship, and daily live coworking — everything you need to grow a successful tax business.",
+      "TSOC (The Sector of Collectives) is a community for tax professionals — professional tax software, EFIN setup support, Service Bureau mentorship, and daily live coworking to help you grow a successful tax business.",
   },
   {
     question: "Do I need an EFIN to get started?",
     answer:
-      "No, You can start using our software right away without an EFIN. If you'd like to get one, our ERO Enablement program walks you through every step of the IRS application process.",
+      "No — you can start using our software right away without an EFIN. If you want one, our ERO Enablement program walks you through every step of the IRS application.",
   },
   {
     question: "What's the difference between a Service Bureau and a standard ERO?",
