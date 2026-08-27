@@ -1,6 +1,11 @@
 import { ModalType } from "@/context/ModalContext";
 import {
   CONNECT_TO_SECTOR_LINK,
+  ERO_ENABLEMENT_CALL_LINK,
+  PARTNER_CALL_LINK,
+  SECTOR_CONSULTING_CALL_LINK,
+  SERVICE_BUREAU_CALL_LINK,
+  STRATEGY_SESSION_CALL_LINK,
   TALK_TO_TEAM_CALENDAR_LINK,
   TAX_SOFTWARE_FUNNEL_LINK,
   withUtm,
@@ -41,7 +46,7 @@ export const MODAL_CONFIG: Record<ModalType, ModalConfig> = {
       body: "Learn more about the ERO Enablement Program or book a call with our team.",
       links: [
         { label: "See ERO Enablement Program", href: "/ero-enablement" },
-        { label: "Book a Call", href: withUtm(TALK_TO_TEAM_CALENDAR_LINK, "modal-ero-nextstep") },
+        { label: "Book a Call", href: withUtm(ERO_ENABLEMENT_CALL_LINK, "modal-ero-nextstep") },
       ],
     },
   },
@@ -53,7 +58,7 @@ export const MODAL_CONFIG: Record<ModalType, ModalConfig> = {
       body: "Your application routes to our team for review. In the meantime, take a look at the full program.",
       links: [
         { label: "See Service Bureau Growth Program", href: "/service-bureau-growth" },
-        { label: "Book a Call", href: withUtm(TALK_TO_TEAM_CALENDAR_LINK, "modal-bureau-nextstep") },
+        { label: "Book a Call", href: withUtm(SERVICE_BUREAU_CALL_LINK, "modal-bureau-nextstep") },
       ],
     },
   },
@@ -74,10 +79,10 @@ export const MODAL_CONFIG: Record<ModalType, ModalConfig> = {
     headerTitle: "Add-on Services • Explore Revenue Streams",
     nextSteps: {
       heading: "What happens next",
-      body: "Our team will follow up shortly. You can also browse the full list of add-on services.",
+      body: "Our team will follow up shortly. You can also browse the add-on services.",
       links: [
         { label: "See Add-on Services", href: "/revenue-expansion" },
-        { label: "Book a Call", href: withUtm(TALK_TO_TEAM_CALENDAR_LINK, "modal-strategy-nextstep") },
+        { label: "Book a Strategy Session", href: withUtm(STRATEGY_SESSION_CALL_LINK, "modal-strategy-nextstep") },
       ],
     },
   },
@@ -89,7 +94,7 @@ export const MODAL_CONFIG: Record<ModalType, ModalConfig> = {
       body: "Our team will follow up shortly. You can also see what's included in CRM & Automation setup.",
       links: [
         { label: "See CRM & Automation", href: "/technology-support" },
-        { label: "Book a Call", href: withUtm(TALK_TO_TEAM_CALENDAR_LINK, "modal-technology-nextstep") },
+        { label: "Book a Consultation", href: withUtm(SECTOR_CONSULTING_CALL_LINK, "modal-technology-nextstep") },
       ],
     },
   },
@@ -100,7 +105,7 @@ export const MODAL_CONFIG: Record<ModalType, ModalConfig> = {
       heading: "What happens next",
       body: "Our team will follow up shortly.",
       links: [
-        { label: "Book a Call", href: withUtm(TALK_TO_TEAM_CALENDAR_LINK, "modal-partner-nextstep") },
+        { label: "Book a Call", href: withUtm(PARTNER_CALL_LINK, "modal-partner-nextstep") },
       ],
     },
   },

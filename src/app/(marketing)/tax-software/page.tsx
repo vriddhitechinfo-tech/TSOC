@@ -11,7 +11,7 @@ import FaqAccordion from "@/components/ui/FaqAccordion";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import TiltCard from "@/components/motion/TiltCard";
 import VideoMeshBackground from "@/components/VideoMeshBackground";
-import { TAX_SOFTWARE_LOGIN_LINK, TALK_TO_TEAM_CALENDAR_LINK, SOFTWARE_RENEWAL_LINK } from "@/lib/constants";
+import { TAX_SOFTWARE_LOGIN_LINK } from "@/lib/constants";
 
 export default function TaxSoftwarePage() {
   const { openModal } = useModal();
@@ -86,7 +86,7 @@ export default function TaxSoftwarePage() {
   const packages = [
     {
       name: "Tax Pro",
-      desc: "Perfect for independent tax preparers getting started with professional filing tools.",
+      desc: "For independent preparers getting started with professional filing tools.",
       priceText: "Flexible Pricing",
       features: [
         "1040, Schedule C, & All State Forms",
@@ -101,7 +101,7 @@ export default function TaxSoftwarePage() {
     },
     {
       name: "ERO Office",
-      desc: "Ideal for established or growing EROs managing office locations and bank integrations.",
+      desc: "For growing EROs managing office locations and bank integrations.",
       priceText: "Maximizes Margins",
       isPopular: true,
       features: [
@@ -180,32 +180,17 @@ export default function TaxSoftwarePage() {
                 Tax Software Built for Growth
               </h1>
               <p className="gsap-reveal text-sm text-[#EDE9E0]/55 leading-relaxed line-clamp-3">
-                Access reliable, and compliant tax software. File federal and
-                state returns quickly, offer bank products directly, and grow a
-                tax business with zero limits.
+                Reliable, compliant tax software. File federal and state returns
+                fast, offer bank products, and grow with no limits.
               </p>
-              <div className="gsap-reveal flex flex-col sm:flex-row gap-4 pt-4">
+              <div className="gsap-reveal pt-4">
                 <a
                   href={TAX_SOFTWARE_LOGIN_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#FFB26A] hover:bg-[#F4845F] text-[#140A06] font-extrabold px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer shadow-md text-center flex items-center justify-center"
+                  className="inline-flex items-center justify-center bg-[#FFB26A] hover:bg-[#F4845F] text-[#140A06] font-extrabold px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer shadow-md text-center"
                 >
                   See the Software in Action
-                </a>
-                <button
-                  onClick={() => openModal("demo")}
-                  className="bg-[#161412] text-[#EDE9E0]/70 hover:text-white border border-[#FFB26A]/20 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all text-center cursor-pointer flex items-center justify-center"
-                >
-                  Request a Live Demo
-                </button>
-                <a
-                  href={TAX_SOFTWARE_LOGIN_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-[#161412] text-[#FFB26A] hover:text-white border border-[#FFB26A]/30 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all text-center"
-                >
-                  Software Login
                 </a>
               </div>
             </div>
@@ -289,7 +274,7 @@ export default function TaxSoftwarePage() {
               Product Walkthrough
             </h2>
             <p className="text-xs text-[#EDE9E0]/35 mt-1">
-              Review core workspaces and platform features in real time.
+              See the core workspaces and features in action.
             </p>
           </div>
           <SoftwareCarousel />
@@ -302,8 +287,7 @@ export default function TaxSoftwarePage() {
               Watch the Software in Action
             </h2>
             <p className="text-xs text-[#EDE9E0]/35 mt-1">
-              Full video walkthroughs covering every workspace and filing
-              workflow.
+              Video walkthroughs of every workspace and filing workflow.
             </p>
           </div>
           <div className="glass-card p-2 sm:p-3 max-w-4xl mx-auto">
@@ -380,7 +364,7 @@ export default function TaxSoftwarePage() {
               Transparent Membership Built For Scale
             </h2>
             <p className="text-xs text-[#EDE9E0]/50 max-w-2xl mx-auto leading-relaxed">
-              Pick the membership tier designed for your business stage — from independent Tax Pros to multi-office Service Bureaus.
+              Pick the tier for your business stage — from independent Tax Pros to multi-office Service Bureaus.
             </p>
           </div>
 
@@ -702,7 +686,7 @@ export default function TaxSoftwarePage() {
                 Specialized Benefits by Audience
               </h3>
               <p className="text-xs text-[#EDE9E0]/45">
-                Every tier is meticulously structured to solve the unique challenges of your specific role.
+                Every tier is built around the challenges of your role.
               </p>
             </div>
 
@@ -820,8 +804,8 @@ export default function TaxSoftwarePage() {
               Tax Pros Trusting Our Platform
             </h2>
             <p className="text-xs text-[#EDE9E0]/35">
-              Real stories from Tax Pros who rely on our software to file with
-              confidence and scale their businesses.
+              Real stories from Tax Pros who file with confidence and scale on
+              our platform.
             </p>
           </div>
           <TestimonialCarousel />
@@ -845,9 +829,9 @@ export default function TaxSoftwarePage() {
               More Than Software — You&apos;re Joining an Ecosystem
             </h3>
             <p className="text-xs text-[#EDE9E0]/45 leading-relaxed">
-              When you get our software, you gain full access to The Open Office
-              — daily live co-working sessions, Tech Tuesday training, Business
-              Support, and year-round education.
+              Our software includes full Open Office access — daily live
+              coworking, Tech Tuesday training, business support, and year-round
+              education.
             </p>
             <ul className="grid grid-cols-2 sm:grid-cols-3 gap-2 pt-2">
               {[

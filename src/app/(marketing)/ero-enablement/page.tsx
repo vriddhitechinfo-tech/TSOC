@@ -8,7 +8,7 @@ import { motion, useScroll, useSpring } from "framer-motion";
 import FeeCalculator from "@/components/FeeCalculator";
 import FaqAccordion from "@/components/ui/FaqAccordion";
 import TiltCard from "@/components/motion/TiltCard";
-import { ERO_ENABLEMENT_LINK } from "@/lib/constants";
+import { ERO_ENABLEMENT_LINK, ERO_ENABLEMENT_CALL_LINK } from "@/lib/constants";
 
 export default function EROEnablementPage() {
   const pageRef = useRef<HTMLDivElement>(null);
@@ -121,7 +121,7 @@ export default function EROEnablementPage() {
     {
       num: "02",
       title: "Compliance",
-      desc: "Audit your security standards, document storage, and encrypted communications to meet IRS Publication 4557 standards.",
+      desc: "Bring your security, document storage, and encrypted communications up to IRS Publication 4557 standards.",
     },
     {
       num: "03",
@@ -131,12 +131,12 @@ export default function EROEnablementPage() {
     {
       num: "04",
       title: "Software Setup",
-      desc: "While your application is processing, we get your tax software configured, users set up, and bank product connections enrolled so you're ready to file the moment you're approved.",
+      desc: "While your application processes, we configure your software, set up users, and enroll bank products — so you can file the moment you're approved.",
     },
     {
       num: "05",
       title: "Office Setup",
-      desc: "System implementation of CRM, software, and seasonal growth strategy for your independent tax office.",
+      desc: "Set up CRM, software, and a seasonal growth plan for your independent office.",
     },
   ];
 
@@ -231,11 +231,11 @@ export default function EROEnablementPage() {
             Become an Independent ERO &amp; Keep 100% Fees
           </h1>
           <p className="text-sm text-[#EDE9E0]/60 leading-relaxed">
-            Preparing taxes under another ERO or franchise can cost you 30% to 50% of your total revenue. Our ERO Enablement program guides you through the process of getting your EFIN and setting up your own company.
+            Filing under another ERO or franchise can cost you 30&ndash;50% of your revenue. We guide you through getting your EFIN and setting up your own company.
           </p>
           <div className="pt-4">
             <a
-              href={ERO_ENABLEMENT_LINK}
+              href={ERO_ENABLEMENT_CALL_LINK}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-lg bg-[#FFB26A] hover:bg-[#F4845F] text-[#080808] font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
@@ -249,7 +249,7 @@ export default function EROEnablementPage() {
         <div className="gsap-reveal space-y-6">
           <div className="text-center max-w-xl mx-auto">
             <h2 className="font-display text-xl sm:text-2xl font-black text-white uppercase tracking-wider">Fee-Split Calculator</h2>
-            <p className="text-xs text-[#EDE9E0]/50 mt-1">See how much revenue you stand to retain by acquiring your own EFIN credentials.</p>
+            <p className="text-xs text-[#EDE9E0]/50 mt-1">See how much revenue you keep with your own EFIN.</p>
           </div>
           <FeeCalculator />
         </div>
@@ -334,22 +334,22 @@ export default function EROEnablementPage() {
               {
                 icon: DollarSign,
                 title: "Keep 100% of Revenue",
-                desc: "Keep every dollar your office generates. No percentage split models or royalty fees standard in franchise setups.",
+                desc: "Keep every dollar your office generates. No split models or franchise royalty fees.",
               },
               {
                 icon: Award,
                 title: "Full Brand Authority",
-                desc: "Market your business under your own name. Build custom client relationships and value that belongs to you.",
+                desc: "Market under your own name. The client relationships and brand value belong to you.",
               },
               {
                 icon: Sliders,
                 title: "Control Your Pricing",
-                desc: "Define your own fee schedule, client discounts, and service offerings without standard franchise limits.",
+                desc: "Set your own fee schedule, discounts, and service offerings — no franchise limits.",
               },
               {
                 icon: Building,
                 title: "Direct Bank Approvals",
-                desc: "Receive client filing fees straight from refund processing banks directly into your own corporate bank account.",
+                desc: "Client filing fees go from the refund bank straight into your corporate account.",
               },
             ].map((benefit, i) => (
               <TiltCard key={benefit.title} delay={i * 0.1} className="glass-card glass-card-hover p-6 space-y-4">
@@ -368,7 +368,7 @@ export default function EROEnablementPage() {
           <div className="max-w-2xl mb-12 space-y-2">
             <h2 className="font-display text-xl sm:text-2xl font-black text-white uppercase tracking-wider">How to Become an ERO: Step-by-Step</h2>
             <p className="text-xs text-[#EDE9E0]/50">
-              The IRS process can be confusing, taking anywhere from 4 to 8 weeks. We eliminate the guesswork with direct enablement support.
+              The IRS process takes 4 to 8 weeks and trips people up. We remove the guesswork.
             </p>
           </div>
 
@@ -453,7 +453,7 @@ export default function EROEnablementPage() {
         <div className="gsap-reveal text-center max-w-xl mx-auto space-y-4">
           <h3 className="font-display text-lg font-black text-white uppercase tracking-wider">Ready to stop splitting fees?</h3>
           <p className="text-xs text-[#EDE9E0]/50 leading-relaxed">
-            Schedule an ERO application consultation. We will audit your pre-requisites and structure a timeline to get you approved before next tax season.
+            Book an ERO consultation. We&apos;ll check your prerequisites and map a timeline to get you approved before next tax season.
           </p>
           <a
             href={ERO_ENABLEMENT_LINK}

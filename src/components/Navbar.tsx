@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, MessageCircle } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import Logo from "@/components/ui/Logo";
 import { TALK_TO_TEAM_CALENDAR_LINK } from "@/lib/constants";
 
@@ -36,10 +36,10 @@ export default function Navbar() {
           <div className="flex items-center shrink-0">
             <Link href="/" className="flex items-center space-x-2.5 group">
               <Logo size={32} />
-              <span className="hidden 2xl:block font-display font-bold text-base tracking-wide text-white uppercase group-hover:text-[#FFB26A] transition-colors whitespace-nowrap">
+              <span className="hidden min-[1650px]:block font-display font-bold text-base tracking-wide text-white uppercase group-hover:text-[#FFB26A] transition-colors whitespace-nowrap">
                 The Sector of Collectives
               </span>
-              <span className="2xl:hidden font-display font-bold text-base tracking-wide text-white uppercase group-hover:text-[#FFB26A] transition-colors whitespace-nowrap">
+              <span className="hidden min-[1450px]:block min-[1650px]:hidden font-display font-bold text-base tracking-wide text-white uppercase group-hover:text-[#FFB26A] transition-colors whitespace-nowrap">
                 The Sector
               </span>
             </Link>
@@ -47,12 +47,12 @@ export default function Navbar() {
 
           {/* Desktop Navigation Links */}
           <nav className="hidden xl:flex items-center flex-1 justify-center min-w-0">
-            <div className="flex items-center gap-0.5 flex-nowrap">
+            <div className="flex items-center gap-0.5 flex-nowrap min-w-0">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`px-2.5 py-2 rounded-md text-[0.8rem] font-semibold transition-all duration-150 whitespace-nowrap underline-offset-4 decoration-2 flex items-center gap-1.5 ${
+                  className={`px-2 py-2 rounded-md text-[0.78rem] 2xl:text-[0.8rem] font-semibold transition-all duration-150 whitespace-nowrap underline-offset-4 decoration-2 flex items-center gap-1.5 ${
                     isActive(link.href)
                       ? "text-[#FFB26A] underline decoration-[#FFB26A]"
                       : "text-[#EDE9E0]/60 hover:text-white hover:bg-[#181818]/80"
@@ -69,16 +69,6 @@ export default function Navbar() {
 
           {/* CTA / Action Buttons */}
           <div className="hidden xl:flex items-center gap-2 shrink-0">
-            <a
-              href={TALK_TO_TEAM_CALENDAR_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-[#FFB26A]/25 bg-transparent hover:bg-[#181818] text-[#EDE9E0]/70 hover:text-white px-3 py-2.5 text-[0.75rem] font-semibold transition-all"
-              aria-label="Contact us"
-            >
-              <MessageCircle className="w-3.5 h-3.5 text-[#FFB26A]" />
-              <span>Talk to Us</span>
-            </a>
             <a
               href={TALK_TO_TEAM_CALENDAR_LINK}
               target="_blank"
@@ -127,17 +117,7 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
-            <div className="pt-4 px-3 flex flex-col gap-2">
-              <a
-                href={TALK_TO_TEAM_CALENDAR_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="w-full text-center border border-[#FFB26A]/25 text-[#EDE9E0]/70 font-semibold py-3 px-4 rounded-lg text-sm transition-all flex items-center justify-center gap-2"
-              >
-                <MessageCircle className="w-4 h-4 text-[#FFB26A]" />
-                Talk to Us
-              </a>
+            <div className="pt-4 px-3">
               <a
                 href={TALK_TO_TEAM_CALENDAR_LINK}
                 target="_blank"

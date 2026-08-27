@@ -216,14 +216,14 @@ export default function TechnologySupportPage() {
     },
     {
       title: "Secure Intake Document Requests",
-      desc: "Replace email attachments with a mobile-friendly link for clients to snap pictures and upload documents directly to their CRM profiles.",
+      desc: "Swap email attachments for a mobile link. Clients snap photos and upload straight to their CRM profile.",
       icon: ShieldCheck,
       tag: "IRS Pub 4557",
       tools: ["256-Bit SSL", "Mobile Upload", "Cloud Vault"],
     },
     {
       title: "Calendar Scheduling Integration",
-      desc: "Sync Google Calendar or Outlook. Clients select open time slots based on preparer availability, sending auto-reminders to reduce no-shows.",
+      desc: "Sync Google Calendar or Outlook. Clients book open slots by preparer availability, with auto-reminders to cut no-shows.",
       icon: CalendarDays,
       tag: "Auto Reminders",
       tools: ["Google Calendar", "Outlook", "Cal.com"],
@@ -307,20 +307,14 @@ export default function TechnologySupportPage() {
                 Automate Your Operations.
               </h1>
               <p className="gsap-reveal text-sm text-[#EDE9E0]/55 leading-relaxed line-clamp-3">
-                Stop chasing documents, manually texting clients, and managing files on sheets. We set up custom CRMs, document workflows, and client messaging pipelines specifically for tax professionals.
+                Stop chasing documents and texting clients by hand. We set up custom CRMs, document workflows, and messaging pipelines for tax professionals.
               </p>
-              <div className="gsap-reveal flex flex-col sm:flex-row gap-4 pt-4">
+              <div className="gsap-reveal pt-4">
                 <button
                   onClick={() => openModal("technology")}
                   className="bg-[#FFB26A] hover:bg-[#F4845F] text-[#140A06] font-extrabold px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer shadow-md"
                 >
                   Book a Technology Consultation
-                </button>
-                <button
-                  onClick={() => openModal("technology")}
-                  className="bg-[#161412] text-[#EDE9E0]/70 hover:text-white border border-[#FFB26A]/20 px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer"
-                >
-                  Request Technology Audit
                 </button>
               </div>
             </div>
@@ -527,7 +521,7 @@ export default function TechnologySupportPage() {
               Tax Offices Working Smarter
             </h2>
             <p className="text-xs text-[#EDE9E0]/35">
-              Professionals who&apos;ve implemented automation and CRM systems, and now spend less time on admin and more time growing their businesses.
+              Professionals who put automation and CRM systems in place — and now spend less time on admin, more on growth.
             </p>
           </div>
           <TestimonialCarousel />
@@ -546,7 +540,7 @@ export default function TechnologySupportPage() {
             </span>
             <h3 className="text-xl font-bold text-white uppercase tracking-wider">Tired of Manual Administrative Chaos?</h3>
             <p className="text-xs text-[#EDE9E0]/45 leading-relaxed">
-              Schedule a technology audit call. We will review your current software tools and draft a workflow automation blueprint to double your capacity this season.
+              Book a technology audit. We&apos;ll review your tools and draft an automation blueprint to grow your capacity this season.
             </p>
           </div>
           <div className="shrink-0 flex items-center">

@@ -4,7 +4,6 @@ import "./globals.css";
 import { ModalProvider } from "@/context/ModalContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import InteractiveModal from "@/components/InteractiveModal";
 import ExitIntentCTA from "@/components/ExitIntentCTA";
 import ParticleBackground from "@/components/ParticleBackground";
 import CursorGlow from "@/components/CursorGlow";
@@ -67,7 +66,6 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
-          <InteractiveModal />
           <ExitIntentCTA />
           <CursorGlow />
         </ModalProvider>

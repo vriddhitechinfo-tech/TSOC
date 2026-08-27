@@ -5,10 +5,9 @@ import { Check, Sparkles } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
-  TAX_SOFTWARE_FUNNEL_LINK,
-  TAX_PRO_SOLO_FUNNEL_LINK,
-  GROWING_FIRM_FUNNEL_LINK,
-  SERVICE_BUREAU_FUNNEL_LINK,
+  TAX_PRO_SOLO_CALL_LINK,
+  GROWING_FIRM_CALL_LINK,
+  SERVICE_BUREAU_CALL_LINK,
   withUtm,
 } from "@/lib/constants";
 
@@ -61,26 +60,16 @@ export default function PricingSection() {
             Professional Tax Software Solutions
           </h2>
           <p className="text-xs sm:text-sm text-[#EDE9E0]/60 leading-relaxed max-w-lg mx-auto">
-            Enterprise-grade e-filing engines and software packages built for independent tax preparers, growing firms, and Service Bureau networks.
+            E-filing software built for independent preparers, growing firms, and Service Bureau networks.
           </p>
         </div>
 
         {/* Pricing Update Note Banner */}
-        <div className="gsap-pricing-el max-w-3xl mx-auto bg-[#161412]/60 border border-[#FFB26A]/20 rounded-xl p-3.5 flex items-center justify-between gap-4 text-xs text-[#EDE9E0]/70">
-          <div className="flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-[#FFB26A] shrink-0" />
-            <span>
-              <strong className="text-white">Pricing Update:</strong> Software plan rates are currently being finalized internally. Inquire today for custom volume quotes and demo access.
-            </span>
-          </div>
-          <a
-            href={withUtm(TAX_SOFTWARE_FUNNEL_LINK, "pricing-banner")}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 text-[11px] font-extrabold uppercase tracking-wider text-[#FFB26A] hover:underline cursor-pointer"
-          >
-            Inquire for Demo →
-          </a>
+        <div className="gsap-pricing-el max-w-3xl mx-auto bg-[#161412]/60 border border-[#FFB26A]/20 rounded-xl p-3.5 flex items-center gap-2 text-xs text-[#EDE9E0]/70">
+          <Sparkles className="w-4 h-4 text-[#FFB26A] shrink-0" />
+          <span>
+            <strong className="text-white">Pricing Update:</strong> Plan rates are being finalized. Inquire for custom volume quotes and demo access.
+          </span>
         </div>
 
         {/* Software Comparison Table */}
@@ -181,7 +170,7 @@ export default function PricingSection() {
                 <td className="p-4 sm:p-5 font-bold text-white">Ready to choose your software package?</td>
                 <td className="p-4 sm:p-5 text-center">
                   <a
-                    href={withUtm(TAX_PRO_SOLO_FUNNEL_LINK, "pricing-tax-pro-solo")}
+                    href={withUtm(TAX_PRO_SOLO_CALL_LINK, "pricing-tax-pro-solo")}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block px-4 py-2.5 rounded-lg bg-[#161412] hover:bg-[#201c19] text-white font-extrabold border border-[#FFB26A]/30 tracking-wider uppercase text-[10px] cursor-pointer w-full transition-all hover:border-[#FFB26A]"
@@ -191,7 +180,7 @@ export default function PricingSection() {
                 </td>
                 <td className="p-4 sm:p-5 text-center bg-[#FFB26A]/5 border-x border-[#FFB26A]/20">
                   <a
-                    href={withUtm(GROWING_FIRM_FUNNEL_LINK, "pricing-growing-firm")}
+                    href={withUtm(GROWING_FIRM_CALL_LINK, "pricing-growing-firm")}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block px-4 py-2.5 rounded-lg bg-gradient-to-r from-[#FFB26A] to-[#F4845F] hover:from-[#F4845F] hover:to-[#E67049] text-[#080808] font-black tracking-wider uppercase text-[10px] cursor-pointer w-full shadow-lg shadow-[#FFB26A]/20 transition-all"
@@ -200,9 +189,9 @@ export default function PricingSection() {
                   </a>
                 </td>
                 <td className="p-4 sm:p-5 text-center">
-                  {/* External funnel — distinct from the homepage Service Bureau Growth Program card's internal automation-trigger form */}
+                  {/* Direct calendar booking — distinct from the homepage Service Bureau Growth Program card's internal automation-trigger form */}
                   <a
-                    href={withUtm(SERVICE_BUREAU_FUNNEL_LINK, "pricing-service-bureau")}
+                    href={withUtm(SERVICE_BUREAU_CALL_LINK, "pricing-service-bureau")}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block px-4 py-2.5 rounded-lg bg-[#161412] hover:bg-[#201c19] text-white font-extrabold border border-[#FFB26A]/30 tracking-wider uppercase text-[10px] cursor-pointer w-full transition-all hover:border-[#FFB26A]"

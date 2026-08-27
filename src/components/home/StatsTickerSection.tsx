@@ -27,7 +27,7 @@ export default function StatsTickerSection() {
               Years Supporting Tax Pros
             </span>
             <p className="text-xs text-[#EDE9E0]/40">
-              Supporting tax professionals with training, setups, and systems since 2014
+              Training, setups, and systems for tax professionals since 2014
             </p>
           </div>
           <div className="space-y-1 py-6 md:py-0">

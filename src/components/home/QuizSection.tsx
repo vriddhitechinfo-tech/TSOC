@@ -50,8 +50,8 @@ export default function QuizSection() {
           What stage is your tax business at?
         </h2>
         <p className="text-xs sm:text-sm text-[#EDE9E0]/60 max-w-lg mx-auto leading-relaxed">
-          Take our 30-second router quiz to pinpoint the exact software setup
-          and mentorship support suited for your team.
+          Take the 30-second quiz to find the right software setup and
+          mentorship for your team.
         </p>
         <div className="pt-6">
           <StageQuiz />

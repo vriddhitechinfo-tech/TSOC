@@ -6,6 +6,7 @@ import { ArrowRight } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import TiltCard from "@/components/motion/TiltCard";
+import { BOOK_STRATEGY_SESSION_CALL_LINK, withUtm } from "@/lib/constants";
 
 export default function ServicesPage() {
   const pageRef = useRef<HTMLDivElement>(null);
@@ -44,35 +45,35 @@ export default function ServicesPage() {
     {
       num: "01",
       title: "Tax Software Access",
-      desc: "Get professional-grade tax software with unlimited federal/state e-filing, bank product integrations, and diagnostic compliance checks.",
+      desc: "Professional tax software with unlimited federal and state e-filing, bank product integrations, and compliance diagnostics.",
       href: "/tax-software",
       tag: "Software",
     },
     {
       num: "02",
       title: "ERO Enablement Program",
-      desc: "Stop splitting your hard-earned filing fees. We help you obtain your own EFIN, manage digital fingerprinting, and secure independent office setups.",
+      desc: "Stop splitting your filing fees. We help you get your own EFIN, handle fingerprinting, and set up an independent office.",
       href: "/ero-enablement",
       tag: "Compliance",
     },
     {
       num: "03",
       title: "Service Bureau Growth Program",
-      desc: "License and host software under your own brand name. Build remote preparer networks and setup custom revenue-split structures.",
+      desc: "Host software under your own brand. Build remote preparer networks and set your own revenue splits.",
       href: "/service-bureau-growth",
       tag: "Scaling",
     },
     {
       num: "04",
       title: "Open Office Community",
-      desc: "Participate in weekly Zoom coworking hours, direct software reviews, peer networking, and live legal consultations with corporate attorneys.",
+      desc: "Weekly Zoom coworking hours, software reviews, peer networking, and live consultations with corporate attorneys.",
       href: "/open-office",
       tag: "Community",
     },
     {
       num: "05",
       title: "Technology & Automation Support",
-      desc: "Eliminate manual intake pipelines. We build custom CRM pipelines, SMS follow-up triggers, secure document portals, and calendar interfaces.",
+      desc: "Custom CRM pipelines, SMS follow-ups, secure document portals, and calendar booking — built for tax offices.",
       href: "/technology-support",
       tag: "Systems",
     },
@@ -93,7 +94,7 @@ export default function ServicesPage() {
             Our Business Scaling Programs
           </h1>
           <p className="text-sm text-[#EDE9E0]/60 leading-relaxed">
-            We provide the infrastructure, software tools, IRS compliance setups, and coworking networks required to scale a profitable tax practice.
+            The infrastructure, software, IRS compliance, and coworking network to scale a profitable tax practice.
           </p>
         </div>
 
@@ -132,6 +133,24 @@ export default function ServicesPage() {
               </div>
             </TiltCard>
           ))}
+        </div>
+
+        {/* Closing CTA */}
+        <div className="gsap-reveal text-center max-w-xl mx-auto mt-20 space-y-4">
+          <h2 className="text-lg sm:text-xl font-extrabold text-white uppercase tracking-wider">
+            Not sure where to start?
+          </h2>
+          <p className="text-sm text-[#EDE9E0]/60 leading-relaxed">
+            Book a strategy session. We&apos;ll map the right programs to your goals.
+          </p>
+          <a
+            href={withUtm(BOOK_STRATEGY_SESSION_CALL_LINK, "services-strategy-session")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-lg bg-[#FFB26A] hover:bg-[#F4845F] text-[#0A0908] font-extrabold py-3 px-8 text-xs uppercase tracking-wider transition-all shadow-md cursor-pointer"
+          >
+            Book Your Strategy Session
+          </a>
         </div>
       </div>
     </div>
