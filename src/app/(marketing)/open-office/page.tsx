@@ -613,7 +613,7 @@ export default function OpenOfficePage() {
               Join the Open Office for daily coworking, Tech Tuesday workshops, Attorney Q&As, and year-round business guidance.
             </p>
           </div>
-          <div className="shrink-0 flex items-center gap-3 flex-wrap">
+          <div className="shrink-0 flex items-center">
             <a
               href={OPEN_OFFICE_COMMUNITY_LINK}
               target="_blank"
@@ -621,14 +621,6 @@ export default function OpenOfficePage() {
               className="bg-[#FFB26A] hover:bg-[#F4845F] text-[#140A06] font-extrabold py-3.5 px-8 rounded-lg text-xs transition-all shadow-md cursor-pointer uppercase tracking-wider inline-block text-center"
             >
               Get Started Now
-            </a>
-            <a
-              href={TAX_TOUR_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#0A0908] border border-[#FFB26A]/30 text-[#EDE9E0]/70 hover:text-white font-bold py-3.5 px-8 rounded-lg text-xs transition-all cursor-pointer uppercase tracking-wider inline-block text-center"
-            >
-              Take the Tax Tour
             </a>
           </div>
         </TiltCard>
