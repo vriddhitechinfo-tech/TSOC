@@ -184,6 +184,16 @@ export default function Footer() {
                   Teach With Us
                 </a>
               </li>
+              <li>
+                <a
+                  href={TAX_TOUR_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#FFB26A] transition-colors"
+                >
+                  Tax Tour
+                </a>
+              </li>
             </ul>
           </div>
 
