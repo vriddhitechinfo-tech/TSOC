@@ -14,7 +14,8 @@ export default function Navbar() {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "Tax Software", href: "/tax-software" },
-    { name: "ERO Enablement", href: "/ero-enablement" },
+    { name: "TaxPro EFN Enablement", href: "/ero-enablement" },
+    { name: "ERO Growth Program", href: "/ero-growth-program" },
     { name: "Service Bureau", href: "/service-bureau-growth" },
     { name: "Open Office", href: "/open-office", highlight: true },
     { name: "Automation & CRM", href: "/technology-support" },
@@ -75,7 +76,7 @@ export default function Navbar() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-lg bg-[#FFB26A] hover:bg-[#F4845F] text-[#080808] px-4 py-2.5 text-[0.8rem] font-extrabold shadow-md hover:shadow-[#FFB26A]/25 transition-all uppercase tracking-wider whitespace-nowrap"
             >
-              Book a Free Call
+              Book a Call
             </a>
           </div>
 
@@ -125,7 +126,7 @@ export default function Navbar() {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="w-full text-center bg-[#FFB26A] hover:bg-[#F4845F] text-[#080808] font-extrabold py-3 px-4 rounded-lg text-sm transition-all uppercase tracking-wider inline-block"
               >
-                Book a Free Call
+                Book a Call
               </a>
             </div>
           </div>

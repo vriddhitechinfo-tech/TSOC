@@ -83,7 +83,7 @@ export function useStageQuiz(questions: QuizQuestion[] = defaultQuestions) {
 
     if (counts.ero >= 1 || answers.efin === "yes") {
       return {
-        title: "Independent ERO Enablement",
+        title: "Independent TaxPro EFN Enablement",
         desc: "You have volume or credentials ready to ditch fee splits and keep 100% of preparation revenue under your own EFIN.",
         link: "/ero-enablement",
         cta: "See ERO Blueprint",
