@@ -1,6 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import {
+  ERO_ENABLEMENT_CALL_LINK,
+  SERVICE_BUREAU_CALL_LINK,
+  TALK_TO_TEAM_CALENDAR_LINK,
+  withUtm,
+} from "@/lib/constants";
 
 export interface QuizQuestion {
   id: string;
@@ -43,6 +49,7 @@ export interface Recommendation {
   desc: string;
   link: string;
   cta: string;
+  calendarLink: string;
 }
 
 export function useStageQuiz(questions: QuizQuestion[] = defaultQuestions) {
@@ -78,15 +85,17 @@ export function useStageQuiz(questions: QuizQuestion[] = defaultQuestions) {
         desc: "You are ready to transition to a software distributor model, manage sub-offices, and earn recurring revenue splits.",
         link: "/service-bureau-growth",
         cta: "Explore Service Bureau Program",
+        calendarLink: withUtm(SERVICE_BUREAU_CALL_LINK, "quiz-bureau-result"),
       };
     }
 
     if (counts.ero >= 1 || answers.efin === "yes") {
       return {
-        title: "Independent ERO Enablement",
+        title: "Independent TaxPro EFN Enablement",
         desc: "You have volume or credentials ready to ditch fee splits and keep 100% of preparation revenue under your own EFIN.",
         link: "/ero-enablement",
         cta: "See ERO Blueprint",
+        calendarLink: withUtm(ERO_ENABLEMENT_CALL_LINK, "quiz-ero-result"),
       };
     }
 
@@ -95,6 +104,7 @@ export function useStageQuiz(questions: QuizQuestion[] = defaultQuestions) {
       desc: "Get professional-grade cloud software, e-filing tools, and year-round coworking support to launch your practice.",
       link: "/tax-software",
       cta: "View Software Plans",
+      calendarLink: withUtm(TALK_TO_TEAM_CALENDAR_LINK, "quiz-software-result"),
     };
   };
 

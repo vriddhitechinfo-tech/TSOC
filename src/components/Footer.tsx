@@ -201,7 +201,7 @@ export default function Footer() {
                   className="flex items-center gap-1.5 hover:text-[#FFB26A] transition-colors"
                 >
                   <CalendarDays className="w-3 h-3 shrink-0 text-[#FFB26A]" />
-                  Book a Free Call
+                  Book a Call
                 </a>
               </li>
               <li>

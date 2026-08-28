@@ -1,7 +1,8 @@
 import { ModalType } from "@/context/ModalContext";
 import {
-  CONNECT_TO_SECTOR_LINK,
   ERO_ENABLEMENT_CALL_LINK,
+  GROWING_FIRM_CALL_LINK,
+  OPEN_OFFICE_LEADGEN_CALL_LINK,
   PARTNER_CALL_LINK,
   SECTOR_CONSULTING_CALL_LINK,
   SERVICE_BUREAU_CALL_LINK,
@@ -21,13 +22,13 @@ export interface ModalConfig {
   };
 }
 
-// Every modal type currently shares the same underlying GHL form
-// (CONNECT_TO_SECTOR_LINK) — only the utm_campaign differs, so leads can
-// still be told apart in GHL. If separate GHL forms/automations are wanted
-// per button, swap the relevant bookingUrl below for its own widget URL.
+// Every CTA opens its booking calendar directly (no intermediary intake
+// form) so no click ever dead-ends short of a possible booking — see
+// ModalContext.openModal. headerTitle/nextSteps are unused leftovers from
+// the old embedded-modal UI, kept only for a possible future revival.
 export const MODAL_CONFIG: Record<ModalType, ModalConfig> = {
   software: {
-    bookingUrl: withUtm(CONNECT_TO_SECTOR_LINK, "tax-software-inquiry"),
+    bookingUrl: withUtm(TALK_TO_TEAM_CALENDAR_LINK, "tax-software-inquiry"),
     headerTitle: "Tax Software • Request Access",
     nextSteps: {
       heading: "While you wait to hear back",
@@ -39,23 +40,23 @@ export const MODAL_CONFIG: Record<ModalType, ModalConfig> = {
     },
   },
   ero: {
-    bookingUrl: withUtm(CONNECT_TO_SECTOR_LINK, "ero-enablement"),
-    headerTitle: "ERO Enablement • Schedule Consultation",
+    bookingUrl: withUtm(ERO_ENABLEMENT_CALL_LINK, "ero-enablement"),
+    headerTitle: "TaxPro EFN Enablement • Schedule Consultation",
     nextSteps: {
       heading: "While you wait to hear back",
-      body: "Learn more about the ERO Enablement Program or book a call with our team.",
+      body: "Learn more about the TaxPro EFN Enablement Program or book a call with our team.",
       links: [
-        { label: "See ERO Enablement Program", href: "/ero-enablement" },
+        { label: "See TaxPro EFN Enablement Program", href: "/ero-enablement" },
         { label: "Book a Call", href: withUtm(ERO_ENABLEMENT_CALL_LINK, "modal-ero-nextstep") },
       ],
     },
   },
   bureau: {
-    bookingUrl: withUtm(CONNECT_TO_SECTOR_LINK, "service-bureau-internal"),
-    headerTitle: "Service Bureau Growth • Apply for Mentorship",
+    bookingUrl: withUtm(SERVICE_BUREAU_CALL_LINK, "service-bureau-internal"),
+    headerTitle: "Service Bureau Growth • Build My Network",
     nextSteps: {
       heading: "What happens next",
-      body: "Your application routes to our team for review. In the meantime, take a look at the full program.",
+      body: "Your booking routes to our team for review. In the meantime, take a look at the full program.",
       links: [
         { label: "See Service Bureau Growth Program", href: "/service-bureau-growth" },
         { label: "Book a Call", href: withUtm(SERVICE_BUREAU_CALL_LINK, "modal-bureau-nextstep") },
@@ -63,7 +64,7 @@ export const MODAL_CONFIG: Record<ModalType, ModalConfig> = {
     },
   },
   openoffice: {
-    bookingUrl: withUtm(CONNECT_TO_SECTOR_LINK, "open-office-community"),
+    bookingUrl: withUtm(OPEN_OFFICE_LEADGEN_CALL_LINK, "open-office-community"),
     headerTitle: "Open Office Community",
     nextSteps: {
       heading: "What happens next",
@@ -75,7 +76,7 @@ export const MODAL_CONFIG: Record<ModalType, ModalConfig> = {
     },
   },
   strategy: {
-    bookingUrl: withUtm(CONNECT_TO_SECTOR_LINK, "addon-services"),
+    bookingUrl: withUtm(STRATEGY_SESSION_CALL_LINK, "addon-services"),
     headerTitle: "Add-on Services • Explore Revenue Streams",
     nextSteps: {
       heading: "What happens next",
@@ -87,7 +88,7 @@ export const MODAL_CONFIG: Record<ModalType, ModalConfig> = {
     },
   },
   technology: {
-    bookingUrl: withUtm(CONNECT_TO_SECTOR_LINK, "crm-automation"),
+    bookingUrl: withUtm(SECTOR_CONSULTING_CALL_LINK, "crm-automation"),
     headerTitle: "CRM & Automation • Book Tech Consultation",
     nextSteps: {
       heading: "What happens next",
@@ -99,7 +100,7 @@ export const MODAL_CONFIG: Record<ModalType, ModalConfig> = {
     },
   },
   partner: {
-    bookingUrl: withUtm(CONNECT_TO_SECTOR_LINK, "partner-inquiry"),
+    bookingUrl: withUtm(PARTNER_CALL_LINK, "partner-inquiry"),
     headerTitle: "Partner With Us",
     nextSteps: {
       heading: "What happens next",
@@ -110,7 +111,7 @@ export const MODAL_CONFIG: Record<ModalType, ModalConfig> = {
     },
   },
   demo: {
-    bookingUrl: withUtm(CONNECT_TO_SECTOR_LINK, "general-demo"),
+    bookingUrl: withUtm(TALK_TO_TEAM_CALENDAR_LINK, "general-demo"),
     headerTitle: "Request a Demo",
     nextSteps: {
       heading: "While you wait to hear back",
@@ -118,6 +119,18 @@ export const MODAL_CONFIG: Record<ModalType, ModalConfig> = {
       links: [
         { label: "View Tax Software Funnel", href: withUtm(TAX_SOFTWARE_FUNNEL_LINK, "modal-demo-nextstep") },
         { label: "Book a Call", href: withUtm(TALK_TO_TEAM_CALENDAR_LINK, "modal-demo-nextstep") },
+      ],
+    },
+  },
+  erogrowth: {
+    bookingUrl: withUtm(GROWING_FIRM_CALL_LINK, "ero-growth-program"),
+    headerTitle: "ERO Growth Program • Book a Call",
+    nextSteps: {
+      heading: "What happens next",
+      body: "Our team will follow up shortly. You can also see what's included in the ERO Growth Program.",
+      links: [
+        { label: "See ERO Growth Program", href: "/ero-growth-program" },
+        { label: "Book a Call", href: withUtm(GROWING_FIRM_CALL_LINK, "modal-erogrowth-nextstep") },
       ],
     },
   },

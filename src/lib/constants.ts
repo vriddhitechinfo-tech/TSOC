@@ -98,7 +98,8 @@ export function withUtm(url: string, campaign: string): string {
 export const NAV_LINKS = [
   { name: "Home", href: "/" },
   { name: "Tax Software", href: "/tax-software" },
-  { name: "ERO Enablement", href: "/ero-enablement" },
+  { name: "TaxPro EFN Enablement", href: "/ero-enablement" },
+  { name: "ERO Growth Program", href: "/ero-growth-program" },
   { name: "Service Bureau", href: "/service-bureau-growth" },
   { name: "Open Office", href: "/open-office" },
   { name: "Automation & CRM", href: "/technology-support" },

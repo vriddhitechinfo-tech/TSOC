@@ -39,7 +39,7 @@ export const heroSlides: HeroSlide[] = [
     image: "/hero_tax_professional.png",
   },
   {
-    tag: "ERO Enablement",
+    tag: "TaxPro EFN Enablement",
     title: "Keep 100% of Your Fees.",
     titleHighlight: "100% of Your Fees",
     description:
@@ -70,7 +70,7 @@ export const heroSlides: HeroSlide[] = [
     bgFrom: "#080808",
     bgTo: "#0F0D0C",
     accentColor: "#FFB26A",
-    cta1: "Apply for Mentorship",
+    cta1: "Build my network",
     cta2: "See Growth Blueprint",
     image: "/open_office_coworking.png",
   },
@@ -97,7 +97,7 @@ export const ecosystemPillars: EcosystemPillar[] = [
     actionText: "Learn About Software",
   },
   {
-    title: "ERO Enablement",
+    title: "TaxPro EFN Enablement",
     tag: "Credentialing",
     desc: "Get your EFIN with step-by-step support — ID.me, fingerprinting, IRS e-Services, and security reviews covered.",
     actionText: "Learn About ERO Setup",
@@ -164,7 +164,7 @@ export const servicePathways: ServicePathway[] = [
     link: "/tax-software",
   },
   {
-    title: "ERO Enablement Program",
+    title: "TaxPro EFN Enablement Program",
     desc: "Keep 100% of your fees. Become an ERO and take full control of your business.",
     bestFor: [
       "Experienced Preparers",
@@ -182,6 +182,20 @@ export const servicePathways: ServicePathway[] = [
     link: "/ero-enablement",
   },
   {
+    title: "ERO Growth Program",
+    desc: "Coming soon — scale an existing ERO practice with a dedicated growth track. Book a call to get on the list.",
+    bestFor: [
+      "Established EROs",
+      "Growing Firms",
+    ],
+    includes: [
+      "Details coming soon",
+    ],
+    ctaText: "Build my network",
+    modalType: "erogrowth",
+    link: "/ero-growth-program",
+  },
+  {
     title: "Service Bureau Growth Program",
     desc: "Build a tax business that supports and licenses other professionals.",
     bestFor: [
@@ -196,7 +210,7 @@ export const servicePathways: ServicePathway[] = [
       "Phase 4: Scale & Recruitment",
       "White-label system templates",
     ],
-    ctaText: "Apply for Mentorship",
+    ctaText: "Build my network",
     modalType: "bureau",
     link: "/service-bureau-growth",
   },
@@ -241,7 +255,7 @@ export const homepageFaqs = [
   {
     question: "Do I need an EFIN to get started?",
     answer:
-      "No — you can start using our software right away without an EFIN. If you want one, our ERO Enablement program walks you through every step of the IRS application.",
+      "No — you can start using our software right away without an EFIN. If you want one, our TaxPro EFN Enablement program walks you through every step of the IRS application.",
   },
   {
     question: "What's the difference between a Service Bureau and a standard ERO?",

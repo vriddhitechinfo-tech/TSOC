@@ -11,7 +11,8 @@ export type ModalType =
   | "strategy"
   | "technology"
   | "partner"
-  | "demo";
+  | "demo"
+  | "erogrowth";
 
 interface ModalContextType {
   openModal: (type: ModalType) => void;

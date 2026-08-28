@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { useModal } from "@/context/ModalContext";
-import { Check, ArrowRight, Activity, Download, Mail, CheckCircle } from "lucide-react";
+import { Check, Activity, Download, Mail, CheckCircle } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import FaqAccordion from "@/components/ui/FaqAccordion";
@@ -12,8 +12,6 @@ import TestimonialCarousel from "@/components/TestimonialCarousel";
 export default function ServiceBureauGrowthPage() {
   const { openModal } = useModal();
   const pageRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const leftMenuRef = useRef<HTMLDivElement>(null);
   const statsContainerRef = useRef<HTMLDivElement>(null);
 
   // Stats refs for counting animation
@@ -21,8 +19,6 @@ export default function ServiceBureauGrowthPage() {
   const revenueValRef = useRef<HTMLSpanElement>(null);
   const preparersValRef = useRef<HTMLSpanElement>(null);
 
-  // Track active scroll phase & lead form state
-  const [activeScrollPhase, setActiveScrollPhase] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
@@ -78,34 +74,6 @@ export default function ServiceBureauGrowthPage() {
             },
           }
         );
-      }
-
-      // Pinned side-by-side scrolling logic
-      if (containerRef.current && leftMenuRef.current) {
-        // Pin left menu during scroll of container
-        ScrollTrigger.create({
-          trigger: containerRef.current,
-          start: "top 20%",
-          end: "bottom 90%",
-          pin: leftMenuRef.current,
-          pinSpacing: false,
-          scrub: true,
-        });
-
-        // Track active section as right blocks pass viewport middle
-        const sections = containerRef.current.querySelectorAll(".phase-scroll-block");
-        sections.forEach((sec, idx) => {
-          ScrollTrigger.create({
-            trigger: sec,
-            start: "top 45%",
-            end: "bottom 45%",
-            onToggle: (self) => {
-              if (self.isActive) {
-                setActiveScrollPhase(idx);
-              }
-            },
-          });
-        });
       }
     });
 
@@ -196,13 +164,6 @@ export default function ServiceBureauGrowthPage() {
       link.click();
       document.body.removeChild(link);
     }, 1200);
-  };
-
-  const scrollToPhaseBlock = (index: number) => {
-    const targetBlock = document.getElementById(`phase-block-${index}`);
-    if (targetBlock) {
-      targetBlock.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
   };
 
   return (
@@ -299,77 +260,45 @@ export default function ServiceBureauGrowthPage() {
           <TestimonialCarousel />
         </div>
 
-        {/* Pinned Scroll-Scrub Phase Section */}
+        {/* 4-Phase Growth Blueprint — centered single-column layout */}
         <div className="relative pt-6">
           <div className="gsap-reveal text-center mb-16 max-w-xl mx-auto">
             <h2 className="text-xl font-bold text-white uppercase tracking-wider">Our 4-Phase Growth Blueprint</h2>
-            <p className="text-xs text-[#EDE9E0]/50 mt-1">Scroll to see each phase and its deliverables.</p>
+            <p className="text-xs text-[#EDE9E0]/50 mt-1">Each phase and its deliverables.</p>
           </div>
 
-          <div ref={containerRef} className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative pb-16">
-            {/* Left Column - Pinned Menu (Desktop only) */}
-            <div className="hidden lg:block lg:col-span-4 sticky top-24 self-start space-y-3" ref={leftMenuRef}>
-              <div className="bg-[#161412]/80 border border-[#FFB26A]/30 rounded-xl p-4 space-y-2">
-                <span className="text-xs font-bold text-[#EDE9E0]/50 uppercase tracking-widest block mb-2">Phase Navigator</span>
-                {phases.map((p, idx) => (
-                  <button
-                    key={p.num}
-                    onClick={() => scrollToPhaseBlock(idx)}
-                    className={`w-full text-left p-3 rounded-lg border text-xs transition-all duration-200 cursor-pointer flex items-center justify-between focus:outline-none ${
-                      activeScrollPhase === idx
-                        ? "bg-[#FFB26A]/10 border-[#FFB26A]/40 text-[#FFB26A] font-bold"
-                        : "bg-transparent border-transparent text-[#EDE9E0]/50 hover:text-white"
-                    }`}
-                  >
-                    <div className="flex items-center space-x-3">
-                      <span className={`h-6 w-6 rounded flex items-center justify-center text-xs font-bold border ${
-                        activeScrollPhase === idx ? "bg-[#161412] border-[#FFB26A]/40 text-[#FFB26A]" : "bg-[#0A0908] border-[#FFB26A]/30 text-[#EDE9E0]/40"
-                      }`}>
-                        {idx + 1}
-                      </span>
-                      <span>{p.title}</span>
-                    </div>
-                    <ArrowRight className={`w-3.5 h-3.5 shrink-0 transition-transform ${activeScrollPhase === idx ? "translate-x-0.5 text-[#FFB26A]" : "text-transparent"}`} />
-                  </button>
-                ))}
-              </div>
-            </div>
+          <div className="max-w-3xl mx-auto space-y-8">
+            {phases.map((p) => (
+              <TiltCard
+                key={p.num}
+                tilt={4}
+                className="glass-card p-6 md:p-8 space-y-4 border border-[#FFB26A]/20"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#FFB26A] bg-[#FFB26A]/10 border border-[#FFB26A]/25 px-3 py-1 rounded">
+                    {p.num} Details
+                  </span>
+                  <span className="text-xs text-[#FFB26A] font-semibold uppercase tracking-wider">Growth Blueprint</span>
+                </div>
 
-            {/* Right Column - Scrollable Content Blocks */}
-            <div className="lg:col-span-8 space-y-12">
-              {phases.map((p, idx) => (
-                <TiltCard
-                  key={p.num}
-                  id={`phase-block-${idx}`}
-                  tilt={4}
-                  className="phase-scroll-block glass-card p-6 md:p-8 space-y-4 border border-[#FFB26A]/20 scroll-mt-24 transition-opacity duration-300"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold uppercase tracking-widest text-[#FFB26A] bg-[#FFB26A]/10 border border-[#FFB26A]/25 px-3 py-1 rounded">
-                      {p.num} Details
-                    </span>
-                    <span className="text-xs text-[#FFB26A] font-semibold uppercase tracking-wider">Growth Blueprint</span>
-                  </div>
+                <h3 className="text-base sm:text-lg font-bold text-white uppercase tracking-wider">{p.title}</h3>
+                <p className="text-xs text-[#EDE9E0]/60 leading-relaxed">{p.desc}</p>
 
-                  <h3 className="text-base sm:text-lg font-bold text-white uppercase tracking-wider">{p.title}</h3>
-                  <p className="text-xs text-[#EDE9E0]/60 leading-relaxed">{p.desc}</p>
-                  
-                  <div className="h-px bg-[#FFB26A]/20 my-4" />
+                <div className="h-px bg-[#FFB26A]/20 my-4" />
 
-                  <div className="space-y-2">
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-[#EDE9E0]/70">Deliverables include:</h4>
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                      {p.items.map((it) => (
-                        <li key={it} className="flex items-start space-x-2 text-xs text-[#EDE9E0]/55">
-                          <Check className="w-3.5 h-3.5 text-[#FFB26A] shrink-0 mt-0.5" />
-                          <span>{it}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </TiltCard>
-              ))}
-            </div>
+                <div className="space-y-2">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-[#EDE9E0]/70">Deliverables include:</h4>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {p.items.map((it) => (
+                      <li key={it} className="flex items-start space-x-2 text-xs text-[#EDE9E0]/55">
+                        <Check className="w-3.5 h-3.5 text-[#FFB26A] shrink-0 mt-0.5" />
+                        <span>{it}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </TiltCard>
+            ))}
           </div>
         </div>
 
@@ -475,7 +404,7 @@ export default function ServiceBureauGrowthPage() {
 
           <TiltCard tilt={5} className="glass-card glass-card-hover p-8 text-center space-y-5">
             <Activity className="w-8 h-8 text-[#FFB26A] mx-auto" />
-            <h3 className="text-base font-bold text-white uppercase tracking-wider">Apply for Mentorship</h3>
+            <h3 className="text-base font-bold text-white uppercase tracking-wider">Build My Network</h3>
             <p className="text-xs text-[#EDE9E0]/50 max-w-sm mx-auto leading-relaxed">
               We accept a limited number of offices each quarter. Book an audit to check whether your systems are scaling-ready.
             </p>
