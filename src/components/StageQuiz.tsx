@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, ArrowLeft, RefreshCw, Check } from "lucide-react";
+import { ArrowRight, ArrowLeft, CalendarDays, RefreshCw, Check } from "lucide-react";
 import { useStageQuiz } from "@/hooks/useStageQuiz";
 
 export default function StageQuiz() {
@@ -87,9 +87,18 @@ export default function StageQuiz() {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4">
+            <a
+              href={getRecommendation().calendarLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-[#FFB26A] hover:bg-[#F4845F] text-[#0A0908] px-6 py-3 text-xs font-extrabold shadow-md uppercase tracking-wider transition-all"
+            >
+              <CalendarDays className="w-3.5 h-3.5 mr-2" />
+              Book a Call
+            </a>
             <Link
               href={getRecommendation().link}
-              className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-[#FFB26A] hover:bg-[#F4845F] text-[#0A0908] px-6 py-3 text-xs font-extrabold shadow-md uppercase tracking-wider transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-[#161412] border border-[#FFB26A]/30 px-6 py-3 text-xs font-bold text-[#FFB26A] hover:text-white uppercase tracking-wider transition-all"
             >
               {getRecommendation().cta}
               <ArrowRight className="w-3.5 h-3.5 ml-2" />
