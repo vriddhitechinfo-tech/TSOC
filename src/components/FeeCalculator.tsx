@@ -164,7 +164,7 @@ export default function FeeCalculator() {
             </button>
             <div className="flex items-center justify-center space-x-1.5 text-xs text-[#EDE9E0]/50">
               <ShieldCheck className="w-3.5 h-3.5 text-[#FFB26A] shrink-0" />
-              <span>Free IRS setup support included in ERO program</span>
+              <span>IRS setup support included in ERO program</span>
             </div>
           </div>
         </div>

@@ -5,7 +5,6 @@ import StatsTickerSection from "@/components/home/StatsTickerSection";
 import AboutSection from "@/components/home/AboutSection";
 import TrustSection from "@/components/TrustSection";
 import ServicesSection from "@/components/home/ServicesSection";
-import PricingSection from "@/components/home/PricingSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import FaqSection from "@/components/home/FaqSection";
 
@@ -29,9 +28,6 @@ export default function Home() {
 
       {/* 6. Trust Signals */}
       <TrustSection />
-
-      {/* 8. Membership Comparison Table */}
-      <PricingSection />
 
       {/* 9. Testimonials Section */}
       <TestimonialsSection />

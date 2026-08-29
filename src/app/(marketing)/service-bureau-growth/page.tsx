@@ -308,7 +308,7 @@ export default function ServiceBureauGrowthPage() {
             <div className="lg:col-span-7 space-y-4">
               <span className="inline-flex items-center space-x-1.5 rounded-full bg-[#FFB26A]/10 border border-[#FFB26A]/25 px-3 py-1 text-xs font-semibold text-[#FFB26A]">
                 <Download className="w-3.5 h-3.5" />
-                <span>Free Resource</span>
+                <span>Resource</span>
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
                 Download Service Bureau Phase Audit Checklist

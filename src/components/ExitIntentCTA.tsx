@@ -138,7 +138,7 @@ export default function ExitIntentCTA() {
     // Default Homepage/Fallback
     return {
       text: "Ready to build a business beyond tax season?",
-      actionText: "Book Free Strategy Session",
+      actionText: "Book Strategy Session",
       action: () => openModal("strategy"),
     };
   };

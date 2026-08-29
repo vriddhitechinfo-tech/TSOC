@@ -17,6 +17,9 @@ export const OPEN_OFFICE_COMMUNITY_LINK =
 // Collectives Consultation", set up specifically for this website.
 export const TALK_TO_TEAM_CALENDAR_LINK =
   "https://api.leadconnectorhq.com/widget/booking/Me9Cy5XCKU9zDqjmdLQB";
+// Eve's affiliate/workflow-setup link, used specifically for the "Set Up
+// Your Workflow" CTA (per the walkthrough video) — routes there instead of
+// the generic contact form it previously doubled as.
 export const CONNECT_TO_SECTOR_LINK =
   "https://api.leadconnectorhq.com/widget/form/yZMFt1mV1a8mbrAbiPnx";
 // Purpose-specific GHL booking calendars (see CTA links sheet). The trailing

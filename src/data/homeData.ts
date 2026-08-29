@@ -17,7 +17,7 @@ export const heroSlides: HeroSlide[] = [
     bgTo: "#0F0D0C",
     accentColor: "#F4845F",
     cta1: "Join The Open Office",
-    cta2: "Try a Free Week",
+    cta2: "Try a Week",
     image: "/crm_workflow_dashboard.png",
   },
   {
@@ -35,7 +35,7 @@ export const heroSlides: HeroSlide[] = [
     bgTo: "#0F0D0C",
     accentColor: "#FFB26A",
     cta1: "View Software Plans",
-    cta2: "Get a Free Demo",
+    cta2: "Get a Demo",
     image: "/hero_tax_professional.png",
   },
   {
