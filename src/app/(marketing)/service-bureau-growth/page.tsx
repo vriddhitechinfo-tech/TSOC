@@ -1,13 +1,15 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
+import Script from "next/script";
 import { useModal } from "@/context/ModalContext";
-import { Check, Activity, Download, Mail, CheckCircle } from "lucide-react";
+import { Check, Activity, Download } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import FaqAccordion from "@/components/ui/FaqAccordion";
 import TiltCard from "@/components/motion/TiltCard";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
+import { CONNECT_TO_SECTOR_LINK, withUtm } from "@/lib/constants";
 
 export default function ServiceBureauGrowthPage() {
   const { openModal } = useModal();
@@ -18,9 +20,6 @@ export default function ServiceBureauGrowthPage() {
   const officesValRef = useRef<HTMLSpanElement>(null);
   const revenueValRef = useRef<HTMLSpanElement>(null);
   const preparersValRef = useRef<HTMLSpanElement>(null);
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -149,23 +148,6 @@ export default function ServiceBureauGrowthPage() {
     }
   ];
 
-  const handleLeadSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsFormSubmitted(true);
-      
-      // Trigger dynamic file download of a mock PDF
-      const link = document.createElement("a");
-      link.href = "data:text/plain;charset=utf-8," + encodeURIComponent("The Sector of Collectives - Service Bureau Phase Audit Checklist");
-      link.download = "tsoc-service-bureau-checklist.pdf";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }, 1200);
-  };
-
   return (
     <div ref={pageRef} className="relative overflow-hidden bg-[#080808] min-h-screen py-16 sm:py-10 animate-fade-in">
       {/* Background glow */}
@@ -188,7 +170,7 @@ export default function ServiceBureauGrowthPage() {
               onClick={() => openModal("bureau")}
               className="inline-flex items-center justify-center rounded-lg bg-[#FFB26A] hover:bg-[#F4845F] text-[#080808] font-extrabold py-3.5 px-8 text-sm shadow-md transition-all cursor-pointer uppercase tracking-wider"
             >
-              Apply for Service Bureau Mentorship
+              Build Your Network
             </button>
           </div>
         </div>
@@ -311,46 +293,30 @@ export default function ServiceBureauGrowthPage() {
                 <span>Resource</span>
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                Download Service Bureau Phase Audit Checklist
+                Get the Service Bureau Phase Audit Checklist
               </h2>
               <p className="text-xs text-[#EDE9E0]/60 leading-relaxed">
-                A checklist covering operational audits, software pricing, sub-office compliance, and preparer onboarding.
+                A checklist covering operational audits, software pricing, sub-office compliance, and preparer onboarding. Submit your email and our team will send it over.
               </p>
             </div>
             <div className="lg:col-span-5">
-              {isFormSubmitted ? (
-                <div className="bg-[#FFB26A]/10 border border-[#FFB26A]/40 rounded-xl p-6 text-center space-y-3">
-                  <CheckCircle className="w-10 h-10 text-[#FFB26A] mx-auto" />
-                  <h4 className="text-sm font-bold text-white uppercase tracking-wider">Checklist Download Started!</h4>
-                  <p className="text-xs text-[#EDE9E0]/60">Your audit checklist PDF has been generated. Check your browser downloads.</p>
-                </div>
-              ) : (
-                <form onSubmit={handleLeadSubmit} className="space-y-3">
-                  <div className="relative">
-                    <Mail className="w-4 h-4 text-[#EDE9E0]/40 absolute left-3.5 top-3.5" />
-                    <input
-                      type="email"
-                      required
-                      placeholder="Enter your work email..."
-                      className="w-full bg-[#0A0908] border border-[#FFB26A]/20 rounded-lg pl-10 pr-4 py-3 text-xs text-white placeholder-[#EDE9E0]/40 focus:outline-none focus:border-[#FFB26A] transition-colors"
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-[#FFB26A] hover:bg-[#F4845F] text-[#140A06] font-extrabold py-3 px-6 rounded-lg text-xs transition-colors cursor-pointer uppercase tracking-wider flex items-center justify-center space-x-2 disabled:opacity-50"
-                  >
-                    <span>{isSubmitting ? "Generating PDF..." : "Download Free Checklist"}</span>
-                    <Download className="w-3.5 h-3.5" />
-                  </button>
-                </form>
-              )}
+              <div className="bg-[#0A0908] border border-[#FFB26A]/20 rounded-xl overflow-hidden">
+                <iframe
+                  src={withUtm(CONNECT_TO_SECTOR_LINK, "service-bureau-checklist")}
+                  title="Request the Service Bureau Phase Audit Checklist"
+                  className="w-full h-[420px] border-0"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
         </div>
+        {/* GHL's public helper script — lets the embedded form iframe above
+            resize itself to fit its actual content instead of scrolling. */}
+        <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" />
 
         {/* Speak with an Advisor Strip */}
-        <div className="gsap-reveal bg-[#FFB26A]/8 border border-[#FFB26A]/30 rounded-2xl py-8 px-6 md:px-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+        {/* <div className="gsap-reveal bg-[#FFB26A]/8 border border-[#FFB26A]/30 rounded-2xl py-8 px-6 md:px-10 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-1 text-center sm:text-left">
             <h3 className="font-display text-base font-black text-white uppercase tracking-wider">Ready to start your Service Bureau?</h3>
             <p className="text-xs text-[#EDE9E0]/60">Our team will walk you through every step. No pressure — just a conversation.</p>
@@ -363,7 +329,7 @@ export default function ServiceBureauGrowthPage() {
               Apply Now
             </button>
           </div>
-        </div>
+        </div> */}
 
         {/* Candidate Fit Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
