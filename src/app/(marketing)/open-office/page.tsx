@@ -13,11 +13,14 @@ import {
   Check,
   Clock,
   CalendarDays,
-  Plus
+  Sparkles,
+  Zap,
+  Crown,
 } from "lucide-react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useModal } from "@/context/ModalContext";
 import FaqAccordion from "@/components/ui/FaqAccordion";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import TiltCard from "@/components/motion/TiltCard";
@@ -32,6 +35,7 @@ import {
 } from "@/lib/constants";
 
 export default function OpenOfficePage() {
+  const { openModal } = useModal();
   const [activeDay, setActiveDay] = useState("mon");
   const pageRef = useRef<HTMLDivElement>(null);
   const statsContainerRef = useRef<HTMLDivElement>(null);
@@ -580,7 +584,445 @@ export default function OpenOfficePage() {
             })}
           </div>
         </div>
+        {/* Pricing / Packages */}
+        <div className="space-y-16">
+          <div className="gsap-reveal text-center max-w-3xl mx-auto space-y-3">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#FFB26A] bg-[#FFB26A]/10 border border-[#FFB26A]/20 px-3 py-1 rounded inline-block">
+              Membership &amp; Pricing Plans
+            </span>
+            <h2 className="font-display text-2xl sm:text-4xl font-black text-white tracking-tight uppercase">
+              Transparent Membership Built For Scale
+            </h2>
+            <p className="text-xs text-[#EDE9E0]/50 max-w-2xl mx-auto leading-relaxed">
+              Pick the tier for your business stage — from independent Tax Pros to multi-office Service Bureaus.
+            </p>
+          </div>
 
+          {/* Quick Summary Table */}
+          <div className="gsap-reveal max-w-4xl mx-auto bg-[#140A06]/80 border border-[#FFB26A]/20 rounded-xl p-4 sm:p-6 shadow-xl backdrop-blur-md">
+            <h3 className="text-xs font-extrabold text-[#FFB26A] uppercase tracking-widest mb-4 text-center">
+              Membership Overview
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="bg-[#1C0F0A] border border-[#FFB26A]/15 rounded-lg p-4 flex items-center justify-between">
+                <div>
+                  <div className="text-xs font-extrabold text-white uppercase tracking-wider">Collaborate</div>
+                  <div className="text-[11px] text-[#EDE9E0]/50 mt-0.5">Ideal For: Tax Pros</div>
+                </div>
+                <div className="text-right">
+                  <span className="text-base font-black text-[#FFB26A] font-mono">$97</span>
+                  <span className="text-[10px] text-[#EDE9E0]/40 block">/month</span>
+                </div>
+              </div>
+
+              <div className="bg-[#24130C] border border-[#FFB26A]/40 rounded-lg p-4 flex items-center justify-between shadow-md relative">
+                <span className="absolute -top-2 right-3 bg-[#FFB26A] text-[#0A0908] font-black text-[9px] px-2 py-0.5 rounded uppercase tracking-wider">
+                  Popular
+                </span>
+                <div>
+                  <div className="text-xs font-extrabold text-white uppercase tracking-wider">Accelerate</div>
+                  <div className="text-[11px] text-[#EDE9E0]/50 mt-0.5">Ideal For: EROs</div>
+                </div>
+                <div className="text-right">
+                  <span className="text-base font-black text-[#FFB26A] font-mono">$297</span>
+                  <span className="text-[10px] text-[#EDE9E0]/40 block">/month</span>
+                </div>
+              </div>
+
+              <div className="bg-[#1C0F0A] border border-[#FFB26A]/15 rounded-lg p-4 flex items-center justify-between">
+                <div>
+                  <div className="text-xs font-extrabold text-white uppercase tracking-wider">Dominate</div>
+                  <div className="text-[11px] text-[#EDE9E0]/50 mt-0.5">Ideal For: Service Bureaus</div>
+                </div>
+                <div className="text-right">
+                  <span className="text-base font-black text-[#FFB26A] font-mono">$597</span>
+                  <span className="text-[10px] text-[#EDE9E0]/40 block">/month</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 3 Detailed Pricing Cards */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+            {/* TIER 1: COLLABORATE */}
+            <TiltCard
+              tilt={4}
+              delay={0}
+              className="flex flex-col justify-between bg-[#140A06]/90 border border-[#FFB26A]/20 rounded-2xl p-6 sm:p-8 relative space-y-6"
+            >
+              <div className="space-y-5">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#FFB26A] bg-[#FFB26A]/10 border border-[#FFB26A]/20 px-2.5 py-1 rounded">
+                    TIER ONE
+                  </span>
+                  <span className="text-[10px] font-bold text-[#EDE9E0]/50 uppercase tracking-wider">
+                    For Tax Pros
+                  </span>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-black text-white uppercase tracking-wider">
+                    COLLABORATE
+                  </h3>
+                  <div className="mt-2 flex items-baseline gap-1">
+                    <span className="text-3xl font-black text-[#FFB26A] font-mono">$97</span>
+                    <span className="text-xs text-[#EDE9E0]/50 font-medium">/month</span>
+                  </div>
+                </div>
+
+                <div className="bg-[#1C0F0A] border border-[#FFB26A]/10 rounded-lg p-3 space-y-1.5">
+                  <p className="text-[11px] font-bold text-white uppercase tracking-wider">Perfect For:</p>
+                  <p className="text-xs text-[#EDE9E0]/60 leading-relaxed">
+                    New Tax Professionals, Existing Preparers, Virtual Assistants, Bookkeepers &amp; Professionals learning the business.
+                  </p>
+                </div>
+
+                <div className="bg-[#FFB26A]/5 border border-[#FFB26A]/20 rounded-lg p-3 text-xs text-[#FFB26A] font-semibold">
+                  <span className="font-extrabold uppercase tracking-wider block text-[10px] text-[#FFB26A]/70 mb-0.5">Focus</span>
+                  Learn. Implement. Build confidence.
+                </div>
+
+                <hr className="border-[#FFB26A]/10" />
+
+                <div className="space-y-3">
+                  <p className="text-xs font-bold text-white uppercase tracking-wider">Includes:</p>
+                  <ul className="space-y-2.5">
+                    {[
+                      { title: "Weekly Open Office", desc: "Unlimited coworking sessions" },
+                      { title: "Tech Tuesday", desc: "Technology Training, Automation, CRM, AI, Marketing" },
+                      { title: "Live Q&A", desc: "Ask questions in real time" },
+                      { title: "Accountability", desc: "Body doubling, Implementation hours, Goal tracking" },
+                      { title: "Resource Library", desc: "Templates, Checklists, Downloads, Worksheets" },
+                      { title: "Community", desc: "Networking, Partner introductions, Referral opportunities" },
+                      { title: "Member Pricing", desc: "Discounted workshops, Courses, Events, Software support" },
+                    ].map((item) => (
+                      <li key={item.title} className="flex items-start space-x-2 text-xs text-[#EDE9E0]/70">
+                        <Check className="w-3.5 h-3.5 text-green-400 shrink-0 mt-0.5" />
+                        <div>
+                          <strong className="text-white font-semibold">{item.title}:</strong> {item.desc}
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="space-y-5 pt-4">
+                <div className="bg-[#1C0F0A] border border-[#FFB26A]/15 rounded-lg p-3 space-y-1.5">
+                  <p className="text-[10px] font-extrabold text-[#FFB26A] uppercase tracking-wider">Outcomes:</p>
+                  <ul className="space-y-1 text-xs text-[#EDE9E0]/60">
+                    <li className="flex items-center gap-1.5"><Check className="w-3 h-3 text-green-400 shrink-0" /> Learn tax faster</li>
+                    <li className="flex items-center gap-1.5"><Check className="w-3 h-3 text-green-400 shrink-0" /> Stop getting stuck</li>
+                    <li className="flex items-center gap-1.5"><Check className="w-3 h-3 text-green-400 shrink-0" /> Meet peers &amp; mentors</li>
+                    <li className="flex items-center gap-1.5"><Check className="w-3 h-3 text-green-400 shrink-0" /> Build confidence</li>
+                    <li className="flex items-center gap-1.5"><Check className="w-3 h-3 text-green-400 shrink-0" /> Create your first systems</li>
+                  </ul>
+                </div>
+
+                <button
+                  onClick={() => openModal("software")}
+                  className="w-full py-3 px-4 rounded-lg text-xs font-extrabold bg-[#1C0F0A] hover:bg-[#28160E] border border-[#FFB26A]/30 text-[#FFB26A] hover:text-white transition-all cursor-pointer uppercase tracking-wider shadow-md"
+                >
+                  Join Collaborate — $97/mo
+                </button>
+              </div>
+            </TiltCard>
+
+            {/* TIER 2: ACCELERATE (MOST POPULAR) */}
+            <TiltCard
+              tilt={4}
+              delay={0.1}
+              className="flex flex-col justify-between bg-[#24130C]/95 border-2 border-[#FFB26A] rounded-2xl p-6 sm:p-8 relative space-y-6 shadow-2xl shadow-[#FFB26A]/10 scale-[1.02]"
+            >
+              <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#FFB26A] to-[#F4845F] text-[#0A0908] font-black text-xs tracking-widest px-4 py-1 rounded-full uppercase shadow-md flex items-center gap-1">
+                <Sparkles className="w-3 h-3" /> Most Popular
+              </span>
+
+              <div className="space-y-5">
+                <div className="flex items-center justify-between pt-2">
+                  <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#0A0908] bg-[#FFB26A] px-2.5 py-1 rounded font-mono">
+                    TIER TWO
+                  </span>
+                  <span className="text-[10px] font-bold text-[#FFB26A] uppercase tracking-wider">
+                    For EROs &amp; Growing Firms
+                  </span>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-black text-white uppercase tracking-wider">
+                    ACCELERATE
+                  </h3>
+                  <div className="mt-2 flex items-baseline gap-1">
+                    <span className="text-3xl font-black text-[#FFB26A] font-mono">$297</span>
+                    <span className="text-xs text-[#EDE9E0]/50 font-medium">/month</span>
+                  </div>
+                </div>
+
+                <div className="bg-[#1C0F0A] border border-[#FFB26A]/20 rounded-lg p-3 space-y-1.5">
+                  <p className="text-[11px] font-bold text-white uppercase tracking-wider">For:</p>
+                  <p className="text-xs text-[#EDE9E0]/60 leading-relaxed">
+                    EROs, Growing Firms, Firm Owners &amp; Professionals managing team members.
+                  </p>
+                </div>
+
+                <div className="bg-[#FFB26A]/10 border border-[#FFB26A]/30 rounded-lg p-3 text-xs text-[#FFB26A] font-semibold">
+                  <span className="font-extrabold uppercase tracking-wider block text-[10px] text-[#FFB26A]/80 mb-0.5">Focus</span>
+                  Build a real business. Increase revenue. Scale confidently.
+                </div>
+
+                <hr className="border-[#FFB26A]/20" />
+
+                <div className="space-y-3">
+                  <p className="text-xs font-bold text-[#FFB26A] uppercase tracking-wider flex items-center gap-1.5">
+                    <Zap className="w-3.5 h-3.5" /> Everything in Collaborate PLUS:
+                  </p>
+                  <ul className="space-y-2.5">
+                    {[
+                      { title: "Monthly Strategy Session", desc: "Growth planning, Quarterly planning, Revenue planning" },
+                      { title: "ERO Roundtables", desc: "Compliance, Operations, Bank Products, IRS Updates, Industry changes" },
+                      { title: "Concierge Support", desc: "Priority Office Hours, Questions answered faster, Implementation assistance" },
+                      { title: "CRM Support", desc: "GoHighLevel, Automation, Funnels, Pipelines, Forms" },
+                      { title: "Client Experience Systems", desc: "Onboarding, Retention, Review systems, Referral systems" },
+                      { title: "AI Business Systems", desc: "Prompt Library, AI Assistants, Workflow Automations" },
+                      { title: "Revenue Growth Workshops", desc: "New services, Pricing, Packaging, Recurring Revenue" },
+                      { title: "Member Marketplace", desc: "Promote your services, Find collaborators, Referral opportunities" },
+                    ].map((item) => (
+                      <li key={item.title} className="flex items-start space-x-2 text-xs text-[#EDE9E0]/85">
+                        <Check className="w-3.5 h-3.5 text-green-400 shrink-0 mt-0.5" />
+                        <div>
+                          <strong className="text-white font-semibold">{item.title}:</strong> {item.desc}
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="space-y-5 pt-4">
+                <div className="bg-[#1C0F0A] border border-[#FFB26A]/30 rounded-lg p-3 space-y-1.5">
+                  <p className="text-[10px] font-extrabold text-[#FFB26A] uppercase tracking-wider">Outcomes:</p>
+                  <ul className="space-y-1 text-xs text-[#EDE9E0]/70">
+                    <li className="flex items-center gap-1.5"><Check className="w-3 h-3 text-green-400 shrink-0" /> Build a real business</li>
+                    <li className="flex items-center gap-1.5"><Check className="w-3 h-3 text-green-400 shrink-0" /> Increase revenue &amp; margins</li>
+                    <li className="flex items-center gap-1.5"><Check className="w-3 h-3 text-green-400 shrink-0" /> Improve client operations</li>
+                    <li className="flex items-center gap-1.5"><Check className="w-3 h-3 text-green-400 shrink-0" /> Scale team confidently</li>
+                  </ul>
+                </div>
+
+                <button
+                  onClick={() => openModal("ero")}
+                  className="w-full py-3.5 px-4 rounded-lg text-xs font-black bg-gradient-to-r from-[#FFB26A] to-[#F4845F] hover:from-[#F4845F] hover:to-[#E67049] text-[#0A0908] transition-all cursor-pointer uppercase tracking-wider shadow-lg shadow-[#FFB26A]/20"
+                >
+                  Get Accelerate — $297/mo
+                </button>
+              </div>
+            </TiltCard>
+
+            {/* TIER 3: DOMINATE */}
+            <TiltCard
+              tilt={4}
+              delay={0.2}
+              className="flex flex-col justify-between bg-[#140A06]/90 border border-[#FFB26A]/20 rounded-2xl p-6 sm:p-8 relative space-y-6"
+            >
+              <div className="space-y-5">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#FFB26A] bg-[#FFB26A]/10 border border-[#FFB26A]/20 px-2.5 py-1 rounded">
+                    TIER THREE
+                  </span>
+                  <span className="text-[10px] font-bold text-[#EDE9E0]/50 uppercase tracking-wider">
+                    Service Bureaus
+                  </span>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-black text-white uppercase tracking-wider">
+                    DOMINATE
+                  </h3>
+                  <div className="mt-2 flex items-baseline gap-1">
+                    <span className="text-3xl font-black text-[#FFB26A] font-mono">$597</span>
+                    <span className="text-xs text-[#EDE9E0]/50 font-medium">/month</span>
+                  </div>
+                </div>
+
+                <div className="bg-[#1C0F0A] border border-[#FFB26A]/10 rounded-lg p-3 space-y-1.5">
+                  <p className="text-[11px] font-bold text-white uppercase tracking-wider">Designed For:</p>
+                  <p className="text-xs text-[#EDE9E0]/60 leading-relaxed">
+                    Service Bureaus, Multi-office Firms, Firm Owners &amp; Industry Leaders.
+                  </p>
+                </div>
+
+                <div className="bg-[#FFB26A]/5 border border-[#FFB26A]/20 rounded-lg p-3 text-xs text-[#FFB26A] font-semibold">
+                  <span className="font-extrabold uppercase tracking-wider block text-[10px] text-[#FFB26A]/70 mb-0.5">Focus</span>
+                  Build a self-sustaining firm. Create recurring revenue. Scale multiple locations.
+                </div>
+
+                <hr className="border-[#FFB26A]/10" />
+
+                <div className="space-y-3">
+                  <p className="text-xs font-bold text-[#FFB26A] uppercase tracking-wider flex items-center gap-1.5">
+                    <Crown className="w-3.5 h-3.5" /> Everything in Accelerate PLUS:
+                  </p>
+                  <ul className="space-y-2.5">
+                    {[
+                      { title: "Monthly Executive Advisory", desc: "Leadership calls, Scaling, Hiring, Growth planning" },
+                      { title: "Service Bureau Leadership", desc: "Recruiting, Retention, Office growth, Expansion" },
+                      { title: "Team Training", desc: "Invite staff, Tax Pros, EROs, Managers, Virtual Assistants (Everyone trains together)" },
+                      { title: "Business Audits", desc: "Marketing, Systems, Operations, Sales, Client Journey, Automation" },
+                      { title: "Partner Introductions", desc: "Preferred Vendors, Technology Partners, Funding, Bookkeeping, Legal, Insurance, Marketing" },
+                      { title: "Priority Concierge", desc: "Fastest response times, Dedicated implementation guidance, Resource coordination" },
+                      { title: "Early Access", desc: "Beta trainings, Templates, Programs, Pilot opportunities" },
+                      { title: "Private Leadership Community", desc: "Mastermind, CEO discussions, Collaboration, Joint Ventures" },
+                    ].map((item) => (
+                      <li key={item.title} className="flex items-start space-x-2 text-xs text-[#EDE9E0]/70">
+                        <Check className="w-3.5 h-3.5 text-green-400 shrink-0 mt-0.5" />
+                        <div>
+                          <strong className="text-white font-semibold">{item.title}:</strong> {item.desc}
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="space-y-5 pt-4">
+                <div className="bg-[#1C0F0A] border border-[#FFB26A]/15 rounded-lg p-3 space-y-1.5">
+                  <p className="text-[10px] font-extrabold text-[#FFB26A] uppercase tracking-wider">Outcomes:</p>
+                  <ul className="space-y-1 text-xs text-[#EDE9E0]/60">
+                    <li className="flex items-center gap-1.5"><Check className="w-3 h-3 text-green-400 shrink-0" /> Build a self-sustaining firm</li>
+                    <li className="flex items-center gap-1.5"><Check className="w-3 h-3 text-green-400 shrink-0" /> Create recurring revenue</li>
+                    <li className="flex items-center gap-1.5"><Check className="w-3 h-3 text-green-400 shrink-0" /> Grow &amp; train your entire team</li>
+                    <li className="flex items-center gap-1.5"><Check className="w-3 h-3 text-green-400 shrink-0" /> Scale multiple office locations</li>
+                    <li className="flex items-center gap-1.5"><Check className="w-3 h-3 text-green-400 shrink-0" /> Become a regional market leader</li>
+                  </ul>
+                </div>
+
+                <button
+                  onClick={() => openModal("bureau")}
+                  className="w-full py-3 px-4 rounded-lg text-xs font-extrabold bg-[#1C0F0A] hover:bg-[#28160E] border border-[#FFB26A]/30 text-[#FFB26A] hover:text-white transition-all cursor-pointer uppercase tracking-wider shadow-md"
+                >
+                  Apply for Dominate — $597/mo
+                </button>
+              </div>
+            </TiltCard>
+          </div>
+
+          {/* Specialized Benefits by Audience Section */}
+          <div className="gsap-reveal space-y-8 pt-10">
+            <div className="text-center max-w-3xl mx-auto space-y-2">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#FFB26A] bg-[#FFB26A]/10 border border-[#FFB26A]/20 px-3 py-1 rounded inline-block">
+                Tailored Growth Pathways
+              </span>
+              <h3 className="font-display text-xl sm:text-3xl font-black text-white uppercase tracking-tight">
+                Specialized Benefits by Audience
+              </h3>
+              <p className="text-xs text-[#EDE9E0]/45">
+                Every tier is built around the challenges of your role.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Audience 1: Tax Professionals */}
+              <div className="bg-[#140A06]/90 border border-[#FFB26A]/20 rounded-xl p-6 space-y-4">
+                <div className="flex items-center justify-between pb-2 border-b border-[#FFB26A]/15">
+                  <div>
+                    <h4 className="text-base font-extrabold text-white uppercase tracking-wider">Tax Professionals</h4>
+                    <p className="text-[11px] text-[#FFB26A] font-bold">Collaborate ($97/mo)</p>
+                  </div>
+                  <span className="text-[10px] font-bold text-[#EDE9E0]/40 uppercase bg-[#1C0F0A] px-2 py-1 rounded border border-[#FFB26A]/10">
+                    Tier 1
+                  </span>
+                </div>
+                <ul className="space-y-2">
+                  {[
+                    "Weekly tax education",
+                    "Tax law updates",
+                    "Open Office coworking",
+                    "Tech Tuesday workshops",
+                    "Resource library",
+                    "Accountability sessions",
+                    "Community networking",
+                    "Member discounts",
+                    "Referral opportunities",
+                    "Pathway to becoming an ERO",
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-xs text-[#EDE9E0]/75">
+                      <Check className="w-3.5 h-3.5 text-green-400 shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Audience 2: EROs */}
+              <div className="bg-[#24130C]/90 border border-[#FFB26A]/35 rounded-xl p-6 space-y-4 shadow-lg shadow-[#FFB26A]/5">
+                <div className="flex items-center justify-between pb-2 border-b border-[#FFB26A]/25">
+                  <div>
+                    <h4 className="text-base font-extrabold text-white uppercase tracking-wider">EROs &amp; Firm Owners</h4>
+                    <p className="text-[11px] text-[#FFB26A] font-bold">Accelerate ($297/mo)</p>
+                  </div>
+                  <span className="text-[10px] font-bold text-[#0A0908] uppercase bg-[#FFB26A] px-2 py-1 rounded font-extrabold">
+                    Tier 2
+                  </span>
+                </div>
+                <p className="text-[11px] font-semibold text-[#FFB26A]/90 italic">Everything above plus:</p>
+                <ul className="space-y-2">
+                  {[
+                    "ERO implementation support",
+                    "EFIN operational guidance",
+                    "IRS operations best practices",
+                    "CRM and automation systems",
+                    "Pricing strategy",
+                    "Client onboarding systems",
+                    "Bank product guidance",
+                    "Marketing systems",
+                    "Referral systems",
+                    "Monthly strategy sessions",
+                    "Priority concierge support",
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-xs text-[#EDE9E0]/85">
+                      <Check className="w-3.5 h-3.5 text-green-400 shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Audience 3: Service Bureaus */}
+              <div className="bg-[#140A06]/90 border border-[#FFB26A]/20 rounded-xl p-6 space-y-4">
+                <div className="flex items-center justify-between pb-2 border-b border-[#FFB26A]/15">
+                  <div>
+                    <h4 className="text-base font-extrabold text-white uppercase tracking-wider">Service Bureaus</h4>
+                    <p className="text-[11px] text-[#FFB26A] font-bold">Dominate ($597/mo)</p>
+                  </div>
+                  <span className="text-[10px] font-bold text-[#EDE9E0]/40 uppercase bg-[#1C0F0A] px-2 py-1 rounded border border-[#FFB26A]/10">
+                    Tier 3
+                  </span>
+                </div>
+                <p className="text-[11px] font-semibold text-[#FFB26A]/90 italic">Everything above plus:</p>
+                <ul className="space-y-2">
+                  {[
+                    "Multi-office growth strategy",
+                    "Recruiting systems",
+                    "Office onboarding SOPs",
+                    "Team leadership training",
+                    "Service Bureau operations",
+                    "Performance dashboards",
+                    "Scaling systems",
+                    "Executive advisory",
+                    "Leadership mastermind",
+                    "Preferred partner access",
+                    "Team-wide Open Office access",
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-xs text-[#EDE9E0]/75">
+                      <Check className="w-3.5 h-3.5 text-green-400 shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
         {/* Testimonials Section */}
         <div className="gsap-reveal space-y-8">
           <div className="text-center max-w-3xl mx-auto space-y-3">
