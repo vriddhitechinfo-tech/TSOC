@@ -39,7 +39,7 @@ export const heroSlides: HeroSlide[] = [
     image: "/hero_tax_professional.png",
   },
   {
-    tag: "TaxPro EFN Enablement",
+    tag: "TaxPro EFIN Enablement",
     title: "Keep 100% of Your Fees.",
     titleHighlight: "100% of Your Fees",
     description:
@@ -97,7 +97,7 @@ export const ecosystemPillars: EcosystemPillar[] = [
     actionText: "Learn About Software",
   },
   {
-    title: "TaxPro EFN Enablement",
+    title: "TaxPro EFIN Enablement",
     tag: "Credentialing",
     desc: "Get your EFIN with step-by-step support — ID.me, fingerprinting, IRS e-Services, and security reviews covered.",
     actionText: "Learn About ERO Setup",
@@ -164,7 +164,7 @@ export const servicePathways: ServicePathway[] = [
     link: "/tax-software",
   },
   {
-    title: "TaxPro EFN Enablement Program",
+    title: "TaxPro EFIN Enablement Program",
     desc: "Keep 100% of your fees. Become an ERO and take full control of your business.",
     bestFor: [
       "Experienced Preparers",
@@ -255,7 +255,7 @@ export const homepageFaqs = [
   {
     question: "Do I need an EFIN to get started?",
     answer:
-      "No — you can start using our software right away without an EFIN. If you want one, our TaxPro EFN Enablement program walks you through every step of the IRS application.",
+      "No — you can start using our software right away without an EFIN. If you want one, our TaxPro EFIN Enablement program walks you through every step of the IRS application.",
   },
   {
     question: "What's the difference between a Service Bureau and a standard ERO?",

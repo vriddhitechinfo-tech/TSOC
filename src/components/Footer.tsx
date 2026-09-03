@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useModal } from "@/context/ModalContext";
 import { Mail, Phone, MessageSquare, ExternalLink, CalendarDays, Users } from "lucide-react";
-import { PHONE_NUMBER, PHONE_LINK, TALK_TO_TEAM_CALENDAR_LINK, SOFTWARE_RENEWAL_LINK, OPEN_OFFICE_COMMUNITY_LINK, ERO_ENABLEMENT_LINK, TAX_SOFTWARE_LOGIN_LINK, SUPPORT_EMAIL, EMAIL_LINK, FEEDBACK_LINK, WAITLIST_LINK, TAX_TOUR_LINK, INSTRUCTOR_INQUIRY_CALL_LINK } from "@/lib/constants";
+import { PHONE_NUMBER, PHONE_LINK, TALK_TO_TEAM_CALENDAR_LINK, SOFTWARE_RENEWAL_LINK, OPEN_OFFICE_MAIN_FUNNEL, ERO_ENABLEMENT_LINK, TAX_SOFTWARE_LOGIN_LINK, SUPPORT_EMAIL, EMAIL_LINK, FEEDBACK_LINK, WAITLIST_LINK, TAX_TOUR_LINK } from "@/lib/constants";
 import Logo from "@/components/ui/Logo";
 
 export default function Footer() {
@@ -175,14 +175,12 @@ export default function Footer() {
                 </button>
               </li>
               <li>
-                <a
-                  href={INSTRUCTOR_INQUIRY_CALL_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#FFB26A] transition-colors"
+                <button
+                  onClick={() => openModal("partner")}
+                  className="hover:text-[#FFB26A] transition-colors cursor-pointer text-left"
                 >
                   Teach With Us
-                </a>
+                </button>
               </li>
             </ul>
           </div>
@@ -206,7 +204,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href={OPEN_OFFICE_COMMUNITY_LINK}
+                  href={OPEN_OFFICE_MAIN_FUNNEL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 hover:text-[#FFB26A] transition-colors"

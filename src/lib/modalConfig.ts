@@ -6,7 +6,6 @@ import {
   PARTNER_CALL_LINK,
   SECTOR_CONSULTING_CALL_LINK,
   SERVICE_BUREAU_CALL_LINK,
-  STRATEGY_SESSION_CALL_LINK,
   TALK_TO_TEAM_CALENDAR_LINK,
   TAX_SOFTWARE_FUNNEL_LINK,
   withUtm,
@@ -41,12 +40,12 @@ export const MODAL_CONFIG: Record<ModalType, ModalConfig> = {
   },
   ero: {
     bookingUrl: withUtm(ERO_ENABLEMENT_CALL_LINK, "ero-enablement"),
-    headerTitle: "TaxPro EFN Enablement • Schedule Consultation",
+    headerTitle: "TaxPro EFIN Enablement • Schedule Consultation",
     nextSteps: {
       heading: "While you wait to hear back",
-      body: "Learn more about the TaxPro EFN Enablement Program or book a call with our team.",
+      body: "Learn more about the TaxPro EFIN Enablement Program or book a call with our team.",
       links: [
-        { label: "See TaxPro EFN Enablement Program", href: "/ero-enablement" },
+        { label: "See TaxPro EFIN Enablement Program", href: "/ero-enablement" },
         { label: "Book a Call", href: withUtm(ERO_ENABLEMENT_CALL_LINK, "modal-ero-nextstep") },
       ],
     },
@@ -75,15 +74,17 @@ export const MODAL_CONFIG: Record<ModalType, ModalConfig> = {
       ],
     },
   },
+  // Collaborations & Solutions is the main calendar; the old "Strategy
+  // Session" calendar was flagged as the wrong one (website review 3 Sep 2026).
   strategy: {
-    bookingUrl: withUtm(STRATEGY_SESSION_CALL_LINK, "addon-services"),
+    bookingUrl: withUtm(PARTNER_CALL_LINK, "addon-services"),
     headerTitle: "Add-on Services • Explore Revenue Streams",
     nextSteps: {
       heading: "What happens next",
       body: "Our team will follow up shortly. You can also browse the add-on services.",
       links: [
         { label: "See Add-on Services", href: "/revenue-expansion" },
-        { label: "Book a Strategy Session", href: withUtm(STRATEGY_SESSION_CALL_LINK, "modal-strategy-nextstep") },
+        { label: "Book a Strategy Session", href: withUtm(PARTNER_CALL_LINK, "modal-strategy-nextstep") },
       ],
     },
   },

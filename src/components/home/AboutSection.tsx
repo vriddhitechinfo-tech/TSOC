@@ -114,8 +114,8 @@ export default function AboutSection() {
               <div className="flex items-center gap-2 text-xs text-[#EDE9E0]/80">
                 <CheckCircle2 className="w-4 h-4 text-[#FFB26A] shrink-0" />
                 <span>
-                  <strong className="text-white">Tax Software:</strong> Cloud
-                  &amp; desktop access, zero split fees.
+                  <strong className="text-white">Tax Software:</strong>{" "}
+                  Cloud &amp; desktop access, zero split fees.
                 </span>
               </div>
               <div className="flex items-center gap-2 text-xs text-[#EDE9E0]/80">

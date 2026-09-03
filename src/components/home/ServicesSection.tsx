@@ -6,16 +6,17 @@ import { Check, ArrowRight } from "lucide-react";
 import TiltCard from "@/components/motion/TiltCard";
 import { useModal } from "@/context/ModalContext";
 import { servicePathways } from "@/data/homeData";
-import { OPEN_OFFICE_COMMUNITY_LINK, ERO_ENABLEMENT_LINK, TAX_SOFTWARE_FUNNEL_LINK, SERVICE_BUREAU_FUNNEL_LINK, CONNECT_TO_SECTOR_LINK, withUtm } from "@/lib/constants";
+import { OPEN_OFFICE_COMMUNITY_LINK, ERO_ENABLEMENT_LINK, TAX_SOFTWARE_FUNNEL_LINK, SERVICE_BUREAU_FUNNEL_LINK, PARTNER_CALL_LINK, withUtm } from "@/lib/constants";
 
 const EXTERNAL_CTA_LINKS: Partial<Record<string, string>> = {
   openoffice: withUtm(OPEN_OFFICE_COMMUNITY_LINK, "open-office-community"),
   ero: withUtm(ERO_ENABLEMENT_LINK, "ero-enablement"),
   software: withUtm(TAX_SOFTWARE_FUNNEL_LINK, "tax-software-access"),
   bureau: withUtm(SERVICE_BUREAU_FUNNEL_LINK, "service-bureau-growth-card"),
-  // "Set Up Your Workflow" (CRM & Automation card) — Eve's affiliate link,
-  // not the technology-consultation calendar the other "technology" CTAs use.
-  technology: withUtm(CONNECT_TO_SECTOR_LINK, "workflow-setup-affiliate"),
+  // "Set Up Your Workflow" (CRM & Automation card) — routes to the
+  // Collaborations & Solutions calendar rather than the old generic intake
+  // form, which had no defined routing (website review 3 Sep 2026).
+  technology: withUtm(PARTNER_CALL_LINK, "workflow-setup"),
 };
 
 export default function ServicesSection() {

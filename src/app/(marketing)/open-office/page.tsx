@@ -119,7 +119,7 @@ export default function OpenOfficePage() {
       dayName: "Monday",
       title: "Open Office Hours",
       desc: "Bring your filing questions and get live support — return walkthroughs, IRS updates, and complex form guidance.",
-      time: "9:30 AM EST",
+      time: "9:00 AM EST",
       pillar: "General Support",
       byDay: "MO",
     },
@@ -128,7 +128,7 @@ export default function OpenOfficePage() {
       dayName: "Tuesday",
       title: "Tech Tuesday",
       desc: "Sync CRMs, automate client follow-ups, add calendar scheduling, and cut admin time with modern tools.",
-      time: "2:00 PM EST",
+      time: "11:00 AM EST",
       pillar: "Tax Business Automation",
       byDay: "TU",
     },
@@ -136,8 +136,8 @@ export default function OpenOfficePage() {
       id: "wed",
       dayName: "Wednesday",
       title: "Feature Trainings & Midnight Madness",
-      desc: "Deep-dive feature trainings at 10:00 PM EST, followed by Midnight Madness software training at 12:00 AM EST. Sessions recorded for members.",
-      time: "10:00 PM & 12:00 AM EST",
+      desc: "Deep-dive feature trainings and Midnight Madness software training, running from 10:00 PM EST through midnight. Sessions recorded for members.",
+      time: "10:00 PM – 12:00 AM EST",
       pillar: "Software Training",
       byDay: "WE",
     },
@@ -146,7 +146,7 @@ export default function OpenOfficePage() {
       dayName: "Thursday",
       title: "Tap In Thursday",
       desc: "Live coworking and coaching. Network with other owners, share wins, and review your operations and marketing.",
-      time: "3:00 PM EST",
+      time: "7:00 PM EST",
       pillar: "Networking & Coaching",
       byDay: "TH",
     },
@@ -208,11 +208,11 @@ export default function OpenOfficePage() {
   const openOfficeFaqs = [
     {
       question: "Who can join the Open Office?",
-      answer: "The Open Office is open to tax professionals, bookkeepers, accountants, entrepreneurs, and small business owners. Join live coworking sessions every weekday starting Monday at 9:30 AM EST at https://thesectorsopenoffice.com/the-open-office"
+      answer: "The Open Office is open to tax professionals, bookkeepers, accountants, entrepreneurs, and small business owners. Join live coworking sessions every weekday starting Monday at 9:00 AM EST at https://thesectorsopenoffice.com/the-open-office"
     },
     {
       question: "Are sessions recorded?",
-      answer: "Yes! Tuesday (Tech Tuesday at 2:00 PM EST), Wednesday (Feature Trainings at 10:00 PM EST & Midnight Madness at 12:00 AM EST), Thursday (Tap In Thursday at 3:00 PM EST), and Friday (Ask an Attorney on the 2nd Friday of each month at 12:00 PM EST) sessions are recorded and accessible anytime at https://thesectorsopenoffice.com/the-open-office"
+      answer: "Yes! Tuesday (Tech Tuesday at 11:00 AM EST), Wednesday (Feature Trainings & Midnight Madness from 10:00 PM to 12:00 AM EST), Thursday (Tap In Thursday at 7:00 PM EST), and Friday (Ask an Attorney on the 2nd Friday of each month at 12:00 PM EST) sessions are recorded and accessible anytime at https://thesectorsopenoffice.com/the-open-office"
     },
     {
       question: "What can I ask the attorneys?",

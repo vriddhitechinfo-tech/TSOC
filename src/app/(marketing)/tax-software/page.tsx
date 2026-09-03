@@ -96,7 +96,7 @@ export default function TaxSoftwarePage() {
         "Email & chat support",
         "Community access",
       ],
-      ctaText: "See the Software in Action",
+      ctaText: "Book a Software Walkthrough",
       action: () => openModal("demo"),
     },
     {
@@ -190,7 +190,7 @@ export default function TaxSoftwarePage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center bg-[#FFB26A] hover:bg-[#F4845F] text-[#140A06] font-extrabold px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all cursor-pointer shadow-md text-center"
                 >
-                  See the Software in Action
+                  Access the Software
                 </a>
               </div>
             </div>
