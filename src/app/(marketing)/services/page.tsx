@@ -51,7 +51,7 @@ export default function ServicesPage() {
     },
     {
       num: "02",
-      title: "TaxPro EFN Enablement Program",
+      title: "TaxPro EFIN Enablement Program",
       desc: "Stop splitting your filing fees. We help you get your own EFIN, handle fingerprinting, and set up an independent office.",
       href: "/ero-enablement",
       tag: "Compliance",

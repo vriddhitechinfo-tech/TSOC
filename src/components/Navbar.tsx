@@ -14,7 +14,7 @@ export default function Navbar() {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "Tax Software", href: "/tax-software" },
-    { name: "TaxPro EFN Enablement", href: "/ero-enablement" },
+    { name: "TaxPro EFIN Enablement", href: "/ero-enablement" },
     { name: "ERO Growth Program", href: "/ero-growth-program" },
     { name: "Service Bureau", href: "/service-bureau-growth" },
     { name: "Open Office", href: "/open-office", highlight: true },

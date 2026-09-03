@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     template: "%s | The Sector of Collectives",
     default: "The Sector of Collectives | Professional Tax Software & Community",
   },
-  description: "Helping tax professionals launch, grow, and scale profitable tax businesses. Keep more revenue, build better systems, and create year-round income with professional tax software access, TaxPro EFN Enablement, and Service Bureau mentorship.",
+  description: "Helping tax professionals launch, grow, and scale profitable tax businesses. Keep more revenue, build better systems, and create year-round income with professional tax software access, TaxPro EFIN Enablement, and Service Bureau mentorship.",
   keywords: [
     "Tax Software for Tax Preparers",
     "Professional Tax Software",

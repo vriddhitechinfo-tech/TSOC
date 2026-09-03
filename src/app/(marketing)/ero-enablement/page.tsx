@@ -274,7 +274,7 @@ export default function EROEnablementPage() {
             rel="noopener noreferrer"
             className="bg-gradient-to-r from-[#FFB26A] to-[#F4845F] hover:from-[#F4845F] hover:to-[#E67049] text-[#080808] font-extrabold py-3 px-8 rounded-lg text-xs transition-colors shadow-md mt-2 cursor-pointer uppercase tracking-wider inline-block"
           >
-            Start TaxPro EFN Enablement Today
+            Start TaxPro EFIN Enablement Today
           </a>
         </div>
       </div>

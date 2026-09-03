@@ -40,12 +40,16 @@ export const GROWING_FIRM_CALL_LINK =
 // GHL booking calendars from the CTA links sheet that have no matching CTA on
 // the site yet — kept here so they are one import away when a home appears.
 // (Sheet also lists "Wills By You, LLC" — a separate business, intentionally omitted.)
+// Not surfaced: flagged in the 3 Sep 2026 website review as the wrong
+// calendar (Adele's) — those CTAs now book PARTNER_CALL_LINK instead.
 export const STRATEGY_SESSION_CALL_LINK =
   "https://api.leadconnectorhq.com/widget/booking/gvIOLNLdDcTRhPWUdDpP"; // Strategy Session
 export const BOOK_STRATEGY_SESSION_CALL_LINK =
   "https://api.leadconnectorhq.com/widget/booking/Cgx26ec2xFoxLFKDrSkA"; // Book Your Strategy Session Now!
 export const SECTOR_CONSULTING_CALL_LINK =
   "https://api.leadconnectorhq.com/widget/booking/YS7x7SbP3o8a5T9DUSOu"; // The Sector Consulting
+// Not surfaced: "we do not use this calendar" (website review 3 Sep 2026).
+// Footer "Teach With Us" now opens the partner modal instead.
 export const INSTRUCTOR_INQUIRY_CALL_LINK =
   "https://api.leadconnectorhq.com/widget/booking/JuTtK126fgVDlPcbT6Dk"; // Instructor Inquiry Calendar
 export const FINAL_REVIEW_9010_CALL_LINK =
@@ -101,7 +105,7 @@ export function withUtm(url: string, campaign: string): string {
 export const NAV_LINKS = [
   { name: "Home", href: "/" },
   { name: "Tax Software", href: "/tax-software" },
-  { name: "TaxPro EFN Enablement", href: "/ero-enablement" },
+  { name: "TaxPro EFIN Enablement", href: "/ero-enablement" },
   { name: "ERO Growth Program", href: "/ero-growth-program" },
   { name: "Service Bureau", href: "/service-bureau-growth" },
   { name: "Open Office", href: "/open-office" },
